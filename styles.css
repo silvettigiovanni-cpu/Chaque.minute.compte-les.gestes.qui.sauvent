@@ -10,8 +10,8 @@
 
 /* <!-- Variables globales : couleurs réutilisables partout --> */
 :root{
-  --bg1:#f5f7fa;              /* fond clair */
-  --bg2:#c3cfe2;              /* fond dégradé */
+  --bg1:#fff7f3;   /* ivoire chaud */
+  --bg2:#f6d8d0;   /* sable rosé */
 
   --ink:#1a202c;              /* texte principal */
   --muted:#4a5568;            /* texte secondaire */
