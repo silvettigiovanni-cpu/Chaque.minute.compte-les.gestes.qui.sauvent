@@ -10,8 +10,8 @@
 
 /* <!-- Variables globales : couleurs réutilisables partout --> */
 :root{
-  --bg1:#fff7f3;   /* ivoire chaud */
-  --bg2:#f6d8d0;   /* sable rosé */
+  --bg1:#fff7f0;  /* crème chaude */
+  --bg2:#f2d7c9;  /* beige chaud */
 
   --ink:#1a202c;              /* texte principal */
   --muted:#4a5568;            /* texte secondaire */
