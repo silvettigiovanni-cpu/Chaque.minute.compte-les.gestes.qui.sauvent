@@ -15,7 +15,7 @@ Sorbonne Université / INSPE - Année 2025 - 2026
 - JavaScript (si applicable)
 
 ## Accès au site
-🌐 [Voir le site en ligne](votre-url-github-pages-ici)
+🌐 https://silvettigiovanni-cpu.github.io/Chaque.minute.compte-les.gestes.qui.sauvent/index.html
 
 ## Auteur
 Giovanni SILVETTI - Master 1 - MEEF - PIF - IFMN
