@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Encodage des caractères (UTF-8) : accents, apostrophes typographiques, symboles, emojis -->
+    <meta charset="UTF-8" />
+    <!-- Permet l’adaptation du site à la largeur de l’écran (responsive design) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Titre de la page (affiché dans l’onglet du navigateur) -->
+    <title>l'arrêt cardiaque - Chaque minute compte</title>
+    <!-- Feuille de styles principale -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<!-- Corps du document : contenu principal affiché à l’utilisateur -->
+<body>
+    <!-- En-tête du site : titre et navigation -->
+    <header class="site-header">
+        <!-- Titre principal (niveau 1) : sujet central de la page -->
+        <h1>Chaque minute compte - Les gestes qui sauvent</h1> 
+            <!-- Navigation principale : liens vers les différentes pages du site -->
+            <nav class="site-nav" aria-label="Navigation principale">
+                <ul>
+                    <!--La balise <a> associée à l’attribut href permet de créer des liens hypertextes et d’assurer la navigation entre les différentes pages du site.-->
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="Les-4-etapes-pour-porter-secours.html">Les 4 étapes pour porter secours</a></li>
+                    <li><a href="arret-cardiaque.html" aria-current="page">Arrêt cardiaque</a></li>
+                    <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
+                    <li><a href="inconscience.html">Inconscience</a></li>
+                    <li><a href="etouffement.html">Étouffement</a></li>
+                    <li><a href="hemorragie.html">Hémorragie</a></li>
+                    <li><a href="brulure.html">Brûlure</a></li>
+                </ul>
+                <!-- ul = Liste non ordonnée // li = Élément de la liste-->
+            </nav>
+    </header>
+
+<!-- Contenu principal de la page -->
+<main>
+    <!-- <article> = contenu autonome et indépendant // Il a du sens tout seul et il peut être lu séparément-->
+    <article>
+        <!-- <header> = en-tête de l'article -->
+        <header>
+            <!-- h2 = titre de l'article -->
+            <h2>L'arrêt cardiaque</h2>
+            <!-- p = paragraphe descriptif - phrase d'introduction-->
+            <p>Lorsqu'une personne a perdu connaissance, ne bouge pas, ne respire pas normalement, suivez ces étapes les une après les autres</p>
+        </header>
+
+        <!-- Mon contenu “étapes” -->
+        <!-- partie thématique du contenu // aria-labelledby = titre de la section -->
+        <section aria-labelledby="etapes">
+        <!-- Id = sert de référence pour aria-labelledby -->
+        <h3 id="etapes">Étapes d’intervention</h3>
+        <!-- texte d’aide utilisateur -->
+        <p>💡 <i>Cliquez sur une étape pour plus de détails.</i></p>
+
+        <!-- Grille des étapes = étapes sous forme de grille, chaque étape est interactive -->
+        <!-- div class="grille-etapes" = organiser les étapes visuellement (CSS / JS) + regroupe toutes les étapes d’intervention -->
+        <div class="grille-etapes">
+            <!-- Cette div représente une étape précise // le data-detail="detail-4-etapes-1" permet de faire le lien HTML/JS -->
+            <div class="etape" data-detail="detail-4-etapes-1">
+                <!-- <div class="numero-etape">1 permet d'afficher le numéro d'étape + être stylisé avec le CSS -->
+                <div class="numero-etape">1</div>
+                    <!-- Sous titre-->
+                    <h4>👁️ Observer la victime</h4>
+                </div>
+            
+            <div class="etape" data-detail="detail-4-etapes-2">
+                <div class="numero-etape">2</div>
+                    <h4>🆘 Appeler les secours</h4>
+                </div>
+
+            <div class="etape" data-detail="detail-4-etapes-3">
+                <div class="numero-etape">3</div>
+                    <h4>🫀 Massage cardiaque</h4>
+                </div>
+
+            <div class="etape" data-detail="detail-4-etapes-4">
+                <div class="numero-etape">4</div>
+                    <h4>➡️ Continuer la réanimation</h4>
+                </div>
+            </div>
+        </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">Retour à l’accueil</a></p>
+  </footer>
+
+  <!-- DÉTAILS DES ÉTAPES (contenu caché) - Le JS clone ces templates en popup -->
+    <template id="detail-4-etapes-1">
+        <div class="detail-content">
+
+            <div class="step-detail">
+                <h3>Avant toute chose</h3>
+                    <ul>
+                        <li><strong>Vérifiez la confiance </strong>: 
+                            <ul>
+                                <li>parler à la victime, la stimuler doucement :
+                                    <ul>
+                                        <li><i>Madame, Monsieur, est-ce que vous m'entendez ?</i></li>
+                                        <li><i>Serrez moi les mains</i></li>
+                                        <li><i>Ouvrez les yeux.</i></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><strong>Vérifiez la respiration </strong>: 
+                            <ul>
+                                <li>Basculer la tête en arrière pour libérer les voies aériennes, puis placer l’oreille au niveau de la bouche de la victime et <strong>sentir</strong>, <strong>écouter</strong>, <strong>observer</strong> les mouvements respiratoires pendant 10 secondes.<br><strong>Absence de respiration = début du massage cardiaque.</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Installer de la victime </strong>:
+                            <ul>
+                                <li>Allongez la victime sur le dos de préférence sur une surface rigide (le sol)</li>
+                            </ul>
+                        </li>
+                    </ul>
+            </div>
+
+            <div class="alert-box">
+                <strong>Quelle est la cause de l’arrêt cardiaque ? </strong>
+                    <p>90% des arrêts cardiaques chez l’adulte sont dus à une cause cardiovasculaire.<br>Le plus souvent, il s’agit d’une fibrillation ventriculaire, c’est-à-dire un trouble du rythme cardiaque correspondant à des contractions rapides, irrégulières et inefficaces des ventricules du cœur.<br>
+                    Il existe aussi d’autres causes : noyade, électrisation, intoxication, hypothermie, overdose, insuffisance respiratoire aiguë...</p>
+            </div>
+
+        </div>
+    </template>
+
+    <template id="detail-4-etapes-2">
+        <div class="detail-content">
+
+            <div class="step-detail">
+                <p><strong>Demandez à quelqu'un de prévenir les secours d'urgence :</strong></p>
+
+            <!-- role="group" → indique un groupe de boutons ; aria-label → annonce clairement l’action aux lecteurs d’écran -->
+            <!-- tel: est un lien téléphonique // href veut dire Hypertext REFerence - indique la destination du lien. -->
+            <div class="emergency-buttons" role="group" aria-label="Numéros d’urgence">
+                <a href="tel:15" class="emergency-btn samu" aria-label="Appeler le SAMU, numéro 15">📞 15 – SAMU</a>
+                <a href="tel:18" class="emergency-btn pompiers" aria-label="Appeler les pompiers, numéro 18">🚒 18 – Pompiers</a>
+                <a href="tel:112" class="emergency-btn urgence" aria-label="Appeler le numéro d'urgence européen 112">🆘 112 – Numéro d'urgence européen</a>
+                <a href="tel:114" class="emergency-btn sourd" aria-label="Appeler le numéro d'urgence pour les personnes sourdes ou malentendantes">🆘 114 – Numéro d'urgence pour les personnes sourdes et malentendantes</a>
+            </div>
+
+            <p><strong>Demander à une personne d'apporter immédiatement un défibrillateur automatisé externe (s'il est disponible)</strong></p>
+            <p><i>Faites tout cela vous-même si vous êtes seul. </i></p>
+            </div>
+        </div>
+    </template>
+
+    <template id="detail-4-etapes-3">
+        <div class="detail-content">
+
+            <div class="step-detail">
+                <h4>Débuter le massage cardiaque</h4>
+                    <ol>
+                        <li>Placez la victime sur un plan dur, le plus souvent à terre.</li>
+                        <li>Agenouillez-vous à côté de la victime.</li>
+                        <li>Placez le talon d'une de vos mains au milieu de sa poitrine nue.</li>
+                        <li>Placez le talon de l'autre main sur votre première main.</li>
+                        <li>Solidarisez vos deux mains. N'appuyez ni sur les côtes, ni sur la partie inférieure du sternum.</li>
+                        <li>Positionnez-vous de façon que vos épaules soient à l'aplomb de la poitrine de la victime. Bras tendus, comprimez verticalement le sternum en l'enfonçant de 5 à 6 cm.</li>
+                        <li>Après chaque pression, laissez la poitrine de la victime reprendre sa position initiale afin de permettre au sang de revenir vers le cœur. Maintenez vos mains en position sur le sternum.</li>
+                        <li>La durée de la compression doit être égale à celle du relâchement de la pression de la poitrine.</li>
+                        <li>Effectuez 30 compressions thoraciques à une fréquence de 100 par minute, soit environ 2 compressions par seconde.</li>
+                    </ol>
+
+                    <div class="video-card" role="note" aria-label="Aide vidéo (ouvre YouTube)">
+                        <div class="video-card-head">
+                            <strong>🎥 Aide vidéo</strong>
+                            <p>Cette vidéo ne peut pas être intégrée ici. Cliquez pour l’ouvrir sur YouTube.</p>
+                        </div>
+
+                        <a class="video-preview"
+                            href="https://www.youtube.com/watch?v=mrrVKTjF7Lo"
+                            target="_blank"
+                            rel="noopener">
+                            <span class="play-badge" aria-hidden="true">▶</span>
+                            <span class="video-preview-text">Regarder sur YouTube</span>
+                        </a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="detail-4-etapes-4">
+        <div class="detail-content">
+
+            <div class="step-detail">
+                <h4>Poursuivez la réanimation</h4>
+
+                    <p>La réanimation cardio-pulmonaire doit être poursuivie sans interruption afin de maintenir une circulation sanguine minimale vers les organes vitaux.</p>
+                    <p>Continuez les compressions thoraciques jusqu’à l’arrivée des secours ou jusqu’à ce que la victime montre des signes de reprise d’une respiration normale.</p>
+                        <ul>
+                            <li>Maintenez un rythme régulier de 30 compressions suivies de 2 insufflations si vous êtes formé.</li>
+                            <li>Ne vous arrêtez que si les secours prennent le relais.</li>
+                            <li>Si vous êtes plusieurs, relayez-vous pour éviter l’épuisement.</li>
+                            <li><strong>Utilisez un défibrillateur automatisé externe (DAE) dès que possible.</strong></li>
+                        </ul>
+            </div>
+
+            <div class="alert-box">
+                <strong>⚠️ Le défibrillateur :</strong>
+                    <p>Retrouvez une page dédiée à son utilisation : <a href="defibrillateur.html">Le défibrillateur</a></p>
+                    <img src="images/DSA.png" 
+                        alt="photo d'un défibrilateur" 
+                        class="illustration-etape"/>
+            </div>
+        </div>
+    </template>
+
+<button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
+  <span class="floating-phone-icon" aria-hidden="true">📱</span>
+  <span class="floating-phone-text">SOS</span>
+</button>
+
+<section class="contact-section">
+  <button class="contact-btn" type="button" id="open-contact">
+    Une question, un commentaire ?
+  </button>
+</section>
+
+<footer class="site-footer">
+    <h2><i>Projet - Chaque minute compte - Les gestes qui sauvent.</i></h2>
+    <p><i>Création :  M. Giovanni SILVETTI</i></p>
+    <p><i>Projet UE 3 : Identité numérique et communication professionnelle : dimension linguistique et interculturelle - M. V. GRANDSIRE</i></p>
+  </footer>
+
+  <script src="java.js" defer></script>
+</body>
+</html>
