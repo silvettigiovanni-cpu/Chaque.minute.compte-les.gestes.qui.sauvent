@@ -1,0 +1,1244 @@
+/* <!-- Import de la police Inter depuis Google Fonts (utilisée sur tout le site) --> */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* <!-- Reset : enlève les marges/paddings par défaut + box-sizing plus simple --> */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main h2{
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--ink);
+
+  display: inline-block;          /* le cadre épouse le texte */
+  padding: 12px 16px;
+  margin: 18px 0 14px;
+
+  background: rgba(255,255,255,0.70);
+  border: 2px solid rgba(102,126,234,0.35);
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(31,38,135,0.12);
+}
+
+
+/* <!-- Variables globales : couleurs réutilisables partout --> */
+:root{
+  --bg1:#f5f7fa;              /* <!-- fond clair --> */
+  --bg2:#c3cfe2;              /* <!-- fond dégradé --> */
+
+  --ink:#1a202c;              /* <!-- texte principal --> */
+  --muted:#4a5568;            /* <!-- texte secondaire --> */
+
+  --brand1:#667eea;           /* <!-- couleur marque 1 (bleu-violet) --> */
+  --brand2:#764ba2;           /* <!-- couleur marque 2 (violet) --> */
+
+  --danger1:#ef4444;          /* <!-- rouge (alerte) --> */
+  --danger2:#dc2626;          /* <!-- rouge foncé --> */
+  --danger3:#991b1b;          /* <!-- rouge très foncé --> */
+}
+
+/* <!-- Style général du body : police, marges, fond, couleur du texte --> */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding: 32px 20px;
+  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+  min-height: 100vh;
+  color: var(--ink);
+}
+
+/* <!-- =========================
+      HEADER + NAV (tes classes .site-header .site-nav)
+   ========================= --> */
+
+/* <!-- Conteneur du header : centre le contenu et limite la largeur --> */
+.site-header{
+  max-width: 1200px;
+  margin: 0 auto 28px;
+}
+
+/* <!-- Titre principal (h1) : style "banner" avec dégradé et ombre --> */
+.site-header h1{
+  font-size: 44px;
+  font-weight: 800;
+  text-align: center;
+  padding: 28px 22px;
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+  color: #fff;
+  border-radius: 20px;
+  margin: 0 0 18px 0;
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.30);
+  letter-spacing: -1px;
+  line-height: 1.15;
+}
+
+/* <!-- Bloc navigation : fond glassmorphism + bordure + ombre --> */
+.site-nav{
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(31,38,135,0.12);
+  padding: 10px;
+}
+
+/* <!-- Liste de navigation : affichage en flex, multi-lignes si besoin --> */
+.site-nav ul{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* <!-- Liens de navigation : style "pill" cliquable --> */
+.site-nav a{
+  display: inline-block;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  background: rgba(102,126,234,0.08);
+}
+
+/* <!-- Effet hover sur les liens : léger déplacement + ombre --> */
+.site-nav a:hover{
+  transform: translateY(-2px);
+  background: rgba(102,126,234,0.14);
+  box-shadow: 0 10px 24px rgba(102,126,234,0.18);
+}
+
+/* <!-- Lien actif (aria-current="page") : dégradé plein + texte blanc --> */
+.site-nav a[aria-current="page"]{
+  background: linear-gradient(135deg, rgba(102,126,234,0.90) 0%, rgba(118,75,162,0.90) 100%);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(102,126,234,0.25);
+}
+
+/* <!-- =========================
+      MAIN / SECTIONS
+   ========================= --> */
+
+/* <!-- Main : centre la page et limite la largeur --> */
+main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* <!-- Espacement entre sections et articles --> */
+main section,
+main article{
+  margin: 22px 0;
+}
+
+/* <!-- Titres h2 dans le contenu --> */
+main h2{
+  font-size: 28px;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 10px;
+}
+
+/* <!-- Titres h3 dans le contenu --> */
+main h3{
+  font-size: 22px;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 10px;
+}
+
+/* <!-- Paragraphes : couleur plus douce + interligne --> */
+main p{
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 6px;
+}
+
+/* <!-- =========================
+      GRILLE DES CARTES (page accueil)
+   ========================= --> */
+
+/* <!-- .grille-cartes : ton conteneur de <a class="carte"> --> */
+.grille-cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+/* <!-- Carte : glassmorphism, bord arrondi, ombre, animation hover --> */
+.carte {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 26px 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+/* <!-- Voile dégradé au survol : couche invisible qui apparaît --> */
+.carte::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.10) 0%, rgba(118, 75, 162, 0.10) 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 0;
+}
+
+/* <!-- Activation du voile sur hover --> */
+.carte:hover::before {
+  opacity: 1;
+}
+
+/* <!-- Mouvement de la carte au survol --> */
+.carte:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.22);
+  border-color: rgba(102, 126, 234, 0.28);
+}
+
+/* <!-- IMPORTANT : ton HTML met h3 dans la carte, pas h2 --> */
+.carte h3{
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+
+  /* <!-- Effet texte dégradé --> */
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* <!-- Petit zoom du titre à l'hover --> */
+.carte:hover h3{
+  transform: scale(1.05);
+}
+
+/* <!-- =========================
+      ETAPES (page "Les 4 étapes…")
+   ========================= --> */
+
+/* <!-- Grilles des étapes : auto-fit (responsive), avec un gap --> */
+.grille-etapes,
+.grille-etapes-dae {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+/* <!-- Boîte étape : style carte + hover --> */
+.etape {
+  background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  height: 100%;
+}
+
+/* <!-- Hover étape : légère montée et couleur de bordure --> */
+.etape:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.15);
+  border-color: var(--brand1);
+}
+
+/* <!-- Cercle numéro : rouge, blanc, ombre --> */
+.numero-etape {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 800;
+  margin: 0 auto 14px auto;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.30);
+}
+
+/* <!-- Titre d'étape (h4) --> */
+.etape h4 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 10px 0 14px;
+  color: var(--ink);
+}
+
+/* <!-- Image d'illustration d'étape : taille contrôlée + arrondi + ombre --> */
+.illustration-etape{
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* <!-- Étape large (si tu l’utilises) : prend toute la ligne --> */
+.etape-large {
+  grid-column: 1 / -1;
+}
+
+/* <!-- Force 4 colonnes (si tu veux absolument 4 étapes par ligne) --> */
+.grille-etapes { 
+  grid-template-columns: repeat(4, 1fr) !important; 
+}
+.grille-etapes-dae { 
+  grid-template-columns: repeat(4, 1fr) !important; 
+}
+
+/* <!-- Exemple : sur la DAE, une étape peut prendre 2 colonnes --> */
+.grille-etapes-dae .etape-large {
+  grid-column: span 2;
+}
+
+/* <!-- =========================
+      POPUP (créée par ton JS)
+   ========================= --> */
+
+/* <!-- Fond sombre + centrage --> */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: apparaitre-popup 0.3s ease;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* <!-- Animation d’apparition de la popup --> */
+@keyframes apparaitre-popup {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to { opacity: 1; backdrop-filter: blur(8px); }
+}
+
+/* <!-- Contenu popup : boîte blanche scrollable --> */
+.popup-contenu {
+  background: white;
+  padding: 38px;
+  border-radius: 24px;
+  max-width: 900px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.30);
+  animation: glisser-moderne 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* <!-- Animation "slide" du contenu --> */
+@keyframes glisser-moderne {
+  from { transform: translateY(-60px) scale(0.95); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* <!-- Bouton de fermeture (croix) --> */
+.fermer {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 900;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 10;
+  border: none;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.30);
+}
+
+/* <!-- Hover fermeture : rotation --> */
+.fermer:hover {
+  transform: rotate(90deg) scale(1.08);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.45);
+}
+
+/* <!-- Sous-popup (popup dans popup) --> */
+.sous-popup { z-index: 1100; }
+.popup-etape { max-width: 800px; }
+
+/* <!-- Contenu texte de la popup --> */
+.detail-content{
+  color: var(--ink);
+}
+
+/* <!-- Titre principal du détail --> */
+.detail-content h3{
+  color: var(--brand1);
+  font-size: 26px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/* <!-- Encadrés "step-detail" --> */
+.step-detail{
+  background: #f7fafc;
+  border-left: 4px solid var(--brand1);
+  padding: 16px 16px;
+  margin: 16px 0;
+  border-radius: 10px;
+}
+
+/* <!-- Titre dans step-detail --> */
+.step-detail h4{
+  color: #2d3748;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* <!-- Listes dans step-detail --> */
+.step-detail ul,
+.step-detail ol{
+  margin-left: 18px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.step-detail li{ margin-bottom: 8px; }
+
+/* <!-- Encadré alerte --> */
+.alert-box{
+  background-color: #fef2f2;
+  border: 2px solid var(--danger1);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+/* <!-- Titre de l’alerte --> */
+.alert-box strong{
+  color: var(--danger2);
+  font-size: 16px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* <!-- Boutons d'urgence (étape 3) : groupe de liens tel: --> */
+.emergency-buttons {
+  display: flex;
+  gap: 12px;
+  margin: 14px 0 10px;
+  flex-wrap: wrap;
+}
+
+/* <!-- Bouton d'urgence : même largeur, gros texte, ombre --> */
+.emergency-btn {
+  flex: 1;
+  min-width: 180px;
+  padding: 14px 10px;
+  text-align: center;
+  font-weight: 800;
+  border-radius: 14px;
+  text-decoration: none;
+  color: white;
+  line-height: 1.2;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* <!-- Effet clic --> */
+.emergency-btn:active { transform: scale(0.97); }
+
+/* <!-- Couleurs par service --> */
+.emergency-btn.samu { background: #c62828; }
+.emergency-btn.pompiers { background: #ef6c00; }
+.emergency-btn.urgence { background: #2e7d32; }
+.emergency-btn.sourd { background: #2563eb; }
+
+/* <!-- =========================
+      FOOTER
+   ========================= --> */
+
+/* <!-- Footer : cadre simple et centré --> */
+.site-footer{
+  max-width: 1200px;
+  margin: 26px auto 0;
+  padding: 18px 16px;
+  text-align: center;
+  background: rgba(255,255,255,0.70);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(31,38,135,0.10);
+}
+
+/* <!-- Texte du footer --> */
+.site-footer h2,
+.site-footer p{
+  margin: 6px 0;
+  color: #2d3748;
+}
+
+/* <!-- Liens footer --> */
+.site-footer a{
+  color: var(--brand1);
+  font-weight: 800;
+  text-decoration: none;
+}
+.site-footer a:hover{ text-decoration: underline; }
+
+/* <!-- =========================
+      Scrollbar de la popup (WebKit)
+   ========================= --> */
+.popup-contenu::-webkit-scrollbar { width: 8px; }
+.popup-contenu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.popup-contenu::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+  border-radius: 10px;
+}
+.popup-contenu::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--brand2) 0%, var(--brand1) 100%);
+}
+
+/* <!-- Utilitaire : gras --> */
+b{ font-weight: 800; }
+
+/* <!-- =========================
+      RESPONSIVE
+   ========================= --> */
+
+/* <!-- Tablette / petits écrans --> */
+@media (max-width: 900px){
+  .site-header h1{
+    font-size: 34px;
+    padding: 22px 18px;
+  }
+}
+
+/* <!-- Mobile --> */
+@media (max-width: 768px){
+  .site-nav a{
+    font-size: 13px;
+    padding: 9px 10px;
+  }
+
+  .popup-contenu{
+    padding: 28px 18px;
+  }
+
+  .grille-cartes{
+    grid-template-columns: 1fr;
+  }
+
+  /* <!-- Si on force 4 colonnes, on repasse à 2 sur mobile --> */
+  .grille-etapes{
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* <!-- Très petit mobile --> */
+@media (max-width: 600px){
+  .grille-etapes{
+    grid-template-columns: 1fr !important;
+  }
+
+  .emergency-btn{
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+}
+
+/* <!-- Ultra petit --> */
+@media (max-width: 400px){
+  .site-header h1{ font-size: 28px; }
+  .emergency-btn{ font-size: 0.95rem; padding: 14px 8px; }
+}
+
+/* <!-- =========================
+      NUMÉRO D'ÉTAPE DANS LA POPUP
+   ========================= --> */
+
+/* <!-- Header du détail d’étape : centre le contenu --> */
+.etape-detail-header{
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+/* <!-- Rond rouge pour le numéro d’étape (popup) --> */
+.numero-etape-large{
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0 auto 14px auto;
+  box-shadow: 0 12px 32px rgba(220, 38, 38, 0.40);
+}
+/* <!-- =========================
+   PAGE DÉFIBRILLATEUR : CENTRAGE
+========================= --> */
+
+/* <!-- Centre le texte du header de la page défibrillateur --> */
+main header {
+  text-align: center;
+}
+
+/* <!-- Centre le texte des sections spécifiques --> */
+section[aria-labelledby="defibrillation"],
+section[aria-labelledby="technique-dae"] {
+  text-align: center;
+}
+
+/* <!-- Centre les paragraphes et titres dans ces sections --> */
+section[aria-labelledby="defibrillation"] p,
+section[aria-labelledby="technique-dae"] p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* <!-- Centre le contenu interne de la section technique DAE --> */
+section[aria-labelledby="technique-dae"] > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* <!-- Centre la box vidéo sur la page --> */
+section[aria-labelledby="technique-dae"] .alert-box {
+  max-width: 720px;
+  margin: 24px auto;
+  text-align: center;
+}
+
+/* ✅ Numérotation normale partout */
+ol{
+  list-style: decimal;
+  padding-left: 22px;
+}
+
+/* <!-- Numérotation en ronds rouges UNIQUEMENT pour la section DAE --> */
+section[aria-labelledby="technique-dae"] ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 14px auto 0;
+  counter-reset: etape;
+  text-align: left;
+  max-width: 900px;
+}
+
+/* <!-- Chaque élément de la liste --> */
+section[aria-labelledby="technique-dae"] ol li {
+  counter-increment: etape;
+  position: relative;
+  padding-left: 48px;            /* ✅ place pour le rond */
+  margin-bottom: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* <!-- Rond rouge avec le numéro --> */
+section[aria-labelledby="technique-dae"] ol li::before {
+  content: counter(etape);
+  position: absolute;
+  left: 0;
+  top: 0.15em;                   /* ✅ aligne sur la 1ère ligne du texte */
+  width: 28px;
+  height: 28px;
+  background: #dc2626;
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 10px rgba(220,38,38,0.35);
+}
+
+/* <!-- =========================
+   BOUTON FLOTTANT SMARTPHONE (SOS)
+   VERSION HAUT DROIT + PLUS GROS
+========================= --> */
+
+.floating-phone{
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%); /* centre verticalement */
+  z-index: 1300;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+
+  color: white;
+  font-weight: 900;
+  font-size: 16px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
+  box-shadow: 0 22px 50px rgba(220,38,38,0.45);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-phone:hover{
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 30px 70px rgba(220,38,38,0.6);
+}
+
+.floating-phone:active{
+  transform: scale(0.97);
+}
+
+/* Icône smartphone */
+.floating-phone-icon{
+  width: 48px;       /* ➕ plus grand */
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.2);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  font-size: 24px;
+}
+
+/* Texte SOS */
+.floating-phone-text{
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+/* <!-- =========================
+   SMARTPHONE DANS POPUP
+========================= --> */
+
+.smartphone{
+  width: 340px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #1f2937, #111827);
+  border-radius: 46px;
+  padding: 14px;
+  box-shadow: 0 28px 80px rgba(0,0,0,0.35);
+  position: relative;
+}
+
+.smartphone .notch{
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 26px;
+  background: #000;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
+
+.smartphone .screen{
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 36px;
+  padding: 46px 18px 18px;
+  min-height: 520px;
+  color: white;
+  overflow: hidden;
+}
+
+.smartphone .status-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0.9;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.smartphone .status-bar .time{
+  color: #ef4444;
+}
+
+.emergency-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.emergency-tile{
+  text-decoration: none;
+  color: white;
+  border-radius: 20px;
+  padding: 18px 12px;
+  min-height: 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, rgba(239,68,68,0.92) 0%, rgba(220,38,38,0.92) 100%);
+  border: 2px solid rgba(255,255,255,0.14);
+  box-shadow: 0 10px 28px rgba(239,68,68,0.25);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.emergency-tile:hover{
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 40px rgba(239,68,68,0.35);
+  border-color: rgba(255,255,255,0.28);
+}
+
+.emergency-tile:active{
+  transform: scale(0.98);
+}
+
+.emergency-tile .num{
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+.emergency-tile .label{
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.95;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Un petit espace en bas comme la barre iPhone */
+.smartphone .home-indicator{
+  width: 130px;
+  height: 5px;
+  margin: 14px auto 0;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.25);
+}
+
+/* <!-- =========================
+   ACCUEIL : GRILLE SPÉCIALE FICHES
+========================= --> */
+
+/* Grille principale de l’accueil */
+.grille-cartes{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 colonnes */
+  grid-auto-rows: 1fr;               /* mêmes hauteurs */
+  gap: 18px;
+}
+
+/* Carte "Les 4 étapes" à gauche */
+.carte-principale{
+  grid-column: 1;     /* colonne de gauche */
+  grid-row: 1 / span 3; /* prend 3 lignes */
+}
+
+/* Toutes les cartes ont la même hauteur */
+.grille-cartes .carte{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Alignement du texte */
+.grille-cartes .carte h3{
+  text-align: center;
+}
+
+/* =========================
+   RESPONSIVE (mobile)
+========================= */
+@media (max-width: 900px){
+  .grille-cartes{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .carte-principale{
+    grid-column: 1 / -1; /* passe en pleine largeur */
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 600px){
+  .grille-cartes{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   IMAGE CONTEXTE FRANCE
+========================= */
+
+.section-contexte{
+  text-align: center;
+}
+
+.image-france{
+  margin: 18px auto 24px;
+  max-width: 320px;
+}
+
+.image-france img{
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.image-france figcaption{
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+section[aria-labelledby="regles-15"] .alert-box{
+  max-width: 720px;
+  margin: 28px auto 0;
+  text-align: center;
+}
+
+/* =========================
+   BRÛLURES – règle des 3x15
+========================= */
+
+section[aria-labelledby="regles-15"] .grille-etapes{
+  display: flex;                 /* au lieu de grid */
+  justify-content: center;       /* centre horizontalement */
+  gap: 24px;                     /* espace entre les 3 étapes */
+  flex-wrap: wrap;               /* responsive */
+}
+
+section[aria-labelledby="regles-15"] .etape{
+  max-width: 260px;              /* taille homogène */
+  flex: 1 1 260px;
+}
+/* =========================
+   BRÛLURES – Etapes soulager ce type de brûlure à la maison ?
+========================= */
+
+section[aria-labelledby="etapes"] .grille-etapes{
+  display: flex;                 /* au lieu de grid */
+  justify-content: center;       /* centre horizontalement */
+  gap: 24px;                     /* espace entre les 3 étapes */
+  flex-wrap: wrap;               /* responsive */
+}
+
+section[aria-labelledby="etapes"] .etape{
+  max-width: 260px;              /* taille homogène */
+  flex: 1 1 260px;
+}
+
+/* =========================
+   BRÛLURES – Etapes soulager ce type de brûlure à la maison ?
+========================= */
+
+section[aria-labelledby="etapes-dae"] .grille-etapes{
+  display: flex;                 /* au lieu de grid */
+  justify-content: center;       /* centre horizontalement */
+  gap: 24px;                     /* espace entre les 3 étapes */
+  flex-wrap: wrap;               /* responsive */
+}
+
+section[aria-labelledby="etapes-dae"] .etape{
+  max-width: 260px;              /* taille homogène */
+  flex: 1 1 260px;
+}
+
+/* =========================
+   CARTE VIDEO (alternative embed)
+========================= */
+.video-card{
+  max-width: 720px;
+  margin: 22px auto;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.40);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+}
+
+.video-card-head strong{
+  display: block;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.video-card-head p{
+  margin: 0 0 12px 0;
+  color: var(--muted);
+}
+
+.video-preview{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  text-decoration: none;
+  color: white;
+  font-weight: 900;
+
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
+  box-shadow: 0 12px 26px rgba(220,38,38,0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.video-preview:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(220,38,38,0.35);
+}
+
+.video-preview:active{
+  transform: scale(0.98);
+}
+
+.play-badge{
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  font-size: 16px;
+}
+
+.video-preview-text{
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}
+
+/* =========================
+   VIDEO LOCALE – MISE EN VALEUR
+========================= */
+
+.video-box{
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 16px;
+
+  background: rgba(255,255,255,0.9);
+  border-radius: 20px;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  border: 2px solid rgba(220,38,38,0.25);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.video-box:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 28px 70px rgba(220,38,38,0.35);
+}
+
+.video-box video{
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+}
+
+/* Légende sous la vidéo */
+.video-caption{
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* =========================
+   LISTES DANS LE CONTENU (retrait)
+========================= */
+
+main ul,
+main ol{
+  padding-left: 28px;   /* ✅ retrait */
+  margin: 10px 0 10px;  /* ✅ espace vertical */
+}
+
+main li{
+  margin-bottom: 6px;   /* ✅ respiration */
+}
+
+/* IMAGE DE LA MISE EN PLS*/
+
+.image-contenu{
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.page-hemorragie .video-box { max-width: 520px; }
+
+/* =========================
+   SECTION CONTACT (avant footer)
+========================= */
+.contact-section{
+  max-width: 1200px;
+  margin: 40px auto 10px;
+  text-align: center;
+}
+
+.contact-btn{
+  border: none;
+  cursor: pointer;
+  padding: 18px 26px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  color: white;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+  box-shadow: 0 20px 50px rgba(102,126,234,0.30);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-btn:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px rgba(102,126,234,0.40);
+}
+
+.contact-btn:active{
+  transform: scale(0.97);
+}
+
+/* =========================
+   FORMULAIRE CONTACT (popup)
+========================= */
+.form-contact{
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* =========================
+   FORMULAIRE CONTACT (popup)
+========================= */
+.form-contact{
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.form-contact label{
+  font-weight: 800;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-contact input,
+.form-contact textarea{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(102,126,234,0.22);
+  background: rgba(247,250,252,0.9);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.form-contact input:focus,
+.form-contact textarea:focus{
+  border-color: rgba(102,126,234,0.55);
+  box-shadow: 0 10px 24px rgba(102,126,234,0.18);
+  transform: translateY(-1px);
+}
+
+.form-contact textarea{
+  min-height: 160px;
+  resize: vertical;
+}
+
+.form-contact .row-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 600px){
+  .form-contact .row-2{ grid-template-columns: 1fr; }
+}
+
+.form-contact .hint{
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn-submit{
+  border: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-weight: 900;
+  color: white;
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+  box-shadow: 0 14px 30px rgba(102,126,234,0.22);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-submit:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 20px 44px rgba(102,126,234,0.28);
+}
+
+.btn-submit:active{
+  transform: scale(0.98);
+}
