@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Encodage des caractères (UTF-8) : accents, apostrophes typographiques, symboles, emojis -->
+    <meta charset="UTF-8" />
+    <!-- Permet l’adaptation du site à la largeur de l’écran (responsive design) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Titre de la page (affiché dans l’onglet du navigateur) -->
+    <title>L'étouffement - Chaque minute compte</title>
+    <!-- Feuille de styles principale -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<!-- Corps du document : contenu principal affiché à l’utilisateur -->
+<body>
+    <!-- En-tête du site : titre et navigation -->
+    <header class="site-header">
+        <!-- Titre principal (niveau 1) : sujet central de la page -->
+        <h1>Chaque minute compte - Les gestes qui sauvent</h1> 
+            <!-- Navigation principale : liens vers les différentes pages du site -->
+            <nav class="site-nav" aria-label="Navigation principale">
+                <ul>
+                    <!--La balise <a> associée à l’attribut href permet de créer des liens hypertextes et d’assurer la navigation entre les différentes pages du site.-->
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="Les-4-etapes-pour-porter-secours.html">Les 4 étapes pour porter secours</a></li>
+                    <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
+                    <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
+                    <li><a href="inconscience.html">Inconscience</a></li>
+                    <li><a href="etouffement.html" aria-current="page">Étouffement</a></li>
+                    <li><a href="hemorragie.html">Hémorragie</a></li>
+                    <li><a href="brulure.html">Brûlure</a></li>
+                </ul>
+                <!-- ul = Liste non ordonnée // li = Élément de la liste-->
+            </nav>
+    </header>
+
+<!-- Contenu principal de la page -->
+<main>
+    <!-- <article> = contenu autonome et indépendant // Il a du sens tout seul et il peut être lu séparément-->
+    <article>
+        <!-- <header> = en-tête de l'article -->
+        <header>
+            <!-- h2 = titre de l'article -->
+            <h2>L'étouffement</h2>
+            <!-- p = paragraphe descriptif - phrase d'introduction-->
+            <p>Chez les adultes, l'étouffement survient généralement au cours d'un repas, en présence d'autres personnes. Dans tous les cas, il faut agir vite !</p>
+        </header>
+
+        <!-- Mon contenu “étapes” -->
+        <!-- partie thématique du contenu // aria-labelledby = titre de la section -->
+        <section aria-labelledby="etapes">
+        <!-- Id = sert de référence pour aria-labelledby -->
+        <h3 id="etapes">Étapes d’intervention - Agir vite</h3>
+        <!-- texte d’aide utilisateur -->
+        <p>💡 Cliquez sur une étape pour plus de détails.</p>
+
+        <!-- Grille des étapes = étapes sous forme de grille, chaque étape est interactive -->
+        <!-- div class="grille-etapes" = organiser les étapes visuellement (CSS / JS) + regroupe toutes les étapes d’intervention -->
+        <div class="grille-etapes">
+            <!-- Cette div représente une étape précise // le data-detail="detail-4-etapes-1" permet de faire le lien HTML/JS -->
+            <div class="etape" data-detail="detail-4-etapes-1">
+                <!-- <div class="numero-etape">1 permet d'afficher le numéro d'étape + être stylisé avec le CSS -->
+                <div class="numero-etape">1</div>
+                    <h3>Ni parler, ni respirer, ni tousser</h3>
+                        <p><i>La victime ne peut pas répondre (elle secoue éventuellement la tête), mais est consciente. La victime ne peut ni parler, ni respirer, ni tousser. Elle peut émettre des sifflements ou tenter de tousser sans émettre de bruit.</i></p>
+                </div>
+            
+            <div class="etape" data-detail="detail-4-etapes-2">
+                <div class="numero-etape">2</div>
+                    <h3>5 claques</h3>
+                        <p><i>Donnez un maximum de 5 claques dans le dos de la victime. Après chaque claque, vérifiez si tout rentre dans l'ordre.</i></p>
+                </div>
+
+            <div class="etape" data-detail="detail-4-etapes-3">
+                <div class="numero-etape">3</div>
+                    <h3>5 compressions abdominales</h3>
+                        <p><i>Si les claques dans le dos n'ont pas d'effet, effectuez un maximum de 5 compressions abdominales.</i></p>
+                </div>
+
+            <div class="etape" data-detail="detail-4-etapes-4">
+                <div class="numero-etape">4</div>
+                    <h3>Alterner les claques et les compressions</h3>
+                        <p><i>Si le problème n'est toujours pas résolu, alternez 5 claques dans le dos et 5 compressions abdominales.</i></p>
+                </div>
+
+            <div class="etape" data-detail="detail-4-etapes-5">
+                <div class="numero-etape">5</div>
+                    <h3>Si la victime perd connaissance</h3>
+                        <p><i>Posez-la victime délicatement au sol et alertez immédiatement les secours, puis entreprenez une réanimation cardio-pulmonaire en commençant par effectuer 30 compressions thoraciques</i></p>
+                </div>
+            
+            <div class="etape" data-detail="detail-4-etapes-6">
+                <div class="numero-etape">6</div>
+                    <h3>Continuer la réanimation</h3>
+                        <p><i>Poursuivez la réanimation jusqu'à ce que les secours arrivent ou que la victime reprenne une respiration normale.</i></p>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="Technique-claque">
+            <h3 id="Technique-claque">Technique : les claques dans le dos</h3>
+                <ol>
+                    <li>Tenez-vous sur le côté et un peu en arrière de la victime.</li>
+                    <li>Penchez-la vers l'avant en soutenant sa poitrine d'une main, ce qui permettra à l'objet obstruant les voies aériennes de ne pas s'enfoncer davantage dans la trachée.</li>
+                    <li>Administrez un maximum de 5 claques entre les omoplates. Chaque claque a pour but de provoquer un mouvement de toux permettant de déloger l'objet.</li>
+                    <li>Après chaque claque, observez si le corps étranger a été rejeté ou non. Dans l'affirmative, la victime reprend sa respiration et tousse, et il est inutile de lui donner d'autres claques dans le dos.</li>
+                </ol>
+        </section>
+
+        <section aria-labelledby="Technique-compressions">
+            <h3 id="Technique-compressions">Technique : les compressions abdominales</h3>
+                <ol>
+                    <li>Tenez-vous derrière la victime et placez vos bras autour de la partie supérieure de son abdomen.</li>
+                    <li>Penchez la victime vers l'avant.</li>
+                    <li>Placez un de vos poings fermés entre le nombril et l'extrémité inférieure du sternum.</li>
+                    <li>Maintenez votre poing en place à l'aide de votre autre main. Enfoncez fortement votre poing vers vous et vers le haut. Recommencez ce geste 5 fois au maximum.</li>
+                </ol>
+        </section>
+
+        <section aria-labelledby="video-etouffement">
+            <h3 id="video-etouffement">🎥 Démonstration – Étouffement</h3>
+
+            <div class="video-box">
+                <video controls preload="metadata">
+                <source src="videos/etouffement.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de cette vidéo.
+                </video>
+            </div>
+
+            <p class="video-caption">
+            <i>Vidéo réalisée et proposée par : </i>
+            <a href="https://www.youtube.com/@lesminutesdejeremy"><strong>Les Minutes de Jérémy</strong></a>
+            </p>
+        </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">Retour à l’accueil</a></p>
+  </footer>
+
+<button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
+  <span class="floating-phone-icon" aria-hidden="true">📱</span>
+  <span class="floating-phone-text">SOS</span>
+</button>
+
+<section class="contact-section">
+  <button class="contact-btn" type="button" id="open-contact">
+    Une question, un commentaire ?
+  </button>
+</section>
+
+<footer class="site-footer">
+    <h2><i>Projet - Chaque minute compte - Les gestes qui sauvent.</i></h2>
+    <p><i>Création :  M. Giovanni SILVETTI</i></p>
+    <p><i>Projet UE 3 : Identité numérique et communication professionnelle : dimension linguistique et interculturelle - M. V. GRANDSIRE</i></p>
+  </footer>
+
+  <script src="java.js" defer></script>
+</body>
+</html>
