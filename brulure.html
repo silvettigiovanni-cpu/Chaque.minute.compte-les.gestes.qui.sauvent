@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Encodage des caractères (UTF-8) : accents, apostrophes typographiques, symboles, emojis -->
+    <meta charset="UTF-8" />
+    <!-- Permet l’adaptation du site à la largeur de l’écran (responsive design) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Titre de la page (affiché dans l’onglet du navigateur) -->
+    <title>Les brûlures - Chaque minute compte</title>
+    <!-- Feuille de styles principale -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<!-- Corps du document : contenu principal affiché à l’utilisateur -->
+<body>
+    <!-- En-tête du site : titre et navigation -->
+    <header class="site-header">
+        <!-- Titre principal (niveau 1) : sujet central de la page -->
+        <h1>Chaque minute compte - Les gestes qui sauvent</h1> 
+            <!-- Navigation principale : liens vers les différentes pages du site -->
+            <nav class="site-nav" aria-label="Navigation principale">
+                <ul>
+                    <!--La balise <a> associée à l’attribut href permet de créer des liens hypertextes et d’assurer la navigation entre les différentes pages du site.-->
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="Les-4-etapes-pour-porter-secours.html">Les 4 étapes pour porter secours</a></li>
+                    <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
+                    <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
+                    <li><a href="inconscience.html">Inconscience</a></li>
+                    <li><a href="etouffement.html">Étouffement</a></li>
+                    <li><a href="hemorragie.html">Hémorragie</a></li>
+                    <li><a href="brulure.html" aria-current="page">Brûlure</a></li>
+                </ul>
+                <!-- ul = Liste non ordonnée // li = Élément de la liste-->
+            </nav>
+    </header>
+
+<!-- Contenu principal de la page -->
+<main>
+    <!-- <article> = contenu autonome et indépendant // Il a du sens tout seul et il peut être lu séparément-->
+    <article>
+        <!-- <header> = en-tête de l'article -->
+        <header>
+            <!-- h2 = titre de l'article -->
+            <h2>Les brûlures</h2>
+            <!-- p = paragraphe descriptif - phrase d'introduction-->
+            <p>Face à une brûlure, la rapidité d'action est déterminante.</p>
+        </header>
+
+        <section aria-labelledby="regles-15">
+            <h3 id="regles-15">Règle des 3 x 15</h3>
+                <div class="grille-etapes">
+                    <div class="etape" data-detail="detail-4-etapes-1">
+                        <div class="numero-etape">1</div>
+                            <h3>15 degres</h3>
+                                <img src="images/degres.png" 
+                                alt="faire couler de l’eau à 15°C" 
+                                class="illustration-etape"/>
+                        </div>
+            
+                        <div class="etape" data-detail="detail-4-etapes-2">
+                            <div class="numero-etape">2</div>
+                                <h3>15 minutes</h3>
+                                    <img src="images/minutes.png" 
+                                    alt="pendant 15 minutes" 
+                                    class="illustration-etape"/>
+                            </div>
+
+                        <div class="etape" data-detail="detail-4-etapes-3">
+                            <div class="numero-etape">3</div>
+                                <h3>15 centimètres</h3>
+                                    <img src="images/centimetres.png" 
+                                    alt="à 15 cm de distance de la zone brûlée" 
+                                    class="illustration-etape"/>
+                            </div>
+                    </div>
+
+                <div class="alert-box" role="note">
+                    <strong>⛔️ Attention</strong>
+                        <p>n’appliquez pas de crème, d’huile, de glace ou d’eau glacée sur la brûlure, car cela pourrait abîmer encore davantage la peau.</p>
+                </div>
+        </section>
+
+        <section aria-labelledby="gestes-traitements">
+            <h3 id="gestes-traitements">Les gestes essentiels et soins adaptés pour traiter efficacement une brûlure</h3>
+                <h4>Comment évaluer rapidement la gravité d'une brûlure ? Comment reconnaître une brûlure simple ou grave ? Quand consulter immédiatement un médecin ?</h4>
+                    <p><strong>Brûlure grave</strong>, dès lors que l’on est en présence :</p>
+                        <ul>
+                            <li>d’une ou plusieurs cloques dont la surface totale est supérieure à celle de la moitié de la paume de la main de la victime,</li>
+                            <li>d’une destruction plus profonde (aspect blanchâtre ou noirâtre, parfois indolore) associée souvent à des cloques et à une rougeur plus ou moins étendue,</li>
+                            <li>d’une brûlure située sur le visage ou le cou, les mains, les articulations ou au voisinage des orifices naturels,</li>
+                            <li>d’une rougeur étendue de la peau chez l’enfant (un coup de soleil généralisé par exemple),</li>
+                            <li>d’une brûlure d’origine chimique, électrique ou radiologique.</li>
+                        </ul>
+                    <p><strong>Brûlure simple</strong>, lorsqu’il s’agit de rougeurs de la peau chez l’adulte ou d’une cloque dont la surface est inférieure à celle de la moitié de la paume de la main de la victime.</p>
+        </section>
+
+        <section aria-labelledby="secours">
+            <h3 id="secours">Et les secours ?</h3>
+                <h4>Quand appeler immédiatement les secours ?</h4>
+                    <p>
+                        Dès que la brûlure est grave, et en particulier si la personne est <strong>un nourrisson, une personne âgée ou immunodéprimée</strong>, même pour des brûlures apparemment modérées.
+                    </p>
+                    <p>
+                        Un avis médical est également nécessaire si des signes d'infection apparaissent dans les jours qui suivent (fièvre, rougeur qui s'étend, écoulement de pus, douleur persistante).
+                    </p>
+                        <div class="emergency-buttons" role="group" aria-label="Numéros d’urgence">
+                            <a href="tel:15" class="emergency-btn samu" aria-label="Appeler le SAMU, numéro 15">📞 15 – SAMU</a>
+                            <a href="tel:18" class="emergency-btn pompiers" aria-label="Appeler les pompiers, numéro 18">🚒 18 – Pompiers</a>
+                            <a href="tel:112" class="emergency-btn urgence" aria-label="Appeler le numéro d'urgence européen 112">🆘 112 – Numéro d'urgence européen</a>
+                            <a href="tel:114" class="emergency-btn sourd" aria-label="Appeler le numéro d'urgence pour les personnes sourdes ou malentendantes">🆘 114 – Numéro d'urgence pour les personnes sourdes et malentendantes</a>
+                        </div>
+        </section>
+
+        <section aria-labelledby="les-premiers-gestes">
+            <h3 id="les-premiers-gestes">Les premiers gestes vitaux face à une brûlure thermique : Quels sont les premiers soins à donner en cas de brûlure thermique ?</h3>
+                <h4>Définition de la brûlure thermique :</h4>
+                    <p><i>Une <strong>brûlure thermique</strong> est une lésion de la peau ou des tissus causée par une exposition à une source de chaleur excessive, telle que le feu, la vapeur, un liquide chaud, ou une surface chaude. Elle peut varier en fonction de la température et de la durée de l'exposition, et peut affecter différents degrés de profondeur de la peau, allant des brûlures superficielles (impactant uniquement l'épiderme) aux brûlures plus graves (atteignant le derme et au-delà). Les symptômes incluent des douleurs, des rougeurs, des cloques, et dans les cas plus sévères, des lésions profondes de la peau avec des tissus carbonisés ou noirs.</i></p>
+        </section>
+
+        <section aria-labelledby="etapes">
+            <h3 id="etapes">Comment soulager ce type de brûlure à la maison ?</h3>
+                <div class="grille-etapes">
+                    <div class="etape" data-detail="detail-4-etapes-1">
+                        <div class="numero-etape">1</div>
+                            <h3>Application de la règles des 3x15</h3>
+                                <p><i>Faites couler de l’eau à 15°C pendant 15 minutes à 15 cm de distance de la zone brûlée. Arrêtez si vous sentez du froid ou si vous vous sentez mal.</i></p>
+                        </div>
+            
+                        <div class="etape" data-detail="detail-4-etapes-2">
+                            <div class="numero-etape">2</div>
+                                <h3>Retirez les vêtements</h3>
+                                    <p><i>et bijoux s’ils ne sont pas collés à la peau.</i></p>
+                            </div>
+
+                        <div class="etape" data-detail="detail-4-etapes-3">
+                            <div class="numero-etape">3</div>
+                                <h3>Protégez</h3>
+                                    <p><i>la brûlure avec un pansement ou un tissu propre.</i></p>
+                            </div>
+
+                        <div class="etape" data-detail="detail-4-etapes-4">
+                            <div class="numero-etape">4</div>
+                                <h3>En cas d’apparition d’ampoules</h3>
+                                    <p><i>ne les crevez pas !</i></p>
+                            </div>
+
+                        <div class="etape" data-detail="detail-4-etapes-5">
+                            <div class="numero-etape">5</div>
+                                <h3>Si la brûlure est grave ou étendue</h3>
+                                    <p><i>alertez immédiatement les secours.</i></p>
+                            </div>
+            
+            <div class="etape" data-detail="detail-4-etapes-6">
+                <div class="numero-etape">6</div>
+                    <h3>Se laver les mains</h3>
+                        <p><i>Lavez-vous les mains après avoir effectué ces premiers secours.</i></p>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="ampoules">
+            <h3 id="ampoules">Faut-il percer une cloque de brûlure ? Les gestes à proscrire pour éviter l'infection :</h3>
+                <ol>
+                    <li><strong>Ne pas percer les cloques.</strong> Les cloques agissent comme une barrière naturelle contre les infections. Les percer augmente le risque d'infection.</li>
+                    <li><strong>Ne pas appliquer de corps gras (beurre, huiles, pommades maison).</strong> Ces substances peuvent retenir la chaleur, ralentir la cicatrisation et favoriser les infections.</li>
+                    <li><strong>Ne pas utiliser de coton hydrophile directement sur la brûlure.</strong> Les fibres peuvent adhérer à la plaie et compliquer le nettoyage. Privilégie une compresse stérile.</li>
+                    <li><strong>Ne pas toucher la brûlure avec des mains non lavées.</strong> Les bactéries sur les mains peuvent facilement contaminer la plaie. Lavez soigneusement vos mains avant tout soin.</li>
+                    <li><strong>Éviter des produits non recommandés (dentifrice, miel, etc.).</strong>Ces substances, souvent non stériles, peuvent aggraver la situation.</li>
+                    <li><strong>Ne pas utiliser de produits désinfectants agressifs (alcool, eau oxygénée, mercurochrome).</strong> Ils peuvent irriter les tissus et ralentir la cicatrisation.</li>
+                    <li><strong>Ne pas arracher les vêtements collés à la brûlure.</strong> Cela pourrait arracher la peau et causer une plaie ouverte plus étendue. Coupez autour du vêtement si nécessaire.</li>
+                    <li><strong>Ne pas exposer la brûlure à des sources contaminantes.</strong> Évitez tout contact avec l'eau stagnante, la poussière ou des environnements non hygiéniques.</li>
+                </ol>
+        </section>
+
+        <section aria-labelledby="important">
+            <h3 id="important">L'importance du temps de réaction dans la prise en charge d'une brûlure</h3><br>
+                <h4>Limiter les dégâts cutanés</h4>
+                    <p><i>L'application immédiate d'eau tempérée (15-20°C) permet de stopper la propagation de la chaleur dans les tissus et de réduire l'étendue de la brûlure. Cela diminue la profondeur des lésions.</i></p><br>
+                <h4>Réduire la douleur</h4>
+                    <p><i>Le refroidissement rapide de la zone touchée apaise la sensation de brûlure et réduit l'inflammation locale, ce qui soulage rapidement la douleur.</i></p><br>
+                <h4>Prévenir les infections</h4>
+                    <p><i>Plus la peau est lésée, plus le risque de contamination par des bactéries augmente. Une prise en charge rapide permet de protéger la zone avec un pansement adapté et de limiter les risques d'infection.</i></p><br>
+                <h4>Éviter les complications graves</h4>
+                    <p><i>Certaines brûlures, notamment les brûlures électriques, chimiques ou touchant des zones sensibles (visage, voies respiratoires, mains), peuvent entraîner des complications. Une prise en charge rapide est indispensable pour éviter une aggravation.</i></p><br>
+                <h4>Améliorer la cicatrisation</h4>
+                    <p><i>Réagir rapidement permet une meilleure cicatrisation, avec un risque réduit de séquelles comme des cicatrices ou des pertes fonctionnelles sur certaines zones (mains, articulations).</i></p><br>
+                <h4>Cas de brûlures graves</h4>
+                    <p><i>Dans les brûlures étendues, le corps peut perdre beaucoup de liquides à travers la plaie, ce qui peut entraîner un choc circulatoire. Une réaction rapide permet de limiter cette perte et de stabiliser la victime.</i></p><br>
+        </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">Retour à l’accueil</a></p>
+  </footer>
+
+<button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
+  <span class="floating-phone-icon" aria-hidden="true">📱</span>
+  <span class="floating-phone-text">SOS</span>
+</button>
+
+<section class="contact-section">
+  <button class="contact-btn" type="button" id="open-contact">
+    Une question, un commentaire ?
+  </button>
+</section>
+
+<footer class="site-footer">
+    <h2><i>Projet - Chaque minute compte - Les gestes qui sauvent.</i></h2>
+    <p><i>Création :  M. Giovanni SILVETTI</i></p>
+    <p><i>Projet UE 3 : Identité numérique et communication professionnelle : dimension linguistique et interculturelle - M. V. GRANDSIRE</i></p>
+  </footer>
+
+  <script src="java.js" defer></script>
+</body>
+</html>
