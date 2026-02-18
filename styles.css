@@ -262,108 +262,6 @@ main p{
   transform:translateY(-50%) scale(1.05);
 }
 
-/* <!-- ========================= SMARTPHONE DANS POPUP ========================= --> */ 
-.smartphone{ 
-  width: 340px; 
-  margin: 0 auto; 
-  background: linear-gradient(145deg, #1f2937, #111827); 
-  border-radius: 46px; 
-  padding: 14px; 
-  box-shadow: 0 28px 80px rgba(0,0,0,0.35); 
-  position: relative; 
-} 
-
-.smartphone .notch{ 
-  position: absolute;
-  top: 14px; left: 50%; 
-  transform: translateX(-50%); 
-  width: 130px; 
-  height: 26px; 
-  background: #000; 
-  border-radius: 0 0 18px 18px; 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.35); 
-} 
-
-.smartphone .screen{ 
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
-  border-radius: 36px; 
-  padding: 46px 18px 18px; 
-  min-height: 520px; 
-  color: white; 
-  overflow: hidden; 
-} 
-
-.smartphone .status-bar{ 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  opacity: 0.9; 
-  font-size: 13px; 
-  font-weight: 800; 
-  margin-bottom: 12px; 
-} 
-
-/* ✅ heure corail */ 
-.smartphone .status-bar .time{ 
-  color: var(--danger1); 
-} 
-
-.emergency-grid{ 
-  display: grid; 
-  grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 12px; 
-} 
-
-.emergency-tile{ 
-  text-decoration: none; 
-  color: white; 
-  border-radius: 20px; 
-  padding: 18px 12px; 
-  min-height: 120px; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  
-/* ✅ corail harmonisé */ 
-  background: linear-gradient(135deg, rgba(242,95,92,0.92) 0%, rgba(159,47,47,0.92) 100%); 
-  border: 2px solid rgba(255,255,255,0.14); 
-  box-shadow: 0 10px 28px rgba(225,75,72,0.22); 
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; 
-} 
-
-.emergency-tile:hover{ 
-  transform: translateY(-4px) scale(1.02); 
-  box-shadow: 0 14px 40px rgba(225,75,72,0.32); 
-  border-color: rgba(255,255,255,0.28); 
-} 
-
-.emergency-tile:active{ 
-  transform: scale(0.98); 
-} 
-
-.emergency-tile .num{ 
-  font-size: 40px; 
-  font-weight: 900; 
-  line-height: 1; 
-  margin-bottom: 8px; 
-  text-shadow: 0 2px 10px rgba(0,0,0,0.35); 
-} 
-
-.emergency-tile .label{ 
-  font-size: 12px; 
-  font-weight: 700; 
-  opacity: 0.95; 
-  text-align: center; 
-  line-height: 1.3; 
-} 
-
-.smartphone .home-indicator{ 
-  width: 130px; 
-  height: 5px; 
-  margin: 14px auto 0; border-radius: 10px; 
-  background: rgba(255,255,255,0.25); 
-}
-
 /* =========================
    CONTACT
 ========================= */
@@ -384,3 +282,115 @@ main p{
 .contact-btn:hover{
   transform:translateY(-4px);
 }
+
+/* =========================
+   SMARTPHONE DANS POPUP (forme iPhone)
+========================= */
+
+.smartphone{
+  width: 340px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #1f2937, #111827);
+  border-radius: 46px;
+  padding: 14px;
+  box-shadow: 0 28px 80px rgba(0,0,0,0.35);
+  position: relative;
+}
+
+.smartphone .notch{
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 26px;
+  background: #000;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
+
+.smartphone .screen{
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 36px;
+  padding: 46px 18px 18px;
+  min-height: 520px;
+  color: white;
+  overflow: hidden;
+}
+
+.smartphone .status-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0.9;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+/* ✅ heure corail (au lieu du rouge fixe) */
+.smartphone .status-bar .time{
+  color: var(--danger1);
+}
+
+.emergency-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.emergency-tile{
+  text-decoration: none;
+  color: white;
+  border-radius: 20px;
+  padding: 18px 12px;
+  min-height: 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* ✅ corail harmonisé */
+  background: linear-gradient(135deg, rgba(242,95,92,0.92) 0%, rgba(159,47,47,0.92) 100%);
+  border: 2px solid rgba(255,255,255,0.14);
+  box-shadow: 0 10px 28px rgba(225,75,72,0.22);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.emergency-tile:hover{
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 40px rgba(225,75,72,0.32);
+  border-color: rgba(255,255,255,0.28);
+}
+
+.emergency-tile:active{
+  transform: scale(0.98);
+}
+
+.emergency-tile .num{
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+.emergency-tile .label{
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.95;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.smartphone .home-indicator{
+  width: 130px;
+  height: 5px;
+  margin: 14px auto 0;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.25);
+}
+
