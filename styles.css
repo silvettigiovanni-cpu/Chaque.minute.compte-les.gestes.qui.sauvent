@@ -10,27 +10,34 @@
 
 /* <!-- Variables globales : couleurs réutilisables partout --> */
 :root{
-  --bg1:#fff7f0;  /* crème chaude */
-  --bg2:#f2d7c9;  /* beige chaud */
+  /* ✅ Fond plus CHAUD et plus visible */
+  --bg1:#fff3e8;   /* crème chaude */
+  --bg2:#f2c8b8;   /* pêche chaude */
 
-  --ink:#1a202c;              /* texte principal */
-  --muted:#4a5568;            /* texte secondaire */
+  --ink:#1a202c;   /* texte principal */
+  --muted:#4a5568; /* texte secondaire */
 
-  /* ✅ Thème corail (urgence / santé, chaud, doux, moderne) */
-  --brand1:#f25f5c;           /* corail principal */
-  --brand2:#9f2f2f;           /* corail profond */
+  /* ✅ Thème corail (urgence / santé) */
+  --brand1:#f25f5c; /* corail principal */
+  --brand2:#9f2f2f; /* corail profond */
 
-  --danger1:#f25f5c;          /* corail */
-  --danger2:#e14b48;          /* corail action */
-  --danger3:#9f2f2f;          /* corail foncé */
+  --danger1:#f25f5c;
+  --danger2:#e14b48;
+  --danger3:#9f2f2f;
 }
 
-/* <!-- Style général du body : police, marges, fond, couleur du texte --> */
+/* ✅ Fond appliqué au document entier (plus fiable que body seul) */
+html, body{ min-height: 100%; }
+
+html{
+  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+}
+
+/* <!-- Style général du body --> */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   padding: 32px 20px;
-  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
-  min-height: 100vh;
+  background: transparent; /* laisse voir le fond du html */
   color: var(--ink);
 }
 
@@ -43,7 +50,6 @@ body {
   margin: 0 auto 28px;
 }
 
-/* ✅ Header corail (déjà OK) + ombre harmonisée corail */
 .site-header h1{
   font-size: 44px;
   font-weight: 800;
@@ -58,9 +64,9 @@ body {
   line-height: 1.15;
 }
 
-/* Nav : ombre corail (au lieu du bleu) */
+/* Nav */
 .site-nav{
-  background: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.70); /* un peu plus transparent pour voir le fond */
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.35);
   border-radius: 16px;
@@ -77,7 +83,6 @@ body {
   align-items: center;
 }
 
-/* ✅ Menu : fond corail doux */
 .site-nav a{
   display: inline-block;
   text-decoration: none;
@@ -90,14 +95,12 @@ body {
   background: rgba(242,95,92,0.08);
 }
 
-/* ✅ Hover corail */
 .site-nav a:hover{
   transform: translateY(-2px);
   background: rgba(242,95,92,0.14);
   box-shadow: 0 10px 24px rgba(225,75,72,0.18);
 }
 
-/* ✅ Actif corail */
 .site-nav a[aria-current="page"]{
   background: linear-gradient(135deg, rgba(242,95,92,0.95) 0%, rgba(159,47,47,0.95) 100%);
   color: #fff;
@@ -118,7 +121,7 @@ main article{
   margin: 22px 0;
 }
 
-/* ✅ On garde UN SEUL main h2 (badge moderne) */
+/* ✅ main h2 badge moderne (1 seule définition) */
 main h2{
   font-size: 38px;
   font-weight: 900;
@@ -128,13 +131,12 @@ main h2{
   padding: 12px 16px;
   margin: 18px 0 14px;
 
-  background: rgba(255,255,255,0.70);
+  background: rgba(255,255,255,0.68); /* un peu plus transparent */
   border: 2px solid rgba(242,95,92,0.35);
   border-radius: 16px;
   box-shadow: 0 10px 26px rgba(225,75,72,0.18);
 }
 
-/* ✅ h3 corail plus doux */
 main h3{
   font-size: 22px;
   font-weight: 800;
@@ -160,7 +162,7 @@ main p{
 }
 
 .carte {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.82); /* ✅ laisse mieux voir le fond */
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
@@ -175,7 +177,6 @@ main p{
   overflow: hidden;
 }
 
-/* ✅ Voile corail */
 .carte::before {
   content: '';
   position: absolute;
@@ -186,11 +187,8 @@ main p{
   z-index: 0;
 }
 
-.carte:hover::before {
-  opacity: 1;
-}
+.carte:hover::before { opacity: 1; }
 
-/* ✅ Hover corail */
 .carte:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 20px 60px rgba(225,75,72,0.18);
@@ -212,9 +210,7 @@ main p{
   z-index: 1;
 }
 
-.carte:hover h3{
-  transform: scale(1.05);
-}
+.carte:hover h3{ transform: scale(1.05); }
 
 /* <!-- =========================
       ETAPES
@@ -229,7 +225,7 @@ main p{
 }
 
 .etape {
-  background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.75) 100%); /* plus chaud/transparent */
   border: 2px solid #e2e8f0;
   border-radius: 20px;
   padding: 22px 18px;
@@ -240,7 +236,6 @@ main p{
   height: 100%;
 }
 
-/* ✅ Hover corail (ombre + bordure) */
 .etape:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(225,75,72,0.14);
@@ -281,12 +276,8 @@ main p{
 
 .etape-large { grid-column: 1 / -1; }
 
-.grille-etapes { 
-  grid-template-columns: repeat(4, 1fr) !important; 
-}
-.grille-etapes-dae { 
-  grid-template-columns: repeat(4, 1fr) !important; 
-}
+.grille-etapes { grid-template-columns: repeat(4, 1fr) !important; }
+.grille-etapes-dae { grid-template-columns: repeat(4, 1fr) !important; }
 .grille-etapes-dae .etape-large { grid-column: span 2; }
 
 /* <!-- =========================
@@ -406,6 +397,7 @@ main p{
   margin-bottom: 6px;
 }
 
+/* <!-- Boutons d'urgence --> */
 .emergency-buttons {
   display: flex;
   gap: 12px;
@@ -463,9 +455,7 @@ main p{
 }
 .site-footer a:hover{ text-decoration: underline; }
 
-/* <!-- =========================
-      Scrollbar de la popup (WebKit)
-   ========================= --> */
+/* <!-- Scrollbar popup --> */
 .popup-contenu::-webkit-scrollbar { width: 8px; }
 .popup-contenu::-webkit-scrollbar-track {
   background: #f1f1f1;
@@ -479,6 +469,7 @@ main p{
   background: linear-gradient(135deg, var(--brand2) 0%, var(--brand1) 100%);
 }
 
+/* Utilitaire : gras */
 b{ font-weight: 800; }
 
 /* <!-- =========================
@@ -551,10 +542,7 @@ b{ font-weight: 800; }
   box-shadow: 0 12px 32px rgba(225,75,72,0.32);
 }
 
-/* <!-- =========================
-   PAGE DÉFIBRILLATEUR : CENTRAGE
-========================= --> */
-
+/* <!-- PAGE DÉFIBRILLATEUR : CENTRAGE --> */
 main header { text-align: center; }
 
 section[aria-labelledby="defibrillation"],
@@ -577,13 +565,13 @@ section[aria-labelledby="technique-dae"] .alert-box {
   text-align: center;
 }
 
-/* ✅ Numérotation normale partout */
+/* Numérotation normale partout */
 ol{
   list-style: decimal;
   padding-left: 22px;
 }
 
-/* Numérotation en ronds UNIQUEMENT pour la section DAE */
+/* Ronds uniquement sur la section DAE */
 section[aria-labelledby="technique-dae"] ol {
   list-style: none;
   padding-left: 0;
@@ -602,7 +590,6 @@ section[aria-labelledby="technique-dae"] ol li {
   color: var(--muted);
 }
 
-/* ✅ Rond corail */
 section[aria-labelledby="technique-dae"] ol li::before {
   content: counter(etape);
   position: absolute;
@@ -618,517 +605,3 @@ section[aria-labelledby="technique-dae"] ol li::before {
   place-items: center;
   box-shadow: 0 4px 10px rgba(225,75,72,0.25);
 }
-
-/* <!-- =========================
-   BOUTON FLOTTANT SMARTPHONE (SOS)
-========================= --> */
-
-.floating-phone{
-  position: fixed;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  z-index: 1300;
-
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-
-  color: white;
-  font-weight: 900;
-  font-size: 16px;
-
-  border-radius: 999px;
-
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
-  box-shadow: 0 22px 50px rgba(225,75,72,0.38);
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.floating-phone:hover{
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 30px 70px rgba(225,75,72,0.50);
-}
-
-.floating-phone:active{ transform: scale(0.97); }
-
-.floating-phone-icon{
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  display: grid;
-  place-items: center;
-  background: rgba(255,255,255,0.2);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
-  font-size: 24px;
-}
-
-.floating-phone-text{
-  letter-spacing: 1px;
-  font-size: 16px;
-}
-
-/* <!-- =========================
-   SMARTPHONE DANS POPUP
-========================= --> */
-
-.smartphone{
-  width: 340px;
-  margin: 0 auto;
-  background: linear-gradient(145deg, #1f2937, #111827);
-  border-radius: 46px;
-  padding: 14px;
-  box-shadow: 0 28px 80px rgba(0,0,0,0.35);
-  position: relative;
-}
-
-.smartphone .notch{
-  position: absolute;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 130px;
-  height: 26px;
-  background: #000;
-  border-radius: 0 0 18px 18px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
-}
-
-.smartphone .screen{
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  border-radius: 36px;
-  padding: 46px 18px 18px;
-  min-height: 520px;
-  color: white;
-  overflow: hidden;
-}
-
-.smartphone .status-bar{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  opacity: 0.9;
-  font-size: 13px;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-/* ✅ heure corail */
-.smartphone .status-bar .time{ color: var(--danger1); }
-
-.emergency-grid{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.emergency-tile{
-  text-decoration: none;
-  color: white;
-  border-radius: 20px;
-  padding: 18px 12px;
-  min-height: 120px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  /* ✅ corail harmonisé */
-  background: linear-gradient(135deg, rgba(242,95,92,0.92) 0%, rgba(159,47,47,0.92) 100%);
-  border: 2px solid rgba(255,255,255,0.14);
-  box-shadow: 0 10px 28px rgba(225,75,72,0.22);
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.emergency-tile:hover{
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 14px 40px rgba(225,75,72,0.32);
-  border-color: rgba(255,255,255,0.28);
-}
-
-.emergency-tile:active{ transform: scale(0.98); }
-
-.emergency-tile .num{
-  font-size: 40px;
-  font-weight: 900;
-  line-height: 1;
-  margin-bottom: 8px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
-}
-
-.emergency-tile .label{
-  font-size: 12px;
-  font-weight: 700;
-  opacity: 0.95;
-  text-align: center;
-  line-height: 1.3;
-}
-
-.smartphone .home-indicator{
-  width: 130px;
-  height: 5px;
-  margin: 14px auto 0;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.25);
-}
-
-/* <!-- =========================
-   ACCUEIL : GRILLE SPÉCIALE FICHES
-========================= --> */
-
-.grille-cartes{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: 1fr;
-  gap: 18px;
-}
-
-.carte-principale{
-  grid-column: 1;
-  grid-row: 1 / span 3;
-}
-
-.grille-cartes .carte{
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.grille-cartes .carte h3{
-  text-align: center;
-}
-
-@media (max-width: 900px){
-  .grille-cartes{ grid-template-columns: repeat(2, 1fr); }
-  .carte-principale{ grid-column: 1 / -1; grid-row: auto; }
-}
-
-@media (max-width: 600px){
-  .grille-cartes{ grid-template-columns: 1fr; }
-}
-
-/* =========================
-   IMAGE CONTEXTE FRANCE
-========================= */
-
-.section-contexte{ text-align: center; }
-
-.image-france{
-  margin: 18px auto 24px;
-  max-width: 320px;
-}
-
-.image-france img{
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-.image-france figcaption{
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 8px;
-}
-
-section[aria-labelledby="regles-15"] .alert-box{
-  max-width: 720px;
-  margin: 28px auto 0;
-  text-align: center;
-}
-
-/* =========================
-   BRÛLURES – règle des 3x15
-========================= */
-
-section[aria-labelledby="regles-15"] .grille-etapes{
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-section[aria-labelledby="regles-15"] .etape{
-  max-width: 260px;
-  flex: 1 1 260px;
-}
-
-/* =========================
-   BRÛLURES – Etapes (maison)
-========================= */
-
-section[aria-labelledby="etapes"] .grille-etapes{
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-section[aria-labelledby="etapes"] .etape{
-  max-width: 260px;
-  flex: 1 1 260px;
-}
-
-/* =========================
-   BRÛLURES – Etapes DAE
-========================= */
-
-section[aria-labelledby="etapes-dae"] .grille-etapes{
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-section[aria-labelledby="etapes-dae"] .etape{
-  max-width: 260px;
-  flex: 1 1 260px;
-}
-
-/* =========================
-   CARTE VIDEO (alternative embed)
-========================= */
-
-.video-card{
-  max-width: 720px;
-  margin: 22px auto;
-  background: rgba(255,255,255,0.85);
-  border: 1px solid rgba(255,255,255,0.40);
-  border-radius: 18px;
-  padding: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-}
-
-.video-card-head strong{
-  display: block;
-  font-size: 16px;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-
-.video-card-head p{
-  margin: 0 0 12px 0;
-  color: var(--muted);
-}
-
-.video-preview{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  text-decoration: none;
-  color: white;
-  font-weight: 900;
-
-  padding: 14px 16px;
-  border-radius: 14px;
-
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
-  box-shadow: 0 12px 26px rgba(225,75,72,0.25);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.video-preview:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(225,75,72,0.35);
-}
-
-.video-preview:active{ transform: scale(0.98); }
-
-.play-badge{
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: rgba(255,255,255,0.18);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
-  font-size: 16px;
-}
-
-.video-preview-text{
-  font-size: 15px;
-  letter-spacing: 0.3px;
-}
-
-/* =========================
-   VIDEO LOCALE – MISE EN VALEUR
-========================= */
-
-.video-box{
-  max-width: 800px;
-  margin: 24px auto;
-  padding: 16px;
-
-  background: rgba(255,255,255,0.9);
-  border-radius: 20px;
-
-  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-  border: 2px solid rgba(242,95,92,0.25);
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.video-box:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 28px 70px rgba(225,75,72,0.25);
-}
-
-.video-box video{
-  width: 100%;
-  height: auto;
-  border-radius: 14px;
-  display: block;
-}
-
-.video-caption{
-  text-align: center;
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 8px;
-}
-
-/* =========================
-   LISTES DANS LE CONTENU
-========================= */
-
-main ul,
-main ol{
-  padding-left: 28px;
-  margin: 10px 0 10px;
-}
-
-main li{ margin-bottom: 6px; }
-
-/* IMAGE DE LA MISE EN PLS */
-.image-contenu{
-  width: 100%;
-  max-width: 600px;
-  display: block;
-  margin: 20px auto;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
-
-.page-hemorragie .video-box { max-width: 520px; }
-
-/* =========================
-   SECTION CONTACT
-========================= */
-
-.contact-section{
-  max-width: 1200px;
-  margin: 40px auto 10px;
-  text-align: center;
-}
-
-.contact-btn{
-  border: none;
-  cursor: pointer;
-  padding: 18px 26px;
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: 0.3px;
-  color: white;
-  border-radius: 20px;
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  box-shadow: 0 20px 50px rgba(225,75,72,0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.contact-btn:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 30px 70px rgba(225,75,72,0.35);
-}
-
-.contact-btn:active{ transform: scale(0.97); }
-
-/* =========================
-   FORMULAIRE CONTACT (popup)
-========================= */
-
-.form-contact{
-  display: grid;
-  gap: 12px;
-  margin-top: 14px;
-}
-
-.form-contact label{
-  font-weight: 800;
-  color: var(--ink);
-  display: block;
-  margin-bottom: 6px;
-}
-
-.form-contact input,
-.form-contact textarea{
-  width: 100%;
-  padding: 12px 12px;
-  border-radius: 14px;
-  border: 1px solid rgba(242,95,92,0.22);
-  background: rgba(247,250,252,0.9);
-  font-family: inherit;
-  font-size: 14px;
-  color: var(--ink);
-  outline: none;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-.form-contact input:focus,
-.form-contact textarea:focus{
-  border-color: rgba(242,95,92,0.55);
-  box-shadow: 0 10px 24px rgba(225,75,72,0.18);
-  transform: translateY(-1px);
-}
-
-.form-contact textarea{
-  min-height: 160px;
-  resize: vertical;
-}
-
-.form-contact .row-2{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-@media (max-width: 600px){
-  .form-contact .row-2{ grid-template-columns: 1fr; }
-}
-
-.form-contact .hint{
-  font-size: 12px;
-  color: var(--muted);
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.btn-submit{
-  border: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  border-radius: 14px;
-  font-weight: 900;
-  color: white;
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  box-shadow: 0 14px 30px rgba(225,75,72,0.20);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.btn-submit:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 20px 44px rgba(225,75,72,0.28);
-}
-
-.btn-submit:active{ transform: scale(0.98); }
