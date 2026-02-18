@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- En-tête du document : métadonnées, titre et styles -->
+<head>
+    <!-- Encodage des caractères (UTF-8) : accents, apostrophes typographiques, symboles, emojis -->
+    <meta charset="UTF-8">
+    <!-- Permet l’adaptation du site à la largeur de l’écran (responsive design) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titre de la page (affiché dans l’onglet du navigateur) -->
+    <title>Chaque minute compte - Les gestes qui sauvent : Accueil</title>
+    <!-- Feuille de styles principale -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<!-- Corps du document : contenu principal affiché à l’utilisateur -->
+<body>
+    <!-- En-tête du site : titre et navigation -->
+    <header class="site-header">
+       <!-- Titre principal (niveau 1) : sujet central de la page -->
+        <h1>Chaque minute compte - Les gestes qui sauvent</h1> 
+            <!-- Navigation principale : liens vers les différentes pages du site -->
+            <nav class="site-nav" aria-label="Navigation principale">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Accueil</a></li>
+                    <li><a href="Les-4-etapes-pour-porter-secours.html">Les 4 étapes pour porter secours</a></li>
+                    <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
+                    <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li> 
+                    <li><a href="inconscience.html">Inconscience</a></li>
+                    <li><a href="etouffement.html">Étouffement</a></li>                  
+                    <li><a href="hemorragie.html">Hémorragie</a></li>
+                    <li><a href="brulure.html">Brûlure</a></li>
+                </ul>
+                <!-- ul = Liste non ordonnée // li = Élément de la liste-->
+            </nav>
+    </header>
+
+    <!-- Contenu principal de la page -->
+    <main>
+        <!-- Section d’introduction -->
+        <section aria-labelledby="intro">
+            <h2 id="intro">Contexte :</h2>
+                        <p>
+                        En France, seulement 47% des Français estiment bien connaître les gestes de premiers secours, ce qui révèle un besoin d’améliorer la formation et la sensibilisation.
+                        </p>
+
+                        <p>
+                        De plus, 38% disent n’avoir jamais suivi de formation aux gestes qui sauvent et 37% affirment en avoir suivi une il y a plus de 5 ans, sans réactualisation.
+                        </p>
+
+                        <p>
+                        Chaque année, en France, environ 50 000 personnes subissent un arrêt cardiaque soudain, avec un taux de survie très faible sans une prise en charge immédiate par des gestes de secours avant l’arrivée des services médicaux.
+                        </p>
+
+                        <p>
+                        Pourtant, dans 90% des cas, c’est la vie d’un proche qui est en danger, d’où l'urgence pour chaque citoyen de développer des réflexes de secours accessibles et efficaces.
+                        </p>
+        </section>
+
+        <!-- Section des fiches de premiers secours -->
+        <section aria-labelledby="fiches">
+            <h2 id="fiches">Fiches de premiers secours</h2>
+                <p>Sélectionnez une fiche pour accéder aux gestes essentiels.</p>
+            <!-- Conteneur des cartes (affichage en grille) -->
+            <div class="grille-cartes">
+                <!-- Carte de navigation vers la page "Les 4 étapes pour porter secours" -->
+                <a class="carte" href="Les-4-etapes-pour-porter-secours.html"><h3>Les 4 étapes pour porter secours</h3></a>
+                <!-- Carte de navigation vers la page "Arret cardiaque"-->
+                <a class="carte" href="arret-cardiaque.html"><h3>Arrêt cardiaque</h3></a>
+                <!-- Carte de navigation vers la page "Défibrillateur" -->
+                <a class="carte" href="defibrillateur.html"><h3>Défibrillateur</h3></a>
+                <!-- Carte de navigation vers la page "L'inconscience" -->
+                <a class="carte" href="inconscience.html"><h3>L'inconscience</h3></a>
+                <!-- Carte de navigation vers la page "L'étouffement" -->
+                <a class="carte" href="etouffement.html"><h3>L'étouffement</h3></a>
+                <!-- Carte de navigation vers la page "Hemorragie" -->
+                <a class="carte" href="hemorragie.html"><h3>L'hémorragie</h3></a>
+                <!-- Carte de navigation vers la page "Brûlure" -->
+                <a class="carte" href="brulure.html"><h3>La brûlure</h3></a>
+                    <!-- <a> = c'est le lien, sert à naviguer vers une autre page // href = c'est la destination du lien, C’est le fichier HTML qui sera chargé //class sert à identifier et styliser l’élément. // .carte est utilisée pour afficher le CSS et les animations JS -->
+            </div>
+        </section>
+    </main>
+
+<!-- Bouton flottant smartphone (SOS) -->
+<button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
+  <span class="floating-phone-icon" aria-hidden="true">📱</span>
+  <span class="floating-phone-text">SOS</span>
+</button>
+
+<!-- BOUTON CONTACT (avant footer) -->
+<section class="contact-section">
+  <button class="contact-btn" type="button" id="open-contact">
+    Une question, un commentaire ?
+  </button>
+</section>
+
+<!--Pied de page du site-->
+<footer class="site-footer">
+    <!--Titre et signature du projet-->
+    <h2><i>Projet - Chaque minute compte - Les gestes qui sauvent.</i></h2>
+    <!--Nom du créateur du site-->
+    <p><i>Création :  M. Giovanni SILVETTI</i></p>
+    <!-- Informations de l'UE et de l'enseignant en lien avec le projet -->
+    <p><i>Projet UE 3 : Identité numérique et communication professionnelle : dimension linguistique et interculturelle - M. V. GRANDSIRE</i></p>
+  </footer>
+
+  <!--SCRIPT JAVASCRIPT : Animations et interactions-->
+  <script src="java.js" defer></script>
+</body>
+</html>
