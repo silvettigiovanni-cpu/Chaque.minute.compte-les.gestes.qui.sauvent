@@ -1340,7 +1340,7 @@ main li{
 
 
 /* =========================================================
-   IMAGE + LÉGENDE (figure)
+   IMAGE POSITION MAIN + LÉGENDE (figure)
 ========================================================= */
 
 /* === Image (positionmains) : version responsive “propre” === */
@@ -1370,4 +1370,16 @@ main li{
   font-size: 0.9rem;
   color: #666;
   margin-top: 8px;
+}
+
+/* =========================================================
+   IMAGE DEFIBRILLATEUR
+========================================================= */
+
+.responsive-image {
+    display: block;          /* Permet le centrage */
+    margin: 15px auto;       /* Centre horizontalement */
+    max-width: 100%;         /* Ne dépasse jamais son conteneur */
+    height: auto;            /* Garde les proportions */
+    border-radius: 8px;      /* Optionnel : rendu plus doux */
 }
