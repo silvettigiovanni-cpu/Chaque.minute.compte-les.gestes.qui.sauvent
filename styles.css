@@ -1373,13 +1373,47 @@ main li{
 }
 
 /* =========================================================
-   IMAGE DEFIBRILLATEUR
+   IMAGE DEFIBRILLATEUR DANS LE DERNIER <li> — VERSION RESPONSIVE iPHONE
 ========================================================= */
 
-.responsive-image {
-    display: block;          /* Permet le centrage */
-    margin: 15px auto;       /* Centre horizontalement */
-    max-width: 100%;         /* Ne dépasse jamais son conteneur */
-    height: auto;            /* Garde les proportions */
-    border-radius: 8px;      /* Optionnel : rendu plus doux */
+/* 
+   Force le <li> à se comporter comme un bloc classique.
+   Utile si la liste (<ul> ou <li>) est stylée en flex ailleurs,
+   ce qui peut casser l'affichage sur Safari iOS.
+*/
+.li-with-image {
+  display: block;
+}
+
+/*
+   Conteneur de l’image.
+   Utilisation de Flexbox pour centrer horizontalement
+   l’image de manière fiable (notamment sur iOS Safari).
+*/
+.img-wrap {
+  display: flex;              /* Active Flexbox */
+  justify-content: center;    /* Centre horizontalement */
+  margin-top: 12px;           /* Espace au-dessus de l’image */
+}
+
+/*
+   Image responsive :
+   - s’adapte à la largeur de l’écran
+   - ne dépasse jamais son conteneur
+   - garde ses proportions
+*/
+.img-responsive {
+
+  /* 
+     Largeur dynamique :
+     - Sur petit écran (iPhone) → 100% de la largeur disponible
+     - Sur grand écran → maximum 420px
+  */
+  width: min(100%, 420px);
+
+  height: auto;        /* Conserve les proportions de l’image */
+  max-width: 100%;     /* Sécurité supplémentaire */
+  display: block;      /* Supprime les espaces indésirables sous l’image */
+  
+  border-radius: 8px;  /* Coins arrondis pour un rendu plus doux (optionnel) */
 }
