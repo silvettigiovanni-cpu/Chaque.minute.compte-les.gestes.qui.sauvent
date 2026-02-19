@@ -1444,3 +1444,71 @@ main li{
   font-style: italic;
 }
 
+/* =========================================
+   CARTES INTERACTIVES — PAGES URGENCE
+   (Étouffement / Hémorragie / Brûlure)
+========================================= */
+
+/*
+   Rend les cartes interactives uniquement
+   sur les pages urgences.
+   Le curseur indique que l’élément est cliquable.
+*/
+.etouffement .etape,
+.hemorragie .etape,
+.brulure .etape {
+  cursor: pointer;
+}
+
+/*
+   Cache le texte explicatif par défaut.
+   - max-height: 0 → invisible
+   - overflow: hidden → masque le contenu
+   - opacity: 0 → rend transparent
+   - transition → animation douce
+*/
+.etouffement .etape-detail,
+.hemorragie .etape-detail,
+.brulure .etape-detail {
+  margin-top: 8px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+/*
+   Affiche le détail au survol (ordinateur).
+   Le texte devient visible avec animation.
+*/
+.etouffement .etape:hover .etape-detail,
+.hemorragie .etape:hover .etape-detail,
+.brulure .etape:hover .etape-detail {
+  max-height: 250px;
+  opacity: 1;
+}
+
+/*
+   Affiche le détail au toucher (mobile)
+   grâce au focus reçu par la carte.
+*/
+.etouffement .etape:focus-within .etape-detail,
+.hemorragie .etape:focus-within .etape-detail,
+.brulure .etape:focus-within .etape-detail {
+  max-height: 250px;
+  opacity: 1;
+}
+
+/*
+   Ajoute un contour visible lorsque la carte
+   est sélectionnée (accessibilité clavier).
+*/
+.etouffement .etape:focus,
+.hemorragie .etape:focus,
+.brulure .etape:focus {
+  outline: 3px solid rgba(0,0,0,0.25);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+
