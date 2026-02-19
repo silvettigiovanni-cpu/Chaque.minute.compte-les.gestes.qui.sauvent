@@ -1,316 +1,359 @@
-/* <!-- Import de la police Inter depuis Google Fonts (utilisée sur tout le site) --> */
+/* =========================================================
+   IMPORT POLICE
+   - Import de la police Inter depuis Google Fonts
+   - Utilisée sur tout le site
+========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
-/* <!-- Reset : enlève les marges/paddings par défaut + box-sizing plus simple --> */
+
+/* =========================================================
+   RESET GLOBAL
+   - Supprime marges/paddings par défaut du navigateur
+   - box-sizing: border-box => width/height incluent padding + border
+========================================================= */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;               /* retire les marges par défaut */
+  padding: 0;              /* retire les paddings par défaut */
+  box-sizing: border-box;  /* calcul plus simple des tailles */
 }
 
+
+/* =========================================================
+   TITRE H2 (spécifique)
+   ⚠️ NOTE : Tu as un autre bloc "main h2" plus bas.
+   - Celui-ci donne un style "cadre" (glass + bordure + ombre)
+========================================================= */
 main h2{
-  font-size: 38px;
-  font-weight: 900;
-  color: var(--ink);
+  font-size: 38px;                 /* taille de titre */
+  font-weight: 900;                /* très gras */
+  color: var(--ink);               /* couleur texte principale */
 
-  display: inline-block;          /* le cadre épouse le texte */
-  padding: 12px 16px;
-  margin: 18px 0 14px;
+  display: inline-block;           /* le fond/bordure épouse le texte */
+  padding: 12px 16px;              /* espace interne du "cadre" */
+  margin: 18px 0 14px;             /* espace autour du titre */
 
-  background: rgba(255,255,255,0.70);
-  border: 2px solid rgba(242,95,92,0.35);          /* ✅ corail (au lieu du bleu) */
-  border-radius: 16px;
-  box-shadow: 0 10px 26px rgba(225,75,72,0.15);    /* ✅ ombre corail */
+  background: rgba(255,255,255,0.70);          /* fond blanc semi-transparent */
+  border: 2px solid rgba(242,95,92,0.35);      /* bordure corail légère */
+  border-radius: 16px;                         /* coins arrondis */
+  box-shadow: 0 10px 26px rgba(225,75,72,0.15);/* ombre douce corail */
 }
 
 
-/* <!-- Variables globales : couleurs réutilisables partout --> */
+/* =========================================================
+   VARIABLES GLOBALES
+   - Couleurs réutilisables partout via var(--nom)
+========================================================= */
 :root{
-  /* ✅ fond plus chaud */
-  --bg1:#fff3e8;              /* crème chaude */
-  --bg2:#f2c8b8;              /* pêche douce */
+  /* Fonds (dégradé du body) */
+  --bg1:#fff3e8;           /* crème chaude */
+  --bg2:#f2c8b8;           /* pêche douce */
 
-  --ink:#1a202c;              /* texte principal */
-  --muted:#4a5568;            /* texte secondaire */
+  /* Texte */
+  --ink:#1a202c;           /* texte principal */
+  --muted:#4a5568;         /* texte secondaire */
 
-  /* ✅ corail moderne (menu + titres) */
-  --brand1:#f25f5c;           /* corail */
-  --brand2:#9f2f2f;           /* corail profond */
+  /* Couleurs de marque (corail) */
+  --brand1:#f25f5c;        /* corail */
+  --brand2:#9f2f2f;        /* corail profond */
 
-  /* ✅ urgence corail (cohérent partout) */
+  /* Couleurs d’urgence (cohérentes partout) */
   --danger1:#f25f5c;
   --danger2:#e14b48;
   --danger3:#9f2f2f;
 }
 
-/* <!-- Style général du body : police, marges, fond, couleur du texte --> */
+
+/* =========================================================
+   BODY
+   - Police, fond en dégradé, couleur texte, padding général
+========================================================= */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  padding: 32px 20px;
-  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
-  min-height: 100vh;
-  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* police + fallback */
+  padding: 32px 20px;                                                        /* marge intérieure globale */
+  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);        /* fond dégradé */
+  min-height: 100vh;                                                         /* hauteur min pleine page */
+  color: var(--ink);                                                         /* couleur texte */
 }
 
-/* <!-- =========================
-      HEADER + NAV (tes classes .site-header .site-nav)
-   ========================= --> */
 
-/* <!-- Conteneur du header : centre le contenu et limite la largeur --> */
+/* =========================================================
+   HEADER + NAV
+========================================================= */
+
+/* Conteneur du header
+   - limite la largeur
+   - centre le contenu
+   - ajoute un espace en bas */
 .site-header{
-  max-width: 1200px;
-  margin: 0 auto 28px;
+  max-width: 1200px;       /* largeur maximale */
+  margin: 0 auto 28px;     /* centré + marge en bas */
 }
 
-/* <!-- Titre principal (h1) : style "banner" avec dégradé et ombre --> */
+/* Titre principal (h1)
+   - look "bannière" avec dégradé + ombre */
 .site-header h1{
-  font-size: 44px;
-  font-weight: 800;
-  text-align: center;
-  padding: 28px 22px;
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  color: #fff;
-  border-radius: 20px;
-  margin: 0 0 18px 0;
-  box-shadow: 0 20px 60px rgba(225,75,72,0.25); /* ✅ corail */
-  letter-spacing: -1px;
-  line-height: 1.15;
+  font-size: 44px;         /* taille du titre */
+  font-weight: 800;        /* très gras */
+  text-align: center;      /* centré */
+  padding: 28px 22px;      /* espace interne */
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%); /* fond dégradé */
+  color: #fff;             /* texte blanc */
+  border-radius: 20px;     /* coins arrondis */
+  margin: 0 0 18px 0;      /* marge sous le h1 */
+  box-shadow: 0 20px 60px rgba(225,75,72,0.25); /* ombre corail */
+  letter-spacing: -1px;    /* resserre un peu les lettres */
+  line-height: 1.15;       /* interligne du titre */
 }
 
-/* <!-- Bloc navigation : fond glassmorphism + bordure + ombre --> */
+/* Bloc navigation (.site-nav)
+   - effet "glassmorphism" */
 .site-nav{
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(225,75,72,0.10); /* ✅ corail */
-  padding: 10px;
+  background: rgba(255,255,255,0.75);       /* blanc semi-transparent */
+  backdrop-filter: blur(10px);              /* flou derrière (si supporté) */
+  border: 1px solid rgba(255,255,255,0.35); /* bordure légère */
+  border-radius: 16px;                      /* coins */
+  box-shadow: 0 8px 32px rgba(225,75,72,0.10); /* ombre corail */
+  padding: 10px;                            /* padding interne */
 }
 
-/* <!-- Liste de navigation : affichage en flex, multi-lignes si besoin --> */
+/* Liste nav
+   - flex en ligne
+   - wrap si pas de place
+   - centrée */
 .site-nav ul{
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
+  list-style: none;         /* supprime puces */
+  display: flex;            /* layout flex */
+  flex-wrap: wrap;          /* passe à la ligne si besoin */
+  gap: 10px;                /* espace entre items */
+  justify-content: center;  /* centre horizontalement */
+  align-items: center;      /* centre verticalement */
 }
 
-/* <!-- Liens de navigation : style "pill" cliquable --> */
+/* Lien nav
+   - style “pill” + animations */
 .site-nav a{
-  display: inline-block;
-  text-decoration: none;
-  color: var(--ink);
-  font-weight: 700;
-  font-size: 14px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  background: rgba(242,95,92,0.08); /* ✅ corail */
+  display: inline-block;     /* comportement de bouton */
+  text-decoration: none;     /* pas de soulignement */
+  color: var(--ink);         /* couleur texte */
+  font-weight: 700;          /* gras */
+  font-size: 14px;           /* taille */
+  padding: 10px 12px;        /* padding */
+  border-radius: 12px;       /* arrondi */
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; /* animations */
+  background: rgba(242,95,92,0.08); /* fond corail léger */
 }
 
-/* <!-- Effet hover sur les liens : léger déplacement + ombre --> */
+/* Hover lien nav
+   - légère montée + ombre */
 .site-nav a:hover{
-  transform: translateY(-2px);
-  background: rgba(242,95,92,0.14); /* ✅ corail */
-  box-shadow: 0 10px 24px rgba(225,75,72,0.18); /* ✅ corail */
+  transform: translateY(-2px);               /* monte un peu */
+  background: rgba(242,95,92,0.14);          /* fond un peu plus fort */
+  box-shadow: 0 10px 24px rgba(225,75,72,0.18); /* ombre corail */
 }
 
-/* <!-- Lien actif (aria-current="page") : dégradé plein + texte blanc --> */
+/* Lien actif
+   - aria-current="page" */
 .site-nav a[aria-current="page"]{
-  background: linear-gradient(135deg, rgba(242,95,92,0.95) 0%, rgba(159,47,47,0.95) 100%); /* ✅ corail */
-  color: #fff;
-  box-shadow: 0 10px 24px rgba(225,75,72,0.22); /* ✅ corail */
+  background: linear-gradient(135deg, rgba(242,95,92,0.95) 0%, rgba(159,47,47,0.95) 100%); /* dégradé plein */
+  color: #fff;                               /* texte blanc */
+  box-shadow: 0 10px 24px rgba(225,75,72,0.22); /* ombre corail */
 }
 
-/* <!-- =========================
-      MAIN / SECTIONS
-   ========================= --> */
 
-/* <!-- Main : centre la page et limite la largeur --> */
+/* =========================================================
+   MAIN / SECTIONS
+========================================================= */
+
+/* Main
+   - centre la page
+   - largeur max */
 main{
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1200px;       /* limite largeur */
+  margin: 0 auto;          /* centre */
 }
 
-/* <!-- Espacement entre sections et articles --> */
+/* Espacement entre sections / articles */
 main section,
 main article{
-  margin: 22px 0;
+  margin: 22px 0;          /* espace vertical */
 }
 
-/* <!-- Titres h2 dans le contenu --> */
+/* Titres h2 (2e définition)
+   ⚠️ ATTENTION : ceci redéfinit main h2 et peut écraser le bloc du haut
+   - ici, style simple (pas le cadre) */
 main h2{
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--brand2); /* ✅ corail profond */
-  margin-bottom: 10px;
+  font-size: 28px;         /* taille */
+  font-weight: 800;        /* gras */
+  color: var(--brand2);    /* corail profond */
+  margin-bottom: 10px;     /* espace sous le titre */
 }
 
-/* <!-- Titres h3 dans le contenu --> */
+/* Titres h3 */
 main h3{
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--brand1); /* ✅ corail */
-  margin-bottom: 10px;
+  font-size: 22px;         /* taille */
+  font-weight: 800;        /* gras */
+  color: var(--brand1);    /* corail */
+  margin-bottom: 10px;     /* espace sous le titre */
 }
 
-/* <!-- Paragraphes : couleur plus douce + interligne --> */
+/* Paragraphes */
 main p{
-  color: var(--muted);
-  line-height: 1.7;
-  margin-top: 6px;
+  color: var(--muted);     /* texte plus doux */
+  line-height: 1.7;        /* confort de lecture */
+  margin-top: 6px;         /* petite respiration */
 }
 
-/* <!-- =========================
-      GRILLE DES CARTES (page accueil)
-   ========================= --> */
 
-/* <!-- .grille-cartes : ton conteneur de <a class="carte"> --> */
+/* =========================================================
+   GRILLE DES CARTES (accueil)
+========================================================= */
+
+/* Conteneur des cartes */
 .grille-cartes {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 18px;
-  margin-top: 18px;
+  display: grid;                                           /* grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* colonnes auto */
+  gap: 18px;                                               /* espace entre cartes */
+  margin-top: 18px;                                        /* espace au-dessus */
 }
 
-/* <!-- Carte : glassmorphism, bord arrondi, ombre, animation hover --> */
+/* Carte (lien) */
 .carte {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
-  padding: 26px 20px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);     /* fond clair */
+  backdrop-filter: blur(10px);              /* effet glass */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* bordure légère */
+  border-radius: 20px;                      /* arrondi */
+  padding: 26px 20px;                       /* padding */
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15); /* ombre (bleutée ici) */
+  text-decoration: none;                    /* pas de soulignement */
+  color: inherit;                           /* prend la couleur du parent */
+  display: block;                           /* bloc cliquable */
+  cursor: pointer;                          /* curseur main */
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* animation "spring" */
+  position: relative;                       /* nécessaire pour ::before */
+  overflow: hidden;                         /* cache le voile */
 }
 
-/* <!-- Voile dégradé au survol : couche invisible qui apparaît --> */
+/* Voile sur la carte (invisible par défaut) */
 .carte::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(242,95,92,0.10) 0%, rgba(159,47,47,0.10) 100%); /* ✅ corail */
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  z-index: 0;
+  content: '';                              /* pseudo-élément */
+  position: absolute;                       /* couvre toute la carte */
+  inset: 0;                                 /* top/right/bottom/left: 0 */
+  background: linear-gradient(135deg, rgba(242,95,92,0.10) 0%, rgba(159,47,47,0.10) 100%); /* voile corail */
+  opacity: 0;                               /* caché */
+  transition: opacity 0.35s ease;           /* transition douce */
+  z-index: 0;                               /* derrière le texte */
 }
 
-/* <!-- Activation du voile sur hover --> */
+/* Activation du voile au hover */
 .carte:hover::before {
-  opacity: 1;
+  opacity: 1;                               /* apparaît */
 }
 
-/* <!-- Mouvement de la carte au survol --> */
+/* Hover carte */
 .carte:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(225,75,72,0.18); /* ✅ corail */
-  border-color: rgba(242,95,92,0.22);          /* ✅ corail */
+  transform: translateY(-10px) scale(1.02); /* monte + zoom */
+  box-shadow: 0 20px 60px rgba(225,75,72,0.18); /* ombre corail */
+  border-color: rgba(242,95,92,0.22);       /* bordure corail */
 }
 
-/* <!-- IMPORTANT : ton HTML met h3 dans la carte, pas h2 --> */
+/* Titre dans la carte */
 .carte h3{
-  margin: 0;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 800;
+  margin: 0;                                /* pas de marge */
+  text-align: center;                       /* centré */
+  font-size: 20px;                          /* taille */
+  font-weight: 800;                         /* gras */
 
-  /* <!-- Effet texte dégradé --> */
+  /* Texte en dégradé */
   background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  position: relative;
-  z-index: 1;
+  position: relative;                       /* pour être au-dessus du voile */
+  z-index: 1;                               /* devant ::before */
 }
 
-/* <!-- Petit zoom du titre à l'hover --> */
+/* Zoom léger du titre au hover */
 .carte:hover h3{
-  transform: scale(1.05);
+  transform: scale(1.05);                   /* zoom */
 }
 
-/* <!-- =========================
-      ETAPES (page "Les 4 étapes…")
-   ========================= --> */
 
-/* <!-- Grilles des étapes : auto-fit (responsive), avec un gap --> */
+/* =========================================================
+   ETAPES (page "Les 4 étapes…")
+========================================================= */
+
+/* Grilles étapes */
 .grille-etapes,
 .grille-etapes-dae {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-  margin-top: 18px;
+  display: grid;                                           /* grid */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* responsive auto */
+  gap: 18px;                                               /* espace */
+  margin-top: 18px;                                        /* marge */
 }
 
-/* <!-- Boîte étape : style carte + hover --> */
+/* Carte étape */
 .etape {
-  background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
-  border: 2px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 22px 18px;
-  text-align: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transition: all 0.25s ease;
-  cursor: pointer;
-  height: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%); /* fond léger */
+  border: 2px solid #e2e8f0;               /* bordure grise */
+  border-radius: 20px;                    /* arrondi */
+  padding: 22px 18px;                     /* padding */
+  text-align: center;                     /* contenu centré */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); /* ombre */
+  transition: all 0.25s ease;             /* animation */
+  cursor: pointer;                        /* cliquable */
+  height: 100%;                           /* prend toute la hauteur de la grille */
 }
 
-/* <!-- Hover étape : légère montée et couleur de bordure --> */
+/* Hover étape */
 .etape:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(225,75,72,0.14); /* ✅ corail */
-  border-color: var(--brand1);
+  transform: translateY(-4px);            /* monte légèrement */
+  box-shadow: 0 12px 32px rgba(225,75,72,0.14); /* ombre corail */
+  border-color: var(--brand1);            /* bordure corail */
 }
 
-/* <!-- Cercle numéro : rouge, blanc, ombre --> */
+/* Cercle numéro d’étape */
 .numero-etape {
-  width: 72px;
-  height: 72px;
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 34px;
-  font-weight: 800;
-  margin: 0 auto 14px auto;
-  box-shadow: 0 8px 24px rgba(225,75,72,0.28); /* ✅ corail */
+  width: 72px;                            /* largeur */
+  height: 72px;                           /* hauteur */
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%); /* dégradé corail */
+  color: white;                           /* texte blanc */
+  border-radius: 50%;                     /* rond */
+  display: flex;                          /* centrer */
+  align-items: center;                    /* centrer vertical */
+  justify-content: center;                /* centrer horizontal */
+  font-size: 34px;                        /* taille numéro */
+  font-weight: 800;                       /* gras */
+  margin: 0 auto 14px auto;               /* centré + marge bas */
+  box-shadow: 0 8px 24px rgba(225,75,72,0.28); /* ombre corail */
 }
 
-/* <!-- Titre d'étape (h4) --> */
+/* Titre h4 dans une étape */
 .etape h4 {
-  font-size: 18px;
-  font-weight: 800;
-  margin: 10px 0 14px;
-  color: var(--ink);
+  font-size: 18px;                        /* taille */
+  font-weight: 800;                       /* gras */
+  margin: 10px 0 14px;                    /* marges */
+  color: var(--ink);                      /* couleur texte */
 }
 
-/* <!-- Image d'illustration d'étape : taille contrôlée + arrondi + ombre --> */
+/* Image d’illustration d’étape */
 .illustration-etape{
-  width: 100%;
-  max-width: 140px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  width: 100%;                            /* largeur responsive */
+  max-width: 140px;                       /* limite sur desktop */
+  height: auto;                           /* garde proportions */
+  display: block;                         /* bloc */
+  margin: 0 auto;                         /* centré */
+  border-radius: 14px;                    /* arrondi */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);/* ombre */
 }
 
-/* <!-- Étape large (si tu l’utilises) : prend toute la ligne --> */
+/* Étape "large" : occupe toute la ligne */
 .etape-large {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1;                    /* prend toutes les colonnes */
 }
 
-/* <!-- Force 4 colonnes (si tu veux absolument 4 étapes par ligne) --> */
+/* Forçage 4 colonnes (desktop)
+   ⚠️ prend le dessus sur auto-fit */
 .grille-etapes { 
   grid-template-columns: repeat(4, 1fr) !important; 
 }
@@ -318,571 +361,597 @@ main p{
   grid-template-columns: repeat(4, 1fr) !important; 
 }
 
-/* <!-- Exemple : sur la DAE, une étape peut prendre 2 colonnes --> */
+/* Sur la DAE, une étape large peut prendre 2 colonnes */
 .grille-etapes-dae .etape-large {
-  grid-column: span 2;
+  grid-column: span 2;                    /* prend 2 colonnes */
 }
 
-/* <!-- =========================
-      POPUP (créée par ton JS)
-   ========================= --> */
 
-/* <!-- Fond sombre + centrage --> */
+/* =========================================================
+   POPUP (créée par ton JS)
+========================================================= */
+
+/* Fond sombre qui couvre tout + centrage du contenu */
 .popup {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: apparaitre-popup 0.3s ease;
-  overflow-y: auto;
-  padding: 20px;
+  position: fixed;                        /* reste visible au scroll */
+  inset: 0;                               /* occupe tout l’écran */
+  background: rgba(0, 0, 0, 0.75);        /* voile sombre */
+  backdrop-filter: blur(8px);             /* flou derrière */
+  display: flex;                          /* flex pour centrer */
+  justify-content: center;                /* centre horizontal */
+  align-items: center;                    /* centre vertical */
+  z-index: 1000;                          /* au-dessus du reste */
+  animation: apparaitre-popup 0.3s ease;  /* animation d’apparition */
+  overflow-y: auto;                       /* scroll si contenu grand */
+  padding: 20px;                          /* espace sur bords */
 }
 
-/* <!-- Animation d’apparition de la popup --> */
+/* Animation d’apparition de la popup */
 @keyframes apparaitre-popup {
-  from { opacity: 0; backdrop-filter: blur(0px); }
-  to { opacity: 1; backdrop-filter: blur(8px); }
+  from { opacity: 0; backdrop-filter: blur(0px); } /* départ transparent */
+  to { opacity: 1; backdrop-filter: blur(8px); }   /* arrivée visible + flou */
 }
 
-/* <!-- Contenu popup : boîte blanche scrollable --> */
+/* Contenu de la popup (boîte blanche) */
 .popup-contenu {
-  background: white;
-  padding: 38px;
-  border-radius: 24px;
-  max-width: 900px;
-  width: 95%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.30);
-  animation: glisser-moderne 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: white;                      /* fond blanc */
+  padding: 38px;                          /* padding interne */
+  border-radius: 24px;                    /* arrondi */
+  max-width: 900px;                       /* largeur max */
+  width: 95%;                             /* responsive */
+  max-height: 90vh;                       /* limite hauteur */
+  overflow-y: auto;                       /* scroll interne */
+  position: relative;                     /* pour placer .fermer */
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.30); /* ombre forte */
+  animation: glisser-moderne 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* animation slide */
 }
 
-/* <!-- Animation "slide" du contenu --> */
+/* Animation de "slide" du contenu popup */
 @keyframes glisser-moderne {
-  from { transform: translateY(-60px) scale(0.95); opacity: 0; }
-  to { transform: translateY(0) scale(1); opacity: 1; }
+  from { transform: translateY(-60px) scale(0.95); opacity: 0; } /* arrive d’en haut */
+  to { transform: translateY(0) scale(1); opacity: 1; }          /* position finale */
 }
 
-/* <!-- Bouton de fermeture (croix) --> */
+/* Bouton fermer (croix) */
 .fermer {
-  position: absolute;
+  position: absolute;                     /* en haut à droite du contenu */
   top: 16px;
   right: 18px;
-  width: 44px;
+  width: 44px;                            /* taille du bouton */
   height: 44px;
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  border-radius: 50%;
-  display: flex;
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%); /* dégradé corail */
+  border-radius: 50%;                     /* rond */
+  display: flex;                          /* centre le X */
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  font-weight: 900;
-  color: white;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  z-index: 10;
-  border: none;
-  box-shadow: 0 4px 12px rgba(225,75,72,0.22); /* ✅ corail */
+  font-size: 24px;                        /* taille du X */
+  font-weight: 900;                       /* gras */
+  color: white;                           /* blanc */
+  cursor: pointer;                        /* main */
+  transition: all 0.25s ease;             /* animation */
+  z-index: 10;                            /* au-dessus du contenu */
+  border: none;                           /* pas de bordure */
+  box-shadow: 0 4px 12px rgba(225,75,72,0.22); /* ombre corail */
 }
 
-/* <!-- Hover fermeture : rotation --> */
+/* Hover du bouton fermer */
 .fermer:hover {
-  transform: rotate(90deg) scale(1.08);
-  box-shadow: 0 6px 20px rgba(225,75,72,0.32); /* ✅ corail */
+  transform: rotate(90deg) scale(1.08);   /* rotation + zoom */
+  box-shadow: 0 6px 20px rgba(225,75,72,0.32); /* ombre plus forte */
 }
 
-/* <!-- Sous-popup (popup dans popup) --> */
-.sous-popup { z-index: 1100; }
-.popup-etape { max-width: 800px; }
+/* Popup dans popup (niveau supérieur) */
+.sous-popup { z-index: 1100; }            /* passe au-dessus */
+.popup-etape { max-width: 800px; }        /* popup plus étroite */
 
-/* <!-- Contenu texte de la popup --> */
+/* Contenu texte de la popup */
 .detail-content{
-  color: var(--ink);
+  color: var(--ink);                      /* texte principal */
 }
 
-/* <!-- Titre principal du détail --> */
+/* Titre principal dans le détail */
 .detail-content h3{
-  color: var(--brand1);
-  font-size: 26px;
-  margin-bottom: 14px;
-  text-align: center;
+  color: var(--brand1);                   /* corail */
+  font-size: 26px;                        /* taille */
+  margin-bottom: 14px;                    /* espace dessous */
+  text-align: center;                     /* centré */
 }
 
-/* <!-- Encadrés "step-detail" --> */
+/* Encadré "step-detail" */
 .step-detail{
-  background: #f7fafc;
-  border-left: 4px solid var(--brand1);
-  padding: 16px 16px;
-  margin: 16px 0;
-  border-radius: 10px;
+  background: #f7fafc;                    /* fond gris très clair */
+  border-left: 4px solid var(--brand1);   /* liseré corail à gauche */
+  padding: 16px 16px;                     /* padding */
+  margin: 16px 0;                         /* espace vertical */
+  border-radius: 10px;                    /* arrondi */
 }
 
-/* <!-- Titre dans step-detail --> */
+/* Titre h4 dans step-detail */
 .step-detail h4{
-  color: var(--brand2); /* ✅ corail profond */
-  font-size: 18px;
-  margin-bottom: 10px;
+  color: var(--brand2);                   /* corail profond */
+  font-size: 18px;                        /* taille */
+  margin-bottom: 10px;                    /* espace dessous */
 }
 
-/* <!-- Listes dans step-detail --> */
+/* Listes dans step-detail */
 .step-detail ul,
 .step-detail ol{
-  margin-left: 18px;
-  line-height: 1.8;
-  color: var(--muted);
+  margin-left: 18px;                      /* retrait */
+  line-height: 1.8;                       /* interligne */
+  color: var(--muted);                    /* couleur douce */
 }
 
+/* Espacement entre items */
 .step-detail li{ margin-bottom: 8px; }
 
-/* <!-- Encadré alerte --> */
+/* Encadré alerte */
 .alert-box{
-  background-color: rgba(242,95,92,0.10); /* ✅ corail léger */
-  border: 2px solid var(--danger1);
-  border-radius: 12px;
-  padding: 16px;
-  margin: 16px 0;
+  background-color: rgba(242,95,92,0.10); /* fond corail léger */
+  border: 2px solid var(--danger1);       /* bordure corail */
+  border-radius: 12px;                    /* arrondi */
+  padding: 16px;                          /* padding */
+  margin: 16px 0;                         /* espace vertical */
 }
 
-/* <!-- Titre de l’alerte --> */
+/* Titre dans l'alerte */
 .alert-box strong{
-  color: var(--danger2);
-  font-size: 16px;
-  display: block;
-  margin-bottom: 6px;
+  color: var(--danger2);                  /* corail plus fort */
+  font-size: 16px;                        /* taille */
+  display: block;                         /* passe en bloc */
+  margin-bottom: 6px;                     /* espace dessous */
 }
 
-/* <!-- Boutons d'urgence (étape 3) : groupe de liens tel: --> */
+/* Groupe de boutons d’urgence */
 .emergency-buttons {
-  display: flex;
-  gap: 12px;
-  margin: 14px 0 10px;
-  flex-wrap: wrap;
+  display: flex;                          /* flex pour aligner */
+  gap: 12px;                              /* espace entre boutons */
+  margin: 14px 0 10px;                    /* marges */
+  flex-wrap: wrap;                        /* passe à la ligne */
 }
 
-/* <!-- Bouton d'urgence : même largeur, gros texte, ombre --> */
+/* Bouton d’urgence (générique) */
 .emergency-btn {
-  flex: 1;
-  min-width: 180px;
-  padding: 14px 10px;
-  text-align: center;
-  font-weight: 800;
-  border-radius: 14px;
-  text-decoration: none;
-  color: white;
-  line-height: 1.2;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  flex: 1;                                /* même largeur si possible */
+  min-width: 180px;                       /* largeur mini */
+  padding: 14px 10px;                     /* padding */
+  text-align: center;                     /* centré */
+  font-weight: 800;                       /* gras */
+  border-radius: 14px;                    /* arrondi */
+  text-decoration: none;                  /* pas de soulignement */
+  color: white;                           /* texte blanc */
+  line-height: 1.2;                       /* interligne compact */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* ombre */
+  transition: transform 0.15s ease, box-shadow 0.15s ease; /* animation */
 }
 
-/* <!-- Effet clic --> */
+/* Effet clic */
 .emergency-btn:active { transform: scale(0.97); }
 
-/* <!-- Couleurs par service --> */
-.emergency-btn.samu { background: #c62828; }
-.emergency-btn.pompiers { background: #ef6c00; }
-.emergency-btn.urgence { background: #2e7d32; }
-.emergency-btn.sourd { background: #2563eb; }
+/* Couleurs par service */
+.emergency-btn.samu { background: #c62828; }       /* SAMU */
+.emergency-btn.pompiers { background: #ef6c00; }   /* Pompiers */
+.emergency-btn.urgence { background: #2e7d32; }    /* Urgences */
+.emergency-btn.sourd { background: #2563eb; }      /* 114 (sourds/malentendants) */
 
-/* <!-- =========================
-      FOOTER
-   ========================= --> */
 
-/* <!-- Footer : cadre simple et centré --> */
+/* =========================================================
+   FOOTER
+========================================================= */
+
+/* Footer : cadre centré */
 .site-footer{
-  max-width: 1200px;
-  margin: 26px auto 0;
-  padding: 18px 16px;
-  text-align: center;
-  background: rgba(255,255,255,0.70);
-  border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(225,75,72,0.10); /* ✅ corail */
+  max-width: 1200px;                      /* largeur max */
+  margin: 26px auto 0;                    /* centré + marge haut */
+  padding: 18px 16px;                     /* padding */
+  text-align: center;                     /* centré */
+  background: rgba(255,255,255,0.70);     /* fond glass */
+  border: 1px solid rgba(255,255,255,0.35); /* bordure légère */
+  border-radius: 16px;                    /* arrondi */
+  box-shadow: 0 8px 32px rgba(225,75,72,0.10); /* ombre corail */
 }
 
-/* <!-- Texte du footer --> */
+/* Texte footer */
 .site-footer h2,
 .site-footer p{
-  margin: 6px 0;
-  color: #2d3748;
+  margin: 6px 0;                          /* espace vertical */
+  color: #2d3748;                         /* gris foncé */
 }
 
-/* <!-- Liens footer --> */
+/* Liens footer */
 .site-footer a{
-  color: var(--brand1);
-  font-weight: 800;
-  text-decoration: none;
+  color: var(--brand1);                   /* corail */
+  font-weight: 800;                       /* gras */
+  text-decoration: none;                  /* pas de soulignement */
 }
-.site-footer a:hover{ text-decoration: underline; }
+.site-footer a:hover{ text-decoration: underline; } /* underline au hover */
 
-/* <!-- =========================
-      Scrollbar de la popup (WebKit)
-   ========================= --> */
-.popup-contenu::-webkit-scrollbar { width: 8px; }
+
+/* =========================================================
+   SCROLLBAR (WebKit) DANS POPUP
+========================================================= */
+.popup-contenu::-webkit-scrollbar { width: 8px; }  /* largeur barre */
 .popup-contenu::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
+  background: #f1f1f1;                              /* fond track */
+  border-radius: 10px;                               /* arrondi */
 }
 .popup-contenu::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  border-radius: 10px;
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%); /* dégradé */
+  border-radius: 10px;                               /* arrondi */
 }
 .popup-contenu::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, var(--brand2) 0%, var(--brand1) 100%);
+  background: linear-gradient(135deg, var(--brand2) 0%, var(--brand1) 100%); /* inverse au hover */
 }
 
-/* <!-- Utilitaire : gras --> */
-b{ font-weight: 800; }
 
-/* <!-- =========================
-      RESPONSIVE
-   ========================= --> */
+/* =========================================================
+   UTILITAIRE
+========================================================= */
+b{ font-weight: 800; } /* force un gras plus fort */
 
-/* <!-- Tablette / petits écrans --> */
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+/* Tablette / petits écrans */
 @media (max-width: 900px){
   .site-header h1{
-    font-size: 34px;
-    padding: 22px 18px;
+    font-size: 34px;       /* h1 plus petit */
+    padding: 22px 18px;    /* padding réduit */
   }
 }
 
-/* <!-- Mobile --> */
+/* Mobile */
 @media (max-width: 768px){
   .site-nav a{
-    font-size: 13px;
-    padding: 9px 10px;
+    font-size: 13px;       /* texte plus petit */
+    padding: 9px 10px;     /* padding réduit */
   }
 
   .popup-contenu{
-    padding: 28px 18px;
+    padding: 28px 18px;    /* popup plus compacte */
   }
 
   .grille-cartes{
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* une colonne */
   }
 
-  /* <!-- Si on force 4 colonnes, on repasse à 2 sur mobile --> */
+  /* Si on force 4 colonnes, on repasse à 2 sur mobile */
   .grille-etapes{
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
-/* <!-- Très petit mobile --> */
+/* Très petit mobile */
 @media (max-width: 600px){
   .grille-etapes{
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr !important; /* une colonne */
   }
 
   .emergency-btn{
-    min-width: 0;
-    flex: 1 1 100%;
+    min-width: 0;         /* retire largeur mini */
+    flex: 1 1 100%;       /* boutons sur toute la largeur */
   }
 }
 
-/* <!-- Ultra petit --> */
+/* Ultra petit */
 @media (max-width: 400px){
-  .site-header h1{ font-size: 28px; }
-  .emergency-btn{ font-size: 0.95rem; padding: 14px 8px; }
+  .site-header h1{ font-size: 28px; } /* h1 encore plus petit */
+  .emergency-btn{ font-size: 0.95rem; padding: 14px 8px; } /* boutons plus compacts */
 }
 
-/* <!-- =========================
-      NUMÉRO D'ÉTAPE DANS LA POPUP
-   ========================= --> */
 
-/* <!-- Header du détail d’étape : centre le contenu --> */
+/* =========================================================
+   NUMÉRO D'ÉTAPE DANS LA POPUP
+========================================================= */
+
+/* En-tête du détail d’étape */
 .etape-detail-header{
-  text-align: center;
-  margin-bottom: 18px;
+  text-align: center;     /* centre le contenu */
+  margin-bottom: 18px;    /* espace dessous */
 }
 
-/* <!-- Rond rouge pour le numéro d’étape (popup) --> */
+/* Rond numéro (version large dans popup) */
 .numero-etape-large{
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
-  color: white;
-  border-radius: 50%;
-  display: flex;
+  width: 100px;           /* largeur */
+  height: 100px;          /* hauteur */
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%); /* dégradé corail */
+  color: white;           /* texte blanc */
+  border-radius: 50%;     /* rond */
+  display: flex;          /* centre contenu */
   align-items: center;
   justify-content: center;
-  font-size: 48px;
-  font-weight: 800;
-  margin: 0 auto 14px auto;
-  box-shadow: 0 12px 32px rgba(225,75,72,0.32); /* ✅ corail */
+  font-size: 48px;        /* taille numéro */
+  font-weight: 800;       /* gras */
+  margin: 0 auto 14px auto; /* centré + marge bas */
+  box-shadow: 0 12px 32px rgba(225,75,72,0.32); /* ombre corail */
 }
-/* <!-- =========================
+
+
+/* =========================================================
    PAGE DÉFIBRILLATEUR : CENTRAGE
-========================= --> */
+========================================================= */
 
-/* <!-- Centre le texte du header de la page défibrillateur --> */
+/* Centre le texte du header dans main */
 main header {
-  text-align: center;
+  text-align: center;     /* centrage */
 }
 
-/* <!-- Centre le texte des sections spécifiques --> */
+/* Centre le texte dans les sections ciblées */
 section[aria-labelledby="defibrillation"],
 section[aria-labelledby="technique-dae"] {
-  text-align: center;
+  text-align: center;     /* centrage texte */
 }
 
-/* <!-- Centre les paragraphes et titres dans ces sections --> */
+/* Centrage + marges auto des paragraphes */
 section[aria-labelledby="defibrillation"] p,
 section[aria-labelledby="technique-dae"] p {
-  margin-left: auto;
+  margin-left: auto;      /* centre dans un max-width éventuel */
   margin-right: auto;
 }
 
-/* <!-- Centre le contenu interne de la section technique DAE --> */
+/* Centre tous les enfants directs de la section technique DAE */
 section[aria-labelledby="technique-dae"] > * {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* <!-- Centre la box vidéo sur la page --> */
+/* Centre la box vidéo + largeur max */
 section[aria-labelledby="technique-dae"] .alert-box {
-  max-width: 720px;
-  margin: 24px auto;
-  text-align: center;
+  max-width: 720px;       /* limite largeur */
+  margin: 24px auto;      /* centré + espace */
+  text-align: center;     /* texte centré */
 }
 
-/* ✅ Numérotation normale partout */
+
+/* =========================================================
+   LISTES : RÈGLES GLOBALES
+========================================================= */
+
+/* Numérotation normale partout */
 ol{
-  list-style: decimal;
-  padding-left: 22px;
+  list-style: decimal;    /* chiffres */
+  padding-left: 22px;     /* retrait */
 }
 
-/* <!-- Numérotation en ronds rouges UNIQUEMENT pour la section DAE --> */
+/* Listes DAE : numéros en ronds (uniquement dans cette section) */
 section[aria-labelledby="technique-dae"] ol {
-  list-style: none;
-  padding-left: 0;
-  margin: 14px auto 0;
-  counter-reset: etape;
-  text-align: left;
-  max-width: 900px;
+  list-style: none;       /* retire numérotation native */
+  padding-left: 0;        /* retire retrait */
+  margin: 14px auto 0;    /* espace au-dessus */
+  counter-reset: etape;   /* initialise le compteur */
+  text-align: left;       /* texte aligné à gauche */
+  max-width: 900px;       /* limite la largeur */
 }
 
-/* <!-- Chaque élément de la liste --> */
+/* Élément de liste DAE */
 section[aria-labelledby="technique-dae"] ol li {
-  counter-increment: etape;
-  position: relative;
-  padding-left: 48px;            /* ✅ place pour le rond */
-  margin-bottom: 14px;
-  line-height: 1.7;
-  color: var(--muted);
+  counter-increment: etape;  /* incrémente le compteur */
+  position: relative;         /* pour placer ::before */
+  padding-left: 48px;         /* espace pour le rond */
+  margin-bottom: 14px;        /* espace entre étapes */
+  line-height: 1.7;           /* interligne */
+  color: var(--muted);        /* couleur douce */
 }
 
-/* <!-- Rond rouge avec le numéro --> */
+/* Rond numéroté DAE */
 section[aria-labelledby="technique-dae"] ol li::before {
-  content: counter(etape);
-  position: absolute;
-  left: 0;
-  top: 0.15em;                   /* ✅ aligne sur la 1ère ligne du texte */
-  width: 28px;
+  content: counter(etape);    /* affiche le compteur */
+  position: absolute;         /* placé par rapport au li */
+  left: 0;                    /* à gauche */
+  top: 0.15em;                /* alignement sur la 1ère ligne */
+  width: 28px;                /* taille du rond */
   height: 28px;
-  background: var(--danger2);    /* ✅ corail */
-  color: #fff;
-  border-radius: 50%;
-  font-weight: 800;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 4px 10px rgba(225,75,72,0.25); /* ✅ corail */
+  background: var(--danger2); /* corail */
+  color: #fff;                /* texte blanc */
+  border-radius: 50%;         /* rond */
+  font-weight: 800;           /* gras */
+  display: grid;              /* centrage */
+  place-items: center;        /* centre chiffre */
+  box-shadow: 0 4px 10px rgba(225,75,72,0.25); /* ombre corail */
 }
 
-/* <!-- =========================
-   BOUTON FLOTTANT SMARTPHONE (SOS)
-   VERSION HAUT DROIT + PLUS GROS
-========================= --> */
 
+/* =========================================================
+   BOUTON FLOTTANT (SOS)
+========================================================= */
 .floating-phone{
-  position: fixed;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%); /* centre verticalement */
-  z-index: 1300;
+  position: fixed;            /* reste visible */
+  top: 50%;                   /* milieu vertical */
+  right: 20px;                /* à droite */
+  transform: translateY(-50%);/* centre verticalement */
+  z-index: 1300;              /* au-dessus des autres */
 
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  display: flex;              /* aligne icône + texte */
+  align-items: center;        /* centre vertical */
+  gap: 14px;                  /* espace */
 
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
+  padding: 16px 20px;         /* padding */
+  border: none;               /* pas de bordure */
+  cursor: pointer;            /* main */
 
-  color: white;
-  font-weight: 900;
-  font-size: 16px;
+  color: white;               /* texte blanc */
+  font-weight: 900;           /* très gras */
+  font-size: 16px;            /* taille texte */
 
-  border-radius: 999px;
+  border-radius: 999px;       /* pill */
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%); /* dégradé corail */
+  box-shadow: 0 22px 50px rgba(225,75,72,0.45); /* ombre forte */
 
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
-  box-shadow: 0 22px 50px rgba(225,75,72,0.45); /* ✅ corail */
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* animations */
 }
 
+/* Hover : zoom */
 .floating-phone:hover{
-  transform: translateY(-50%) scale(1.05);
-  box-shadow: 0 30px 70px rgba(225,75,72,0.60); /* ✅ corail */
+  transform: translateY(-50%) scale(1.05);     /* conserve centrage + zoom */
+  box-shadow: 0 30px 70px rgba(225,75,72,0.60);/* ombre plus forte */
 }
 
+/* Active : effet clic */
 .floating-phone:active{
-  transform: translateY(-50%) scale(0.97);
+  transform: translateY(-50%) scale(0.97);     /* petit écrasement */
 }
 
-/* Icône smartphone */
+/* Icône */
 .floating-phone-icon{
-  width: 48px;       /* ➕ plus grand */
+  width: 48px;               /* taille */
   height: 48px;
-  border-radius: 16px;
-  display: grid;
+  border-radius: 16px;       /* arrondi */
+  display: grid;             /* centrage */
   place-items: center;
-  background: rgba(255,255,255,0.2);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
-  font-size: 24px;
+  background: rgba(255,255,255,0.2);           /* fond translucide */
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25); /* relief */
+  font-size: 24px;           /* taille icône */
 }
 
-/* Texte SOS */
+/* Texte */
 .floating-phone-text{
-  letter-spacing: 1px;
-  font-size: 16px;
+  letter-spacing: 1px;       /* espacement lettres */
+  font-size: 16px;           /* taille */
 }
 
-/* <!-- =========================
+
+/* =========================================================
    SMARTPHONE DANS POPUP
-========================= --> */
-
+========================================================= */
 .smartphone{
-  width: 340px;
-  margin: 0 auto;
-  background: linear-gradient(145deg, #1f2937, #111827);
-  border-radius: 46px;
-  padding: 14px;
-  box-shadow: 0 28px 80px rgba(0,0,0,0.35);
-  position: relative;
+  width: 340px;                                   /* largeur fixe */
+  margin: 0 auto;                                  /* centré */
+  background: linear-gradient(145deg, #1f2937, #111827); /* coque sombre */
+  border-radius: 46px;                             /* arrondi */
+  padding: 14px;                                   /* bord interne */
+  box-shadow: 0 28px 80px rgba(0,0,0,0.35);        /* ombre */
+  position: relative;                              /* pour .notch */
 }
 
+/* Encoche */
 .smartphone .notch{
-  position: absolute;
+  position: absolute;                              /* positionnée dans smartphone */
   top: 14px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%);                     /* centrage horizontal */
   width: 130px;
   height: 26px;
   background: #000;
-  border-radius: 0 0 18px 18px;
+  border-radius: 0 0 18px 18px;                    /* forme encoche */
   box-shadow: 0 4px 10px rgba(0,0,0,0.35);
 }
 
+/* Écran */
 .smartphone .screen{
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  border-radius: 36px;
-  padding: 46px 18px 18px;
-  min-height: 520px;
-  color: white;
-  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* fond écran */
+  border-radius: 36px;                            /* arrondi */
+  padding: 46px 18px 18px;                        /* espace haut (barre) + côtés */
+  min-height: 520px;                               /* hauteur mini */
+  color: white;                                    /* texte blanc */
+  overflow: hidden;                                /* coupe débordements */
 }
 
+/* Barre de statut */
 .smartphone .status-bar{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  opacity: 0.9;
-  font-size: 13px;
-  font-weight: 800;
-  margin-bottom: 12px;
+  display: flex;                                   /* disposition */
+  justify-content: space-between;                  /* extrémités */
+  align-items: center;                             /* alignement vertical */
+  opacity: 0.9;                                    /* léger voile */
+  font-size: 13px;                                 /* taille */
+  font-weight: 800;                                /* gras */
+  margin-bottom: 12px;                             /* espace dessous */
 }
 
+/* Heure en corail */
 .smartphone .status-bar .time{
-  color: var(--danger1); /* ✅ corail */
+  color: var(--danger1);
 }
 
+/* Grille des boutons */
 .emergency-grid{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 12px;
+  display: grid;                                   /* grille */
+  grid-template-columns: repeat(2, 1fr);           /* 2 colonnes */
+  gap: 12px;                                       /* espace */
+  margin-top: 12px;                                /* espace haut */
 }
 
+/* Tuile (bouton) */
 .emergency-tile{
-  text-decoration: none;
-  color: white;
-  border-radius: 20px;
-  padding: 18px 12px;
-  min-height: 120px;
+  text-decoration: none;                           /* pas de soulignement */
+  color: white;                                    /* texte blanc */
+  border-radius: 20px;                             /* arrondi */
+  padding: 18px 12px;                              /* padding */
+  min-height: 120px;                               /* hauteur mini */
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: flex;                                   /* centrage */
+  flex-direction: column;                          /* vertical */
+  align-items: center;                             /* centrer horizontal */
+  justify-content: center;                         /* centrer vertical */
 
-  background: linear-gradient(135deg, rgba(242,95,92,0.92) 0%, rgba(159,47,47,0.92) 100%); /* ✅ corail */
-  border: 2px solid rgba(255,255,255,0.14);
-  box-shadow: 0 10px 28px rgba(225,75,72,0.25); /* ✅ corail */
+  background: linear-gradient(135deg, rgba(242,95,92,0.92) 0%, rgba(159,47,47,0.92) 100%); /* dégradé */
+  border: 2px solid rgba(255,255,255,0.14);        /* bordure légère */
+  box-shadow: 0 10px 28px rgba(225,75,72,0.25);    /* ombre corail */
 
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; /* animation */
 }
 
+/* Hover tuile */
 .emergency-tile:hover{
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 14px 40px rgba(225,75,72,0.35); /* ✅ corail */
-  border-color: rgba(255,255,255,0.28);
+  transform: translateY(-4px) scale(1.02);         /* monte + zoom */
+  box-shadow: 0 14px 40px rgba(225,75,72,0.35);    /* ombre plus forte */
+  border-color: rgba(255,255,255,0.28);            /* bordure plus visible */
 }
 
+/* Clic tuile */
 .emergency-tile:active{
   transform: scale(0.98);
 }
 
+/* Numéro */
 .emergency-tile .num{
-  font-size: 40px;
-  font-weight: 900;
-  line-height: 1;
-  margin-bottom: 8px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+  font-size: 40px;                                 /* taille numéro */
+  font-weight: 900;                                /* très gras */
+  line-height: 1;                                  /* compact */
+  margin-bottom: 8px;                              /* espace dessous */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);        /* ombre texte */
 }
 
+/* Libellé */
 .emergency-tile .label{
-  font-size: 12px;
-  font-weight: 700;
-  opacity: 0.95;
-  text-align: center;
-  line-height: 1.3;
+  font-size: 12px;                                 /* taille */
+  font-weight: 700;                                /* gras */
+  opacity: 0.95;                                   /* léger voile */
+  text-align: center;                              /* centré */
+  line-height: 1.3;                                /* interligne */
 }
 
-/* Un petit espace en bas comme la barre iPhone */
+/* Barre iPhone en bas */
 .smartphone .home-indicator{
-  width: 130px;
-  height: 5px;
-  margin: 14px auto 0;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.25);
+  width: 130px;                                    /* largeur */
+  height: 5px;                                     /* hauteur */
+  margin: 14px auto 0;                              /* centré + marge haut */
+  border-radius: 10px;                              /* arrondi */
+  background: rgba(255,255,255,0.25);              /* gris clair */
 }
 
-/* <!-- =========================
+
+/* =========================================================
    ACCUEIL : GRILLE SPÉCIALE FICHES
-========================= --> */
-
-/* Grille principale de l’accueil */
+   ⚠️ ATTENTION : tu redéfinis .grille-cartes plus haut déjà.
+========================================================= */
 .grille-cartes{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* 3 colonnes */
-  grid-auto-rows: 1fr;               /* mêmes hauteurs */
-  gap: 18px;
+  display: grid;                         /* grid */
+  grid-template-columns: 1fr 1fr 1fr;    /* 3 colonnes */
+  grid-auto-rows: 1fr;                   /* mêmes hauteurs */
+  gap: 18px;                             /* espace */
 }
 
-/* Carte "Les 4 étapes" à gauche */
+/* Carte principale à gauche */
 .carte-principale{
-  grid-column: 1;     /* colonne de gauche */
-  grid-row: 1 / span 3; /* prend 3 lignes */
+  grid-column: 1;                        /* colonne 1 */
+  grid-row: 1 / span 3;                  /* occupe 3 lignes */
 }
 
-/* Toutes les cartes ont la même hauteur */
+/* Toutes les cartes même hauteur + centrage */
 .grille-cartes .carte{
-  height: 100%;
-  display: flex;
+  height: 100%;                          /* même hauteur */
+  display: flex;                          /* centre contenu */
   align-items: center;
   justify-content: center;
 }
@@ -892,204 +961,218 @@ section[aria-labelledby="technique-dae"] ol li::before {
   text-align: center;
 }
 
-/* =========================
-   RESPONSIVE (mobile)
-========================= */
+/* Responsive pour la grille spéciale */
 @media (max-width: 900px){
   .grille-cartes{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
   }
 
   .carte-principale{
-    grid-column: 1 / -1; /* passe en pleine largeur */
-    grid-row: auto;
+    grid-column: 1 / -1;  /* pleine largeur */
+    grid-row: auto;       /* redevient normal */
   }
 }
 
 @media (max-width: 600px){
   .grille-cartes{
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 1 colonne */
   }
 }
 
-/* =========================
-   IMAGE CONTEXTE FRANCE
-========================= */
 
+/* =========================================================
+   IMAGE CONTEXTE FRANCE
+========================================================= */
 .section-contexte{
-  text-align: center;
+  text-align: center;                   /* centre contenu */
 }
 
 .image-france{
-  margin: 18px auto 24px;
-  max-width: 320px;
+  margin: 18px auto 24px;               /* centré + marges */
+  max-width: 320px;                     /* limite largeur */
 }
 
 .image-france img{
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  width: 100%;                          /* responsive */
+  height: auto;                         /* proportions */
+  border-radius: 16px;                  /* arrondi */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* ombre */
 }
 
 .image-france figcaption{
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 8px;
+  font-size: 13px;                      /* petit texte */
+  color: var(--muted);                  /* doux */
+  margin-top: 8px;                      /* espace */
 }
 
+/* Alerte centrée (règles 15) */
 section[aria-labelledby="regles-15"] .alert-box{
-  max-width: 720px;
-  margin: 28px auto 0;
-  text-align: center;
+  max-width: 720px;                     /* limite largeur */
+  margin: 28px auto 0;                  /* centré */
+  text-align: center;                   /* texte centré */
 }
 
-/* =========================
+
+/* =========================================================
    BRÛLURES – règle des 3x15
-========================= */
-
+   - remplace la grille par flex pour centrer 3 cartes
+========================================================= */
 section[aria-labelledby="regles-15"] .grille-etapes{
-  display: flex;                 /* au lieu de grid */
-  justify-content: center;       /* centre horizontalement */
-  gap: 24px;                     /* espace entre les 3 étapes */
-  flex-wrap: wrap;               /* responsive */
+  display: flex;              /* flex au lieu de grid */
+  justify-content: center;    /* centré */
+  gap: 24px;                  /* espace */
+  flex-wrap: wrap;            /* responsive */
 }
 
+/* Taille homogène des étapes */
 section[aria-labelledby="regles-15"] .etape{
-  max-width: 260px;              /* taille homogène */
-  flex: 1 1 260px;
+  max-width: 260px;           /* limite */
+  flex: 1 1 260px;            /* base 260px + wrap */
 }
-/* =========================
-   BRÛLURES – Etapes soulager ce type de brûlure à la maison ?
-========================= */
 
+
+/* =========================================================
+   BRÛLURES – Etapes (à la maison)
+========================================================= */
 section[aria-labelledby="etapes"] .grille-etapes{
-  display: flex;                 /* au lieu de grid */
-  justify-content: center;       /* centre horizontalement */
-  gap: 24px;                     /* espace entre les 3 étapes */
-  flex-wrap: wrap;               /* responsive */
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 section[aria-labelledby="etapes"] .etape{
-  max-width: 260px;              /* taille homogène */
+  max-width: 260px;
   flex: 1 1 260px;
 }
 
-/* =========================
-   BRÛLURES – Etapes soulager ce type de brûlure à la maison ?
-========================= */
 
+/* =========================================================
+   DAE – Etapes (bloc spécifique)
+   ⚠️ Tu cibles "section[aria-labelledby="etapes-dae"] .grille-etapes"
+   mais plus haut tu utilises aussi .grille-etapes-dae
+========================================================= */
 section[aria-labelledby="etapes-dae"] .grille-etapes{
-  display: flex;                 /* au lieu de grid */
-  justify-content: center;       /* centre horizontalement */
-  gap: 24px;                     /* espace entre les 3 étapes */
-  flex-wrap: wrap;               /* responsive */
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 section[aria-labelledby="etapes-dae"] .etape{
-  max-width: 260px;              /* taille homogène */
+  max-width: 260px;
   flex: 1 1 260px;
 }
 
-/* =========================
+
+/* =========================================================
    CARTE VIDEO (alternative embed)
-========================= */
+========================================================= */
 .video-card{
-  max-width: 720px;
-  margin: 22px auto;
-  background: rgba(255,255,255,0.85);
-  border: 1px solid rgba(255,255,255,0.40);
-  border-radius: 18px;
-  padding: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+  max-width: 720px;                             /* limite largeur */
+  margin: 22px auto;                            /* centré */
+  background: rgba(255,255,255,0.85);           /* fond glass */
+  border: 1px solid rgba(255,255,255,0.40);     /* bordure légère */
+  border-radius: 18px;                          /* arrondi */
+  padding: 16px;                                /* padding */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);     /* ombre */
 }
 
+/* Titre dans la carte vidéo */
 .video-card-head strong{
-  display: block;
-  font-size: 16px;
-  color: var(--ink);
-  margin-bottom: 6px;
+  display: block;                               /* sur une ligne */
+  font-size: 16px;                              /* taille */
+  color: var(--ink);                            /* couleur */
+  margin-bottom: 6px;                           /* espace */
 }
 
+/* Texte descriptif */
 .video-card-head p{
-  margin: 0 0 12px 0;
-  color: var(--muted);
+  margin: 0 0 12px 0;                           /* marge bas */
+  color: var(--muted);                          /* couleur douce */
 }
 
+/* Bouton “Regarder sur YouTube” */
 .video-preview{
-  display: flex;
+  display: flex;                                /* alignement */
   align-items: center;
   justify-content: center;
   gap: 10px;
 
-  text-decoration: none;
-  color: white;
-  font-weight: 900;
+  text-decoration: none;                        /* pas de soulignement */
+  color: white;                                 /* texte blanc */
+  font-weight: 900;                             /* très gras */
 
-  padding: 14px 16px;
-  border-radius: 14px;
+  padding: 14px 16px;                           /* padding */
+  border-radius: 14px;                          /* arrondi */
 
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
-  box-shadow: 0 12px 26px rgba(225,75,72,0.25); /* ✅ corail */
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%); /* corail */
+  box-shadow: 0 12px 26px rgba(225,75,72,0.25); /* ombre */
+  transition: transform 0.15s ease, box-shadow 0.15s ease; /* animation */
 }
 
+/* Hover bouton vidéo */
 .video-preview:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(225,75,72,0.35); /* ✅ corail */
+  transform: translateY(-2px);                  /* monte un peu */
+  box-shadow: 0 18px 40px rgba(225,75,72,0.35); /* ombre plus forte */
 }
 
+/* Clic bouton vidéo */
 .video-preview:active{
   transform: scale(0.98);
 }
 
+/* Badge play */
 .play-badge{
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: 50%;                           /* rond */
   display: grid;
-  place-items: center;
-  background: rgba(255,255,255,0.18);
+  place-items: center;                          /* centre */
+  background: rgba(255,255,255,0.18);           /* fond translucide */
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
   font-size: 16px;
 }
 
+/* Texte du bouton */
 .video-preview-text{
   font-size: 15px;
   letter-spacing: 0.3px;
 }
 
-/* =========================
+
+/* =========================================================
    VIDEO LOCALE – MISE EN VALEUR
-========================= */
-
+========================================================= */
 .video-box{
-  max-width: 800px;
-  margin: 24px auto;
-  padding: 16px;
+  max-width: 800px;                             /* limite largeur */
+  margin: 24px auto;                            /* centré */
+  padding: 16px;                                /* padding */
 
-  background: rgba(255,255,255,0.9);
-  border-radius: 20px;
+  background: rgba(255,255,255,0.9);            /* fond clair */
+  border-radius: 20px;                          /* arrondi */
 
-  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-  border: 2px solid rgba(242,95,92,0.25); /* ✅ corail */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);     /* ombre */
+  border: 2px solid rgba(242,95,92,0.25);       /* bordure corail */
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Hover vidéo */
 .video-box:hover{
   transform: translateY(-4px);
-  box-shadow: 0 28px 70px rgba(225,75,72,0.25); /* ✅ corail */
+  box-shadow: 0 28px 70px rgba(225,75,72,0.25);
 }
 
+/* Vidéo dans la box */
 .video-box video{
-  width: 100%;
-  height: auto;
-  border-radius: 14px;
-  display: block;
+  width: 100%;                                  /* responsive */
+  height: auto;                                 /* proportions */
+  border-radius: 14px;                          /* arrondi */
+  display: block;                               /* évite petits gaps */
 }
 
-/* Légende sous la vidéo */
+/* Légende vidéo */
 .video-caption{
   text-align: center;
   font-size: 14px;
@@ -1097,21 +1180,24 @@ section[aria-labelledby="etapes-dae"] .etape{
   margin-top: 8px;
 }
 
-/* =========================
-   LISTES DANS LE CONTENU (retrait)
-========================= */
 
+/* =========================================================
+   LISTES DANS LE CONTENU
+========================================================= */
 main ul,
 main ol{
-  padding-left: 28px;   /* ✅ retrait */
-  margin: 10px 0 10px;  /* ✅ espace vertical */
+  padding-left: 28px;     /* retrait */
+  margin: 10px 0 10px;    /* espace vertical */
 }
 
 main li{
-  margin-bottom: 6px;   /* ✅ respiration */
+  margin-bottom: 6px;     /* respiration */
 }
 
-/* IMAGE DE LA MISE EN PLS*/
+
+/* =========================================================
+   IMAGE PLS (mise en valeur)
+========================================================= */
 .image-contenu{
   width: 100%;
   max-width: 600px;
@@ -1121,17 +1207,20 @@ main li{
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
+/* Ajustement spécifique page hémorragie */
 .page-hemorragie .video-box { max-width: 520px; }
 
-/* =========================
-   SECTION CONTACT (avant footer)
-========================= */
+
+/* =========================================================
+   SECTION CONTACT
+========================================================= */
 .contact-section{
   max-width: 1200px;
   margin: 40px auto 10px;
   text-align: center;
 }
 
+/* Bouton contact */
 .contact-btn{
   border: none;
   cursor: pointer;
@@ -1142,28 +1231,32 @@ main li{
   color: white;
   border-radius: 20px;
   background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  box-shadow: 0 20px 50px rgba(225,75,72,0.25); /* ✅ corail */
+  box-shadow: 0 20px 50px rgba(225,75,72,0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Hover bouton */
 .contact-btn:hover{
   transform: translateY(-4px);
-  box-shadow: 0 30px 70px rgba(225,75,72,0.35); /* ✅ corail */
+  box-shadow: 0 30px 70px rgba(225,75,72,0.35);
 }
 
+/* Clic bouton */
 .contact-btn:active{
   transform: scale(0.97);
 }
 
-/* =========================
+
+/* =========================================================
    FORMULAIRE CONTACT (popup)
-========================= */
+========================================================= */
 .form-contact{
   display: grid;
   gap: 12px;
   margin-top: 14px;
 }
 
+/* Label */
 .form-contact label{
   font-weight: 800;
   color: var(--ink);
@@ -1171,12 +1264,13 @@ main li{
   margin-bottom: 6px;
 }
 
+/* Champs */
 .form-contact input,
 .form-contact textarea{
   width: 100%;
   padding: 12px 12px;
   border-radius: 14px;
-  border: 1px solid rgba(242,95,92,0.22); /* ✅ corail */
+  border: 1px solid rgba(242,95,92,0.22);
   background: rgba(247,250,252,0.9);
   font-family: inherit;
   font-size: 14px;
@@ -1185,28 +1279,33 @@ main li{
   transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
+/* Focus (quand on clique dans un champ) */
 .form-contact input:focus,
 .form-contact textarea:focus{
-  border-color: rgba(242,95,92,0.55); /* ✅ corail */
-  box-shadow: 0 10px 24px rgba(225,75,72,0.18); /* ✅ corail */
+  border-color: rgba(242,95,92,0.55);
+  box-shadow: 0 10px 24px rgba(225,75,72,0.18);
   transform: translateY(-1px);
 }
 
+/* Textarea */
 .form-contact textarea{
   min-height: 160px;
-  resize: vertical;
+  resize: vertical;        /* permet de redimensionner verticalement */
 }
 
+/* Ligne de 2 champs */
 .form-contact .row-2{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
+/* Sur mobile : repasse à 1 colonne */
 @media (max-width: 600px){
   .form-contact .row-2{ grid-template-columns: 1fr; }
 }
 
+/* Indications sous les champs */
 .form-contact .hint{
   font-size: 12px;
   color: var(--muted);
@@ -1215,6 +1314,7 @@ main li{
   gap: 10px;
 }
 
+/* Bouton envoyer */
 .btn-submit{
   border: none;
   cursor: pointer;
@@ -1223,37 +1323,43 @@ main li{
   font-weight: 900;
   color: white;
   background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  box-shadow: 0 14px 30px rgba(225,75,72,0.20); /* ✅ corail */
+  box-shadow: 0 14px 30px rgba(225,75,72,0.20);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
+/* Hover envoyer */
 .btn-submit:hover{
   transform: translateY(-2px);
-  box-shadow: 0 20px 44px rgba(225,75,72,0.28); /* ✅ corail */
+  box-shadow: 0 20px 44px rgba(225,75,72,0.28);
 }
 
+/* Clic envoyer */
 .btn-submit:active{
   transform: scale(0.98);
 }
 
+
+/* =========================================================
+   IMAGE + LÉGENDE (figure)
+========================================================= */
+
 /* Conteneur global de l’image + légende */
 .image-container {
-  text-align: center;      /* Centre le contenu (image + texte) horizontalement */
-  margin: 20px 0;          /* Ajoute un espace au-dessus et en dessous du bloc */
+  text-align: center;      /* centre image + texte */
+  margin: 20px 0;          /* espace vertical */
 }
 
-/* Style de l’image */
+/* Image responsive */
 .image-container img {
-  width: 100%;             /* L’image prend toute la largeur disponible du conteneur */
-  max-width: 600px;        /* Mais ne dépassera jamais 600px sur grand écran */
-  height: auto;            /* Conserve les proportions (évite la déformation) */
-  border-radius: 8px;      /* Arrondit légèrement les coins pour un rendu plus moderne */
+  width: 100%;             /* prend la largeur disponible */
+  max-width: 600px;        /* limite sur grand écran */
+  height: auto;            /* garde proportions */
+  border-radius: 8px;      /* coins arrondis */
 }
 
-/* Style de la légende (source) */
+/* Légende */
 .image-container figcaption {
-  font-size: 0.9rem;       /* Rend le texte légèrement plus petit */
-  color: #666;             /* Couleur gris doux pour ne pas attirer trop l’attention */
-  margin-top: 8px;         /* Petit espace entre l’image et la légende */
+  font-size: 0.9rem;       /* texte plus petit */
+  color: #666;             /* gris doux */
+  margin-top: 8px;         /* espace sous l’image */
 }
-
