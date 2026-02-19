@@ -1,62 +1,30 @@
 /* =========================================================
-   IMPORT POLICE
-   - Import de la police Inter depuis Google Fonts
-   - Utilisée sur tout le site
+   POLICE
 ========================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 
 
 /* =========================================================
-   RESET GLOBAL
-   - Supprime marges/paddings par défaut du navigateur
-   - box-sizing: border-box => width/height incluent padding + border
+   RESET
 ========================================================= */
-* {
-  margin: 0;               /* retire les marges par défaut */
-  padding: 0;              /* retire les paddings par défaut */
-  box-sizing: border-box;  /* calcul plus simple des tailles */
-}
+*{ margin:0; padding:0; box-sizing:border-box; }
+img, video{ max-width:100%; height:auto; display:block; }
+a{ color: inherit; }
 
 
 /* =========================================================
-   TITRE H2 (spécifique)
-   ⚠️ NOTE : Tu as un autre bloc "main h2" plus bas.
-   - Celui-ci donne un style "cadre" (glass + bordure + ombre)
-========================================================= */
-main h2{
-  font-size: 38px;                 /* taille de titre */
-  font-weight: 900;                /* très gras */
-  color: var(--ink);               /* couleur texte principale */
-
-  display: inline-block;           /* le fond/bordure épouse le texte */
-  padding: 12px 16px;              /* espace interne du "cadre" */
-  margin: 18px 0 14px;             /* espace autour du titre */
-
-  background: rgba(255,255,255,0.70);          /* fond blanc semi-transparent */
-  border: 2px solid rgba(242,95,92,0.35);      /* bordure corail légère */
-  border-radius: 16px;                         /* coins arrondis */
-  box-shadow: 0 10px 26px rgba(225,75,72,0.15);/* ombre douce corail */
-}
-
-
-/* =========================================================
-   VARIABLES GLOBALES
-   - Couleurs réutilisables partout via var(--nom)
+   VARIABLES
 ========================================================= */
 :root{
-  /* Fonds (dégradé du body) */
-  --bg1:#fff3e8;           /* crème chaude */
-  --bg2:#f2c8b8;           /* pêche douce */
+  --bg1:#fff3e8;
+  --bg2:#f2c8b8;
 
-  /* Texte */
-  --ink:#1a202c;           /* texte principal */
-  --muted:#4a5568;         /* texte secondaire */
+  --ink:#1a202c;
+  --muted:#4a5568;
 
-  /* Couleurs de marque (corail) */
-  --brand1:#f25f5c;        /* corail */
-  --brand2:#9f2f2f;        /* corail profond */
+  --brand1:#f25f5c;
+  --brand2:#9f2f2f;
 
-  /* Couleurs d’urgence (cohérentes partout) */
   --danger1:#f25f5c;
   --danger2:#e14b48;
   --danger3:#9f2f2f;
@@ -64,1515 +32,491 @@ main h2{
 
 
 /* =========================================================
-   BODY
-   - Police, fond en dégradé, couleur texte, padding général
+   BASE
 ========================================================= */
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* police + fallback */
-  padding: 32px 20px;                                                        /* marge intérieure globale */
-  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);        /* fond dégradé */
-  min-height: 100vh;                                                         /* hauteur min pleine page */
-  color: var(--ink);                                                         /* couleur texte */
+body{
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding: 32px 20px;
+  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+  min-height:100vh;
+  color: var(--ink);
 }
+
+main{ max-width:1200px; margin:0 auto; }
+main section, main article{ margin:22px 0; }
+
+main header{ text-align:center; }
+
+main h2{
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--ink);
+
+  display:inline-block;
+  padding: 12px 16px;
+  margin: 18px 0 14px;
+
+  background: rgba(255,255,255,0.70);
+  border: 2px solid rgba(242,95,92,0.35);
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(225,75,72,0.15);
+}
+
+main h3{
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--brand1);
+  margin-bottom: 10px;
+}
+
+main p{
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 6px;
+}
+
+main ul, main ol{
+  padding-left: 28px;
+  margin: 10px 0;
+}
+main li{ margin-bottom: 6px; }
+
+b, strong{ font-weight: 900; }
 
 
 /* =========================================================
    HEADER + NAV
 ========================================================= */
+.site-header{ max-width:1200px; margin:0 auto 28px; }
 
-/* Conteneur du header
-   - limite la largeur
-   - centre le contenu
-   - ajoute un espace en bas */
-.site-header{
-  max-width: 1200px;       /* largeur maximale */
-  margin: 0 auto 28px;     /* centré + marge en bas */
-}
-
-/* Titre principal (h1)
-   - look "bannière" avec dégradé + ombre */
 .site-header h1{
-  font-size: 44px;         /* taille du titre */
-  font-weight: 800;        /* très gras */
-  text-align: center;      /* centré */
-  padding: 28px 22px;      /* espace interne */
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%); /* fond dégradé */
-  color: #fff;             /* texte blanc */
-  border-radius: 20px;     /* coins arrondis */
-  margin: 0 0 18px 0;      /* marge sous le h1 */
-  box-shadow: 0 20px 60px rgba(225,75,72,0.25); /* ombre corail */
-  letter-spacing: -1px;    /* resserre un peu les lettres */
-  line-height: 1.15;       /* interligne du titre */
-}
+  font-size: 44px;
+  font-weight: 800;
+  text-align:center;
+  padding: 28px 22px;
 
-/* Bloc navigation (.site-nav)
-   - effet "glassmorphism" */
-.site-nav{
-  background: rgba(255,255,255,0.75);       /* blanc semi-transparent */
-  backdrop-filter: blur(10px);              /* flou derrière (si supporté) */
-  border: 1px solid rgba(255,255,255,0.35); /* bordure légère */
-  border-radius: 16px;                      /* coins */
-  box-shadow: 0 8px 32px rgba(225,75,72,0.10); /* ombre corail */
-  padding: 10px;                            /* padding interne */
-}
-
-/* Liste nav
-   - flex en ligne
-   - wrap si pas de place
-   - centrée */
-.site-nav ul{
-  list-style: none;         /* supprime puces */
-  display: flex;            /* layout flex */
-  flex-wrap: wrap;          /* passe à la ligne si besoin */
-  gap: 10px;                /* espace entre items */
-  justify-content: center;  /* centre horizontalement */
-  align-items: center;      /* centre verticalement */
-}
-
-/* Lien nav
-   - style “pill” + animations */
-.site-nav a{
-  display: inline-block;     /* comportement de bouton */
-  text-decoration: none;     /* pas de soulignement */
-  color: var(--ink);         /* couleur texte */
-  font-weight: 700;          /* gras */
-  font-size: 14px;           /* taille */
-  padding: 10px 12px;        /* padding */
-  border-radius: 12px;       /* arrondi */
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; /* animations */
-  background: rgba(242,95,92,0.08); /* fond corail léger */
-}
-
-/* Hover lien nav
-   - légère montée + ombre */
-.site-nav a:hover{
-  transform: translateY(-2px);               /* monte un peu */
-  background: rgba(242,95,92,0.14);          /* fond un peu plus fort */
-  box-shadow: 0 10px 24px rgba(225,75,72,0.18); /* ombre corail */
-}
-
-/* Lien actif
-   - aria-current="page" */
-.site-nav a[aria-current="page"]{
-  background: linear-gradient(135deg, rgba(242,95,92,0.95) 0%, rgba(159,47,47,0.95) 100%); /* dégradé plein */
-  color: #fff;                               /* texte blanc */
-  box-shadow: 0 10px 24px rgba(225,75,72,0.22); /* ombre corail */
-}
-
-
-/* =========================================================
-   MAIN / SECTIONS
-========================================================= */
-
-/* Main
-   - centre la page
-   - largeur max */
-main{
-  max-width: 1200px;       /* limite largeur */
-  margin: 0 auto;          /* centre */
-}
-
-/* Espacement entre sections / articles */
-main section,
-main article{
-  margin: 22px 0;          /* espace vertical */
-}
-
-/* Titres h2 (2e définition)
-   ⚠️ ATTENTION : ceci redéfinit main h2 et peut écraser le bloc du haut
-   - ici, style simple (pas le cadre) */
-main h2{
-  font-size: 28px;         /* taille */
-  font-weight: 800;        /* gras */
-  color: var(--brand2);    /* corail profond */
-  margin-bottom: 10px;     /* espace sous le titre */
-}
-
-/* Titres h3 */
-main h3{
-  font-size: 22px;         /* taille */
-  font-weight: 800;        /* gras */
-  color: var(--brand1);    /* corail */
-  margin-bottom: 10px;     /* espace sous le titre */
-}
-
-/* Paragraphes */
-main p{
-  color: var(--muted);     /* texte plus doux */
-  line-height: 1.7;        /* confort de lecture */
-  margin-top: 6px;         /* petite respiration */
-}
-
-
-/* =========================================================
-   GRILLE DES CARTES (accueil)
-========================================================= */
-
-/* Conteneur des cartes */
-.grille-cartes {
-  display: grid;                                           /* grid layout */
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* colonnes auto */
-  gap: 18px;                                               /* espace entre cartes */
-  margin-top: 18px;                                        /* espace au-dessus */
-}
-
-/* Carte (lien) */
-.carte {
-  background: rgba(255, 255, 255, 0.9);     /* fond clair */
-  backdrop-filter: blur(10px);              /* effet glass */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* bordure légère */
-  border-radius: 20px;                      /* arrondi */
-  padding: 26px 20px;                       /* padding */
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15); /* ombre (bleutée ici) */
-  text-decoration: none;                    /* pas de soulignement */
-  color: inherit;                           /* prend la couleur du parent */
-  display: block;                           /* bloc cliquable */
-  cursor: pointer;                          /* curseur main */
-  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* animation "spring" */
-  position: relative;                       /* nécessaire pour ::before */
-  overflow: hidden;                         /* cache le voile */
-}
-
-/* Voile sur la carte (invisible par défaut) */
-.carte::before {
-  content: '';                              /* pseudo-élément */
-  position: absolute;                       /* couvre toute la carte */
-  inset: 0;                                 /* top/right/bottom/left: 0 */
-  background: linear-gradient(135deg, rgba(242,95,92,0.10) 0%, rgba(159,47,47,0.10) 100%); /* voile corail */
-  opacity: 0;                               /* caché */
-  transition: opacity 0.35s ease;           /* transition douce */
-  z-index: 0;                               /* derrière le texte */
-}
-
-/* Activation du voile au hover */
-.carte:hover::before {
-  opacity: 1;                               /* apparaît */
-}
-
-/* Hover carte */
-.carte:hover {
-  transform: translateY(-10px) scale(1.02); /* monte + zoom */
-  box-shadow: 0 20px 60px rgba(225,75,72,0.18); /* ombre corail */
-  border-color: rgba(242,95,92,0.22);       /* bordure corail */
-}
-
-/* Titre dans la carte */
-.carte h3{
-  margin: 0;                                /* pas de marge */
-  text-align: center;                       /* centré */
-  font-size: 20px;                          /* taille */
-  font-weight: 800;                         /* gras */
-
-  /* Texte en dégradé */
   background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  position: relative;                       /* pour être au-dessus du voile */
-  z-index: 1;                               /* devant ::before */
+  color:#fff;
+  border-radius: 20px;
+  margin: 0 0 18px 0;
+  box-shadow: 0 20px 60px rgba(225,75,72,0.25);
+  letter-spacing: -1px;
+  line-height: 1.15;
 }
 
-/* Zoom léger du titre au hover */
-.carte:hover h3{
-  transform: scale(1.05);                   /* zoom */
+.site-nav{
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(225,75,72,0.10);
+  padding: 10px;
 }
 
-
-/* =========================================================
-   ETAPES (page "Les 4 étapes…")
-========================================================= */
-
-/* Grilles étapes */
-.grille-etapes,
-.grille-etapes-dae {
-  display: grid;                                           /* grid */
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* responsive auto */
-  gap: 18px;                                               /* espace */
-  margin-top: 18px;                                        /* marge */
+.site-nav ul{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
 }
 
-/* Carte étape */
-.etape {
-  background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%); /* fond léger */
-  border: 2px solid #e2e8f0;               /* bordure grise */
-  border-radius: 20px;                    /* arrondi */
-  padding: 22px 18px;                     /* padding */
-  text-align: center;                     /* contenu centré */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); /* ombre */
-  transition: all 0.25s ease;             /* animation */
-  cursor: pointer;                        /* cliquable */
-  height: 100%;                           /* prend toute la hauteur de la grille */
+.site-nav a{
+  display:inline-block;
+  text-decoration:none;
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(242,95,92,0.08);
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
 }
 
-/* Hover étape */
-.etape:hover {
-  transform: translateY(-4px);            /* monte légèrement */
-  box-shadow: 0 12px 32px rgba(225,75,72,0.14); /* ombre corail */
-  border-color: var(--brand1);            /* bordure corail */
+.site-nav a:hover{
+  transform: translateY(-2px);
+  background: rgba(242,95,92,0.14);
+  box-shadow: 0 10px 24px rgba(225,75,72,0.18);
 }
 
-/* Cercle numéro d’étape */
-.numero-etape {
-  width: 72px;                            /* largeur */
-  height: 72px;                           /* hauteur */
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%); /* dégradé corail */
-  color: white;                           /* texte blanc */
-  border-radius: 50%;                     /* rond */
-  display: flex;                          /* centrer */
-  align-items: center;                    /* centrer vertical */
-  justify-content: center;                /* centrer horizontal */
-  font-size: 34px;                        /* taille numéro */
-  font-weight: 800;                       /* gras */
-  margin: 0 auto 14px auto;               /* centré + marge bas */
-  box-shadow: 0 8px 24px rgba(225,75,72,0.28); /* ombre corail */
-}
-
-/* Titre h4 dans une étape */
-.etape h4 {
-  font-size: 18px;                        /* taille */
-  font-weight: 800;                       /* gras */
-  margin: 10px 0 14px;                    /* marges */
-  color: var(--ink);                      /* couleur texte */
-}
-
-/* Image d’illustration d’étape */
-.illustration-etape{
-  width: 100%;                            /* largeur responsive */
-  max-width: 140px;                       /* limite sur desktop */
-  height: auto;                           /* garde proportions */
-  display: block;                         /* bloc */
-  margin: 0 auto;                         /* centré */
-  border-radius: 14px;                    /* arrondi */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);/* ombre */
-}
-
-/* Étape "large" : occupe toute la ligne */
-.etape-large {
-  grid-column: 1 / -1;                    /* prend toutes les colonnes */
-}
-
-/* Forçage 4 colonnes (desktop)
-   ⚠️ prend le dessus sur auto-fit */
-.grille-etapes { 
-  grid-template-columns: repeat(4, 1fr) !important; 
-}
-.grille-etapes-dae { 
-  grid-template-columns: repeat(4, 1fr) !important; 
-}
-
-/* Sur la DAE, une étape large peut prendre 2 colonnes */
-.grille-etapes-dae .etape-large {
-  grid-column: span 2;                    /* prend 2 colonnes */
+.site-nav a[aria-current="page"]{
+  background: linear-gradient(135deg, rgba(242,95,92,0.95) 0%, rgba(159,47,47,0.95) 100%);
+  color:#fff;
+  box-shadow: 0 10px 24px rgba(225,75,72,0.22);
 }
 
 
 /* =========================================================
-   POPUP (créée par ton JS)
+   GRILLES (Accueil / etc.)
+========================================================= */
+.grille-cartes{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:18px;
+  margin-top:18px;
+}
+
+.carte{
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 26px 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  text-decoration:none;
+  color:inherit;
+  display:block;
+  position:relative;
+  overflow:hidden;
+  transition: transform .35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow .35s ease,
+              border-color .35s ease;
+}
+
+.carte::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background: linear-gradient(135deg, rgba(242,95,92,0.10) 0%, rgba(159,47,47,0.10) 100%);
+  opacity:0;
+  transition: opacity .35s ease;
+  z-index:0;
+}
+
+.carte:hover::before{ opacity:1; }
+
+.carte:hover{
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(225,75,72,0.18);
+  border-color: rgba(242,95,92,0.22);
+}
+
+.carte h3{
+  margin:0;
+  text-align:center;
+  font-size:20px;
+  font-weight:900;
+
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  position:relative;
+  z-index:1;
+}
+
+
+/* =========================================================
+   ETAPES (Cartes + détails qui s’ouvrent)
+   -> Le coeur de ton besoin est ici.
 ========================================================= */
 
-/* Fond sombre qui couvre tout + centrage du contenu */
-.popup {
-  position: fixed;                        /* reste visible au scroll */
-  inset: 0;                               /* occupe tout l’écran */
-  background: rgba(0, 0, 0, 0.75);        /* voile sombre */
-  backdrop-filter: blur(8px);             /* flou derrière */
-  display: flex;                          /* flex pour centrer */
-  justify-content: center;                /* centre horizontal */
-  align-items: center;                    /* centre vertical */
-  z-index: 1000;                          /* au-dessus du reste */
-  animation: apparaitre-popup 0.3s ease;  /* animation d’apparition */
-  overflow-y: auto;                       /* scroll si contenu grand */
-  padding: 20px;                          /* espace sur bords */
+/* Grille des étapes */
+.grille-etapes{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:18px;
+  margin-top:18px;
 }
 
-/* Animation d’apparition de la popup */
-@keyframes apparaitre-popup {
-  from { opacity: 0; backdrop-filter: blur(0px); } /* départ transparent */
-  to { opacity: 1; backdrop-filter: blur(8px); }   /* arrivée visible + flou */
+/* Carte étape (base) */
+.etape{
+  background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 22px 18px;
+  text-align:center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  height:100%;
 }
 
-/* Contenu de la popup (boîte blanche) */
-.popup-contenu {
-  background: white;                      /* fond blanc */
-  padding: 38px;                          /* padding interne */
-  border-radius: 24px;                    /* arrondi */
-  max-width: 900px;                       /* largeur max */
-  width: 95%;                             /* responsive */
-  max-height: 90vh;                       /* limite hauteur */
-  overflow-y: auto;                       /* scroll interne */
-  position: relative;                     /* pour placer .fermer */
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.30); /* ombre forte */
-  animation: glisser-moderne 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* animation slide */
+/* Numéro */
+.numero-etape{
+  width:72px;
+  height:72px;
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  font-weight:900;
+  margin:0 auto 14px auto;
+  box-shadow: 0 8px 24px rgba(225,75,72,0.28);
 }
 
-/* Animation de "slide" du contenu popup */
-@keyframes glisser-moderne {
-  from { transform: translateY(-60px) scale(0.95); opacity: 0; } /* arrive d’en haut */
-  to { transform: translateY(0) scale(1); opacity: 1; }          /* position finale */
+/* Titre dans une étape (tu utilises h3 dans ton HTML) */
+.etape h3,
+.etape h4{
+  font-size: 18px;
+  font-weight: 900;
+  margin: 10px 0 10px;
+  color: var(--ink);
 }
 
-/* Bouton fermer (croix) */
-.fermer {
-  position: absolute;                     /* en haut à droite du contenu */
-  top: 16px;
-  right: 18px;
-  width: 44px;                            /* taille du bouton */
-  height: 44px;
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%); /* dégradé corail */
-  border-radius: 50%;                     /* rond */
-  display: flex;                          /* centre le X */
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;                        /* taille du X */
-  font-weight: 900;                       /* gras */
-  color: white;                           /* blanc */
-  cursor: pointer;                        /* main */
-  transition: all 0.25s ease;             /* animation */
-  z-index: 10;                            /* au-dessus du contenu */
-  border: none;                           /* pas de bordure */
-  box-shadow: 0 4px 12px rgba(225,75,72,0.22); /* ombre corail */
+/* =========================================================
+   INTERACTIF (UNIQUEMENT sur les pages visées)
+   - hover souris
+   - focus-within tap doigt + clavier
+   - active (certaines plateformes)
+========================================================= */
+body.page-hemorragie .etape,
+body.hemorragie .etape,
+body.etouffement .etape,
+body.page-etouffement .etape,
+body.brulure .etape,
+body.page-brulure .etape{
+  cursor:pointer;
 }
 
-/* Hover du bouton fermer */
-.fermer:hover {
-  transform: rotate(90deg) scale(1.08);   /* rotation + zoom */
-  box-shadow: 0 6px 20px rgba(225,75,72,0.32); /* ombre plus forte */
+/* Détail fermé par défaut */
+body.page-hemorragie .etape-detail,
+body.hemorragie .etape-detail,
+body.etouffement .etape-detail,
+body.page-etouffement .etape-detail,
+body.brulure .etape-detail,
+body.page-brulure .etape-detail{
+  margin-top:8px;
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition: max-height .35s ease, opacity .25s ease;
 }
 
-/* Popup dans popup (niveau supérieur) */
-.sous-popup { z-index: 1100; }            /* passe au-dessus */
-.popup-etape { max-width: 800px; }        /* popup plus étroite */
-
-/* Contenu texte de la popup */
-.detail-content{
-  color: var(--ink);                      /* texte principal */
+/* Ouverture au survol */
+body.page-hemorragie .etape:hover .etape-detail,
+body.hemorragie .etape:hover .etape-detail,
+body.etouffement .etape:hover .etape-detail,
+body.page-etouffement .etape:hover .etape-detail,
+body.brulure .etape:hover .etape-detail,
+body.page-brulure .etape:hover .etape-detail{
+  max-height:260px;
+  opacity:1;
 }
 
-/* Titre principal dans le détail */
-.detail-content h3{
-  color: var(--brand1);                   /* corail */
-  font-size: 26px;                        /* taille */
-  margin-bottom: 14px;                    /* espace dessous */
-  text-align: center;                     /* centré */
+/* Ouverture au tap / clavier (grâce à tabindex="0") */
+body.page-hemorragie .etape:focus-within .etape-detail,
+body.hemorragie .etape:focus-within .etape-detail,
+body.etouffement .etape:focus-within .etape-detail,
+body.page-etouffement .etape:focus-within .etape-detail,
+body.brulure .etape:focus-within .etape-detail,
+body.page-brulure .etape:focus-within .etape-detail{
+  max-height:260px;
+  opacity:1;
 }
 
-/* Encadré "step-detail" */
-.step-detail{
-  background: #f7fafc;                    /* fond gris très clair */
-  border-left: 4px solid var(--brand1);   /* liseré corail à gauche */
-  padding: 16px 16px;                     /* padding */
-  margin: 16px 0;                         /* espace vertical */
-  border-radius: 10px;                    /* arrondi */
+/* Petit plus : quand tu restes appuyé */
+body.page-hemorragie .etape:active .etape-detail,
+body.hemorragie .etape:active .etape-detail,
+body.etouffement .etape:active .etape-detail,
+body.page-etouffement .etape:active .etape-detail,
+body.brulure .etape:active .etape-detail,
+body.page-brulure .etape:active .etape-detail{
+  max-height:260px;
+  opacity:1;
 }
 
-/* Titre h4 dans step-detail */
-.step-detail h4{
-  color: var(--brand2);                   /* corail profond */
-  font-size: 18px;                        /* taille */
-  margin-bottom: 10px;                    /* espace dessous */
+/* Effet “carte” au hover */
+body.page-hemorragie .etape:hover,
+body.hemorragie .etape:hover,
+body.etouffement .etape:hover,
+body.page-etouffement .etape:hover,
+body.brulure .etape:hover,
+body.page-brulure .etape:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(225,75,72,0.14);
+  border-color: var(--brand1);
 }
 
-/* Listes dans step-detail */
-.step-detail ul,
-.step-detail ol{
-  margin-left: 18px;                      /* retrait */
-  line-height: 1.8;                       /* interligne */
-  color: var(--muted);                    /* couleur douce */
+/* Contour accessibilité */
+body.page-hemorragie .etape:focus,
+body.hemorragie .etape:focus,
+body.etouffement .etape:focus,
+body.page-etouffement .etape:focus,
+body.brulure .etape:focus,
+body.page-brulure .etape:focus{
+  outline: 3px solid rgba(0,0,0,0.25);
+  outline-offset: 4px;
 }
 
-/* Espacement entre items */
-.step-detail li{ margin-bottom: 8px; }
+/* IMPORTANT :
+   Si tu veux que ça se referme dès que tu tapes ailleurs,
+   ça dépend du focus : sur mobile, un tap ailleurs enlève le focus -> ça se referme.
+*/
 
-/* Encadré alerte */
-.alert-box{
-  background-color: rgba(242,95,92,0.10); /* fond corail léger */
-  border: 2px solid var(--danger1);       /* bordure corail */
-  border-radius: 12px;                    /* arrondi */
-  padding: 16px;                          /* padding */
-  margin: 16px 0;                         /* espace vertical */
+
+/* =========================================================
+   VIDEO BOX
+========================================================= */
+.video-box{
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 16px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  border: 2px solid rgba(242,95,92,0.25);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.video-box:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 28px 70px rgba(225,75,72,0.25);
+}
+.video-box video{ border-radius:14px; }
+
+.video-caption{
+  text-align:center;
+  font-size:14px;
+  color: var(--muted);
+  margin-top:8px;
 }
 
-/* Titre dans l'alerte */
-.alert-box strong{
-  color: var(--danger2);                  /* corail plus fort */
-  font-size: 16px;                        /* taille */
-  display: block;                         /* passe en bloc */
-  margin-bottom: 6px;                     /* espace dessous */
-}
-
-/* Groupe de boutons d’urgence */
-.emergency-buttons {
-  display: flex;                          /* flex pour aligner */
-  gap: 12px;                              /* espace entre boutons */
-  margin: 14px 0 10px;                    /* marges */
-  flex-wrap: wrap;                        /* passe à la ligne */
-}
-
-/* Bouton d’urgence (générique) */
-.emergency-btn {
-  flex: 1;                                /* même largeur si possible */
-  min-width: 180px;                       /* largeur mini */
-  padding: 14px 10px;                     /* padding */
-  text-align: center;                     /* centré */
-  font-weight: 800;                       /* gras */
-  border-radius: 14px;                    /* arrondi */
-  text-decoration: none;                  /* pas de soulignement */
-  color: white;                           /* texte blanc */
-  line-height: 1.2;                       /* interligne compact */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* ombre */
-  transition: transform 0.15s ease, box-shadow 0.15s ease; /* animation */
-}
-
-/* Effet clic */
-.emergency-btn:active { transform: scale(0.97); }
-
-/* Couleurs par service */
-.emergency-btn.samu { background: #c62828; }       /* SAMU */
-.emergency-btn.pompiers { background: #ef6c00; }   /* Pompiers */
-.emergency-btn.urgence { background: #2e7d32; }    /* Urgences */
-.emergency-btn.sourd { background: #2563eb; }      /* 114 (sourds/malentendants) */
+/* Ajustement spécifique page hémorragie */
+body.page-hemorragie .video-box{ max-width:520px; }
 
 
 /* =========================================================
    FOOTER
 ========================================================= */
-
-/* Footer : cadre centré */
 .site-footer{
-  max-width: 1200px;                      /* largeur max */
-  margin: 26px auto 0;                    /* centré + marge haut */
-  padding: 18px 16px;                     /* padding */
-  text-align: center;                     /* centré */
-  background: rgba(255,255,255,0.70);     /* fond glass */
-  border: 1px solid rgba(255,255,255,0.35); /* bordure légère */
-  border-radius: 16px;                    /* arrondi */
-  box-shadow: 0 8px 32px rgba(225,75,72,0.10); /* ombre corail */
+  max-width:1200px;
+  margin: 26px auto 0;
+  padding: 18px 16px;
+  text-align:center;
+
+  background: rgba(255,255,255,0.70);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(225,75,72,0.10);
 }
 
-/* Texte footer */
-.site-footer h2,
-.site-footer p{
-  margin: 6px 0;                          /* espace vertical */
-  color: #2d3748;                         /* gris foncé */
+.site-footer h2, .site-footer p{
+  margin: 6px 0;
+  color:#2d3748;
 }
 
-/* Liens footer */
 .site-footer a{
-  color: var(--brand1);                   /* corail */
-  font-weight: 800;                       /* gras */
-  text-decoration: none;                  /* pas de soulignement */
+  color: var(--brand1);
+  font-weight: 900;
+  text-decoration:none;
 }
-.site-footer a:hover{ text-decoration: underline; } /* underline au hover */
+.site-footer a:hover{ text-decoration:underline; }
 
 
 /* =========================================================
-   SCROLLBAR (WebKit) DANS POPUP
+   BOUTON FLOTTANT SOS
 ========================================================= */
-.popup-contenu::-webkit-scrollbar { width: 8px; }  /* largeur barre */
-.popup-contenu::-webkit-scrollbar-track {
-  background: #f1f1f1;                              /* fond track */
-  border-radius: 10px;                               /* arrondi */
+.floating-phone{
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1300;
+
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  padding: 16px 20px;
+  border:none;
+  border-radius:999px;
+
+  color:#fff;
+  font-weight:900;
+  font-size:16px;
+
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
+  box-shadow: 0 22px 50px rgba(225,75,72,0.45);
+
+  transition: box-shadow .2s ease, filter .2s ease;
+  touch-action:none;
+  user-select:none;
+  cursor:grab;
 }
-.popup-contenu::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%); /* dégradé */
-  border-radius: 10px;                               /* arrondi */
+
+.floating-phone:hover{
+  filter:brightness(1.05);
+  box-shadow: 0 30px 70px rgba(225,75,72,0.60);
 }
-.popup-contenu::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, var(--brand2) 0%, var(--brand1) 100%); /* inverse au hover */
+.floating-phone:active{
+  cursor:grabbing;
+  filter:brightness(0.95);
+}
+
+.floating-phone-icon{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  background: rgba(255,255,255,0.2);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  font-size:24px;
+}
+
+.floating-phone-text{
+  letter-spacing:1px;
+  font-size:16px;
 }
 
 
 /* =========================================================
-   UTILITAIRE
+   CONTACT (bouton)
 ========================================================= */
-b{ font-weight: 800; } /* force un gras plus fort */
+.contact-section{
+  max-width:1200px;
+  margin: 40px auto 10px;
+  text-align:center;
+}
+
+.contact-btn{
+  border:none;
+  cursor:pointer;
+  padding: 18px 26px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: .3px;
+  color:#fff;
+  border-radius: 20px;
+
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+  box-shadow: 0 20px 50px rgba(225,75,72,0.25);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.contact-btn:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px rgba(225,75,72,0.35);
+}
+.contact-btn:active{ transform: scale(0.97); }
 
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
-
-/* Tablette / petits écrans */
 @media (max-width: 900px){
   .site-header h1{
-    font-size: 34px;       /* h1 plus petit */
-    padding: 22px 18px;    /* padding réduit */
+    font-size:34px;
+    padding: 22px 18px;
   }
 }
 
-/* Mobile */
 @media (max-width: 768px){
   .site-nav a{
-    font-size: 13px;       /* texte plus petit */
-    padding: 9px 10px;     /* padding réduit */
+    font-size:13px;
+    padding: 9px 10px;
   }
-
-  .popup-contenu{
-    padding: 28px 18px;    /* popup plus compacte */
-  }
-
-  .grille-cartes{
-    grid-template-columns: 1fr; /* une colonne */
-  }
-
-  /* Si on force 4 colonnes, on repasse à 2 sur mobile */
-  .grille-etapes{
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
+  .grille-cartes{ grid-template-columns: 1fr; }
 }
 
-/* Très petit mobile */
 @media (max-width: 600px){
-  .grille-etapes{
-    grid-template-columns: 1fr !important; /* une colonne */
-  }
-
-  .emergency-btn{
-    min-width: 0;         /* retire largeur mini */
-    flex: 1 1 100%;       /* boutons sur toute la largeur */
-  }
+  .grille-etapes{ grid-template-columns: 1fr; }
 }
 
-/* Ultra petit */
 @media (max-width: 400px){
-  .site-header h1{ font-size: 28px; } /* h1 encore plus petit */
-  .emergency-btn{ font-size: 0.95rem; padding: 14px 8px; } /* boutons plus compacts */
-}
-
-
-/* =========================================================
-   NUMÉRO D'ÉTAPE DANS LA POPUP
-========================================================= */
-
-/* En-tête du détail d’étape */
-.etape-detail-header{
-  text-align: center;     /* centre le contenu */
-  margin-bottom: 18px;    /* espace dessous */
-}
-
-/* Rond numéro (version large dans popup) */
-.numero-etape-large{
-  width: 100px;           /* largeur */
-  height: 100px;          /* hauteur */
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%); /* dégradé corail */
-  color: white;           /* texte blanc */
-  border-radius: 50%;     /* rond */
-  display: flex;          /* centre contenu */
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;        /* taille numéro */
-  font-weight: 800;       /* gras */
-  margin: 0 auto 14px auto; /* centré + marge bas */
-  box-shadow: 0 12px 32px rgba(225,75,72,0.32); /* ombre corail */
-}
-
-
-/* =========================================================
-   PAGE DÉFIBRILLATEUR : CENTRAGE
-========================================================= */
-
-/* Centre le texte du header dans main */
-main header {
-  text-align: center;     /* centrage */
-}
-
-/* Centre le texte dans les sections ciblées */
-section[aria-labelledby="defibrillation"],
-section[aria-labelledby="technique-dae"] {
-  text-align: center;     /* centrage texte */
-}
-
-/* Centrage + marges auto des paragraphes */
-section[aria-labelledby="defibrillation"] p,
-section[aria-labelledby="technique-dae"] p {
-  margin-left: auto;      /* centre dans un max-width éventuel */
-  margin-right: auto;
-}
-
-/* Centre tous les enfants directs de la section technique DAE */
-section[aria-labelledby="technique-dae"] > * {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Centre la box vidéo + largeur max */
-section[aria-labelledby="technique-dae"] .alert-box {
-  max-width: 720px;       /* limite largeur */
-  margin: 24px auto;      /* centré + espace */
-  text-align: center;     /* texte centré */
-}
-
-
-/* =========================================================
-   LISTES : RÈGLES GLOBALES
-========================================================= */
-
-/* Numérotation normale partout */
-ol{
-  list-style: decimal;    /* chiffres */
-  padding-left: 22px;     /* retrait */
-}
-
-/* Listes DAE : numéros en ronds (uniquement dans cette section) */
-section[aria-labelledby="technique-dae"] ol {
-  list-style: none;       /* retire numérotation native */
-  padding-left: 0;        /* retire retrait */
-  margin: 14px auto 0;    /* espace au-dessus */
-  counter-reset: etape;   /* initialise le compteur */
-  text-align: left;       /* texte aligné à gauche */
-  max-width: 900px;       /* limite la largeur */
-}
-
-/* Élément de liste DAE */
-section[aria-labelledby="technique-dae"] ol li {
-  counter-increment: etape;  /* incrémente le compteur */
-  position: relative;         /* pour placer ::before */
-  padding-left: 48px;         /* espace pour le rond */
-  margin-bottom: 14px;        /* espace entre étapes */
-  line-height: 1.7;           /* interligne */
-  color: var(--muted);        /* couleur douce */
-}
-
-/* Rond numéroté DAE */
-section[aria-labelledby="technique-dae"] ol li::before {
-  content: counter(etape);    /* affiche le compteur */
-  position: absolute;         /* placé par rapport au li */
-  left: 0;                    /* à gauche */
-  top: 0.15em;                /* alignement sur la 1ère ligne */
-  width: 28px;                /* taille du rond */
-  height: 28px;
-  background: var(--danger2); /* corail */
-  color: #fff;                /* texte blanc */
-  border-radius: 50%;         /* rond */
-  font-weight: 800;           /* gras */
-  display: grid;              /* centrage */
-  place-items: center;        /* centre chiffre */
-  box-shadow: 0 4px 10px rgba(225,75,72,0.25); /* ombre corail */
-}
-
-
-/* =========================================================
-   BOUTON FLOTTANT (SOS)
-   - Visible en permanence (position fixed)
-   - Déplaçable (drag souris + doigt)
-========================================================= */
-.floating-phone{
-  position: fixed;                 /* reste à l’écran même au scroll */
-  top: 50%;                        /* placé au milieu vertical */
-  right: 20px;                     /* collé à droite */
-  transform: translateY(-50%);     /* centrage vertical parfait */
-  z-index: 1300;                   /* au-dessus du site */
-
-  display: flex;                   /* icône + texte alignés */
-  align-items: center;             /* centrage vertical */
-  gap: 14px;                       /* espace entre icône et texte */
-
-  padding: 16px 20px;              /* taille du bouton */
-  border: none;                    /* pas de bordure */
-  border-radius: 999px;            /* forme “pill” */
-
-  color: white;                    /* texte blanc */
-  font-weight: 900;                /* très gras */
-  font-size: 16px;                 /* taille texte */
-
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
-  box-shadow: 0 22px 50px rgba(225,75,72,0.45);
-
-  transition: box-shadow 0.2s ease, filter 0.2s ease;
-
-  /* ===== DRAG (IMPORTANT) ===== */
-  touch-action: none;              /* évite scroll/zoom pendant drag sur mobile */
-  user-select: none;               /* évite sélection de texte */
-  cursor: grab;                    /* curseur indiquant “déplaçable” */
-}
-
-.floating-phone:hover{
-  filter: brightness(1.05);        /* bouton un peu plus lumineux */
-  box-shadow: 0 30px 70px rgba(225,75,72,0.60);
-}
-
-.floating-phone:active{
-  cursor: grabbing;                /* main fermée pendant drag/clic */
-  filter: brightness(0.95);        /* léger effet “appuyé” */
-}
-
-/* Icône */
-.floating-phone-icon{
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  display: grid;
-  place-items: center;
-  background: rgba(255,255,255,0.2);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
-  font-size: 24px;
-}
-
-/* Texte */
-.floating-phone-text{
-  letter-spacing: 1px;
-  font-size: 16px;
-}
-
-
-/* =========================================================
-   EFFET SURVOL (ordinateur)
-========================================================= */
-.floating-phone:hover{
-
-  filter: brightness(1.05);
-  /* Augmente légèrement la luminosité (effet dynamique) */
-
-  box-shadow: 0 30px 70px rgba(225,75,72,0.60);
-  /* Ombre plus forte → effet élévation */
-}
-
-
-/* =========================================================
-   EFFET CLIC / DRAG
-========================================================= */
-.floating-phone:active{
-
-  cursor: grabbing;
-  /* Main fermée pendant le clic ou le déplacement */
-
-  filter: brightness(0.95);
-  /* Légère réduction de luminosité → effet pression */
-}
-
-
-/* =========================================================
-   ICÔNE 📱
-========================================================= */
-.floating-phone-icon{
-
-  width: 48px;
-  /* Largeur du bloc icône */
-
-  height: 48px;
-  /* Hauteur du bloc icône */
-
-  border-radius: 16px;
-  /* Coins arrondis (pas totalement rond) */
-
-  display: grid;
-  /* Permet un centrage simple */
-
-  place-items: center;
-  /* Centre parfaitement l’emoji horizontalement + verticalement */
-
-  background: rgba(255,255,255,0.2);
-  /* Fond blanc translucide pour effet glass */
-
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
-  /* Petit effet relief interne */
-
-  font-size: 24px;
-  /* Taille de l’emoji */
-}
-
-
-/* =========================================================
-   TEXTE "SOS"
-========================================================= */
-.floating-phone-text{
-
-  letter-spacing: 1px;
-  /* Espace légèrement les lettres → plus lisible / plus impactant */
-
-  font-size: 16px;
-  /* Taille du texte */
-}
-
-
-/* =========================================================
-   SMARTPHONE DANS POPUP
-========================================================= */
-.smartphone{
-  width: 340px;                                   /* largeur fixe */
-  margin: 0 auto;                                  /* centré */
-  background: linear-gradient(145deg, #1f2937, #111827); /* coque sombre */
-  border-radius: 46px;                             /* arrondi */
-  padding: 14px;                                   /* bord interne */
-  box-shadow: 0 28px 80px rgba(0,0,0,0.35);        /* ombre */
-  position: relative;                              /* pour .notch */
-}
-
-/* Encoche */
-.smartphone .notch{
-  position: absolute;                              /* positionnée dans smartphone */
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);                     /* centrage horizontal */
-  width: 130px;
-  height: 26px;
-  background: #000;
-  border-radius: 0 0 18px 18px;                    /* forme encoche */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
-}
-
-/* Écran */
-.smartphone .screen{
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* fond écran */
-  border-radius: 36px;                            /* arrondi */
-  padding: 46px 18px 18px;                        /* espace haut (barre) + côtés */
-  min-height: 520px;                               /* hauteur mini */
-  color: white;                                    /* texte blanc */
-  overflow: hidden;                                /* coupe débordements */
-}
-
-/* Barre de statut */
-.smartphone .status-bar{
-  display: flex;                                   /* disposition */
-  justify-content: space-between;                  /* extrémités */
-  align-items: center;                             /* alignement vertical */
-  opacity: 0.9;                                    /* léger voile */
-  font-size: 13px;                                 /* taille */
-  font-weight: 800;                                /* gras */
-  margin-bottom: 12px;                             /* espace dessous */
-}
-
-/* Heure en corail */
-.smartphone .status-bar .time{
-  color: var(--danger1);
-}
-
-/* Grille des boutons */
-.emergency-grid{
-  display: grid;                                   /* grille */
-  grid-template-columns: repeat(2, 1fr);           /* 2 colonnes */
-  gap: 12px;                                       /* espace */
-  margin-top: 12px;                                /* espace haut */
-}
-
-/* Tuile (bouton) */
-.emergency-tile{
-  text-decoration: none;                           /* pas de soulignement */
-  color: white;                                    /* texte blanc */
-  border-radius: 20px;                             /* arrondi */
-  padding: 18px 12px;                              /* padding */
-  min-height: 120px;                               /* hauteur mini */
-
-  display: flex;                                   /* centrage */
-  flex-direction: column;                          /* vertical */
-  align-items: center;                             /* centrer horizontal */
-  justify-content: center;                         /* centrer vertical */
-
-  background: linear-gradient(135deg, rgba(242,95,92,0.92) 0%, rgba(159,47,47,0.92) 100%); /* dégradé */
-  border: 2px solid rgba(255,255,255,0.14);        /* bordure légère */
-  box-shadow: 0 10px 28px rgba(225,75,72,0.25);    /* ombre corail */
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; /* animation */
-}
-
-/* Hover tuile */
-.emergency-tile:hover{
-  transform: translateY(-4px) scale(1.02);         /* monte + zoom */
-  box-shadow: 0 14px 40px rgba(225,75,72,0.35);    /* ombre plus forte */
-  border-color: rgba(255,255,255,0.28);            /* bordure plus visible */
-}
-
-/* Clic tuile */
-.emergency-tile:active{
-  transform: scale(0.98);
-}
-
-/* Numéro */
-.emergency-tile .num{
-  font-size: 40px;                                 /* taille numéro */
-  font-weight: 900;                                /* très gras */
-  line-height: 1;                                  /* compact */
-  margin-bottom: 8px;                              /* espace dessous */
-  text-shadow: 0 2px 10px rgba(0,0,0,0.35);        /* ombre texte */
-}
-
-/* Libellé */
-.emergency-tile .label{
-  font-size: 12px;                                 /* taille */
-  font-weight: 700;                                /* gras */
-  opacity: 0.95;                                   /* léger voile */
-  text-align: center;                              /* centré */
-  line-height: 1.3;                                /* interligne */
-}
-
-/* Barre iPhone en bas */
-.smartphone .home-indicator{
-  width: 130px;                                    /* largeur */
-  height: 5px;                                     /* hauteur */
-  margin: 14px auto 0;                              /* centré + marge haut */
-  border-radius: 10px;                              /* arrondi */
-  background: rgba(255,255,255,0.25);              /* gris clair */
-}
-
-
-/* =========================================================
-   ACCUEIL : GRILLE SPÉCIALE FICHES
-   ⚠️ ATTENTION : tu redéfinis .grille-cartes plus haut déjà.
-========================================================= */
-.grille-cartes{
-  display: grid;                         /* grid */
-  grid-template-columns: 1fr 1fr 1fr;    /* 3 colonnes */
-  grid-auto-rows: 1fr;                   /* mêmes hauteurs */
-  gap: 18px;                             /* espace */
-}
-
-/* Carte principale à gauche */
-.carte-principale{
-  grid-column: 1;                        /* colonne 1 */
-  grid-row: 1 / span 3;                  /* occupe 3 lignes */
-}
-
-/* Toutes les cartes même hauteur + centrage */
-.grille-cartes .carte{
-  height: 100%;                          /* même hauteur */
-  display: flex;                          /* centre contenu */
-  align-items: center;
-  justify-content: center;
-}
-
-/* Alignement du texte */
-.grille-cartes .carte h3{
-  text-align: center;
-}
-
-/* Responsive pour la grille spéciale */
-@media (max-width: 900px){
-  .grille-cartes{
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
-  }
-
-  .carte-principale{
-    grid-column: 1 / -1;  /* pleine largeur */
-    grid-row: auto;       /* redevient normal */
-  }
-}
-
-@media (max-width: 600px){
-  .grille-cartes{
-    grid-template-columns: 1fr; /* 1 colonne */
-  }
-}
-
-
-/* =========================================================
-   IMAGE CONTEXTE FRANCE
-========================================================= */
-.section-contexte{
-  text-align: center;                   /* centre contenu */
-}
-
-.image-france{
-  margin: 18px auto 24px;               /* centré + marges */
-  max-width: 320px;                     /* limite largeur */
-}
-
-.image-france img{
-  width: 100%;                          /* responsive */
-  height: auto;                         /* proportions */
-  border-radius: 16px;                  /* arrondi */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* ombre */
-}
-
-.image-france figcaption{
-  font-size: 13px;                      /* petit texte */
-  color: var(--muted);                  /* doux */
-  margin-top: 8px;                      /* espace */
-}
-
-/* Alerte centrée (règles 15) */
-section[aria-labelledby="regles-15"] .alert-box{
-  max-width: 720px;                     /* limite largeur */
-  margin: 28px auto 0;                  /* centré */
-  text-align: center;                   /* texte centré */
-}
-
-
-/* =========================================================
-   BRÛLURES – règle des 3x15
-   - remplace la grille par flex pour centrer 3 cartes
-========================================================= */
-section[aria-labelledby="regles-15"] .grille-etapes{
-  display: flex;              /* flex au lieu de grid */
-  justify-content: center;    /* centré */
-  gap: 24px;                  /* espace */
-  flex-wrap: wrap;            /* responsive */
-}
-
-/* Taille homogène des étapes */
-section[aria-labelledby="regles-15"] .etape{
-  max-width: 260px;           /* limite */
-  flex: 1 1 260px;            /* base 260px + wrap */
-}
-
-
-/* =========================================================
-   BRÛLURES – Etapes (à la maison)
-========================================================= */
-section[aria-labelledby="etapes"] .grille-etapes{
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-section[aria-labelledby="etapes"] .etape{
-  max-width: 260px;
-  flex: 1 1 260px;
-}
-
-
-/* =========================================================
-   DAE – Etapes (bloc spécifique)
-   ⚠️ Tu cibles "section[aria-labelledby="etapes-dae"] .grille-etapes"
-   mais plus haut tu utilises aussi .grille-etapes-dae
-========================================================= */
-section[aria-labelledby="etapes-dae"] .grille-etapes{
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-section[aria-labelledby="etapes-dae"] .etape{
-  max-width: 260px;
-  flex: 1 1 260px;
-}
-
-
-/* =========================================================
-   CARTE VIDEO (alternative embed)
-========================================================= */
-.video-card{
-  max-width: 720px;                             /* limite largeur */
-  margin: 22px auto;                            /* centré */
-  background: rgba(255,255,255,0.85);           /* fond glass */
-  border: 1px solid rgba(255,255,255,0.40);     /* bordure légère */
-  border-radius: 18px;                          /* arrondi */
-  padding: 16px;                                /* padding */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.10);     /* ombre */
-}
-
-/* Titre dans la carte vidéo */
-.video-card-head strong{
-  display: block;                               /* sur une ligne */
-  font-size: 16px;                              /* taille */
-  color: var(--ink);                            /* couleur */
-  margin-bottom: 6px;                           /* espace */
-}
-
-/* Texte descriptif */
-.video-card-head p{
-  margin: 0 0 12px 0;                           /* marge bas */
-  color: var(--muted);                          /* couleur douce */
-}
-
-/* Bouton “Regarder sur YouTube” */
-.video-preview{
-  display: flex;                                /* alignement */
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  text-decoration: none;                        /* pas de soulignement */
-  color: white;                                 /* texte blanc */
-  font-weight: 900;                             /* très gras */
-
-  padding: 14px 16px;                           /* padding */
-  border-radius: 14px;                          /* arrondi */
-
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%); /* corail */
-  box-shadow: 0 12px 26px rgba(225,75,72,0.25); /* ombre */
-  transition: transform 0.15s ease, box-shadow 0.15s ease; /* animation */
-}
-
-/* Hover bouton vidéo */
-.video-preview:hover{
-  transform: translateY(-2px);                  /* monte un peu */
-  box-shadow: 0 18px 40px rgba(225,75,72,0.35); /* ombre plus forte */
-}
-
-/* Clic bouton vidéo */
-.video-preview:active{
-  transform: scale(0.98);
-}
-
-/* Badge play */
-.play-badge{
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;                           /* rond */
-  display: grid;
-  place-items: center;                          /* centre */
-  background: rgba(255,255,255,0.18);           /* fond translucide */
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
-  font-size: 16px;
-}
-
-/* Texte du bouton */
-.video-preview-text{
-  font-size: 15px;
-  letter-spacing: 0.3px;
-}
-
-
-/* =========================================================
-   VIDEO LOCALE – MISE EN VALEUR
-========================================================= */
-.video-box{
-  max-width: 800px;                             /* limite largeur */
-  margin: 24px auto;                            /* centré */
-  padding: 16px;                                /* padding */
-
-  background: rgba(255,255,255,0.9);            /* fond clair */
-  border-radius: 20px;                          /* arrondi */
-
-  box-shadow: 0 20px 50px rgba(0,0,0,0.25);     /* ombre */
-  border: 2px solid rgba(242,95,92,0.25);       /* bordure corail */
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* Hover vidéo */
-.video-box:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 28px 70px rgba(225,75,72,0.25);
-}
-
-/* Vidéo dans la box */
-.video-box video{
-  width: 100%;                                  /* responsive */
-  height: auto;                                 /* proportions */
-  border-radius: 14px;                          /* arrondi */
-  display: block;                               /* évite petits gaps */
-}
-
-/* Légende vidéo */
-.video-caption{
-  text-align: center;
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 8px;
-}
-
-
-/* =========================================================
-   LISTES DANS LE CONTENU
-========================================================= */
-main ul,
-main ol{
-  padding-left: 28px;     /* retrait */
-  margin: 10px 0 10px;    /* espace vertical */
-}
-
-main li{
-  margin-bottom: 6px;     /* respiration */
-}
-
-
-/* =========================================================
-   IMAGE PLS (mise en valeur)
-========================================================= */
-.image-contenu{
-  width: 100%;
-  max-width: 600px;
-  display: block;
-  margin: 20px auto;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
-
-/* Ajustement spécifique page hémorragie */
-.page-hemorragie .video-box { max-width: 520px; }
-
-
-/* =========================================================
-   SECTION CONTACT
-========================================================= */
-.contact-section{
-  max-width: 1200px;
-  margin: 40px auto 10px;
-  text-align: center;
-}
-
-/* Bouton contact */
-.contact-btn{
-  border: none;
-  cursor: pointer;
-  padding: 18px 26px;
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: 0.3px;
-  color: white;
-  border-radius: 20px;
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  box-shadow: 0 20px 50px rgba(225,75,72,0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Hover bouton */
-.contact-btn:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 30px 70px rgba(225,75,72,0.35);
-}
-
-/* Clic bouton */
-.contact-btn:active{
-  transform: scale(0.97);
-}
-
-
-/* =========================================================
-   FORMULAIRE CONTACT (popup)
-========================================================= */
-.form-contact{
-  display: grid;
-  gap: 12px;
-  margin-top: 14px;
-}
-
-/* Label */
-.form-contact label{
-  font-weight: 800;
-  color: var(--ink);
-  display: block;
-  margin-bottom: 6px;
-}
-
-/* Champs */
-.form-contact input,
-.form-contact textarea{
-  width: 100%;
-  padding: 12px 12px;
-  border-radius: 14px;
-  border: 1px solid rgba(242,95,92,0.22);
-  background: rgba(247,250,252,0.9);
-  font-family: inherit;
-  font-size: 14px;
-  color: var(--ink);
-  outline: none;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-/* Focus (quand on clique dans un champ) */
-.form-contact input:focus,
-.form-contact textarea:focus{
-  border-color: rgba(242,95,92,0.55);
-  box-shadow: 0 10px 24px rgba(225,75,72,0.18);
-  transform: translateY(-1px);
-}
-
-/* Textarea */
-.form-contact textarea{
-  min-height: 160px;
-  resize: vertical;        /* permet de redimensionner verticalement */
-}
-
-/* Ligne de 2 champs */
-.form-contact .row-2{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-/* Sur mobile : repasse à 1 colonne */
-@media (max-width: 600px){
-  .form-contact .row-2{ grid-template-columns: 1fr; }
-}
-
-/* Indications sous les champs */
-.form-contact .hint{
-  font-size: 12px;
-  color: var(--muted);
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-/* Bouton envoyer */
-.btn-submit{
-  border: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  border-radius: 14px;
-  font-weight: 900;
-  color: white;
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  box-shadow: 0 14px 30px rgba(225,75,72,0.20);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-/* Hover envoyer */
-.btn-submit:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 20px 44px rgba(225,75,72,0.28);
-}
-
-/* Clic envoyer */
-.btn-submit:active{
-  transform: scale(0.98);
-}
-
-
-/* =========================================================
-   IMAGE POSITION MAIN + LÉGENDE (figure)
-========================================================= */
-
-/* === Image (positionmains) : version responsive “propre” === */
-.image-container{
-  text-align: center;
-  margin: 18px auto 24px;   /* centré + respirations */
-}
-
-/* L’image s’adapte à l’écran, sans être énorme sur desktop */
-.image-container img{
-  display: block;
-  width: min(100%, 720px);  /* 100% sur mobile, max 720px sur grand écran */
-  height: auto;             /* garde les proportions */
-  margin: 0 auto;           /* centre */
-  border-radius: 16px;      /* un peu plus “site moderne” */
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
-
-/* Optionnel : évite qu’elle soit trop haute (utile en popup) */
-.image-container img{
-  max-height: 60vh;         /* pas plus de 60% de la hauteur écran */
-  object-fit: contain;      /* aucune déformation */
-}
-
-/* Légende (source) */
-.image-container figcaption{
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 8px;
-}
-
-/* =========================================================
-   IMAGE DEFIBRILLATEUR DANS LE DERNIER <li> — VERSION RESPONSIVE iPHONE
-========================================================= */
-
-/* 
-   Force le <li> à se comporter comme un bloc classique.
-   Utile si la liste (<ul> ou <li>) est stylée en flex ailleurs,
-   ce qui peut casser l'affichage sur Safari iOS.
-*/
-.li-with-image {
-  display: block;
-}
-
-/*
-   Conteneur de l’image.
-   Utilisation de Flexbox pour centrer horizontalement
-   l’image de manière fiable (notamment sur iOS Safari).
-*/
-.img-wrap {
-  display: flex;              /* Active Flexbox */
-  justify-content: center;    /* Centre horizontalement */
-  margin-top: 12px;           /* Espace au-dessus de l’image */
-}
-
-/*
-   Image responsive :
-   - s’adapte à la largeur de l’écran
-   - ne dépasse jamais son conteneur
-   - garde ses proportions
-*/
-.img-responsive {
-
-  /* 
-     Largeur dynamique :
-     - Sur petit écran (iPhone) → 100% de la largeur disponible
-     - Sur grand écran → maximum 420px
-  */
-  width: min(100%, 420px);
-
-  height: auto;        /* Conserve les proportions de l’image */
-  max-width: 100%;     /* Sécurité supplémentaire */
-  display: block;      /* Supprime les espaces indésirables sous l’image */
-  
-  border-radius: 8px;  /* Coins arrondis pour un rendu plus doux (optionnel) */
-}
-
-/* =========================================================
-   TEXTE D’INTRODUCTION DU LECTEUR AUDIO
-========================================================= */
-
-.audio-intro {
-
-  /*
-     Supprime le style de paragraphe classique
-     pour garder une cohérence avec la liste.
-  */
-  margin-bottom: 8px;
-
-  /*
-     Centre le texte pour qu’il soit aligné
-     avec le lecteur audio.
-  */
-  text-align: center;
-
-  /*
-     Style légèrement pédagogique :
-     texte un peu mis en valeur sans être agressif.
-  */
-  font-weight: 500;
-  font-style: italic;
-}
-
-/* =========================================
-   CARTES INTERACTIVES — PAGES URGENCE
-   (Étouffement / Hémorragie / Brûlure / Inconscience)
-========================================= */
-
-/* Curseur interactif */
-.etouffement .etape,
-.brulure .etape,
-.hemorragie .etape,
-.page-hemorragie .etape,
-.inconscience .etape{
-  cursor: pointer;
-}
-
-/* Détail caché par défaut */
-.etouffement .etape-detail,
-.brulure .etape-detail,
-.hemorragie .etape-detail,
-.page-hemorragie .etape-detail,
-.inconscience .etape-detail{
-  margin-top: 8px;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.35s ease, opacity 0.25s ease;
-}
-
-/* Affichage au survol */
-.etouffement .etape:hover .etape-detail,
-.brulure .etape:hover .etape-detail,
-.hemorragie .etape:hover .etape-detail,
-.page-hemorragie .etape:hover .etape-detail,
-.inconscience .etape:hover .etape-detail{
-  max-height: 250px;
-  opacity: 1;
-}
-
-/* Affichage au focus (mobile + clavier) */
-.etouffement .etape:focus-within .etape-detail,
-.brulure .etape:focus-within .etape-detail,
-.hemorragie .etape:focus-within .etape-detail,
-.page-hemorragie .etape:focus-within .etape-detail,
-.inconscience .etape:focus-within .etape-detail{
-  max-height: 250px;
-  opacity: 1;
-}
-
-/* Contour accessibilité */
-.etouffement .etape:focus,
-.brulure .etape:focus,
-.hemorragie .etape:focus,
-.page-hemorragie .etape:focus,
-.inconscience .etape:focus{
-  outline: 3px solid rgba(0,0,0,0.25);
-  outline-offset: 4px;
-  border-radius: 12px;
+  .site-header h1{ font-size:28px; }
 }
