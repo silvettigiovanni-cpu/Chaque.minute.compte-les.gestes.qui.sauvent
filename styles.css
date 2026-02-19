@@ -754,60 +754,146 @@ section[aria-labelledby="technique-dae"] ol li::before {
 
 /* =========================================================
    BOUTON FLOTTANT (SOS)
+   - Bouton fixe visible en permanence
+   - Déplaçable (drag souris + doigt)
 ========================================================= */
 .floating-phone{
-  position: fixed;            /* reste visible */
-  top: 50%;                   /* milieu vertical */
-  right: 20px;                /* à droite */
-  transform: translateY(-50%);/* centre verticalement */
-  z-index: 1300;              /* au-dessus des autres */
 
-  display: flex;              /* aligne icône + texte */
-  align-items: center;        /* centre vertical */
-  gap: 14px;                  /* espace */
+  position: fixed; 
+  /* Le bouton reste fixé à l’écran même quand on scroll */
 
-  padding: 16px 20px;         /* padding */
-  border: none;               /* pas de bordure */
-  cursor: pointer;            /* main */
+  top: 50%; 
+  /* Position verticale : milieu de l’écran */
 
-  color: white;               /* texte blanc */
-  font-weight: 900;           /* très gras */
-  font-size: 16px;            /* taille texte */
+  right: 20px; 
+  /* Position horizontale : 20px du bord droit */
 
-  border-radius: 999px;       /* pill */
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%); /* dégradé corail */
-  box-shadow: 0 22px 50px rgba(225,75,72,0.45); /* ombre forte */
+  transform: translateY(-50%);
+  /* Décale le bouton vers le haut de 50% de sa propre hauteur
+     → permet un centrage vertical parfait */
 
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* animations */
+  z-index: 1300;
+  /* Le bouton passe au-dessus des autres éléments */
+
+  display: flex;
+  /* Active Flexbox pour aligner icône + texte */
+
+  align-items: center;
+  /* Centre verticalement l’icône et le texte */
+
+  gap: 14px;
+  /* Espace entre l’icône et le texte */
+
+  padding: 16px 20px;
+  /* Espace interne (haut/bas 16px, gauche/droite 20px) */
+
+  border: none;
+  /* Supprime la bordure par défaut du bouton */
+
+  color: white;
+  /* Couleur du texte */
+
+  font-weight: 900;
+  /* Texte très gras (effet urgence) */
+
+  font-size: 16px;
+  /* Taille du texte */
+
+  border-radius: 999px;
+  /* Forme "pill" (capsule complètement arrondie) */
+
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
+  /* Dégradé corail → rouge profond pour effet urgence */
+
+  box-shadow: 0 22px 50px rgba(225,75,72,0.45);
+  /* Ombre importante pour effet flottant moderne */
+
+  transition: box-shadow 0.2s ease, filter 0.2s ease;
+  /* Animation douce sur ombre et luminosité */
+
+  /* =============================
+     DRAG (souris + doigt)
+     ============================= */
+
+  touch-action: none;
+  /* Empêche le navigateur de scroller ou zoomer
+     quand on glisse le bouton sur mobile */
+
+  user-select: none;
+  /* Empêche la sélection de texte pendant le déplacement */
+
+  cursor: grab;
+  /* Curseur "main ouverte" indiquant qu’on peut déplacer */
 }
 
-/* Hover : zoom */
+
+/* =========================================================
+   EFFET SURVOL (ordinateur)
+========================================================= */
 .floating-phone:hover{
-  transform: translateY(-50%) scale(1.05);     /* conserve centrage + zoom */
-  box-shadow: 0 30px 70px rgba(225,75,72,0.60);/* ombre plus forte */
+
+  filter: brightness(1.05);
+  /* Augmente légèrement la luminosité (effet dynamique) */
+
+  box-shadow: 0 30px 70px rgba(225,75,72,0.60);
+  /* Ombre plus forte → effet élévation */
 }
 
-/* Active : effet clic */
+
+/* =========================================================
+   EFFET CLIC / DRAG
+========================================================= */
 .floating-phone:active{
-  transform: translateY(-50%) scale(0.97);     /* petit écrasement */
+
+  cursor: grabbing;
+  /* Main fermée pendant le clic ou le déplacement */
+
+  filter: brightness(0.95);
+  /* Légère réduction de luminosité → effet pression */
 }
 
-/* Icône */
+
+/* =========================================================
+   ICÔNE 📱
+========================================================= */
 .floating-phone-icon{
-  width: 48px;               /* taille */
+
+  width: 48px;
+  /* Largeur du bloc icône */
+
   height: 48px;
-  border-radius: 16px;       /* arrondi */
-  display: grid;             /* centrage */
+  /* Hauteur du bloc icône */
+
+  border-radius: 16px;
+  /* Coins arrondis (pas totalement rond) */
+
+  display: grid;
+  /* Permet un centrage simple */
+
   place-items: center;
-  background: rgba(255,255,255,0.2);           /* fond translucide */
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25); /* relief */
-  font-size: 24px;           /* taille icône */
+  /* Centre parfaitement l’emoji horizontalement + verticalement */
+
+  background: rgba(255,255,255,0.2);
+  /* Fond blanc translucide pour effet glass */
+
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  /* Petit effet relief interne */
+
+  font-size: 24px;
+  /* Taille de l’emoji */
 }
 
-/* Texte */
+
+/* =========================================================
+   TEXTE "SOS"
+========================================================= */
 .floating-phone-text{
-  letter-spacing: 1px;       /* espacement lettres */
-  font-size: 16px;           /* taille */
+
+  letter-spacing: 1px;
+  /* Espace légèrement les lettres → plus lisible / plus impactant */
+
+  font-size: 16px;
+  /* Taille du texte */
 }
 
 
