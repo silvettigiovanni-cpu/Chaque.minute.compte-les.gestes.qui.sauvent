@@ -1235,3 +1235,25 @@ main li{
 .btn-submit:active{
   transform: scale(0.98);
 }
+
+/* Conteneur global de l’image + légende */
+.image-container {
+  text-align: center;      /* Centre le contenu (image + texte) horizontalement */
+  margin: 20px 0;          /* Ajoute un espace au-dessus et en dessous du bloc */
+}
+
+/* Style de l’image */
+.image-container img {
+  width: 100%;             /* L’image prend toute la largeur disponible du conteneur */
+  max-width: 600px;        /* Mais ne dépassera jamais 600px sur grand écran */
+  height: auto;            /* Conserve les proportions (évite la déformation) */
+  border-radius: 8px;      /* Arrondit légèrement les coins pour un rendu plus moderne */
+}
+
+/* Style de la légende (source) */
+.image-container figcaption {
+  font-size: 0.9rem;       /* Rend le texte légèrement plus petit */
+  color: #666;             /* Couleur gris doux pour ne pas attirer trop l’attention */
+  margin-top: 8px;         /* Petit espace entre l’image et la légende */
+}
+
