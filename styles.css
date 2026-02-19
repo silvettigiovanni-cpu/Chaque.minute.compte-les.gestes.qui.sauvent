@@ -1546,7 +1546,8 @@ main li{
 .etouffement .etape-detail,
 .brulure .etape-detail,
 .hemorragie .etape-detail,
-.page-hemorragie .etape-detail {
+.page-hemorragie .etape-detail
+.inconscience .etape-detail {
 
   margin-top: 8px;          /* Petit espace entre le titre et le détail */
 
@@ -1567,7 +1568,8 @@ main li{
 .etouffement .etape:hover .etape-detail,
 .brulure .etape:hover .etape-detail,
 .hemorragie .etape:hover .etape-detail,
-.page-hemorragie .etape:hover .etape-detail {
+.page-hemorragie .etape:hover .etape-detail 
+.inconscience .etape:hover .etape-detail {
 
   max-height: 250px;        /* Hauteur suffisante pour afficher le contenu */
   opacity: 1;               /* Rend le texte visible */
@@ -1582,7 +1584,8 @@ main li{
 .etouffement .etape:focus-within .etape-detail,
 .brulure .etape:focus-within .etape-detail,
 .hemorragie .etape:focus-within .etape-detail,
-.page-hemorragie .etape:focus-within .etape-detail {
+.page-hemorragie .etape:focus-within .etape-detail 
+.inconscience .etape:focus-within .etape-detail {
 
   max-height: 250px;        /* Même hauteur que le hover */
   opacity: 1;               /* Rend visible */
@@ -1597,7 +1600,8 @@ Contour visible lors de la sélection clavier
 .etouffement .etape:focus,
 .brulure .etape:focus,
 .hemorragie .etape:focus,
-.page-hemorragie .etape:focus {
+.page-hemorragie .etape:focus 
+.inconscience .etape:focus {
 
   outline: 3px solid rgba(0,0,0,0.25);  /* Contour gris semi-transparent */
   outline-offset: 4px;                  /* Espace entre la carte et le contour */
