@@ -1419,50 +1419,28 @@ main li{
 }
 
 /* =========================================================
-   LECTEUR AUDIO DANS UNE LISTE — VERSION RESPONSIVE iPHONE
+   TEXTE D’INTRODUCTION DU LECTEUR AUDIO
 ========================================================= */
 
-/*
-   Force le <li> contenant l’audio
-   à se comporter comme un bloc classique.
+.audio-intro {
 
-   Utile si la liste (<ul> ou <li>) est stylée en flex ailleurs,
-   ce qui peut perturber l’affichage sur Safari iOS.
-*/
-.li-audio {
-  display: block;
-  list-style: none;     /* Supprime la puce (point de liste) */
-  margin: 15px 0;       /* Espace au-dessus et en dessous du lecteur */
-}
-
-/*
-   Conteneur du lecteur audio.
-
-   Utilisation de Flexbox pour centrer horizontalement
-   le lecteur de manière fiable,
-   notamment sur iPhone (Safari iOS).
-*/
-.audio-wrap {
-  display: flex;              /* Active Flexbox */
-  justify-content: center;    /* Centre horizontalement */
-}
-
-/*
-   Lecteur audio responsive :
-
-   - S’adapte à la largeur de l’écran
-   - Ne dépasse jamais son conteneur
-   - Reste lisible sur mobile
-*/
-.audio-responsive {
-
-  /* 
-     Largeur dynamique :
-     - Sur petit écran (iPhone) → 100% de la largeur disponible
-     - Sur grand écran → maximum 400px
+  /*
+     Supprime le style de paragraphe classique
+     pour garder une cohérence avec la liste.
   */
-  width: min(100%, 400px);
+  margin-bottom: 8px;
 
-  display: block;  /* Évite les petits décalages d’alignement */
+  /*
+     Centre le texte pour qu’il soit aligné
+     avec le lecteur audio.
+  */
+  text-align: center;
+
+  /*
+     Style légèrement pédagogique :
+     texte un peu mis en valeur sans être agressif.
+  */
+  font-weight: 500;
+  font-style: italic;
 }
 
