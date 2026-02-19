@@ -91,64 +91,124 @@
         </div>
       </section>
 
-      <section aria-labelledby="etapes">
-        <h3 id="etapes-pls">🔄 Étapes — Mettre en Position Latérale de Sécurité (PLS)</h3>
-        <p>💡 Passez la souris / touchez une carte pour afficher le détail.</p>
+      <section aria-labelledby="etapes-pls">
+  <h3 id="etapes-pls">🔄 Étapes — Mettre en Position Latérale de Sécurité (PLS)</h3>
+  <p>💡 Cliquez / touchez une étape pour plus de détails.</p>
 
-        <!-- Grille de cartes -->
-        <div class="grille-etapes">
+  <div class="grille-etapes">
 
-          <!-- Carte étape -->
-          <div class="etape" data-detail="detail-4-etapes-1" tabindex="0">
-            <div class="numero-etape">1</div>
-            <h3>Se placer et vérifier</h3>
-            <p class="etape-detail">
-              <i>Placez-vous à côté de la personne. Assurez-vous qu’elle respire et qu’elle ne réagit pas.</i>
-            </p>
-          </div>
+    <div class="etape" data-detail="detail-pls-1" tabindex="0">
+      <div class="numero-etape">1</div>
+      <h3>Se placer et vérifier</h3>
+    </div>
 
-          <div class="etape" data-detail="detail-4-etapes-2" tabindex="0">
-            <div class="numero-etape">2</div>
-            <h3>Position des mains</h3>
-            <p class="etape-detail">
-              <i>Mettez une main sur son épaule et une main sur sa hanche pour contrôler le mouvement.</i>
-            </p>
-          </div>
+    <div class="etape" data-detail="detail-pls-2" tabindex="0">
+      <div class="numero-etape">2</div>
+      <h3>Position des mains</h3>
+    </div>
 
-          <div class="etape" data-detail="detail-4-etapes-3" tabindex="0">
-            <div class="numero-etape">3</div>
-            <h3>Tourner doucement</h3>
-            <p class="etape-detail">
-              <i>Tournez-la doucement vers vous pour la placer sur le côté, en maintenant l’alignement du corps.</i>
-            </p>
-          </div>
+    <div class="etape" data-detail="detail-pls-3" tabindex="0">
+      <div class="numero-etape">3</div>
+      <h3>Tourner doucement</h3>
+    </div>
 
-          <div class="etape" data-detail="detail-4-etapes-4" tabindex="0">
-            <div class="numero-etape">4</div>
-            <h3>Libérer les voies aériennes</h3>
-            <p class="etape-detail">
-              <i>Ouvrez sa bouche pour faciliter la respiration (retirez un masque si besoin).</i>
-            </p>
-          </div>
+    <div class="etape" data-detail="detail-pls-4" tabindex="0">
+      <div class="numero-etape">4</div>
+      <h3>Libérer les voies aériennes</h3>
+    </div>
 
-          <div class="etape" data-detail="detail-4-etapes-5" tabindex="0">
-            <div class="numero-etape">5</div>
-            <h3>Appeler les secours</h3>
-            <p class="etape-detail">
-              <i>Alertez les secours et donnez des informations précises (état, respiration, contexte).</i>
-            </p>
-          </div>
+    <div class="etape" data-detail="detail-pls-5" tabindex="0">
+      <div class="numero-etape">5</div>
+      <h3>Appeler les secours</h3>
+    </div>
 
-          <div class="etape" data-detail="detail-4-etapes-6" tabindex="0">
-            <div class="numero-etape">6</div>
-            <h3>Surveiller en continu</h3>
-            <p class="etape-detail">
-              <i>Surveillez la respiration jusqu’à l’arrivée des secours. Si elle s’arrête, commencez la réanimation.</i>
-            </p>
-          </div>
+    <div class="etape" data-detail="detail-pls-6" tabindex="0">
+      <div class="numero-etape">6</div>
+      <h3>Surveiller en continu</h3>
+    </div>
 
-        </div>
-      </section>
+  </div>
+</section>
+
+      <!-- =========================
+     TEMPLATES POPUP — PLS
+     (le JS ouvre ces contenus)
+========================== -->
+
+<template id="detail-pls-1">
+  <div class="detail-content">
+    <div class="step-detail">
+      <h4>✅ Vérifier</h4>
+      <ul>
+        <li>Vous placer à côté de la victime.</li>
+        <li>Vérifier qu’elle ne répond pas (parler, toucher doucement).</li>
+        <li>Vérifier la respiration pendant 10 secondes.</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template id="detail-pls-2">
+  <div class="detail-content">
+    <div class="step-detail">
+      <h4>🖐️ Position du bras proche</h4>
+      <ul>
+        <li>Placez le bras le plus proche de vous à angle droit.</li>
+        <li>Main ouverte, paume vers le haut (position stable).</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template id="detail-pls-3">
+  <div class="detail-content">
+    <div class="step-detail">
+      <h4>🤲 Main contre la joue</h4>
+      <ul>
+        <li>Attrapez l’autre main et placez-la contre la joue de la victime.</li>
+        <li>Gardez-la en place pendant que vous la tournez.</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template id="detail-pls-4">
+  <div class="detail-content">
+    <div class="step-detail">
+      <h4>🔄 Faire rouler sur le côté</h4>
+      <ul>
+        <li>Pliez le genou de la jambe la plus éloignée.</li>
+        <li>Tirez doucement le genou vers vous pour la faire rouler.</li>
+        <li>Gardez l’alignement tête/cou/tronc (sans mouvement brusque).</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template id="detail-pls-5">
+  <div class="detail-content">
+    <div class="step-detail">
+      <h4>💨 Libérer les voies aériennes</h4>
+      <ul>
+        <li>Ouvrez la bouche pour faciliter l’écoulement (vomissements/liquides).</li>
+        <li>Surveillez que la respiration reste régulière.</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template id="detail-pls-6">
+  <div class="detail-content">
+    <div class="step-detail">
+      <h4>📞 Alerter + surveiller</h4>
+      <ul>
+        <li>Appelez le 15/18/112 et décrivez : inconscience + respiration présente.</li>
+        <li>Restez avec la victime.</li>
+        <li>Si elle ne respire plus : alerte + massage cardiaque + DAE.</li>
+      </ul>
+    </div>
+  </div>
+</template>
 
       <section aria-labelledby="accident">
         <h3 id="accident">⚠️ Que faire si la personne est inconsciente suite à un accident ?</h3>
