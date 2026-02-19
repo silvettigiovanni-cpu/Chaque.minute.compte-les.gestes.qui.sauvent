@@ -1451,7 +1451,7 @@ main li{
 ========================================= */
 
 /* =====================================================
-   1️⃣ Curseur interactif
+   Curseur interactif
    - Indique visuellement que la carte est cliquable
    - S’applique uniquement aux pages concernées
 ===================================================== */
@@ -1464,7 +1464,7 @@ main li{
 
 
 /* =====================================================
-   2️⃣ Détail caché par défaut
+   Détail caché par défaut
    - Le texte explicatif est invisible au chargement
    - Animation douce lors de l’apparition
 ===================================================== */
@@ -1486,7 +1486,7 @@ main li{
 
 
 /* =====================================================
-   3️⃣ Affichage au survol (ordinateur)
+   Affichage au survol (ordinateur)
    - Le texte apparaît lorsque la souris passe dessus
 ===================================================== */
 .etouffement .etape:hover .etape-detail,
@@ -1500,7 +1500,7 @@ main li{
 
 
 /* =====================================================
-   4️⃣ Affichage au focus (mobile + clavier)
+   Affichage au focus (mobile + clavier)
    - Fonctionne sur écran tactile
    - Améliore l’accessibilité clavier
 ===================================================== */
@@ -1515,7 +1515,7 @@ main li{
 
 
 /* =====================================================
-   5️⃣ Contour visible lors de la sélection clavier
+Contour visible lors de la sélection clavier
    - Important pour l’accessibilité
    - Permet de voir quelle carte est active
 ===================================================== */
