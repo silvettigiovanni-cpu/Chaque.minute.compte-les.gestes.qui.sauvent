@@ -50,51 +50,73 @@
         <!-- Mon contenu “étapes” -->
         <!-- partie thématique du contenu // aria-labelledby = titre de la section -->
         <section aria-labelledby="etapes">
-        <!-- Id = sert de référence pour aria-labelledby -->
-        <h3 id="etapes">Les étapes de l'intervention pour stopper l'hémorragie</h3>
+  <h3 id="etapes">Les étapes de l'intervention pour stopper l'hémorragie</h3>
 
-        <!-- Grille des étapes = étapes sous forme de grille, chaque étape est interactive -->
-        <!-- div class="grille-etapes" = organiser les étapes visuellement (CSS / JS) + regroupe toutes les étapes d’intervention -->
-        <div class="grille-etapes">
-            <!-- Cette div représente une étape précise // le data-detail="detail-4-etapes-1" permet de faire le lien HTML/JS -->
-            <div class="etape" data-detail="detail-4-etapes-1">
-                <!-- <div class="numero-etape">1 permet d'afficher le numéro d'étape + être stylisé avec le CSS -->
-                <div class="numero-etape">1</div>
-                    <h3>Compression de la plaie</h3>
-                        <p><i>Evitez, si possible, tout contact avec le sang de la victime : demandez-lui de comprimer elle-même sa blessure. Sinon, exercez une pression directement sur la plaie avec vos mains protégées (gants jetables, sac plastique ou linge).</i></p>
-                </div>
-            
-            <div class="etape" data-detail="detail-4-etapes-2">
-                <div class="numero-etape">2</div>
-                    <h3>Allonger la victime</h3>
-                        <p><i>Allongez la victime en position horizontale.</i></p>
-                </div>
+  <div class="grille-etapes">
 
-            <div class="etape" data-detail="detail-4-etapes-3">
-                <div class="numero-etape">3</div>
-                    <h3>Demander de l'aide</h3>
-                        <p><i>Demandez à une personne présente d'alerter les secours ou faites-le vous-même si vous êtes seul.</i></p>
-                </div>
+    <div class="etape" tabindex="0">
+      <div class="numero-etape">1</div>
+      <h3>Compression de la plaie</h3>
+      <p class="etape-detail">
+        <i>
+          Évitez, si possible, tout contact avec le sang de la victime : demandez-lui de comprimer
+          elle-même sa blessure. Sinon, exercez une pression directement sur la plaie avec vos mains
+          protégées (gants jetables, sac plastique ou linge).
+        </i>
+      </p>
+    </div>
 
-            <div class="etape" data-detail="detail-4-etapes-4">
-                <div class="numero-etape">4</div>
-                    <h3>Maintenir la compression</h3>
-                        <p><i>Si la plaie continue de saigner, comprimez-la encore plus fermement. Poursuivez la compression sur la plaie jusqu'à l'arrivée des secours.</i></p>
-                </div>
+    <div class="etape" tabindex="0">
+      <div class="numero-etape">2</div>
+      <h3>Allonger la victime</h3>
+      <p class="etape-detail">
+        <i>Allongez la victime en position horizontale.</i>
+      </p>
+    </div>
 
-            <div class="etape" data-detail="detail-4-etapes-5">
-                <div class="numero-etape">5</div>
-                    <h3>Si vous êtes seul avec la victime</h3>
-                        <p><i>Si vous devez vous libérer (par exemple pour aller donner l'alerte), appliquez un tampon relais pour remplacer votre compression manuelle.</i></p>
-                </div>
-            
-            <div class="etape" data-detail="detail-4-etapes-6">
-                <div class="numero-etape">6</div>
-                    <h3>Se laver les mains</h3>
-                        <p><i>Lavez-vous les mains après avoir effectué ces premiers secours.</i></p>
-                </div>
-            </div>
-        </section>
+    <div class="etape" tabindex="0">
+      <div class="numero-etape">3</div>
+      <h3>Demander de l'aide</h3>
+      <p class="etape-detail">
+        <i>
+          Demandez à une personne présente d'alerter les secours ou faites-le vous-même si vous êtes seul.
+        </i>
+      </p>
+    </div>
+
+    <div class="etape" tabindex="0">
+      <div class="numero-etape">4</div>
+      <h3>Maintenir la compression</h3>
+      <p class="etape-detail">
+        <i>
+          Si la plaie continue de saigner, comprimez-la encore plus fermement.
+          Poursuivez la compression jusqu'à l'arrivée des secours.
+        </i>
+      </p>
+    </div>
+
+    <div class="etape" tabindex="0">
+      <div class="numero-etape">5</div>
+      <h3>Si vous êtes seul avec la victime</h3>
+      <p class="etape-detail">
+        <i>
+          Si vous devez vous libérer (par exemple pour aller donner l'alerte),
+          appliquez un tampon relais pour remplacer votre compression manuelle.
+        </i>
+      </p>
+    </div>
+
+    <div class="etape" tabindex="0">
+      <div class="numero-etape">6</div>
+      <h3>Se laver les mains</h3>
+      <p class="etape-detail">
+        <i>Lavez-vous les mains après avoir effectué ces premiers secours.</i>
+      </p>
+    </div>
+
+  </div>
+</section>
+
 
         <section aria-labelledby="technique-arret-hemorragie">
             <h3 id="technique-arret-hemorragie">Techniques d'arrêt d'hémorragie en 1ers secours</h3>
