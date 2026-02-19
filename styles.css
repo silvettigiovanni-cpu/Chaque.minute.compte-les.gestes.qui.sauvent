@@ -754,76 +754,65 @@ section[aria-labelledby="technique-dae"] ol li::before {
 
 /* =========================================================
    BOUTON FLOTTANT (SOS)
-   - Bouton fixe visible en permanence
+   - Visible en permanence (position fixed)
    - Déplaçable (drag souris + doigt)
 ========================================================= */
 .floating-phone{
+  position: fixed;                 /* reste à l’écran même au scroll */
+  top: 50%;                        /* placé au milieu vertical */
+  right: 20px;                     /* collé à droite */
+  transform: translateY(-50%);     /* centrage vertical parfait */
+  z-index: 1300;                   /* au-dessus du site */
 
-  position: fixed; 
-  /* Le bouton reste fixé à l’écran même quand on scroll */
+  display: flex;                   /* icône + texte alignés */
+  align-items: center;             /* centrage vertical */
+  gap: 14px;                       /* espace entre icône et texte */
 
-  top: 50%; 
-  /* Position verticale : milieu de l’écran */
+  padding: 16px 20px;              /* taille du bouton */
+  border: none;                    /* pas de bordure */
+  border-radius: 999px;            /* forme “pill” */
 
-  right: 20px; 
-  /* Position horizontale : 20px du bord droit */
-
-  transform: translateY(-50%);
-  /* Décale le bouton vers le haut de 50% de sa propre hauteur
-     → permet un centrage vertical parfait */
-
-  z-index: 1300;
-  /* Le bouton passe au-dessus des autres éléments */
-
-  display: flex;
-  /* Active Flexbox pour aligner icône + texte */
-
-  align-items: center;
-  /* Centre verticalement l’icône et le texte */
-
-  gap: 14px;
-  /* Espace entre l’icône et le texte */
-
-  padding: 16px 20px;
-  /* Espace interne (haut/bas 16px, gauche/droite 20px) */
-
-  border: none;
-  /* Supprime la bordure par défaut du bouton */
-
-  color: white;
-  /* Couleur du texte */
-
-  font-weight: 900;
-  /* Texte très gras (effet urgence) */
-
-  font-size: 16px;
-  /* Taille du texte */
-
-  border-radius: 999px;
-  /* Forme "pill" (capsule complètement arrondie) */
+  color: white;                    /* texte blanc */
+  font-weight: 900;                /* très gras */
+  font-size: 16px;                 /* taille texte */
 
   background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
-  /* Dégradé corail → rouge profond pour effet urgence */
-
   box-shadow: 0 22px 50px rgba(225,75,72,0.45);
-  /* Ombre importante pour effet flottant moderne */
 
   transition: box-shadow 0.2s ease, filter 0.2s ease;
-  /* Animation douce sur ombre et luminosité */
 
-  /* =============================
-     DRAG (souris + doigt)
-     ============================= */
+  /* ===== DRAG (IMPORTANT) ===== */
+  touch-action: none;              /* évite scroll/zoom pendant drag sur mobile */
+  user-select: none;               /* évite sélection de texte */
+  cursor: grab;                    /* curseur indiquant “déplaçable” */
+}
 
-  touch-action: none;
-  /* Empêche le navigateur de scroller ou zoomer
-     quand on glisse le bouton sur mobile */
+.floating-phone:hover{
+  filter: brightness(1.05);        /* bouton un peu plus lumineux */
+  box-shadow: 0 30px 70px rgba(225,75,72,0.60);
+}
 
-  user-select: none;
-  /* Empêche la sélection de texte pendant le déplacement */
+.floating-phone:active{
+  cursor: grabbing;                /* main fermée pendant drag/clic */
+  filter: brightness(0.95);        /* léger effet “appuyé” */
+}
 
-  cursor: grab;
-  /* Curseur "main ouverte" indiquant qu’on peut déplacer */
+/* Icône */
+.floating-phone-icon{
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.2);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  font-size: 24px;
+}
+
+/* Texte */
+.floating-phone-text{
+  letter-spacing: 1px;
+  font-size: 16px;
 }
 
 
