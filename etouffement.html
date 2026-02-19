@@ -50,62 +50,78 @@
         <!-- Mon contenu “étapes” -->
         <!-- partie thématique du contenu // aria-labelledby = titre de la section -->
         <section aria-labelledby="etapes">
-        <!-- Id = sert de référence pour aria-labelledby -->
-        <h3 id="etapes">Étapes d’intervention - Agir vite</h3>
-        <!-- texte d’aide utilisateur -->
-        <p>💡 Cliquez sur une étape pour plus de détails.</p>
+  <h3 id="etapes">Étapes d’intervention - Agir vite</h3>
+  <p>💡 Cliquez / touchez une étape pour plus de détails.</p>
 
-        <!-- Alerte : obstruction partielle -->
-        <div class="alert-box" role="note" aria-label="Information importante">
-            <strong>⚠️ Obstruction partielle des voies aériennes :</strong>
-            <p>
-                <strong>
-                    Tant que la victime tousse efficacement, ne pas intervenir et l’encourager à tousser.
-                    Agir uniquement en cas d’arrêt de la toux ou d’aggravation.
-                </strong>
-            </p>
-        </div>
+  <!-- Alerte : obstruction partielle -->
+  <div class="alert-box" role="note" aria-label="Information importante">
+    <strong>⚠️ Obstruction partielle des voies aériennes :</strong>
+    <p>
+      <strong>
+        Tant que la victime tousse efficacement, ne pas intervenir et l’encourager à tousser.
+        Agir uniquement en cas d’arrêt de la toux ou d’aggravation.
+      </strong>
+    </p>
+  </div>
 
-        <!-- Grille des étapes = étapes sous forme de grille, chaque étape est interactive -->
-        <!-- div class="grille-etapes" = organiser les étapes visuellement (CSS / JS) + regroupe toutes les étapes d’intervention -->
-        <div class="grille-etapes">
-            <!-- Cette div représente une étape précise // le data-detail="detail-4-etapes-1" permet de faire le lien HTML/JS -->
-            <div class="etape" data-detail="detail-4-etapes-1">
-                <!-- <div class="numero-etape">1 permet d'afficher le numéro d'étape + être stylisé avec le CSS -->
-                <div class="numero-etape">1</div>
-                    <h3>Ni parler, ni respirer, ni tousser</h3>
-                        <p><i>La victime ne peut pas répondre (elle secoue éventuellement la tête), mais est consciente. La victime ne peut ni parler, ni respirer, ni tousser. Elle peut émettre des sifflements ou tenter de tousser sans émettre de bruit.</i></p>
-                </div>
-            
-            <div class="etape" data-detail="detail-4-etapes-2">
-                <div class="numero-etape">2</div>
-                    <h3>5 claques</h3>
-                        <p><i>Donnez un maximum de 5 claques dans le dos de la victime. Après chaque claque, vérifiez si tout rentre dans l'ordre.</i></p>
-                </div>
+  <div class="grille-etapes">
 
-            <div class="etape" data-detail="detail-4-etapes-3">
-                <div class="numero-etape">3</div>
-                    <h3>5 compressions abdominales</h3>
-                        <p><i>Si les claques dans le dos n'ont pas d'effet, effectuez un maximum de 5 compressions abdominales.</i></p>
-                </div>
+    <div class="etape" data-detail="detail-4-etapes-1" tabindex="0">
+      <div class="numero-etape">1</div>
+      <h3>Ni parler, ni respirer, ni tousser</h3>
+      <p class="etape-detail">
+        <i>
+          La victime ne peut pas répondre (elle secoue éventuellement la tête), mais est consciente.
+          La victime ne peut ni parler, ni respirer, ni tousser. Elle peut émettre des sifflements
+          ou tenter de tousser sans émettre de bruit.
+        </i>
+      </p>
+    </div>
 
-            <div class="etape" data-detail="detail-4-etapes-4">
-                <div class="numero-etape">4</div>
-                    <h3>Alterner les claques et les compressions</h3>
-                        <p><i>Si le problème n'est toujours pas résolu, alternez 5 claques dans le dos et 5 compressions abdominales.</i></p>
-                </div>
+    <div class="etape" data-detail="detail-4-etapes-2" tabindex="0">
+      <div class="numero-etape">2</div>
+      <h3>5 claques</h3>
+      <p class="etape-detail">
+        <i>
+          Donnez un maximum de 5 claques dans le dos de la victime.
+          Après chaque claque, vérifiez si tout rentre dans l'ordre.
+        </i>
+      </p>
+    </div>
 
-            <div class="etape" data-detail="detail-4-etapes-5">
-                <div class="numero-etape">5</div>
-                    <h3>Si la victime perd connaissance</h3>
-                        <p><i>Posez-la victime délicatement au sol et alertez immédiatement les secours, puis entreprenez une réanimation cardio-pulmonaire en commençant par effectuer 30 compressions thoraciques</i></p>
-                </div>
-            
-            <div class="etape" data-detail="detail-4-etapes-6">
+    <div class="etape" data-detail="detail-4-etapes-3" tabindex="0">
+      <div class="numero-etape">3</div>
+      <h3>5 compressions abdominales</h3>
+      <p class="etape-detail">
+        <i>
+          Si les claques dans le dos n'ont pas d'effet, effectuez un maximum de 5 compressions abdominales.
+        </i>
+      </p>
+    </div>
+
+    <div class="etape" data-detail="detail-4-etapes-4" tabindex="0">
+      <div class="numero-etape">4</div>
+      <h3>Alterner les claques et les compressions</h3>
+      <p class="etape-detail">
+        <i>
+          Si le problème n'est toujours pas résolu, alternez 5 claques dans le dos et 5 compressions abdominales.
+        </i>
+      </p>
+    </div>
+
+    <div class="etape" data-detail="detail-4-etapes-5" tabindex="0">
+            <div class="numero-etape">5</div>
+                <h3>Si la victime perd connaissance</h3>
+                <p class="etape-detail"><i>Posez la victime délicatement au sol et alertez immédiatement les secours,
+                puis entreprenez une réanimation cardio-pulmonaire en commençant par 30 compressions thoraciques.</i></p>
+            </div>
+
+            <div class="etape" data-detail="detail-4-etapes-6" tabindex="0">
                 <div class="numero-etape">6</div>
                     <h3>Continuer la réanimation</h3>
-                        <p><i>Poursuivez la réanimation jusqu'à ce que les secours arrivent ou que la victime reprenne une respiration normale.</i></p>
+                    <p class="etape-detail"><i>Poursuivez la réanimation jusqu'à ce que les secours arrivent ou que la victime reprenne une respiration normale.</i></p>
                 </div>
+
             </div>
         </section>
 
