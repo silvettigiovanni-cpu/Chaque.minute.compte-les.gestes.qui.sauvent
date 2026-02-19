@@ -135,68 +135,172 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  // =========================================================
-  // 3) SMARTPHONE SOS
-  // =========================================================
+  // =========================
+// 3) SMARTPHONE SOS (TOUTES PAGES) + DRAG
+// =========================
+const btnEmergency = document.getElementById("open-emergency");
 
-  const btnEmergency = document.getElementById("open-emergency");
+if (btnEmergency) {
 
-  if (btnEmergency) {
+  // --- A) On force une position en left/top (sinon top:50% + transform gêne le drag) ---
+  const applySavedOrCurrentPos = () => {
+    const saved = localStorage.getItem("sosPos");
 
-    btnEmergency.addEventListener("click", () => {
+    // Si on a déjà une position sauvegardée, on l'applique
+    if (saved) {
+      const { left, top } = JSON.parse(saved);
+      btnEmergency.style.left = left;
+      btnEmergency.style.top = top;
+      btnEmergency.style.right = "auto";
+      btnEmergency.style.transform = "none";
+      return;
+    }
 
-      // Heure actuelle format HH:MM
-      const now = new Date().toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit"
-      });
+    // Sinon on convertit la position actuelle (calculée à l'écran) en left/top
+    const r = btnEmergency.getBoundingClientRect();
+    btnEmergency.style.left = `${r.left}px`;
+    btnEmergency.style.top = `${r.top}px`;
+    btnEmergency.style.right = "auto";
+    btnEmergency.style.transform = "none";
+  };
 
-      // Construction interface smartphone
-      const html = `
-        <div class="smartphone" role="dialog" aria-label="Numéros d'urgence">
-          <div class="notch" aria-hidden="true"></div>
+  applySavedOrCurrentPos();
 
-          <div class="screen">
-            <div class="status-bar">
-              <span class="time">${now}</span>
-              <span aria-hidden="true">📶 🔋</span>
-            </div>
+  // --- B) Variables drag ---
+  let dragging = false;
+  let moved = false;
 
-            <h2 style="text-align:center; margin: 6px 0 10px;">Urgences</h2>
-            <p style="text-align:center; opacity:0.85; margin-bottom:12px;">
-              Touchez un numéro pour appeler
-            </p>
+  let startX = 0;
+  let startY = 0;
+  let startLeft = 0;
+  let startTop = 0;
 
-            <div class="emergency-grid">
-              <a class="emergency-tile" href="tel:15">
-                <div class="num">15</div>
-                <div class="label">SAMU</div>
-              </a>
+  const THRESHOLD = 5; // seuil : éviter d’ouvrir la popup si micro-mouvement
 
-              <a class="emergency-tile" href="tel:18">
-                <div class="num">18</div>
-                <div class="label">Pompiers</div>
-              </a>
+  // --- C) Début drag ---
+  btnEmergency.addEventListener("pointerdown", (e) => {
+    dragging = true;
+    moved = false;
 
-              <a class="emergency-tile" href="tel:112">
-                <div class="num">112</div>
-                <div class="label">Urgences<br>Europe</div>
-              </a>
+    // capture : on continue de recevoir les events même si le doigt sort du bouton
+    btnEmergency.setPointerCapture(e.pointerId);
 
-              <a class="emergency-tile" href="tel:114">
-                <div class="num">114</div>
-                <div class="label">SMS<br>(sourds)</div>
-              </a>
-            </div>
+    // positions de départ
+    startX = e.clientX;
+    startY = e.clientY;
 
-            <div class="home-indicator" aria-hidden="true"></div>
+    const r = btnEmergency.getBoundingClientRect();
+    startLeft = r.left;
+    startTop = r.top;
+  });
+
+  // --- D) Mouvement drag ---
+  btnEmergency.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    // dès qu'on dépasse le seuil, c'est un vrai déplacement
+    if (!moved && (Math.abs(dx) > THRESHOLD || Math.abs(dy) > THRESHOLD)) {
+      moved = true;
+    }
+
+    // tant qu'on n'a pas dépassé le seuil, on ne déplace pas
+    if (!moved) return;
+
+    // IMPORTANT : empêcher le scroll sur mobile pendant le drag
+    e.preventDefault();
+
+    let newLeft = startLeft + dx;
+    let newTop = startTop + dy;
+
+    // limites écran
+    const maxLeft = window.innerWidth - btnEmergency.offsetWidth;
+    const maxTop = window.innerHeight - btnEmergency.offsetHeight;
+
+    newLeft = Math.max(0, Math.min(maxLeft, newLeft));
+    newTop = Math.max(0, Math.min(maxTop, newTop));
+
+    btnEmergency.style.left = `${newLeft}px`;
+    btnEmergency.style.top = `${newTop}px`;
+    btnEmergency.style.right = "auto";
+    btnEmergency.style.transform = "none";
+  }, { passive: false }); // ✅ clé : autorise preventDefault sur certains navigateurs
+
+  // --- E) Fin drag ---
+  const stop = () => {
+    if (!dragging) return;
+    dragging = false;
+
+    // si on a bougé, on sauvegarde la position
+    if (moved) {
+      localStorage.setItem("sosPos", JSON.stringify({
+        left: btnEmergency.style.left,
+        top: btnEmergency.style.top
+      }));
+    }
+  };
+
+  btnEmergency.addEventListener("pointerup", stop);
+  btnEmergency.addEventListener("pointercancel", stop);
+
+  // --- F) Click (popup) : seulement si on n'a PAS déplacé ---
+  btnEmergency.addEventListener("click", (e) => {
+    if (moved) {
+      // évite l'ouverture après un drag
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+
+    const now = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+    const html = `
+      <div class="smartphone" role="dialog" aria-label="Numéros d'urgence">
+        <div class="notch" aria-hidden="true"></div>
+
+        <div class="screen">
+          <div class="status-bar">
+            <span class="time">${now}</span>
+            <span aria-hidden="true">📶 🔋</span>
           </div>
-        </div>
-      `;
 
-      openPopup(html);
-    });
-  }
+          <h2 style="text-align:center; margin: 6px 0 10px;">Urgences</h2>
+          <p style="text-align:center; opacity:0.85; margin-bottom:12px;">
+            Touchez un numéro pour appeler
+          </p>
+
+          <div class="emergency-grid">
+            <a class="emergency-tile" href="tel:15" aria-label="Appeler le 15, SAMU">
+              <div class="num">15</div>
+              <div class="label">SAMU</div>
+            </a>
+
+            <a class="emergency-tile" href="tel:18" aria-label="Appeler le 18, Pompiers">
+              <div class="num">18</div>
+              <div class="label">Pompiers</div>
+            </a>
+
+            <a class="emergency-tile" href="tel:112" aria-label="Appeler le 112, Urgences européennes">
+              <div class="num">112</div>
+              <div class="label">Urgences<br>Europe</div>
+            </a>
+
+            <a class="emergency-tile" href="tel:114" aria-label="Appeler le 114, urgence SMS sourds/malentendants">
+              <div class="num">114</div>
+              <div class="label">SMS<br>(sourds)</div>
+            </a>
+          </div>
+
+          <div class="home-indicator" aria-hidden="true"></div>
+        </div>
+      </div>
+    `;
+
+    openPopup(html);
+  });
+}
 
 
   // =========================================================
