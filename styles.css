@@ -1343,23 +1343,31 @@ main li{
    IMAGE + LÉGENDE (figure)
 ========================================================= */
 
-/* Conteneur global de l’image + légende */
-.image-container {
-  text-align: center;      /* centre image + texte */
-  margin: 20px 0;          /* espace vertical */
+/* === Image (positionmains) : version responsive “propre” === */
+.image-container{
+  text-align: center;
+  margin: 18px auto 24px;   /* centré + respirations */
 }
 
-/* Image responsive */
-.image-container img {
-  width: 100%;             /* prend la largeur disponible */
-  max-width: 600px;        /* limite sur grand écran */
-  height: auto;            /* garde proportions */
-  border-radius: 8px;      /* coins arrondis */
+/* L’image s’adapte à l’écran, sans être énorme sur desktop */
+.image-container img{
+  display: block;
+  width: min(100%, 720px);  /* 100% sur mobile, max 720px sur grand écran */
+  height: auto;             /* garde les proportions */
+  margin: 0 auto;           /* centre */
+  border-radius: 16px;      /* un peu plus “site moderne” */
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-/* Légende */
-.image-container figcaption {
-  font-size: 0.9rem;       /* texte plus petit */
-  color: #666;             /* gris doux */
-  margin-top: 8px;         /* espace sous l’image */
+/* Optionnel : évite qu’elle soit trop haute (utile en popup) */
+.image-container img{
+  max-height: 60vh;         /* pas plus de 60% de la hauteur écran */
+  object-fit: contain;      /* aucune déformation */
+}
+
+/* Légende (source) */
+.image-container figcaption{
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 8px;
 }
