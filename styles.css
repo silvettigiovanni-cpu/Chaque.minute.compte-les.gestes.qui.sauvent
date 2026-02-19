@@ -1447,68 +1447,84 @@ main li{
 /* =========================================
    CARTES INTERACTIVES — PAGES URGENCE
    (Étouffement / Hémorragie / Brûlure)
+   + Compatibilité page-hemorragie
 ========================================= */
 
-/*
-   Rend les cartes interactives uniquement
-   sur les pages urgences.
-   Le curseur indique que l’élément est cliquable.
-*/
-.etouffement .etape,
-.hemorragie .etape,
-.brulure .etape {
-  cursor: pointer;
+/* =====================================================
+   1️⃣ Curseur interactif
+   - Indique visuellement que la carte est cliquable
+   - S’applique uniquement aux pages concernées
+===================================================== */
+.etouffement .etape,        /* Page Étouffement */
+.brulure .etape,            /* Page Brûlure */
+.hemorragie .etape,         /* Si body class="hemorragie" */
+.page-hemorragie .etape {   /* Si body class="page-hemorragie" */
+  cursor: pointer;          /* Affiche la main au survol */
 }
 
-/*
-   Cache le texte explicatif par défaut.
-   - max-height: 0 → invisible
-   - overflow: hidden → masque le contenu
-   - opacity: 0 → rend transparent
-   - transition → animation douce
-*/
+
+/* =====================================================
+   2️⃣ Détail caché par défaut
+   - Le texte explicatif est invisible au chargement
+   - Animation douce lors de l’apparition
+===================================================== */
 .etouffement .etape-detail,
+.brulure .etape-detail,
 .hemorragie .etape-detail,
-.brulure .etape-detail {
-  margin-top: 8px;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.35s ease, opacity 0.25s ease;
+.page-hemorragie .etape-detail {
+
+  margin-top: 8px;          /* Petit espace entre le titre et le détail */
+
+  max-height: 0;            /* Hauteur réduite à 0 → invisible */
+  overflow: hidden;         /* Cache le contenu qui dépasse */
+  opacity: 0;               /* Rend le texte transparent */
+
+  transition:               /* Animation fluide */
+    max-height 0.35s ease,  /* Animation d’ouverture */
+    opacity 0.25s ease;     /* Apparition progressive */
 }
 
-/*
-   Affiche le détail au survol (ordinateur).
-   Le texte devient visible avec animation.
-*/
+
+/* =====================================================
+   3️⃣ Affichage au survol (ordinateur)
+   - Le texte apparaît lorsque la souris passe dessus
+===================================================== */
 .etouffement .etape:hover .etape-detail,
+.brulure .etape:hover .etape-detail,
 .hemorragie .etape:hover .etape-detail,
-.brulure .etape:hover .etape-detail {
-  max-height: 250px;
-  opacity: 1;
+.page-hemorragie .etape:hover .etape-detail {
+
+  max-height: 250px;        /* Hauteur suffisante pour afficher le contenu */
+  opacity: 1;               /* Rend le texte visible */
 }
 
-/*
-   Affiche le détail au toucher (mobile)
-   grâce au focus reçu par la carte.
-*/
+
+/* =====================================================
+   4️⃣ Affichage au focus (mobile + clavier)
+   - Fonctionne sur écran tactile
+   - Améliore l’accessibilité clavier
+===================================================== */
 .etouffement .etape:focus-within .etape-detail,
+.brulure .etape:focus-within .etape-detail,
 .hemorragie .etape:focus-within .etape-detail,
-.brulure .etape:focus-within .etape-detail {
-  max-height: 250px;
-  opacity: 1;
+.page-hemorragie .etape:focus-within .etape-detail {
+
+  max-height: 250px;        /* Même hauteur que le hover */
+  opacity: 1;               /* Rend visible */
 }
 
-/*
-   Ajoute un contour visible lorsque la carte
-   est sélectionnée (accessibilité clavier).
-*/
+
+/* =====================================================
+   5️⃣ Contour visible lors de la sélection clavier
+   - Important pour l’accessibilité
+   - Permet de voir quelle carte est active
+===================================================== */
 .etouffement .etape:focus,
+.brulure .etape:focus,
 .hemorragie .etape:focus,
-.brulure .etape:focus {
-  outline: 3px solid rgba(0,0,0,0.25);
-  outline-offset: 4px;
-  border-radius: 12px;
+.page-hemorragie .etape:focus {
+
+  outline: 3px solid rgba(0,0,0,0.25);  /* Contour gris semi-transparent */
+  outline-offset: 4px;                  /* Espace entre la carte et le contour */
+  border-radius: 12px;                  /* Arrondi cohérent avec la carte */
 }
-
-
