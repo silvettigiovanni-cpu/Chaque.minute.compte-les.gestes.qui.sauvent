@@ -1,19 +1,30 @@
 /* =========================================================
    POLICE
+   -> Charge la police Inter depuis Google Fonts
 ========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 
 
 /* =========================================================
-   RESET
+   RESET (base saine)
+   - enlève marges/paddings par défaut
+   - box-sizing pour que width/height soient prévisibles
+   - images/vidéos responsives
 ========================================================= */
 *{ margin:0; padding:0; box-sizing:border-box; }
-img, video{ max-width:100%; height:auto; display:block; }
+img, video{
+  max-width:100%;
+  height:auto;
+  display:block;               /* évite les “espaces” sous l’image (inline) */
+  margin-left:auto;            /* ✅ centre les images par défaut */
+  margin-right:auto;           /* ✅ centre les images par défaut */
+}
 a{ color: inherit; }
 
 
 /* =========================================================
-   VARIABLES
+   VARIABLES (thème)
+   -> couleurs centralisées pour garder une cohérence
 ========================================================= */
 :root{
   --bg1:#fff3e8;
@@ -28,11 +39,17 @@ a{ color: inherit; }
   --danger1:#f25f5c;
   --danger2:#e14b48;
   --danger3:#9f2f2f;
+
+  /* petites “utilitaires” */
+  --card-bg: rgba(255,255,255,0.90);
+  --glass-bg: rgba(255,255,255,0.75);
+  --border-soft: rgba(255,255,255,0.35);
+  --shadow-soft: 0 8px 32px rgba(225,75,72,0.10);
 }
 
 
 /* =========================================================
-   BASE
+   BASE (mise en page générale)
 ========================================================= */
 body{
   font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -42,26 +59,28 @@ body{
   color: var(--ink);
 }
 
+/* zone centrale */
 main{ max-width:1200px; margin:0 auto; }
 main section, main article{ margin:22px 0; }
 
+/* alignement titres */
 main header{ text-align:center; }
 
+/* Titres principaux pages */
 main h2{
   font-size: 34px;
   font-weight: 900;
   color: var(--ink);
-
   display:inline-block;
   padding: 12px 16px;
   margin: 18px 0 14px;
-
   background: rgba(255,255,255,0.70);
   border: 2px solid rgba(242,95,92,0.35);
   border-radius: 16px;
   box-shadow: 0 10px 26px rgba(225,75,72,0.15);
 }
 
+/* Titres secondaires */
 main h3{
   font-size: 22px;
   font-weight: 800;
@@ -69,12 +88,14 @@ main h3{
   margin-bottom: 10px;
 }
 
+/* Texte */
 main p{
   color: var(--muted);
   line-height: 1.7;
   margin-top: 6px;
 }
 
+/* Listes */
 main ul, main ol{
   padding-left: 28px;
   margin: 10px 0;
@@ -83,9 +104,14 @@ main li{ margin-bottom: 6px; }
 
 b, strong{ font-weight: 900; }
 
+/* Images dans le contenu : un peu “joli” */
+main img, main video{
+  border-radius: 16px;         /* ✅ coins arrondis */
+}
+
 
 /* =========================================================
-   HEADER + NAV
+   HEADER + NAV (haut de page)
 ========================================================= */
 .site-header{ max-width:1200px; margin:0 auto 28px; }
 
@@ -94,7 +120,6 @@ b, strong{ font-weight: 900; }
   font-weight: 800;
   text-align:center;
   padding: 28px 22px;
-
   background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
   color:#fff;
   border-radius: 20px;
@@ -104,12 +129,13 @@ b, strong{ font-weight: 900; }
   line-height: 1.15;
 }
 
+/* Barre de navigation “verre” */
 .site-nav{
-  background: rgba(255,255,255,0.75);
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.35);
+  border: 1px solid var(--border-soft);
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(225,75,72,0.10);
+  box-shadow: var(--shadow-soft);
   padding: 10px;
 }
 
@@ -122,6 +148,7 @@ b, strong{ font-weight: 900; }
   align-items:center;
 }
 
+/* Boutons nav */
 .site-nav a{
   display:inline-block;
   text-decoration:none;
@@ -133,13 +160,11 @@ b, strong{ font-weight: 900; }
   background: rgba(242,95,92,0.08);
   transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
 }
-
 .site-nav a:hover{
   transform: translateY(-2px);
   background: rgba(242,95,92,0.14);
   box-shadow: 0 10px 24px rgba(225,75,72,0.18);
 }
-
 .site-nav a[aria-current="page"]{
   background: linear-gradient(135deg, rgba(242,95,92,0.95) 0%, rgba(159,47,47,0.95) 100%);
   color:#fff;
@@ -148,7 +173,7 @@ b, strong{ font-weight: 900; }
 
 
 /* =========================================================
-   GRILLES (Accueil / etc.)
+   GRILLES (cartes accueil / etc.)
 ========================================================= */
 .grille-cartes{
   display:grid;
@@ -157,8 +182,9 @@ b, strong{ font-weight: 900; }
   margin-top:18px;
 }
 
+/* Carte “bloc cliquable” */
 .carte{
-  background: rgba(255,255,255,0.9);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 20px;
@@ -174,6 +200,7 @@ b, strong{ font-weight: 900; }
               border-color .35s ease;
 }
 
+/* halo au survol */
 .carte::before{
   content:'';
   position:absolute;
@@ -183,7 +210,6 @@ b, strong{ font-weight: 900; }
   transition: opacity .35s ease;
   z-index:0;
 }
-
 .carte:hover::before{ opacity:1; }
 
 .carte:hover{
@@ -192,28 +218,25 @@ b, strong{ font-weight: 900; }
   border-color: rgba(242,95,92,0.22);
 }
 
+/* titre de carte */
 .carte h3{
   margin:0;
   text-align:center;
   font-size:20px;
   font-weight:900;
-
   background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
-
   position:relative;
   z-index:1;
 }
 
 
 /* =========================================================
-   ETAPES (Cartes + détails qui s’ouvrent)
-   -> Le coeur de ton besoin est ici.
+   ETAPES (cartes + détails qui s’ouvrent)
+   ✅ correction : le détail ne se coupe plus à 260px
 ========================================================= */
-
-/* Grille des étapes */
 .grille-etapes{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -221,7 +244,6 @@ b, strong{ font-weight: 900; }
   margin-top:18px;
 }
 
-/* Carte étape (base) */
 .etape{
   background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
   border: 2px solid #e2e8f0;
@@ -233,7 +255,7 @@ b, strong{ font-weight: 900; }
   height:100%;
 }
 
-/* Numéro */
+/* numéro rond */
 .numero-etape{
   width:72px;
   height:72px;
@@ -249,7 +271,7 @@ b, strong{ font-weight: 900; }
   box-shadow: 0 8px 24px rgba(225,75,72,0.28);
 }
 
-/* Titre dans une étape (tu utilises h3 dans ton HTML) */
+/* titre d’étape */
 .etape h3,
 .etape h4{
   font-size: 18px;
@@ -258,8 +280,100 @@ b, strong{ font-weight: 900; }
   color: var(--ink);
 }
 
+/* détail inline (quand tu as .etape-detail dans le HTML) */
+.etape-detail{
+  text-align:left;             /* ✅ lecture plus agréable */
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* listes dans le détail */
+.etape-detail ul, .etape-detail ol{
+  margin-top: 8px;
+  padding-left: 22px;
+}
+.etape-detail li{ margin-bottom: 6px; }
+
+
 /* =========================================================
-   POPUP (manquait => certaines UI paraissent "disparues")
+   INTERACTIF DES ETAPES (hover / focus)
+   ✅ correction : max-height plus grand (évite “contenu coupé”)
+========================================================= */
+body.page-hemorragie .etape,
+body.hemorragie .etape,
+body.etouffement .etape,
+body.page-etouffement .etape,
+body.brulure .etape,
+body.page-brulure .etape{
+  cursor:pointer;
+}
+
+/* fermé par défaut */
+body.page-hemorragie .etape-detail,
+body.hemorragie .etape-detail,
+body.etouffement .etape-detail,
+body.page-etouffement .etape-detail,
+body.brulure .etape-detail,
+body.page-brulure .etape-detail{
+  margin-top:8px;
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  padding-top: 0;
+  transition: max-height .45s ease, opacity .25s ease, padding .25s ease;
+}
+
+/* ouvert au survol + focus (clavier / mobile) */
+body.page-hemorragie .etape:hover .etape-detail,
+body.hemorragie .etape:hover .etape-detail,
+body.etouffement .etape:hover .etape-detail,
+body.page-etouffement .etape:hover .etape-detail,
+body.brulure .etape:hover .etape-detail,
+body.page-brulure .etape:hover .etape-detail,
+body.page-hemorragie .etape:focus-within .etape-detail,
+body.hemorragie .etape:focus-within .etape-detail,
+body.etouffement .etape:focus-within .etape-detail,
+body.page-etouffement .etape:focus-within .etape-detail,
+body.brulure .etape:focus-within .etape-detail,
+body.page-brulure .etape:focus-within .etape-detail,
+body.page-hemorragie .etape:active .etape-detail,
+body.hemorragie .etape:active .etape-detail,
+body.etouffement .etape:active .etape-detail,
+body.page-etouffement .etape:active .etape-detail,
+body.brulure .etape:active .etape-detail,
+body.page-brulure .etape:active .etape-detail{
+  max-height: 900px;           /* ✅ au lieu de 260px */
+  opacity:1;
+  padding-top: 10px;           /* ✅ “air” quand ça s’ouvre */
+}
+
+/* effet carte au survol */
+body.page-hemorragie .etape:hover,
+body.hemorragie .etape:hover,
+body.etouffement .etape:hover,
+body.page-etouffement .etape:hover,
+body.brulure .etape:hover,
+body.page-brulure .etape:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(225,75,72,0.14);
+  border-color: var(--brand1);
+}
+
+/* contour accessibilité (clavier) */
+body.page-hemorragie .etape:focus,
+body.hemorragie .etape:focus,
+body.etouffement .etape:focus,
+body.page-etouffement .etape:focus,
+body.brulure .etape:focus,
+body.page-brulure .etape:focus{
+  outline: 3px solid rgba(0,0,0,0.25);
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   POPUP (overlay + panneau)
+   -> nécessaire pour les popups étapes/accueil/contact/urgences
 ========================================================= */
 .popup{
   position: fixed;
@@ -272,10 +386,12 @@ b, strong{ font-weight: 900; }
   backdrop-filter: blur(3px);
 }
 
+/* contenu popup */
 .popup-contenu{
   width: min(920px, 100%);
   max-height: min(85vh, 900px);
   overflow: auto;
+  overflow-x: hidden;          /* ✅ évite des décalages horizontaux */
   background: rgba(255,255,255,0.96);
   border: 2px solid rgba(242,95,92,0.25);
   border-radius: 22px;
@@ -284,6 +400,7 @@ b, strong{ font-weight: 900; }
   position: relative;
 }
 
+/* bouton fermer */
 .popup .fermer{
   position: sticky;
   top: 0;
@@ -300,11 +417,13 @@ b, strong{ font-weight: 900; }
   background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
   box-shadow: 0 12px 30px rgba(225,75,72,0.25);
 }
-
 .popup .fermer:hover{ filter: brightness(1.05); }
 .popup .fermer:active{ transform: scale(0.98); }
 
-/* Header popup étape */
+/* titres centrés dans popup */
+.popup-contenu h2, .popup-contenu h3{ text-align:center; }
+
+/* header d’une popup “étape” (num + titre) */
 .etape-detail-header{
   display:flex;
   align-items:center;
@@ -313,6 +432,7 @@ b, strong{ font-weight: 900; }
   margin: 4px 0 12px;
 }
 
+/* numéro en “badge” dans popup */
 .numero-etape-large{
   width:58px;
   height:58px;
@@ -326,8 +446,16 @@ b, strong{ font-weight: 900; }
   box-shadow: 0 10px 26px rgba(225,75,72,0.25);
 }
 
+/* contenu “centré” (ex: formulaire contact) */
+.popup-contenu .detail-content{
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+
 /* =========================================================
-   URGENCES (mise en avant des numéros en "rectangles")
+   URGENCES (tuiles numéros)
+   -> remet les numéros en rectangles de couleur
 ========================================================= */
 .smartphone{
   width: min(420px, 92vw);
@@ -378,7 +506,6 @@ b, strong{ font-weight: 900; }
   box-shadow: 0 10px 24px rgba(225,75,72,0.10);
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
 }
-
 .emergency-tile:hover{
   transform: translateY(-3px);
   background: rgba(242,95,92,0.12);
@@ -386,10 +513,11 @@ b, strong{ font-weight: 900; }
   box-shadow: 0 16px 36px rgba(225,75,72,0.16);
 }
 
+/* ✅ numéro en rectangle arrondi */
 .emergency-tile .num{
   width: 58px;
   height: 46px;
-  border-radius: 14px;               /* ✅ rectangle arrondi */
+  border-radius: 14px;
   display:grid;
   place-items:center;
   color:#fff;
@@ -415,10 +543,18 @@ b, strong{ font-weight: 900; }
   background: rgba(0,0,0,0.12);
 }
 
+
 /* =========================================================
-   ALERT BOX (styles qui avaient disparu)
+   ALERT BOX (messages)
+   ✅ correction : compatibilité avec plusieurs noms possibles
+   - .alert (ton choix)
+   - .alert-box / .alerte / .notice / .message (si ton HTML diffère)
 ========================================================= */
-.alert{
+.alert,
+.alert-box,
+.alerte,
+.notice,
+.message{
   margin: 14px 0;
   padding: 14px 14px;
   border-radius: 16px;
@@ -427,122 +563,29 @@ b, strong{ font-weight: 900; }
   box-shadow: 0 10px 28px rgba(0,0,0,0.10);
   color: var(--ink);
 }
-
 .alert strong{ font-weight: 900; }
 
-.alert-danger{
+/* variantes */
+.alert-danger, .danger, .error{
   border-color: rgba(242,95,92,0.30);
   background: rgba(242,95,92,0.10);
 }
-
-.alert-warning{
+.alert-warning, .warning{
   border-color: rgba(245, 158, 11, 0.35);
   background: rgba(245, 158, 11, 0.12);
 }
-
-.alert-info{
+.alert-info, .info{
   border-color: rgba(59, 130, 246, 0.30);
   background: rgba(59, 130, 246, 0.10);
 }
-
-.alert-success{
+.alert-success, .success{
   border-color: rgba(16, 185, 129, 0.30);
   background: rgba(16, 185, 129, 0.10);
 }
 
-/* =========================================================
-   INTERACTIF (UNIQUEMENT sur les pages visées)
-   - hover souris
-   - focus-within tap doigt + clavier
-   - active (certaines plateformes)
-========================================================= */
-body.page-hemorragie .etape,
-body.hemorragie .etape,
-body.etouffement .etape,
-body.page-etouffement .etape,
-body.brulure .etape,
-body.page-brulure .etape{
-  cursor:pointer;
-}
-
-/* Détail fermé par défaut */
-body.page-hemorragie .etape-detail,
-body.hemorragie .etape-detail,
-body.etouffement .etape-detail,
-body.page-etouffement .etape-detail,
-body.brulure .etape-detail,
-body.page-brulure .etape-detail{
-  margin-top:8px;
-  max-height:0;
-  overflow:hidden;
-  opacity:0;
-  transition: max-height .35s ease, opacity .25s ease;
-}
-
-/* Ouverture au survol */
-body.page-hemorragie .etape:hover .etape-detail,
-body.hemorragie .etape:hover .etape-detail,
-body.etouffement .etape:hover .etape-detail,
-body.page-etouffement .etape:hover .etape-detail,
-body.brulure .etape:hover .etape-detail,
-body.page-brulure .etape:hover .etape-detail{
-  max-height:260px;
-  opacity:1;
-}
-
-/* Ouverture au tap / clavier (grâce à tabindex="0") */
-body.page-hemorragie .etape:focus-within .etape-detail,
-body.hemorragie .etape:focus-within .etape-detail,
-body.etouffement .etape:focus-within .etape-detail,
-body.page-etouffement .etape:focus-within .etape-detail,
-body.brulure .etape:focus-within .etape-detail,
-body.page-brulure .etape:focus-within .etape-detail{
-  max-height:260px;
-  opacity:1;
-}
-
-/* Petit plus : quand tu restes appuyé */
-body.page-hemorragie .etape:active .etape-detail,
-body.hemorragie .etape:active .etape-detail,
-body.etouffement .etape:active .etape-detail,
-body.page-etouffement .etape:active .etape-detail,
-body.brulure .etape:active .etape-detail,
-body.page-brulure .etape:active .etape-detail{
-  max-height:260px;
-  opacity:1;
-}
-
-/* Effet “carte” au hover */
-body.page-hemorragie .etape:hover,
-body.hemorragie .etape:hover,
-body.etouffement .etape:hover,
-body.page-etouffement .etape:hover,
-body.brulure .etape:hover,
-body.page-brulure .etape:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(225,75,72,0.14);
-  border-color: var(--brand1);
-}
-
-/* Contour accessibilité */
-body.page-hemorragie .etape:focus,
-body.hemorragie .etape:focus,
-body.etouffement .etape:focus,
-body.page-etouffement .etape:focus,
-body.brulure .etape:focus,
-body.page-brulure .etape:focus{
-  outline: 3px solid rgba(0,0,0,0.25);
-  outline-offset: 4px;
-}
-
-/* IMPORTANT :
-   Si tu veux que ça se referme dès que tu tapes ailleurs,
-   ça dépend du focus : sur mobile, un tap ailleurs enlève le focus -> ça se referme.
-*/
-
 
 /* =========================================================
-   VIDEO BOX
+   VIDEO BOX (cadre vidéo)
 ========================================================= */
 .video-box{
   max-width: 800px;
@@ -567,7 +610,7 @@ body.page-brulure .etape:focus{
   margin-top:8px;
 }
 
-/* Ajustement spécifique page hémorragie */
+/* ajustement hémorragie */
 body.page-hemorragie .video-box{ max-width:520px; }
 
 
@@ -579,18 +622,15 @@ body.page-hemorragie .video-box{ max-width:520px; }
   margin: 26px auto 0;
   padding: 18px 16px;
   text-align:center;
-
   background: rgba(255,255,255,0.70);
   border: 1px solid rgba(255,255,255,0.35);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(225,75,72,0.10);
 }
-
 .site-footer h2, .site-footer p{
   margin: 6px 0;
   color:#2d3748;
 }
-
 .site-footer a{
   color: var(--brand1);
   font-weight: 900;
@@ -600,7 +640,7 @@ body.page-hemorragie .video-box{ max-width:520px; }
 
 
 /* =========================================================
-   BOUTON FLOTTANT SOS
+   BOUTON FLOTTANT SOS (draggable)
 ========================================================= */
 .floating-phone{
   position: fixed;
@@ -625,11 +665,10 @@ body.page-hemorragie .video-box{ max-width:520px; }
   box-shadow: 0 22px 50px rgba(225,75,72,0.45);
 
   transition: box-shadow .2s ease, filter .2s ease;
-  touch-action:none;
+  touch-action:none;           /* ✅ permet drag sans scroll involontaire */
   user-select:none;
   cursor:grab;
 }
-
 .floating-phone:hover{
   filter:brightness(1.05);
   box-shadow: 0 30px 70px rgba(225,75,72,0.60);
@@ -639,6 +678,7 @@ body.page-hemorragie .video-box{ max-width:520px; }
   filter:brightness(0.95);
 }
 
+/* icône */
 .floating-phone-icon{
   width:48px;
   height:48px;
@@ -649,7 +689,6 @@ body.page-hemorragie .video-box{ max-width:520px; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
   font-size:24px;
 }
-
 .floating-phone-text{
   letter-spacing:1px;
   font-size:16px;
@@ -657,7 +696,7 @@ body.page-hemorragie .video-box{ max-width:520px; }
 
 
 /* =========================================================
-   CONTACT (bouton)
+   CONTACT (bouton + formulaire dans popup)
 ========================================================= */
 .contact-section{
   max-width:1200px;
@@ -679,16 +718,63 @@ body.page-hemorragie .video-box{ max-width:520px; }
   box-shadow: 0 20px 50px rgba(225,75,72,0.25);
   transition: transform .2s ease, box-shadow .2s ease;
 }
-
 .contact-btn:hover{
   transform: translateY(-4px);
   box-shadow: 0 30px 70px rgba(225,75,72,0.35);
 }
 .contact-btn:active{ transform: scale(0.97); }
 
+/* styles formulaire (au cas où ils manquaient) */
+.form-contact label{
+  font-weight: 900;
+  display:block;
+  margin: 10px 0 6px;
+  color: var(--ink);
+}
+.form-contact input,
+.form-contact textarea{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 2px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.9);
+  outline: none;
+}
+.form-contact textarea{
+  min-height: 120px;
+  resize: vertical;
+}
+.form-contact .row-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.form-contact .hint{
+  display:flex;
+  justify-content:space-between;
+  font-size: 12px;
+  margin-top: 6px;
+  color: var(--muted);
+}
+.btn-submit{
+  margin-top: 14px;
+  width: 100%;
+  border:none;
+  cursor:pointer;
+  padding: 14px 18px;
+  border-radius: 18px;
+  color:#fff;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+  box-shadow: 0 16px 40px rgba(225,75,72,0.22);
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn-submit:hover{ transform: translateY(-2px); filter: brightness(1.02); }
+.btn-submit:active{ transform: scale(0.98); }
+
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE (mobile/tablette)
 ========================================================= */
 @media (max-width: 900px){
   .site-header h1{
@@ -707,6 +793,7 @@ body.page-hemorragie .video-box{ max-width:520px; }
 
 @media (max-width: 600px){
   .grille-etapes{ grid-template-columns: 1fr; }
+  .form-contact .row-2{ grid-template-columns: 1fr; } /* ✅ formulaire mieux sur mobile */
 }
 
 @media (max-width: 400px){
