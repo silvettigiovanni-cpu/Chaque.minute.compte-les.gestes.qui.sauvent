@@ -195,11 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // 2) CARTES ACCUEIL : navigation normale (pas de popup)
 // =========================================================
 document.querySelectorAll(".grille-cartes a.carte").forEach((carte) => {
-  carte.addEventListener("click", (e) => {
-    // IMPORTANT : on ne fait rien => le lien fonctionne
-    // (pas de preventDefault)
-  });
-});
+carte.addEventListener("click", (e) => { 
+const titreEl = carte.querySelector("h2, h3"); const titre = titreEl ? titreEl.textContent.trim() : "";
+if (!titre) return;
 
       // Popup spécifique sur accueil
       if (titre === "Les 4 étapes pour porter secours") {
