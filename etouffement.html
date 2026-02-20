@@ -1,189 +1,258 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <!-- Encodage des caractères (UTF-8) : accents, apostrophes typographiques, symboles, emojis -->
-    <meta charset="UTF-8" />
-    <!-- Permet l’adaptation du site à la largeur de l’écran (responsive design) -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Titre de la page (affiché dans l’onglet du navigateur) -->
-    <title>L'étouffement - Chaque minute compte</title>
-    <!-- Feuille de styles principale -->
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'étouffement - Chaque minute compte</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<!-- Corps du document : contenu principal affiché à l’utilisateur -->
-<body class="etouffement">
-    <!-- En-tête du site : titre et navigation -->
-    <header class="site-header">
-        <!-- Titre principal (niveau 1) : sujet central de la page -->
-        <h1>Chaque minute compte - Les gestes qui sauvent</h1> 
-            <!-- Navigation principale : liens vers les différentes pages du site -->
-            <nav class="site-nav" aria-label="Navigation principale">
-                <ul>
-                    <!--La balise <a> associée à l’attribut href permet de créer des liens hypertextes et d’assurer la navigation entre les différentes pages du site.-->
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="Les-4-etapes-pour-porter-secours.html">Les 4 étapes pour porter secours</a></li>
-                    <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
-                    <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
-                    <li><a href="inconscience.html">Inconscience</a></li>
-                    <li><a href="etouffement.html" aria-current="page">Étouffement</a></li>
-                    <li><a href="hemorragie.html">Hémorragie</a></li>
-                    <li><a href="brulure.html">Brûlure</a></li>
-                </ul>
-                <!-- ul = Liste non ordonnée // li = Élément de la liste-->
-            </nav>
-    </header>
+<body class="page etouffement">
+  <header class="site-header">
+    <h1>Chaque minute compte - Les gestes qui sauvent</h1>
 
-<!-- Contenu principal de la page -->
-<main>
-    <!-- <article> = contenu autonome et indépendant // Il a du sens tout seul et il peut être lu séparément-->
+    <nav class="site-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Les-4-etapes-pour-porter-secours.html">Les 4 étapes pour porter secours</a></li>
+        <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
+        <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
+        <li><a href="inconscience.html">Inconscience</a></li>
+        <li><a href="etouffement.html" aria-current="page">Étouffement</a></li>
+        <li><a href="hemorragie.html">Hémorragie</a></li>
+        <li><a href="brulure.html">Brûlure</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
     <article>
-        <!-- <header> = en-tête de l'article -->
-        <header>
-            <!-- h2 = titre de l'article -->
-            <h2>L'étouffement</h2>
-            <!-- p = paragraphe descriptif - phrase d'introduction-->
-            <p>Chez les adultes, l'étouffement survient généralement au cours d'un repas, en présence d'autres personnes. Dans tous les cas, il faut agir vite !</p>
-        </header>
+      <header>
+        <h2>L'étouffement</h2>
+        <p>
+          Chez les adultes, l'étouffement survient généralement au cours d'un repas, en présence d'autres personnes.
+          Dans tous les cas, il faut agir vite !
+        </p>
+      </header>
 
-        <!-- Mon contenu “étapes” -->
-        <!-- partie thématique du contenu // aria-labelledby = titre de la section -->
-        <section aria-labelledby="etapes">
-  <h3 id="etapes">Étapes d’intervention - Agir vite</h3>
-  <p>💡 Cliquez / touchez une étape pour plus de détails.</p>
+      <section aria-labelledby="etapes">
+        <h3 id="etapes">Étapes d’intervention - Agir vite</h3>
+        <p>💡 Cliquez / touchez une étape pour plus de détails.</p>
 
-  <!-- Alerte : obstruction partielle -->
-  <div class="alert-box" role="note" aria-label="Information importante">
-    <strong>⚠️ Obstruction partielle des voies aériennes :</strong>
-    <p>
-      <strong>
-        Tant que la victime tousse efficacement, ne pas intervenir et l’encourager à tousser.
-        Agir uniquement en cas d’arrêt de la toux ou d’aggravation.
-      </strong>
-    </p>
-  </div>
+        <div class="alert-box" role="note" aria-label="Information importante">
+          <strong>⚠️ Obstruction partielle des voies aériennes :</strong>
+          <p>
+            <strong>
+              Tant que la victime tousse efficacement, ne pas intervenir et l’encourager à tousser.
+              Agir uniquement en cas d’arrêt de la toux ou d’aggravation.
+            </strong>
+          </p>
+        </div>
 
-  <div class="grille-etapes">
-
-    <div class="etape" data-detail="detail-4-etapes-1" tabindex="0">
-      <div class="numero-etape">1</div>
-      <h3>Ni parler, ni respirer, ni tousser</h3>
-      <p class="etape-detail">
-        <i>
-          La victime ne peut pas répondre (elle secoue éventuellement la tête), mais est consciente.
-          La victime ne peut ni parler, ni respirer, ni tousser. Elle peut émettre des sifflements
-          ou tenter de tousser sans émettre de bruit.
-        </i>
-      </p>
-    </div>
-
-    <div class="etape" data-detail="detail-4-etapes-2" tabindex="0">
-      <div class="numero-etape">2</div>
-      <h3>5 claques</h3>
-      <p class="etape-detail">
-        <i>
-          Donnez un maximum de 5 claques dans le dos de la victime.
-          Après chaque claque, vérifiez si tout rentre dans l'ordre.
-        </i>
-      </p>
-    </div>
-
-    <div class="etape" data-detail="detail-4-etapes-3" tabindex="0">
-      <div class="numero-etape">3</div>
-      <h3>5 compressions abdominales</h3>
-      <p class="etape-detail">
-        <i>
-          Si les claques dans le dos n'ont pas d'effet, effectuez un maximum de 5 compressions abdominales.
-        </i>
-      </p>
-    </div>
-
-    <div class="etape" data-detail="detail-4-etapes-4" tabindex="0">
-      <div class="numero-etape">4</div>
-      <h3>Alterner les claques et les compressions</h3>
-      <p class="etape-detail">
-        <i>
-          Si le problème n'est toujours pas résolu, alternez 5 claques dans le dos et 5 compressions abdominales.
-        </i>
-      </p>
-    </div>
-
-    <div class="etape" data-detail="detail-4-etapes-5" tabindex="0">
-            <div class="numero-etape">5</div>
-                <h3>Si la victime perd connaissance</h3>
-                <p class="etape-detail"><i>Posez la victime délicatement au sol et alertez immédiatement les secours,
-                puis entreprenez une réanimation cardio-pulmonaire en commençant par 30 compressions thoraciques.</i></p>
-            </div>
-
-            <div class="etape" data-detail="detail-4-etapes-6" tabindex="0">
-                <div class="numero-etape">6</div>
-                    <h3>Continuer la réanimation</h3>
-                    <p class="etape-detail"><i>Poursuivez la réanimation jusqu'à ce que les secours arrivent ou que la victime reprenne une respiration normale.</i></p>
-                </div>
-
-            </div>
-        </section>
-
-        <section aria-labelledby="Technique-claque">
-            <h3 id="Technique-claque">Technique : les claques dans le dos</h3>
-                <ol>
-                    <li>Tenez-vous sur le côté et un peu en arrière de la victime.</li>
-                    <li>Penchez-la vers l'avant en soutenant sa poitrine d'une main, ce qui permettra à l'objet obstruant les voies aériennes de ne pas s'enfoncer davantage dans la trachée.</li>
-                    <li>Administrez un maximum de 5 claques entre les omoplates. Chaque claque a pour but de provoquer un mouvement de toux permettant de déloger l'objet.</li>
-                    <li>Après chaque claque, observez si le corps étranger a été rejeté ou non. Dans l'affirmative, la victime reprend sa respiration et tousse, et il est inutile de lui donner d'autres claques dans le dos.</li>
-                </ol>
-        </section>
-
-        <section aria-labelledby="Technique-compressions">
-            <h3 id="Technique-compressions">Technique : les compressions abdominales (Manœuvre de Heimlich)</h3>
-                <ol>
-                    <li>Tenez-vous derrière la victime et placez vos bras autour de la partie supérieure de son abdomen.</li>
-                    <li>Penchez la victime vers l'avant.</li>
-                    <li>Placez un de vos poings fermés entre le nombril et l'extrémité inférieure du sternum.</li>
-                    <li>Maintenez votre poing en place à l'aide de votre autre main. Enfoncez fortement votre poing vers vous et vers le haut. Recommencez ce geste 5 fois au maximum.</li>
-                </ol>
-
-                <div class="img-wrap">
-                    <img
-                        src="images/heimlich.png"
-                        alt="Illustration de la manœuvre de Heimlich"
-                        class="img-responsive"
-                        loading="lazy"
-                    >
-                </div>
-            
-        </section>
-
-        <section aria-labelledby="video-etouffement">
-            <h3 id="video-etouffement">🎥 Démonstration – Étouffement</h3>
-
-            <div class="video-box">
-                <video controls preload="metadata">
-                <source src="videos/minutejerem.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la lecture de cette vidéo.
-                </video>
-            </div>
-
-            <p class="video-caption">
-            <i>Vidéo réalisée et proposée par : </i>
-            <a href="https://www.youtube.com/@lesminutesdejeremy"><strong>Les Minutes de Jérémy</strong></a>
+        <div class="grille-etapes">
+          <div class="etape" data-detail="detail-etouffement-1" tabindex="0">
+            <div class="numero-etape">1</div>
+            <h3>Ni parler, ni respirer, ni tousser</h3>
+            <p class="etape-detail">
+              <i>
+                La victime ne peut pas répondre (elle secoue éventuellement la tête), mais est consciente.
+                Elle ne peut ni parler, ni respirer, ni tousser. Elle peut émettre des sifflements
+                ou tenter de tousser sans bruit.
+              </i>
             </p>
-        </section>
+          </div>
 
+          <div class="etape" data-detail="detail-etouffement-2" tabindex="0">
+            <div class="numero-etape">2</div>
+            <h3>5 claques</h3>
+            <p class="etape-detail">
+              <i>
+                Donnez un maximum de 5 claques dans le dos de la victime.
+                Après chaque claque, vérifiez si tout rentre dans l'ordre.
+              </i>
+            </p>
+          </div>
+
+          <div class="etape" data-detail="detail-etouffement-3" tabindex="0">
+            <div class="numero-etape">3</div>
+            <h3>5 compressions abdominales</h3>
+            <p class="etape-detail">
+              <i>
+                Si les claques dans le dos n'ont pas d'effet, effectuez un maximum de 5 compressions abdominales.
+              </i>
+            </p>
+          </div>
+
+          <div class="etape" data-detail="detail-etouffement-4" tabindex="0">
+            <div class="numero-etape">4</div>
+            <h3>Alterner les claques et les compressions</h3>
+            <p class="etape-detail">
+              <i>
+                Si le problème n'est toujours pas résolu, alternez 5 claques dans le dos et 5 compressions abdominales.
+              </i>
+            </p>
+          </div>
+
+          <div class="etape" data-detail="detail-etouffement-5" tabindex="0">
+            <div class="numero-etape">5</div>
+            <h3>Si la victime perd connaissance</h3>
+            <p class="etape-detail">
+              <i>
+                Posez la victime délicatement au sol, alertez immédiatement les secours,
+                puis commencez une réanimation cardio-pulmonaire (30 compressions thoraciques).
+              </i>
+            </p>
+          </div>
+
+          <div class="etape" data-detail="detail-etouffement-6" tabindex="0">
+            <div class="numero-etape">6</div>
+            <h3>Continuer la réanimation</h3>
+            <p class="etape-detail">
+              <i>
+                Poursuivez la réanimation jusqu'à l'arrivée des secours ou la reprise d'une respiration normale.
+              </i>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEMPLATES POPUP (optionnels mais conseillés : tes data-detail pointent ici) -->
+      <template id="detail-etouffement-1">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>Ni parler, ni respirer, ni tousser</h4>
+            <ul>
+              <li>La victime est consciente mais ne peut pas parler/respirer/tousser efficacement.</li>
+              <li>Elle peut s’agripper à sa gorge : c’est un signe classique.</li>
+              <li>Il faut agir immédiatement (claques puis compressions).</li>
+            </ul>
+          </div>
+        </div>
+      </template>
+
+      <template id="detail-etouffement-2">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>5 claques dans le dos</h4>
+            <ul>
+              <li>Placez-vous sur le côté et légèrement derrière la victime.</li>
+              <li>Penchez-la vers l’avant en soutenant sa poitrine.</li>
+              <li>Donnez jusqu’à 5 claques entre les omoplates.</li>
+              <li>Après chaque claque, vérifiez si l’objet est expulsé.</li>
+            </ul>
+          </div>
+        </div>
+      </template>
+
+      <template id="detail-etouffement-3">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>5 compressions abdominales (Heimlich)</h4>
+            <ul>
+              <li>Placez-vous derrière la victime, bras autour de l’abdomen.</li>
+              <li>Poing fermé entre le nombril et le bas du sternum.</li>
+              <li>Saisissez le poing avec l’autre main.</li>
+              <li>Tirez fermement vers vous et vers le haut, jusqu’à 5 fois.</li>
+            </ul>
+          </div>
+        </div>
+      </template>
+
+      <template id="detail-etouffement-4">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>Alterner 5 claques / 5 compressions</h4>
+            <ul>
+              <li>Si l’obstruction persiste, alternez 5 claques et 5 compressions.</li>
+              <li>Continuez jusqu’à expulsion ou perte de connaissance.</li>
+            </ul>
+          </div>
+        </div>
+      </template>
+
+      <template id="detail-etouffement-5">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>Si la victime perd connaissance</h4>
+            <ul>
+              <li>Allongez-la prudemment au sol.</li>
+              <li>Appelez les secours (15 / 18 / 112).</li>
+              <li>Commencez immédiatement la RCP : 30 compressions thoraciques.</li>
+            </ul>
+          </div>
+        </div>
+      </template>
+
+      <template id="detail-etouffement-6">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>Continuer la réanimation</h4>
+            <ul>
+              <li>Poursuivez la RCP jusqu’à l’arrivée des secours.</li>
+              <li>Si un DAE est disponible, utilisez-le dès que possible.</li>
+              <li>Arrêtez uniquement si la victime respire à nouveau normalement ou relais par les secours.</li>
+            </ul>
+          </div>
+        </div>
+      </template>
+
+      <section aria-labelledby="technique-claque">
+        <h3 id="technique-claque">Technique : les claques dans le dos</h3>
+        <ol>
+          <li>Tenez-vous sur le côté et un peu en arrière de la victime.</li>
+          <li>Penchez-la vers l'avant en soutenant sa poitrine d'une main.</li>
+          <li>Administrez un maximum de 5 claques entre les omoplates.</li>
+          <li>Après chaque claque, observez si le corps étranger a été rejeté.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="technique-compressions">
+        <h3 id="technique-compressions">Technique : compressions abdominales (Manœuvre de Heimlich)</h3>
+        <ol>
+          <li>Tenez-vous derrière la victime et placez vos bras autour de la partie supérieure de son abdomen.</li>
+          <li>Penchez la victime vers l'avant.</li>
+          <li>Placez un poing fermé entre le nombril et l'extrémité inférieure du sternum.</li>
+          <li>Saisissez le poing avec l’autre main et tirez vers vous et vers le haut (5 fois max).</li>
+        </ol>
+
+        <div class="img-wrap">
+          <img
+            src="images/heimlich.png"
+            alt="Illustration de la manœuvre de Heimlich"
+            class="img-responsive"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section aria-labelledby="video-etouffement">
+        <h3 id="video-etouffement">🎥 Démonstration – Étouffement</h3>
+
+        <div class="video-box">
+          <video controls preload="metadata">
+            <source src="videos/minutejerem.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la lecture de cette vidéo.
+          </video>
+        </div>
+
+        <p class="video-caption">
+          <i>Vidéo réalisée et proposée par : </i>
+          <a href="https://www.youtube.com/@lesminutesdejeremy"><strong>Les Minutes de Jérémy</strong></a>
+        </p>
+      </section>
     </article>
   </main>
 
-<button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
-  <span class="floating-phone-icon" aria-hidden="true">📱</span>
-  <span class="floating-phone-text">SOS</span>
-</button>
-
-<section class="contact-section">
-  <button class="contact-btn" type="button" id="open-contact">
-    Une question, un commentaire ?
+  <button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
+    <span class="floating-phone-icon" aria-hidden="true">📱</span>
+    <span class="floating-phone-text">SOS</span>
   </button>
-</section>
+
+  <section class="contact-section">
+    <button class="contact-btn" type="button" id="open-contact">
+      Une question, un commentaire ?
+    </button>
+  </section>
 
   <footer class="site-footer">
     <p><a href="index.html">Retour à l’accueil</a></p>
