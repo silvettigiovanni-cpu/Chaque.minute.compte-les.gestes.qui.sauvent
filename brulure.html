@@ -1,182 +1,171 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <!-- Encodage des caractères (UTF-8) : accents, apostrophes typographiques, symboles, emojis -->
-    <meta charset="UTF-8" />
-    <!-- Permet l’adaptation du site à la largeur de l’écran (responsive design) -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Titre de la page (affiché dans l’onglet du navigateur) -->
-    <title>Les brûlures - Chaque minute compte</title>
-    <!-- Feuille de styles principale -->
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les brûlures - Chaque minute compte</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<!-- Corps du document : contenu principal affiché à l’utilisateur -->
-<body class="brulure">
-    <!-- En-tête du site : titre et navigation -->
-    <header class="site-header">
-        <!-- Titre principal (niveau 1) : sujet central de la page -->
-        <h1>Chaque minute compte - Les gestes qui sauvent</h1> 
-            <!-- Navigation principale : liens vers les différentes pages du site -->
-            <nav class="site-nav" aria-label="Navigation principale">
-                <ul>
-                    <!--La balise <a> associée à l’attribut href permet de créer des liens hypertextes et d’assurer la navigation entre les différentes pages du site.-->
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="Les-4-etapes-pour-porter-secours.html">Les 4 étapes pour porter secours</a></li>
-                    <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
-                    <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
-                    <li><a href="inconscience.html">Inconscience</a></li>
-                    <li><a href="etouffement.html">Étouffement</a></li>
-                    <li><a href="hemorragie.html">Hémorragie</a></li>
-                    <li><a href="brulure.html" aria-current="page">Brûlure</a></li>
-                </ul>
-                <!-- ul = Liste non ordonnée // li = Élément de la liste-->
-            </nav>
-    </header>
+<body class="page brulure">
+  <header class="site-header">
+    <h1>Chaque minute compte - Les gestes qui sauvent</h1>
 
-<!-- Contenu principal de la page -->
-<main>
-    <!-- <article> = contenu autonome et indépendant // Il a du sens tout seul et il peut être lu séparément-->
+    <nav class="site-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Les-4-etapes-pour-porter-secours.html">Les 4 étapes pour porter secours</a></li>
+        <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
+        <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
+        <li><a href="inconscience.html">Inconscience</a></li>
+        <li><a href="etouffement.html">Étouffement</a></li>
+        <li><a href="hemorragie.html">Hémorragie</a></li>
+        <li><a href="brulure.html" aria-current="page">Brûlure</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
     <article>
-        <!-- <header> = en-tête de l'article -->
-        <header>
-            <!-- h2 = titre de l'article -->
-            <h2>Les brûlures</h2>
-            <!-- p = paragraphe descriptif - phrase d'introduction-->
-            <p>Face à une brûlure, la rapidité d'action est déterminante.</p>
-        </header>
+      <header>
+        <h2>Les brûlures</h2>
+        <p>Face à une brûlure, la rapidité d'action est déterminante.</p>
+      </header>
 
-        <section aria-labelledby="regles-15">
-            <h3 id="regles-15">Règle des 3 x 15</h3>
-                <div class="grille-etapes">
-                    <div class="etape" data-detail="detail-4-etapes-1">
-                        <div class="numero-etape">1</div>
-                            <h3>15 degres</h3>
-                                <img src="images/degres.png" 
-                                alt="faire couler de l’eau à 15°C" 
-                                class="illustration-etape"/>
-                        </div>
-            
-                        <div class="etape" data-detail="detail-4-etapes-2">
-                            <div class="numero-etape">2</div>
-                                <h3>15 minutes</h3>
-                                    <img src="images/minutes.png" 
-                                    alt="pendant 15 minutes" 
-                                    class="illustration-etape"/>
-                            </div>
+      <section aria-labelledby="regle-3x15">
+        <h3 id="regle-3x15">Règle des 3 × 15</h3>
 
-                        <div class="etape" data-detail="detail-4-etapes-3">
-                            <div class="numero-etape">3</div>
-                                <h3>15 centimètres</h3>
-                                    <img src="images/centimetres.png" 
-                                    alt="à 15 cm de distance de la zone brûlée" 
-                                    class="illustration-etape"/>
-                            </div>
-                    </div>
+        <div class="grille-etapes">
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">1</div>
+            <h3>15 degrés</h3>
+            <img
+              src="images/degres.png"
+              alt="Faire couler de l’eau à 15°C"
+              class="illustration-etape"
+              loading="lazy"
+            />
+          </div>
 
-                <div class="alert-box" role="note">
-                    <strong>⛔️ Attention</strong>
-                        <p>n’appliquez pas de crème, d’huile, de glace ou d’eau glacée sur la brûlure, car cela pourrait abîmer encore davantage la peau.</p>
-                </div>
-        </section>
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">2</div>
+            <h3>15 minutes</h3>
+            <img
+              src="images/minutes.png"
+              alt="Refroidir pendant 15 minutes"
+              class="illustration-etape"
+              loading="lazy"
+            />
+          </div>
 
-        <section aria-labelledby="secours">
-            <h3 id="secours">Et les secours ?</h3>
-                <h4>Quand appeler immédiatement les secours ?</h4>
-                    <p>
-                        Dès que la brûlure est grave, et en particulier si la personne est <strong>un nourrisson, une personne âgée ou immunodéprimée</strong>, même pour des brûlures apparemment modérées.
-                    </p>
-                    <p>
-                        Un avis médical est également nécessaire si des signes d'infection apparaissent dans les jours qui suivent (fièvre, rougeur qui s'étend, écoulement de pus, douleur persistante).
-                    </p>
-                        <div class="emergency-buttons" role="group" aria-label="Numéros d’urgence">
-                            <a href="tel:15" class="emergency-btn samu" aria-label="Appeler le SAMU, numéro 15">📞 15 – SAMU</a>
-                            <a href="tel:18" class="emergency-btn pompiers" aria-label="Appeler les pompiers, numéro 18">🚒 18 – Pompiers</a>
-                            <a href="tel:112" class="emergency-btn urgence" aria-label="Appeler le numéro d'urgence européen 112">🆘 112 – Numéro d'urgence européen</a>
-                            <a href="tel:114" class="emergency-btn sourd" aria-label="Appeler le numéro d'urgence pour les personnes sourdes ou malentendantes">🆘 114 – Numéro d'urgence pour les personnes sourdes et malentendantes</a>
-                        </div>
-        </section>
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">3</div>
+            <h3>15 centimètres</h3>
+            <img
+              src="images/centimetres.png"
+              alt="À 15 cm de distance de la zone brûlée"
+              class="illustration-etape"
+              loading="lazy"
+            />
+          </div>
+        </div>
 
-        <section aria-labelledby="etapes">
-  <h3 id="etapes">Comment soulager ce type de brûlure à la maison ?</h3>
+        <div class="alert-box" role="note">
+          <strong>⛔️ Attention</strong>
+          <p>
+            N’appliquez pas de crème, d’huile, de glace ou d’eau glacée sur la brûlure :
+            cela pourrait abîmer davantage la peau.
+          </p>
+        </div>
+      </section>
 
-  <div class="grille-etapes">
+      <section aria-labelledby="secours">
+        <h3 id="secours">Et les secours ?</h3>
+        <h4>Quand appeler immédiatement les secours ?</h4>
 
-    <div class="etape" data-detail="detail-4-etapes-1" tabindex="0">
-      <div class="numero-etape">1</div>
-      <h3>Application de la règle des 3×15</h3>
-      <p class="etape-detail">
-        <i>
-          Faites couler de l’eau à 15°C pendant 15 minutes à 15 cm de distance de la zone brûlée.
-          Arrêtez si vous sentez du froid ou si vous vous sentez mal.
-        </i>
-      </p>
-    </div>
+        <p>
+          Dès que la brûlure est grave, et en particulier si la personne est
+          <strong>un nourrisson, une personne âgée ou immunodéprimée</strong>, même pour des brûlures apparemment modérées.
+        </p>
+        <p>
+          Un avis médical est également nécessaire si des signes d'infection apparaissent dans les jours qui suivent
+          (fièvre, rougeur qui s'étend, écoulement de pus, douleur persistante).
+        </p>
 
-    <div class="etape" data-detail="detail-4-etapes-2" tabindex="0">
-      <div class="numero-etape">2</div>
-      <h3>Retirez les vêtements</h3>
-      <p class="etape-detail">
-        <i>et les bijoux s’ils ne sont pas collés à la peau.</i>
-      </p>
-    </div>
+        <div class="emergency-buttons" role="group" aria-label="Numéros d’urgence">
+          <a href="tel:15" class="emergency-btn samu" aria-label="Appeler le SAMU, numéro 15">📞 15 – SAMU</a>
+          <a href="tel:18" class="emergency-btn pompiers" aria-label="Appeler les pompiers, numéro 18">🚒 18 – Pompiers</a>
+          <a href="tel:112" class="emergency-btn urgence" aria-label="Appeler le numéro d'urgence européen 112">🆘 112 – Urgences</a>
+          <a href="tel:114" class="emergency-btn sourd" aria-label="Appeler le numéro d'urgence pour les personnes sourdes ou malentendantes 114">🆘 114 – Sourd/Malentendant</a>
+        </div>
+      </section>
 
-    <div class="etape" data-detail="detail-4-etapes-3" tabindex="0">
-      <div class="numero-etape">3</div>
-      <h3>Protégez</h3>
-      <p class="etape-detail">
-        <i>la brûlure avec un pansement ou un tissu propre.</i>
-      </p>
-    </div>
+      <section aria-labelledby="etapes-brulure">
+        <h3 id="etapes-brulure">Comment soulager ce type de brûlure à la maison ?</h3>
 
-    <div class="etape" data-detail="detail-4-etapes-4" tabindex="0">
-      <div class="numero-etape">4</div>
-      <h3>En cas d’apparition d’ampoules</h3>
-      <p class="etape-detail">
-        <i>ne les crevez pas !</i>
-      </p>
-    </div>
+        <div class="grille-etapes">
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">1</div>
+            <h3>Règle des 3 × 15</h3>
+            <p class="etape-detail">
+              <i>
+                Faites couler de l’eau à 15°C pendant 15 minutes à 15 cm de distance de la zone brûlée.
+                Arrêtez si vous sentez du froid ou si vous vous sentez mal.
+              </i>
+            </p>
+          </div>
 
-    <div class="etape" data-detail="detail-4-etapes-5" tabindex="0">
-      <div class="numero-etape">5</div>
-      <h3>Si la brûlure est grave ou étendue</h3>
-      <p class="etape-detail">
-        <i>alertez immédiatement les secours.</i>
-      </p>
-    </div>
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">2</div>
+            <h3>Retirez les vêtements</h3>
+            <p class="etape-detail"><i>… et les bijoux s’ils ne sont pas collés à la peau.</i></p>
+          </div>
 
-    <div class="etape" data-detail="detail-4-etapes-6" tabindex="0">
-      <div class="numero-etape">6</div>
-      <h3>Se laver les mains</h3>
-      <p class="etape-detail">
-        <i>Lavez-vous les mains après avoir effectué ces premiers secours.</i>
-      </p>
-    </div>
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">3</div>
+            <h3>Protégez</h3>
+            <p class="etape-detail"><i>La brûlure avec un pansement ou un tissu propre.</i></p>
+          </div>
 
-  </div>
-</section>
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">4</div>
+            <h3>Ampoules</h3>
+            <p class="etape-detail"><i>Ne les percez pas !</i></p>
+          </div>
 
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">5</div>
+            <h3>Brûlure grave / étendue</h3>
+            <p class="etape-detail"><i>Alertez immédiatement les secours.</i></p>
+          </div>
+
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">6</div>
+            <h3>Se laver les mains</h3>
+            <p class="etape-detail"><i>Lavez-vous les mains après avoir effectué ces premiers secours.</i></p>
+          </div>
+        </div>
+      </section>
     </article>
   </main>
 
-<button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
-  <span class="floating-phone-icon" aria-hidden="true">📱</span>
-  <span class="floating-phone-text">SOS</span>
-</button>
-
-<section class="contact-section">
-  <button class="contact-btn" type="button" id="open-contact">
-    Une question, un commentaire ?
+  <button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
+    <span class="floating-phone-icon" aria-hidden="true">📱</span>
+    <span class="floating-phone-text">SOS</span>
   </button>
-</section>
+    
+  <section class="contact-section">
+    <button class="contact-btn" type="button" id="open-contact">
+      Une question, un commentaire ?
+    </button>
+  </section>
 
-<footer class="site-footer">
+  <footer class="site-footer">
     <p><a href="index.html">Retour à l’accueil</a></p>
     <h2><i>Projet - Chaque minute compte - Les gestes qui sauvent.</i></h2>
     <p><i>Création : M. Giovanni SILVETTI</i></p>
     <p><i>Projet UE 3 : Identité numérique et communication professionnelle : dimension linguistique et interculturelle - M. V. GRANDSIRE</i></p>
-</footer>
+  </footer>
 
   <script src="java.js" defer></script>
 </body>
