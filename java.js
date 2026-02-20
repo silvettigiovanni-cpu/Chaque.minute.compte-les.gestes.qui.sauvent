@@ -304,7 +304,7 @@ document.querySelectorAll(".grille-cartes a.carte").forEach((carte) => {
                 <a href="tel:15" class="emergency-btn samu" aria-label="Appeler le SAMU, numéro 15">📞 15 – SAMU</a>
                 <a href="tel:18" class="emergency-btn pompiers" aria-label="Appeler les pompiers, numéro 18">🚒 18 – Pompiers</a>
                 <a href="tel:112" class="emergency-btn urgence" aria-label="Appeler le numéro d'urgence européen 112">🆘 112 – Urgences</a>
-                <a href="tel:114" class="emergency-btn sourd" aria-label="Appeler le numéro d'urgence 114 pour personnes sourdes ou malentendantes">🆘 114 – SMS / Fax</a>
+                <a href="tel:114" class="emergency-btn sourd" aria-label="Appeler le numéro d'urgence 114 pour personnes sourdes ou malentendantes">🆘 114 – Sourd / Malentendants</a>
               </div>
 
               <div class="phone-sub">En cas de doute, privilégiez le 112.</div>
