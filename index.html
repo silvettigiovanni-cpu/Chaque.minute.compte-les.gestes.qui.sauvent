@@ -82,17 +82,32 @@
     </main>
 
 <!-- Bouton flottant smartphone (SOS) -->
+<!-- Bouton positionné en flottant (via CSS) pour rester visible même lors du défilement de la page -->
 <button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
-  <span class="floating-phone-icon" aria-hidden="true">📱</span>
-  <span class="floating-phone-text">SOS</span>
+  
+<!-- Icône téléphone affichée dans le bouton -->
+<!-- aria-hidden="true" indique que l’icône est décorative et ne doit pas être lue par les lecteurs d’écran -->
+<span class="floating-phone-icon" aria-hidden="true">📱</span>
+  
+<!-- Texte visible dans le bouton -->
+<!-- Permet à l’utilisateur d’identifier clairement la fonction du bouton -->
+<span class="floating-phone-text">SOS</span>
+
 </button>
+<!-- Le bouton déclenchera une action JavaScript (via l’id "open-emergency") pour afficher les numéros d’urgence -->
 
 <!-- BOUTON CONTACT (avant footer) -->
+<!-- Section dédiée au contact utilisateur -->
+<!-- Regroupe les éléments liés à la prise de contact pour structurer le contenu -->
 <section class="contact-section">
-  <button class="contact-btn" type="button" id="open-contact">
-    Une question, un commentaire ?
-  </button>
+<!-- Bouton permettant d’ouvrir un formulaire ou une fenêtre de contact -->
+<!-- type="button" évite le comportement par défaut d’envoi de formulaire -->
+<!-- id="open-contact" permet de cibler le bouton en JavaScript pour déclencher une action -->
+    <button class="contact-btn" type="button" id="open-contact">
+        Une question, un commentaire ?
+    </button>
 </section>
+<!-- Cette section est généralement stylisée via le CSS (classe contact-section) et le bouton est rendu interactif grâce au fichier JavaScript -->
 
 <!--Pied de page du site-->
 <footer class="site-footer">
