@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <!-- Encodage UTF-8 : accents, symboles, emojis -->
   <meta charset="UTF-8" />
@@ -8,48 +7,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Titre affiché dans l’onglet -->
   <title>Inconscience - Chaque minute compte</title>
-  <!-- Lien vers ta feuille CSS -->
+  <!-- Lien vers la feuille CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<!-- Corps de page : on ajoute des classes pour cibler en CSS -->
+<!-- Corps de page : classes utiles pour cibler en CSS -->
 <body class="page inconscience">
-
-  <!-- HEADER (titre + menu)--!>
+  <!-- HEADER (titre + menu) -->
   <header class="site-header">
-
-    <!-- Titre principal du site (h1) -->
     <h1>Chaque minute compte - Les gestes qui sauvent</h1>
 
-    <!-- Navigation principale : liens entre pages -->
     <nav class="site-nav" aria-label="Navigation principale">
       <ul>
-        <!-- <a href=""> : lien vers une autre page -->
         <li><a href="index.html">Accueil</a></li>
         <li><a href="Les-4-etapes-pour-porter-secours.html">Les 4 étapes pour porter secours</a></li>
         <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
         <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
-        <!-- aria-current="page" : indique la page active -->
         <li><a href="inconscience.html" aria-current="page">Inconscience</a></li>
         <li><a href="etouffement.html">Étouffement</a></li>
         <li><a href="hemorragie.html">Hémorragie</a></li>
         <li><a href="brulure.html">Brûlure</a></li>
       </ul>
     </nav>
-
   </header>
 
   <main>
-
-    <!-- Article : contenu autonome de la page -->
     <article>
-
-      <!-- En-tête de l’article : titre + intro -->
       <header>
         <h2>En cas d'inconscience</h2>
         <p>
-          Si vous voyez une personne allongée au sol sans raison apparente, il faut intervenir ; elle est peut-être
-          inconsciente ! Vous avez certainement déjà entendu parler de la Position Latérale de Sécurité (PLS).
+          Si vous voyez une personne allongée au sol sans raison apparente, il faut intervenir : elle est peut-être
+          inconsciente. Vous avez certainement déjà entendu parler de la Position Latérale de Sécurité (PLS).
           Savez-vous réagir face à une personne inconsciente ? On vous dit tout sur les bons gestes à réaliser.
         </p>
       </header>
@@ -68,12 +56,11 @@
           épaules en posant des questions simples :
         </p>
 
-        <!-- Liste non ordonnée : questions à poser -->
         <ul>
-          <li><i><strong>“Est-ce que ça va ?"</strong></i></li>
-          <li><i><strong>"Vous m’entendez ?"</strong></i></li>
-          <li><i><strong>"Ouvrez les yeux !”</strong></i></li>
-          <li><i><strong>"Serrez-moi la main”</strong></i></li>
+          <li><i><strong>“Est-ce que ça va ?”</strong></i></li>
+          <li><i><strong>“Vous m’entendez ?”</strong></i></li>
+          <li><i><strong>“Ouvrez les yeux !”</strong></i></li>
+          <li><i><strong>“Serrez-moi la main !”</strong></i></li>
         </ul>
 
         <p>Si elle ne répond pas et n’a aucune réaction, elle est inconsciente.</p>
@@ -83,123 +70,116 @@
           Si vous sentez le ventre se soulever, c’est qu’elle respire.
         </p>
 
-        <!-- Encadré d’alerte : résumé -->
         <div class="alert-box" role="note">
-          <strong>✅ A retenir</strong>
+          <strong>✅ À retenir</strong>
           <p>Si une personne ne réagit pas et respire → inconscience → PLS.</p>
           <p>Si une personne ne réagit pas et ne respire pas → arrêt cardiaque → appelez les secours et commencez la réanimation.</p>
         </div>
       </section>
 
       <section aria-labelledby="etapes-pls">
-  <h3 id="etapes-pls">🔄 Étapes — Mettre en Position Latérale de Sécurité (PLS)</h3>
-  <p>💡 Cliquez / touchez une étape pour plus de détails.</p>
+        <h3 id="etapes-pls">🔄 Étapes — Mettre en Position Latérale de Sécurité (PLS)</h3>
+        <p>💡 Cliquez / touchez une étape pour plus de détails.</p>
 
-  <div class="grille-etapes">
+        <div class="grille-etapes">
+          <div class="etape" data-detail="detail-pls-1" tabindex="0">
+            <div class="numero-etape">1</div>
+            <h3>Se placer et vérifier</h3>
+          </div>
 
-    <div class="etape" data-detail="detail-pls-1" tabindex="0">
-      <div class="numero-etape">1</div>
-      <h3>Se placer et vérifier</h3>
-    </div>
+          <div class="etape" data-detail="detail-pls-2" tabindex="0">
+            <div class="numero-etape">2</div>
+            <h3>Position des mains</h3>
+          </div>
 
-    <div class="etape" data-detail="detail-pls-2" tabindex="0">
-      <div class="numero-etape">2</div>
-      <h3>Position des mains</h3>
-    </div>
+          <div class="etape" data-detail="detail-pls-3" tabindex="0">
+            <div class="numero-etape">3</div>
+            <h3>Tourner doucement</h3>
+          </div>
 
-    <div class="etape" data-detail="detail-pls-3" tabindex="0">
-      <div class="numero-etape">3</div>
-      <h3>Tourner doucement</h3>
-    </div>
+          <div class="etape" data-detail="detail-pls-4" tabindex="0">
+            <div class="numero-etape">4</div>
+            <h3>Libérer les voies aériennes</h3>
+          </div>
 
-    <div class="etape" data-detail="detail-pls-4" tabindex="0">
-      <div class="numero-etape">4</div>
-      <h3>Libérer les voies aériennes</h3>
-    </div>
+          <div class="etape" data-detail="detail-pls-5" tabindex="0">
+            <div class="numero-etape">5</div>
+            <h3>Appeler les secours</h3>
+          </div>
 
-    <div class="etape" data-detail="detail-pls-5" tabindex="0">
-      <div class="numero-etape">5</div>
-      <h3>Appeler les secours</h3>
-    </div>
+          <div class="etape" data-detail="detail-pls-6" tabindex="0">
+            <div class="numero-etape">6</div>
+            <h3>Surveiller en continu</h3>
+          </div>
+        </div>
+      </section>
 
-    <div class="etape" data-detail="detail-pls-6" tabindex="0">
-      <div class="numero-etape">6</div>
-      <h3>Surveiller en continu</h3>
-    </div>
+      <!-- TEMPLATES POPUP — PLS (ouverts par ton JS) -->
+      <template id="detail-pls-1">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>✅ Se placer et vérifier</h4>
+            <ul>
+              <li>Placez-vous à côté de la personne. Assurez-vous qu'elle respire et qu'elle ne réagit pas.</li>
+            </ul>
+          </div>
+        </div>
+      </template>
 
-  </div>
-</section>
+      <template id="detail-pls-2">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>🖐️ Position des mains</h4>
+            <ul>
+              <li>Mettez une main sur son épaule et une main sur sa hanche pour contrôler le mouvement.</li>
+            </ul>
+          </div>
+        </div>
+      </template>
 
-      <!-- =========================
-     TEMPLATES POPUP — PLS
-     (le JS ouvre ces contenus)
-========================== -->
+      <template id="detail-pls-3">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>🤲 Tourner doucement</h4>
+            <ul>
+              <li>Tournez-la doucement vers vous pour la placer sur le côté, en maintenant l'alignement du corps.</li>
+            </ul>
+          </div>
+        </div>
+      </template>
 
-<template id="detail-pls-1">
-  <div class="detail-content">
-    <div class="step-detail">
-      <h4>✅ Se placer et vérifier</h4>
-      <ul>
-        <li>Placez-vous à côté de la personne. Assurez-vous qu'elle respire et qu'elle ne réagit pas.</li>
-      </ul>
-    </div>
-  </div>
-</template>
+      <template id="detail-pls-4">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>💨 Libérer les voies aériennes</h4>
+            <ul>
+              <li>Ouvrez la bouche pour faciliter la respiration (retirez un masque si besoin).</li>
+            </ul>
+          </div>
+        </div>
+      </template>
 
-<template id="detail-pls-2">
-  <div class="detail-content">
-    <div class="step-detail">
-      <h4>🖐️ Position des mains</h4>
-      <ul>
-        <li>Mettez une main sur son épaule et une main sur sa hanche pour contrôler le mouvement.</li>
-      </ul>
-    </div>
-  </div>
-</template>
+      <template id="detail-pls-5">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>📞 Appeler les secours</h4>
+            <ul>
+              <li>Alertez les secours et donnez des informations précises (état, respiration, contexte).</li>
+            </ul>
+          </div>
+        </div>
+      </template>
 
-<template id="detail-pls-3">
-  <div class="detail-content">
-    <div class="step-detail">
-      <h4>🤲 Tourner doucement</h4>
-      <ul>
-        <li>Tournez-la doucement vers vous pour la placer sur le côté, en maintenant l'alignement du corps.</li>
-      </ul>
-    </div>
-  </div>
-</template>
-
-<template id="detail-pls-4">
-  <div class="detail-content">
-    <div class="step-detail">
-      <h4>💨 Libérer les voies aériennes</h4>
-      <ul>
-        <li>Ouvrez sa bouche pour faciliter la respiration (retirez un masque si besoin).</li>
-      </ul>
-    </div>
-  </div>
-</template>
-
-<template id="detail-pls-5">
-  <div class="detail-content">
-    <div class="step-detail">
-      <h4>📞 Appeler les secours</h4>
-      <ul>
-        <li>Alertez les secours et donnez des informations précises (état, respiration, contexte).</li>
-      </ul>
-    </div>
-  </div>
-</template>
-
-<template id="detail-pls-6">
-  <div class="detail-content">
-    <div class="step-detail">
-      <h4>👀 Surveiller en continu</h4>
-      <ul>
-        <li>Surveillez la respiration jusqu'à l'arrivée des secours. Si elle s'arrête, commencez la réanimation.</li>
-      </ul>
-    </div>
-  </div>
-</template>
+      <template id="detail-pls-6">
+        <div class="detail-content">
+          <div class="step-detail">
+            <h4>👀 Surveiller en continu</h4>
+            <ul>
+              <li>Surveillez la respiration jusqu'à l'arrivée des secours. Si elle s'arrête, commencez la réanimation.</li>
+            </ul>
+          </div>
+        </div>
+      </template>
 
       <section aria-labelledby="accident">
         <h3 id="accident">⚠️ Que faire si la personne est inconsciente suite à un accident ?</h3>
@@ -245,26 +225,30 @@
         </ol>
       </section>
 
-      <!-- Image (PLS) -->
-      <img src="images/PLS.png" alt="Schéma de la mise en PLS" class="image-contenu" loading="lazy">
+      <img
+        src="images/PLS.png"
+        alt="Schéma de la mise en PLS"
+        class="image-contenu"
+        loading="lazy"
+      />
 
-      <!-- Carte vidéo (lien externe) -->
       <div class="video-card" role="note" aria-label="Aide vidéo (ouvre YouTube)">
         <div class="video-card-head">
           <strong>🎥 Aide vidéo</strong>
           <p>Cette vidéo ne peut pas être intégrée ici. Cliquez pour l’ouvrir sur YouTube.</p>
         </div>
 
-        <a class="video-preview"
-           href="https://www.youtube.com/watch?v=Eak9JO1zO2U"
-           target="_blank"
-           rel="noopener">
+        <a
+          class="video-preview"
+          href="https://www.youtube.com/watch?v=Eak9JO1zO2U"
+          target="_blank"
+          rel="noopener"
+        >
           <span class="play-badge" aria-hidden="true">▶</span>
           <span class="video-preview-text">Regarder sur YouTube</span>
         </a>
       </div>
 
-      <!-- Cas particuliers -->
       <section aria-labelledby="cas-particuliers" class="alert-box">
         <h3 id="cas-particuliers">⚠️ Cas particuliers</h3>
 
@@ -274,8 +258,6 @@
           Si la position est instable, vous pouvez la caler avec des coussins/couvertures.
         </p>
 
-        <br>
-
         <h4>👶 Enfant / bébé</h4>
         <p>
           Même principe : sur le côté et sous surveillance. Pour un nourrisson, l’idéal est
@@ -283,7 +265,6 @@
           avec la main sur le ventre.
         </p>
       </section>
-
     </article>
   </main>
 
@@ -291,7 +272,7 @@
     <span class="floating-phone-icon" aria-hidden="true">📱</span>
     <span class="floating-phone-text">SOS</span>
   </button>
-  
+
   <section class="contact-section">
     <button class="contact-btn" type="button" id="open-contact">
       Une question, un commentaire ?
@@ -305,7 +286,6 @@
     <p><i>Projet UE 3 : Identité numérique et communication professionnelle : dimension linguistique et interculturelle - M. V. GRANDSIRE</i></p>
   </footer>
 
-  <!-- JS -->
   <script src="java.js" defer></script>
 </body>
 </html>
