@@ -1,15 +1,10 @@
 /* =========================================================
    POLICE
-   -> Import de la police Inter (Google Fonts)
 ========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 
-
 /* =========================================================
    RESET + BASE ACCESSIBILITÉ
-   - enlève marges/paddings par défaut
-   - box-sizing pour des tailles prévisibles
-   - images/vidéos responsives
 ========================================================= */
 *{ margin:0; padding:0; box-sizing:border-box; }
 
@@ -18,7 +13,7 @@ html{ scroll-behavior:smooth; }
 img, video, iframe{
   max-width:100%;
   height:auto;
-  display:block;                 /* évite l'espace blanc sous l'image */
+  display:block;
 }
 
 a{ color:inherit; }
@@ -28,10 +23,8 @@ a{ color:inherit; }
   outline-offset: 4px;
 }
 
-
 /* =========================================================
    VARIABLES (THÈME)
-   -> couleurs + ombres + rayons centralisés
 ========================================================= */
 :root{
   --bg1:#fff3e8;
@@ -58,10 +51,8 @@ a{ color:inherit; }
   --radius-md: 14px;
 }
 
-
 /* =========================================================
    BODY / LAYOUT GLOBAL
-   -> fond + typographie + largeur centrale
 ========================================================= */
 body{
   font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -81,10 +72,8 @@ main article{
   margin: 22px 0;
 }
 
-
 /* =========================================================
    TYPOGRAPHIE CONTENU
-   -> titres, paragraphes, listes
 ========================================================= */
 main header{ text-align:center; }
 
@@ -129,10 +118,29 @@ main li{ margin-bottom: 6px; }
 
 strong{ font-weight: 900; }
 
+/* =========================================================
+   CENTRAGE MEDIA (images / vidéos / musiques / iframes)
+   -> ✅ ce bloc garantit le centrage partout
+========================================================= */
+main img,
+main video,
+main iframe,
+main audio{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* si tu as des wrappers, on force le centrage aussi */
+.img-wrap,
+.audio-wrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* =========================================================
    IMAGES DANS LE CONTENU
-   -> coins arrondis + centrage propre
 ========================================================= */
 main img,
 main video{
@@ -151,9 +159,6 @@ main video{
 }
 
 .img-wrap{
-  width: 100%;
-  display: grid;
-  place-items: center;
   margin-top: 12px;
 }
 
@@ -163,7 +168,6 @@ main video{
   margin: 0 auto;
   border-radius: 16px;
 }
-
 
 /* =========================================================
    HEADER + NAV
@@ -187,7 +191,6 @@ main video{
   line-height: 1.15;
 }
 
-/* Barre de nav façon "verre" */
 .site-nav{
   background: var(--glass);
   backdrop-filter: blur(10px);
@@ -229,7 +232,6 @@ main video{
   color:#fff;
   box-shadow: 0 10px 24px rgba(225,75,72,0.22);
 }
-
 
 /* =========================================================
    GRILLE CARTES (accueil)
@@ -284,7 +286,6 @@ main video{
   z-index:1;
 }
 
-
 /* =========================================================
    GRILLE ETAPES (toutes les pages)
 ========================================================= */
@@ -295,7 +296,6 @@ main video{
   margin-top: 18px;
 }
 
-/* Carte étape */
 .etape{
   background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
   border: 2px solid #e2e8f0;
@@ -307,7 +307,13 @@ main video{
   height: 100%;
 }
 
-/* Quand une étape est cliquable (data-detail) */
+/* Pages CLICK (popup JS) : 4 étapes / arrêt cardiaque / inconscience
+   -> ✅ tu veux que ça s'ouvre au clic (via JS + templates)
+*/
+body.page-4-etapes .etape[data-detail],
+body.arret-cardiaque .etape[data-detail],
+body.inconscience .etape[data-detail],
+/* si tu n'as pas ces classes sur body, garde quand même ce fallback : */
 .etape[data-detail]{ cursor:pointer; }
 
 /* Hover / focus jolie */
@@ -317,7 +323,6 @@ main video{
   border-color: rgba(242,95,92,0.55);
 }
 
-/* Numéro rond */
 .numero-etape{
   width:72px;
   height:72px;
@@ -333,7 +338,6 @@ main video{
   box-shadow: 0 8px 24px rgba(225,75,72,0.28);
 }
 
-/* Petit texte sous le titre (ex: .etape-detail inline) */
 .etape-detail{
   margin-top: 10px;
   text-align: left;
@@ -341,18 +345,9 @@ main video{
   line-height: 1.6;
 }
 
-/* Listes dans une étape (si jamais) */
-.etape .etape-detail ul,
-.etape .etape-detail ol{
-  padding-left: 22px;
-  margin-top: 8px;
-}
-
-
 /* =========================================================
-   OUVERTURE "INLINE" DES DETAILS
-   -> Tu l'utilises sur : étouffement, hémorragie, brûlure
-   -> (pas sur les pages popup templates uniquement)
+   OUVERTURE "AU SURVOL" (inline)
+   -> ✅ uniquement : étouffement, hémorragie, brûlure
 ========================================================= */
 body.etouffement .etape-detail,
 body.page-hemorragie .etape-detail,
@@ -375,10 +370,17 @@ body.brulure .etape:focus-within .etape-detail{
   padding-top: 10px;
 }
 
+/* IMPORTANT : on évite que l'inline se déclenche sur les pages CLICK
+   (au cas où une .etape-detail existe)
+*/
+body:not(.etouffement):not(.page-hemorragie):not(.brulure) .etape-detail{
+  max-height: none;
+  opacity: 1;
+  overflow: visible;
+}
 
 /* =========================================================
    ALERT BOX
-   -> utilisé partout (.alert-box)
 ========================================================= */
 .alert-box{
   margin: 14px 0;
@@ -393,11 +395,15 @@ body.brulure .etape:focus-within .etape-detail{
 .alert-box strong{ font-weight: 900; }
 .alert-box p{ margin-top: 8px; }
 
-
 /* =========================================================
    POPUPS (utilisées par ton JS : .popup + .popup-contenu)
+   -> ✅ étapes au clic (4 étapes / arrêt cardiaque / inconscience)
+   -> ✅ questionnaire au clic (même style)
+   -> ✅ SOS smartphone au clic (même overlay)
 ========================================================= */
-.popup{
+.popup,
+.emergency-modal,
+.quiz-modal{
   position: fixed;
   inset: 0;
   z-index: 3000;
@@ -408,8 +414,15 @@ body.brulure .etape:focus-within .etape-detail{
   backdrop-filter: blur(3px);
 }
 
-/* Contenu de popup */
-.popup-contenu{
+/* caché par défaut si ton JS met [hidden] */
+.emergency-modal[hidden],
+.quiz-modal[hidden]{
+  display:none;
+}
+
+.popup-contenu,
+.emergency-modal__content,
+.quiz-modal__content{
   width: min(920px, 100%);
   max-height: min(85vh, 900px);
   overflow: auto;
@@ -422,8 +435,9 @@ body.brulure .etape:focus-within .etape-detail{
   position: relative;
 }
 
-/* Bouton fermer */
-.popup .fermer{
+/* Bouton fermer (réutilisable) */
+.popup .fermer,
+.modal-close{
   position: sticky;
   top: 0;
   float: right;
@@ -440,8 +454,11 @@ body.brulure .etape:focus-within .etape-detail{
   box-shadow: 0 12px 30px rgba(225,75,72,0.25);
 }
 
-.popup .fermer:hover{ filter: brightness(1.05); }
-.popup .fermer:active{ transform: scale(0.98); }
+.popup .fermer:hover,
+.modal-close:hover{ filter: brightness(1.05); }
+
+.popup .fermer:active,
+.modal-close:active{ transform: scale(0.98); }
 
 /* Header des popups étapes (num + titre) généré par JS */
 .etape-detail-header{
@@ -466,20 +483,83 @@ body.brulure .etape:focus-within .etape-detail{
   box-shadow: 0 10px 26px rgba(225,75,72,0.25);
 }
 
-/* Contenu centré dans popup */
 .popup-contenu .detail-content{
   max-width: 760px;
   margin: 0 auto;
 }
 
-/* Texte des templates dans popup */
-.step-detail{
-  margin-top: 10px;
+/* =========================================================
+   SOS : "SMARTPHONE" + 4 numéros (15/18/112/114)
+   -> Ton JS doit ouvrir un overlay .emergency-modal
+========================================================= */
+.emergency-modal__content{
+  width: min(520px, 100%);
+  padding: 18px 16px 16px;
 }
 
+/* coque téléphone */
+.phone-shell{
+  width: min(380px, 100%);
+  margin: 12px auto 0;
+  padding: 18px 16px 16px;
+  border-radius: 34px;
+  background: linear-gradient(180deg, rgba(26,32,44,0.95) 0%, rgba(26,32,44,0.88) 100%);
+  box-shadow:
+    0 30px 90px rgba(0,0,0,0.40),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.14);
+  position: relative;
+}
+
+/* encoche */
+.phone-shell::before{
+  content:"";
+  position:absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.35);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+/* écran */
+.phone-screen{
+  margin-top: 26px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.95);
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.phone-title{
+  text-align:center;
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.phone-sub{
+  text-align:center;
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* boutons urgence déjà ok + un peu plus "mobile" */
+.phone-screen .emergency-buttons{
+  margin: 10px 0 0;
+}
+
+.phone-screen .emergency-btn{
+  border-radius: 18px;
+  text-align: left;
+}
 
 /* =========================================================
-   BOUTONS URGENCE (tel:) - utilisés dans tes templates
+   BOUTONS URGENCE (tel:)
 ========================================================= */
 .emergency-buttons{
   display:grid;
@@ -501,20 +581,15 @@ body.brulure .etape:focus-within .etape-detail{
   transition: transform .18s ease, filter .18s ease;
 }
 
-.emergency-btn:hover{
-  transform: translateY(-2px);
-  filter: brightness(1.03);
-}
-
+.emergency-btn:hover{ transform: translateY(-2px); filter: brightness(1.03); }
 .emergency-btn:active{ transform: scale(0.99); }
 
 .emergency-btn.pompiers{ background: linear-gradient(135deg, #ff7a18 0%, #af2d00 100%); }
 .emergency-btn.urgence{ background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); }
 .emergency-btn.sourd{ background: linear-gradient(135deg, #10b981 0%, #065f46 100%); }
 
-
 /* =========================================================
-   VIDEO BOX (tes vidéos mp4)
+   VIDEO BOX (mp4)
 ========================================================= */
 .video-box{
   max-width: 800px;
@@ -541,13 +616,10 @@ body.brulure .etape:focus-within .etape-detail{
   margin-top: 8px;
 }
 
-/* Hémorragie : tes vidéos sont plus petites */
 body.page-hemorragie .video-box{ max-width: 520px; }
 
-
 /* =========================================================
-   CARTE VIDEO "YouTube" (liens externes)
-   -> classes : .video-card .video-preview .play-badge...
+   CARTE VIDEO (YouTube)
 ========================================================= */
 .video-card{
   margin: 18px 0;
@@ -558,9 +630,7 @@ body.page-hemorragie .video-box{ max-width: 520px; }
   box-shadow: var(--shadow-soft);
 }
 
-.video-card-head p{
-  margin-top: 8px;
-}
+.video-card-head p{ margin-top: 8px; }
 
 .video-preview{
   margin-top: 12px;
@@ -600,10 +670,8 @@ body.page-hemorragie .video-box{ max-width: 520px; }
   color: var(--ink);
 }
 
-
 /* =========================================================
    AUDIO (stayingalive.mp3)
-   -> classes : .audio-section .audio-wrap .audio-responsive
 ========================================================= */
 .audio-section{
   margin: 14px 0 6px;
@@ -619,19 +687,12 @@ body.page-hemorragie .video-box{ max-width: 520px; }
   font-weight: 800;
 }
 
-.audio-wrap{
-  display:flex;
-  justify-content:center;
-}
-
 .audio-responsive{
   width: min(520px, 100%);
 }
 
-
 /* =========================================================
    FIGURE (image + légende)
-   -> utilisée pour position des mains
 ========================================================= */
 .image-container{
   width: min(820px, 100%);
@@ -658,22 +719,57 @@ body.page-hemorragie .video-box{ max-width: 520px; }
 
 .image-container figcaption a:hover{ text-decoration: underline; }
 
-
 /* =========================================================
-   LISTE AVEC IMAGE (li-with-image)
-   -> utilisée dans arrêt cardiaque (étape 4)
+   QUESTIONNAIRE : style "accordéon" (si tu utilises <details>)
+   -> ✅ “Je veux que le questionnaire s'ouvre”
+   -> CSS prêt si ton questionnaire est en <details class="quiz-item">
 ========================================================= */
-.li-with-image{
-  margin-top: 12px;
+.quiz,
+.questionnaire{
+  margin: 18px 0;
 }
 
-.li-with-image .img-wrap{
-  margin-top: 10px;
+.quiz-item,
+.questionnaire details{
+  background: rgba(255,255,255,0.92);
+  border: 2px solid rgba(242,95,92,0.18);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  padding: 10px 12px;
+  margin: 10px 0;
 }
 
+.quiz-item > summary,
+.questionnaire details > summary{
+  cursor: pointer;
+  list-style: none;
+  font-weight: 900;
+  color: var(--ink);
+  padding: 10px 10px;
+  border-radius: 14px;
+  background: rgba(242,95,92,0.06);
+}
+
+.quiz-item > summary::-webkit-details-marker,
+.questionnaire details > summary::-webkit-details-marker{
+  display:none;
+}
+
+.quiz-item[open] > summary,
+.questionnaire details[open] > summary{
+  background: rgba(242,95,92,0.10);
+  border: 2px solid rgba(242,95,92,0.18);
+}
+
+.quiz-body,
+.questionnaire .content{
+  padding: 10px 10px 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
 
 /* =========================================================
-   CONTACT (bouton + formulaire popup)
+   CONTACT
 ========================================================= */
 .contact-section{
   max-width: 1200px;
@@ -702,7 +798,6 @@ body.page-hemorragie .video-box{ max-width: 520px; }
 
 .contact-btn:active{ transform: scale(0.98); }
 
-/* Form dans popup */
 .form-contact label{
   font-weight: 900;
   display:block;
@@ -756,7 +851,6 @@ body.page-hemorragie .video-box{ max-width: 520px; }
 .btn-submit:hover{ transform: translateY(-2px); filter: brightness(1.02); }
 .btn-submit:active{ transform: scale(0.98); }
 
-
 /* =========================================================
    BOUTON FLOTTANT SOS
 ========================================================= */
@@ -783,7 +877,7 @@ body.page-hemorragie .video-box{ max-width: 520px; }
   box-shadow: 0 22px 50px rgba(225,75,72,0.45);
 
   transition: box-shadow .2s ease, filter .2s ease;
-  touch-action:none;          /* drag sans scroll involontaire */
+  touch-action:none;
   user-select:none;
   cursor:grab;
 }
@@ -814,7 +908,6 @@ body.page-hemorragie .video-box{ max-width: 520px; }
   font-size:16px;
 }
 
-
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -842,7 +935,6 @@ body.page-hemorragie .video-box{ max-width: 520px; }
 }
 
 .site-footer a:hover{ text-decoration: underline; }
-
 
 /* =========================================================
    RESPONSIVE
