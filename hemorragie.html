@@ -1,217 +1,224 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <!-- Encodage des caractères (UTF-8) : accents, apostrophes typographiques, symboles, emojis -->
-    <meta charset="UTF-8" />
-    <!-- Permet l’adaptation du site à la largeur de l’écran (responsive design) -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Titre de la page (affiché dans l’onglet du navigateur) -->
-    <title>Les hémorragies - Chaque minute compte</title>
-    <!-- Feuille de styles principale -->
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les hémorragies - Chaque minute compte</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<!-- Corps du document : contenu principal affiché à l’utilisateur -->
-<body class="page-hemorragie">
-    <!-- En-tête du site : titre et navigation -->
-    <header class="site-header">
-        <!-- Titre principal (niveau 1) : sujet central de la page -->
-        <h1>Chaque minute compte - Les gestes qui sauvent</h1> 
-            <!-- Navigation principale : liens vers les différentes pages du site -->
-            <nav class="site-nav" aria-label="Navigation principale">
-                <ul>
-                    <!--La balise <a> associée à l’attribut href permet de créer des liens hypertextes et d’assurer la navigation entre les différentes pages du site.-->
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="Les-4-etapes-pour-porter-secours.html">Les 4 étapes pour porter secours</a></li>
-                    <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
-                    <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
-                    <li><a href="inconscience.html">Inconscience</a></li>
-                    <li><a href="etouffement.html">Étouffement</a></li>
-                    <li><a href="hemorragie.html" aria-current="page">Hémorragie</a></li>
-                    <li><a href="brulure.html">Brûlure</a></li>
-                </ul>
-                <!-- ul = Liste non ordonnée // li = Élément de la liste-->
-            </nav>
-    </header>
+<body class="page page-hemorragie">
+  <header class="site-header">
+    <h1>Chaque minute compte - Les gestes qui sauvent</h1>
 
-<!-- Contenu principal de la page -->
-<main>
-    <!-- <article> = contenu autonome et indépendant // Il a du sens tout seul et il peut être lu séparément-->
+    <nav class="site-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Les-4-etapes-pour-porter-secours.html">Les 4 étapes pour porter secours</a></li>
+        <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
+        <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
+        <li><a href="inconscience.html">Inconscience</a></li>
+        <li><a href="etouffement.html">Étouffement</a></li>
+        <li><a href="hemorragie.html" aria-current="page">Hémorragie</a></li>
+        <li><a href="brulure.html">Brûlure</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
     <article>
-        <!-- <header> = en-tête de l'article -->
-        <header>
-            <!-- h2 = titre de l'article -->
-            <h2>Les hémorragies</h2>
-            <!-- p = paragraphe descriptif - phrase d'introduction-->
-            <p>Lorsque le sang gicle ou coule de façon continue de la plaie, une pression doit être exercée directement sur celle-ci afin d'arrêter le saignement.</p>
-        </header>
+      <header>
+        <h2>Les hémorragies</h2>
+        <p>
+          Lorsque le sang gicle ou coule de façon continue de la plaie, une pression doit être exercée directement sur celle-ci
+          afin d'arrêter le saignement.
+        </p>
+      </header>
 
-        <!-- Mon contenu “étapes” -->
-        <!-- partie thématique du contenu // aria-labelledby = titre de la section -->
-        <section aria-labelledby="etapes">
-  <h3 id="etapes">Les étapes de l'intervention pour stopper l'hémorragie</h3>
+      <section aria-labelledby="etapes">
+        <h3 id="etapes">Les étapes de l'intervention pour stopper l'hémorragie</h3>
 
-  <div class="grille-etapes">
+        <div class="grille-etapes">
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">1</div>
+            <h3>Compression de la plaie</h3>
+            <p class="etape-detail">
+              <i>
+                Évitez, si possible, tout contact avec le sang de la victime : demandez-lui de comprimer elle-même sa blessure.
+                Sinon, exercez une pression directement sur la plaie avec vos mains protégées (gants jetables, sac plastique ou linge).
+              </i>
+            </p>
+          </div>
 
-    <div class="etape" tabindex="0">
-      <div class="numero-etape">1</div>
-      <h3>Compression de la plaie</h3>
-      <p class="etape-detail">
-        <i>
-          Évitez, si possible, tout contact avec le sang de la victime : demandez-lui de comprimer
-          elle-même sa blessure. Sinon, exercez une pression directement sur la plaie avec vos mains
-          protégées (gants jetables, sac plastique ou linge).
-        </i>
-      </p>
-    </div>
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">2</div>
+            <h3>Allonger la victime</h3>
+            <p class="etape-detail"><i>Allongez la victime en position horizontale.</i></p>
+          </div>
 
-    <div class="etape" tabindex="0">
-      <div class="numero-etape">2</div>
-      <h3>Allonger la victime</h3>
-      <p class="etape-detail">
-        <i>Allongez la victime en position horizontale.</i>
-      </p>
-    </div>
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">3</div>
+            <h3>Demander de l'aide</h3>
+            <p class="etape-detail">
+              <i>Demandez à une personne présente d'alerter les secours ou faites-le vous-même si vous êtes seul.</i>
+            </p>
+          </div>
 
-    <div class="etape" tabindex="0">
-      <div class="numero-etape">3</div>
-      <h3>Demander de l'aide</h3>
-      <p class="etape-detail">
-        <i>
-          Demandez à une personne présente d'alerter les secours ou faites-le vous-même si vous êtes seul.
-        </i>
-      </p>
-    </div>
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">4</div>
+            <h3>Maintenir la compression</h3>
+            <p class="etape-detail">
+              <i>
+                Si la plaie continue de saigner, comprimez-la encore plus fermement. Poursuivez la compression jusqu'à l'arrivée des secours.
+              </i>
+            </p>
+          </div>
 
-    <div class="etape" tabindex="0">
-      <div class="numero-etape">4</div>
-      <h3>Maintenir la compression</h3>
-      <p class="etape-detail">
-        <i>
-          Si la plaie continue de saigner, comprimez-la encore plus fermement.
-          Poursuivez la compression jusqu'à l'arrivée des secours.
-        </i>
-      </p>
-    </div>
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">5</div>
+            <h3>Si vous êtes seul avec la victime</h3>
+            <p class="etape-detail">
+              <i>
+                Si vous devez vous libérer (par exemple pour aller donner l'alerte), appliquez un tampon relais
+                pour remplacer votre compression manuelle.
+              </i>
+            </p>
+          </div>
 
-    <div class="etape" tabindex="0">
-      <div class="numero-etape">5</div>
-      <h3>Si vous êtes seul avec la victime</h3>
-      <p class="etape-detail">
-        <i>
-          Si vous devez vous libérer (par exemple pour aller donner l'alerte),
-          appliquez un tampon relais pour remplacer votre compression manuelle.
-        </i>
-      </p>
-    </div>
+          <div class="etape" tabindex="0">
+            <div class="numero-etape">6</div>
+            <h3>Se laver les mains</h3>
+            <p class="etape-detail"><i>Lavez-vous les mains après avoir effectué ces premiers secours.</i></p>
+          </div>
+        </div>
+      </section>
 
-    <div class="etape" tabindex="0">
-      <div class="numero-etape">6</div>
-      <h3>Se laver les mains</h3>
-      <p class="etape-detail">
-        <i>Lavez-vous les mains après avoir effectué ces premiers secours.</i>
-      </p>
-    </div>
+      <section aria-labelledby="technique-arret-hemorragie">
+        <h3 id="technique-arret-hemorragie">Techniques d'arrêt d'hémorragie en 1ers secours</h3>
+        <p>
+          Les principes de base incluent la compression directe sur la plaie, l'élévation du membre concerné et la pose d'un pansement
+          compressif ou d'un garrot tourniquet. Ces techniques ne permettent de contrôler qu'une hémorragie externe.
+        </p>
+      </section>
 
-  </div>
-</section>
+      <section aria-labelledby="pansement-compressif">
+        <h3 id="pansement-compressif">Le pansement compressif : utilisation et efficacité</h3>
 
+        <h4><strong>Présentation du pansement compressif</strong></h4>
+        <p>
+          Un pansement compressif est conçu pour appliquer une pression directe sur une plaie afin de contrôler le saignement.
+          Il est utilisé en relais des techniques de compression manuelle et peut être plus pratique quand la pression doit être maintenue longtemps.
+        </p>
 
-        <section aria-labelledby="technique-arret-hemorragie">
-            <h3 id="technique-arret-hemorragie">Techniques d'arrêt d'hémorragie en 1ers secours</h3>
-                <p>
-                    Les principes de base incluent la compression directe sur la plaie, l'élévation du membre concerné et la pose d'un pansement compressif ou d'un garrot tourniquet. Ces techniques ne permettent de contrôler qu'une hémorragie externe.
-                </p>
-        </section>
+        <h4><strong>Technique d'application</strong></h4>
+        <ol>
+          <li>Intercalez un tissu épais entre votre main et la plaie.</li>
+          <li>Prenez un lien large et suffisamment long pour faire le tour du membre concerné au moins deux fois.</li>
+          <li>Avec ce lien, comprimez le tissu épais en le recouvrant totalement et en serrant.</li>
+          <li>Faites deux nœuds si possible au-dessus de la plaie.</li>
+        </ol>
 
-        <section aria-labelledby="pansement-compressif">
-            <h3 id="pansement-compressif">Le pansement compressif : Utilisation et efficacité</h3>
-                <ul>
-                    <li><strong>Présentation du pansement compressif</strong></li>
-                        <p>Un pansement compressif est conçu pour appliquer une pression directe sur une plaie afin de contrôler le saignement. Il est utilisé en relais des techniques de compression manuelle et peut être plus pratique dans des situations où l'application prolongée de pression est nécessaire.</p>
-                    <li><strong>Technique d'application du pansement compressif</strong></li>
-                        <ol>
-                            <li>Intercale un tissu épais entre ta main et la plaie</li>
-                            <li>Prends un lien large et suffisamment long pour faire le tour du membre concerné au moins deux fois</li>
-                            <li>Avec ce lien, comprime le tissu épais en le recouvrant totalement et en serrant</li>
-                            <li>Fais deux nœuds si possible au dessus de la plaie</li>
-                        </ol>
+        <p><strong>🎥 Technique de mise en place d'un pansement compressif</strong></p>
+        <p class="consigne"><i>Clique sur la vidéo pour démarrer le visionnage</i></p>
 
-                    <p><strong>🎥 Technique de mise en place d'un pansement compressif</strong></p>
-                        <p class="consigne">
-                            <i>Clique sur la vidéo pour démarrer le visionnage</i>
-                        </p>
-                        <div class="video-box">
-                            <video controls preload="metadata">
-                                <source src="videos/pansement.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <p class="video-caption">
-                            <i>Vidéo réalisée et proposée par : </i>
-                            <a href="https://www.youtube.com/@editions_iconegraphic"><strong>Editions ICONE GRAPHIC</strong></a>
-                        </p>
-                    <li><strong>Avantages et limites du pansement compressif</strong></li>
-                        <p>Les pansements compressifs sont souvent suffisants pour toute saignement externe sans corps étranger mais ne peuvent pas être mis lorsqu'il y a un corps étranger dans la plaie.</p>
-                        <p>Si, après la pose d'un pansement compressif le saignement reprends, pose un deuxième pansement par dessus ou réalise un garrot. Il ne faut pas enlever le premier pansement.</p>
-                </ul>
-        </section>
+        <div class="video-box">
+          <video controls preload="metadata">
+            <source src="videos/pansement.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la lecture de cette vidéo.
+          </video>
+        </div>
 
-        <section aria-labelledby="garrot">
-            <h3 id="garrot">Le garrot : utilisation et précautions</h3>
-                <ul>
-                    <li><strong>Présentation du garrot</strong></li>
-                        <p>Un garrot artériel est un dispositif utilisé pour arrêter le saignement en comprimant l'ensemble des vaisseaux sanguins du membre. Il ne doit pas être confondu avec les garrots veineux qui servent à poser des perfusions.</p>
-                        <p>Un bon garrot doit être large et suffisamment long pour pouvoir bien comprimer le membre et stopper l'hémorragie. Il devrait être muni en plus d'une barre de serrage, seul moyen d'obtenir un serrage suffisamment efficace.</p>
-                        <p>Ce dispositif est utilisé pour arrêter une hémorragie située sur un membre avec un corps étranger ou impossible à stopper par une autre technique.</p>
-                    
-                    <li><strong>Technique de pose du garrot</strong></li>
-                        <p>Un garrot se place sur un membre entre la plaie et le cœur au plus prêt de la racine du membre. Il faut le serrer au maximum puis tourner la barre jusqu'à ce que le saignement s'arrête. Après avoir bloqué la barre il faut si possible noter l'heure de pose de façon visible pour permettre la continuité de la prise en charge médicale.</p>
-                    
-                        <p><strong>🎥 Technique de mise en place d'un garrot</strong></p>
-                        <p class="consigne">
-                            <i>Clique sur la vidéo pour démarrer le visionnage</i>
-                        </p>
-                        <div class="video-box">
-                            <video controls preload="metadata">
-                                <source src="videos/garrot.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <p class="video-caption">
-                            <i>Vidéo réalisée et proposée par : </i>
-                            <a href="https://www.youtube.com/@editions_iconegraphic"><strong>Editions ICONE GRAPHIC</strong></a>
-                        </p>
+        <p class="video-caption">
+          <i>Vidéo réalisée et proposée par : </i>
+          <a href="https://www.youtube.com/@editions_iconegraphic"><strong>Editions ICONE GRAPHIC</strong></a>
+        </p>
 
-                    <li><strong>Précautions et risques associés</strong></li>
-                        <p>Les risques liés à la pose de ce dispositif sont souvent largement surestimés. L'important est de stopper l'hémorragie même si il faut en premier préférer des techniques plus simples comme la compression manuelle ou le pansement compressif lorsque cela est possible.</p>
-                </ul>
-        </section>
+        <h4><strong>Avantages et limites</strong></h4>
+        <p>
+          Les pansements compressifs sont souvent suffisants pour un saignement externe sans corps étranger, mais ne peuvent pas être mis
+          lorsqu'il y a un corps étranger dans la plaie.
+        </p>
+        <p>
+          Si après la pose d'un pansement compressif le saignement reprend, posez un deuxième pansement par-dessus ou réalisez un garrot.
+          N’enlevez pas le premier pansement.
+        </p>
+      </section>
 
-        <section aria-labelledby="Conclusion">
-            <h3 id="conclusion">Conclusion</h3>
-                <p>Savoir arrêter une hémorragie est une compétence essentielle pour sauver des vies en situation d'urgence. Une formation adéquate et une bonne connaissance des techniques d'hémostase sont indispensables pour intervenir efficacement. Se former régulièrement permet de maintenir à jour ces compétences vitales.</p>
-        </section>
+      <section aria-labelledby="garrot">
+        <h3 id="garrot">Le garrot : utilisation et précautions</h3>
 
+        <h4><strong>Présentation du garrot</strong></h4>
+        <p>
+          Un garrot artériel est un dispositif utilisé pour arrêter le saignement en comprimant l'ensemble des vaisseaux sanguins du membre.
+          Il ne doit pas être confondu avec les garrots veineux qui servent à poser des perfusions.
+        </p>
+        <p>
+          Un bon garrot doit être large et suffisamment long pour bien comprimer le membre et stopper l'hémorragie. Il devrait être muni d'une barre
+          de serrage, seul moyen d'obtenir un serrage suffisamment efficace.
+        </p>
+        <p>
+          Ce dispositif est utilisé pour arrêter une hémorragie située sur un membre avec un corps étranger ou impossible à stopper par une autre technique.
+        </p>
+
+        <h4><strong>Technique de pose</strong></h4>
+        <p>
+          Un garrot se place sur un membre entre la plaie et le cœur, au plus près de la racine du membre. Il faut le serrer au maximum puis tourner la barre
+          jusqu'à ce que le saignement s'arrête. Après avoir bloqué la barre, notez si possible l'heure de pose de façon visible.
+        </p>
+
+        <p><strong>🎥 Technique de mise en place d'un garrot</strong></p>
+        <p class="consigne"><i>Clique sur la vidéo pour démarrer le visionnage</i></p>
+
+        <div class="video-box">
+          <video controls preload="metadata">
+            <source src="videos/garrot.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la lecture de cette vidéo.
+          </video>
+        </div>
+
+        <p class="video-caption">
+          <i>Vidéo réalisée et proposée par : </i>
+          <a href="https://www.youtube.com/@editions_iconegraphic"><strong>Editions ICONE GRAPHIC</strong></a>
+        </p>
+
+        <h4><strong>Précautions et risques</strong></h4>
+        <p>
+          Les risques liés à la pose de ce dispositif sont souvent surestimés. L'important est de stopper l'hémorragie.
+          Préférez si possible des techniques plus simples (compression manuelle ou pansement compressif) quand c’est faisable.
+        </p>
+      </section>
+
+      <section aria-labelledby="conclusion">
+        <h3 id="conclusion">Conclusion</h3>
+        <p>
+          Savoir arrêter une hémorragie est une compétence essentielle pour sauver des vies en situation d'urgence.
+          Une formation adéquate et une bonne connaissance des techniques d'hémostase sont indispensables pour intervenir efficacement.
+          Se former régulièrement permet de maintenir à jour ces compétences vitales.
+        </p>
+      </section>
     </article>
   </main>
 
-<button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
-  <span class="floating-phone-icon" aria-hidden="true">📱</span>
-  <span class="floating-phone-text">SOS</span>
-</button>
-
-<section class="contact-section">
-  <button class="contact-btn" type="button" id="open-contact">
-    Une question, un commentaire ?
+  <!-- SOS (unique) -->
+  <button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
+    <span class="floating-phone-icon" aria-hidden="true">📱</span>
+    <span class="floating-phone-text">SOS</span>
   </button>
-</section>
 
-<footer class="site-footer">
+  <!-- CONTACT (unique) -->
+  <section class="contact-section">
+    <button class="contact-btn" type="button" id="open-contact">
+      Une question, un commentaire ?
+    </button>
+  </section>
+
+  <!-- FOOTER (unique) -->
+  <footer class="site-footer">
     <p><a href="index.html">Retour à l’accueil</a></p>
     <h2><i>Projet - Chaque minute compte - Les gestes qui sauvent.</i></h2>
     <p><i>Création : M. Giovanni SILVETTI</i></p>
     <p><i>Projet UE 3 : Identité numérique et communication professionnelle : dimension linguistique et interculturelle - M. V. GRANDSIRE</i></p>
-</footer>
+  </footer>
 
   <script src="java.js" defer></script>
 </body>
