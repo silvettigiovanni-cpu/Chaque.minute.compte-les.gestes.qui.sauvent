@@ -39,40 +39,51 @@ document.addEventListener("DOMContentLoaded", () => {
     return popup;
   }
 
-  // =========================================================
-  // 1) OUVRIR LES ETAPES (PARTOUT)
-  // =========================================================
-  document.querySelectorAll(".etape[data-detail]").forEach((etape) => {
-    etape.style.cursor = "pointer";
+// =========================================================
+// 1) OUVRIR LES ETAPES (PARTOUT) — FIX: event delegation
+// =========================================================
+document.addEventListener("click", (e) => {
+  const etape = e.target.closest(".etape[data-detail]");
+  if (!etape) return;
 
-    etape.addEventListener("click", (e) => {
-      e.preventDefault();
+  // si l'étape est un lien / bouton interne, on laisse faire
+  if (e.target.closest("a, button, input, textarea, select, label")) return;
 
-      const tplId = etape.getAttribute("data-detail");
-      const tpl = document.getElementById(tplId);
+  e.preventDefault();
 
-      if (!tpl) {
-        console.warn("Template introuvable :", tplId);
-        return;
-      }
+  const tplId = etape.getAttribute("data-detail");
+  const tpl = document.getElementById(tplId);
 
-      const num = etape.querySelector(".numero-etape")?.textContent?.trim() || "";
-      const titre =
-        etape.querySelector("h4")?.textContent?.trim() ||
-        etape.querySelector("h3")?.textContent?.trim() ||
-        etape.textContent.trim();
+  if (!tpl) {
+    console.warn("Template introuvable :", tplId);
+    return;
+  }
 
-      const html = `
-        <div class="etape-detail-header">
-          ${num ? `<div class="numero-etape-large">${num}</div>` : ""}
-          <h2>${titre}</h2>
-        </div>
-        ${tpl.innerHTML}
-      `;
+  const num = etape.querySelector(".numero-etape")?.textContent?.trim() || "";
+  const titre =
+    etape.querySelector("h4")?.textContent?.trim() ||
+    etape.querySelector("h3")?.textContent?.trim() ||
+    etape.textContent.trim();
 
-      openPopup(html, "sous-popup popup-etape");
-    });
-  });
+  const html = `
+    <div class="etape-detail-header">
+      ${num ? `<div class="numero-etape-large">${num}</div>` : ""}
+      <h2>${titre}</h2>
+    </div>
+    ${tpl.innerHTML}
+  `;
+
+  openPopup(html, "sous-popup popup-etape");
+});
+
+// Accessibilité clavier : Enter/Espace ouvre aussi
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Enter" && e.key !== " ") return;
+  const etape = document.activeElement?.closest?.(".etape[data-detail]");
+  if (!etape) return;
+  e.preventDefault();
+  etape.click();
+});
 
   // =========================================================
   // 2) CARTES DE L’ACCUEIL
