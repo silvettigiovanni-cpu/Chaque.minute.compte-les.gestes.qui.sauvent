@@ -550,20 +550,17 @@ body.page-brulure .etape:focus{
    - .alert (ton choix)
    - .alert-box / .alerte / .notice / .message (si ton HTML diffère)
 ========================================================= */
-.alert,
-.alert-box,
-.alerte,
-.notice,
-.message{
+.alert-box{
   margin: 14px 0;
   padding: 14px 14px;
   border-radius: 16px;
-  border: 2px solid rgba(0,0,0,0.08);
-  background: rgba(255,255,255,0.75);
+  border: 2px solid rgba(242,95,92,0.30);
+  background: rgba(242,95,92,0.10);
   box-shadow: 0 10px 28px rgba(0,0,0,0.10);
   color: var(--ink);
 }
-.alert strong{ font-weight: 900; }
+.alert-box strong{ font-weight: 900; }
+.alert-box p{ margin-top: 8px; }
 
 /* variantes */
 .alert-danger, .danger, .error{
