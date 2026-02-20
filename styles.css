@@ -1,30 +1,37 @@
 /* =========================================================
    POLICE
-   -> Charge la police Inter depuis Google Fonts
+   -> Import de la police Inter (Google Fonts)
 ========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 
 
 /* =========================================================
-   RESET (base saine)
+   RESET + BASE ACCESSIBILITÉ
    - enlève marges/paddings par défaut
-   - box-sizing pour que width/height soient prévisibles
+   - box-sizing pour des tailles prévisibles
    - images/vidéos responsives
 ========================================================= */
 *{ margin:0; padding:0; box-sizing:border-box; }
-img, video{
+
+html{ scroll-behavior:smooth; }
+
+img, video, iframe{
   max-width:100%;
   height:auto;
-  display:block;               /* évite les “espaces” sous l’image (inline) */
-  margin-left:auto;            /* ✅ centre les images par défaut */
-  margin-right:auto;           /* ✅ centre les images par défaut */
+  display:block;                 /* évite l'espace blanc sous l'image */
 }
-a{ color: inherit; }
+
+a{ color:inherit; }
+
+:focus-visible{
+  outline: 3px solid rgba(0,0,0,0.35);
+  outline-offset: 4px;
+}
 
 
 /* =========================================================
-   VARIABLES (thème)
-   -> couleurs centralisées pour garder une cohérence
+   VARIABLES (THÈME)
+   -> couleurs + ombres + rayons centralisés
 ========================================================= */
 :root{
   --bg1:#fff3e8;
@@ -36,106 +43,157 @@ a{ color: inherit; }
   --brand1:#f25f5c;
   --brand2:#9f2f2f;
 
-  --danger1:#f25f5c;
   --danger2:#e14b48;
   --danger3:#9f2f2f;
 
-  /* petites “utilitaires” */
-  --card-bg: rgba(255,255,255,0.90);
-  --glass-bg: rgba(255,255,255,0.75);
-  --border-soft: rgba(255,255,255,0.35);
-  --shadow-soft: 0 8px 32px rgba(225,75,72,0.10);
+  --card: rgba(255,255,255,0.92);
+  --glass: rgba(255,255,255,0.78);
+  --border: rgba(255,255,255,0.35);
+
+  --shadow-soft: 0 10px 28px rgba(0,0,0,0.10);
+  --shadow-brand: 0 22px 60px rgba(225,75,72,0.25);
+
+  --radius-xl: 22px;
+  --radius-lg: 18px;
+  --radius-md: 14px;
 }
 
 
 /* =========================================================
-   BASE (mise en page générale)
+   BODY / LAYOUT GLOBAL
+   -> fond + typographie + largeur centrale
 ========================================================= */
 body{
   font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  padding: 32px 20px;
   background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
-  min-height:100vh;
   color: var(--ink);
+  min-height: 100vh;
+  padding: 32px 20px;
 }
 
-/* zone centrale */
-main{ max-width:1200px; margin:0 auto; }
-main section, main article{ margin:22px 0; }
+main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-/* alignement titres */
+main section,
+main article{
+  margin: 22px 0;
+}
+
+
+/* =========================================================
+   TYPOGRAPHIE CONTENU
+   -> titres, paragraphes, listes
+========================================================= */
 main header{ text-align:center; }
 
-/* Titres principaux pages */
 main h2{
+  display:inline-block;
   font-size: 34px;
   font-weight: 900;
-  color: var(--ink);
-  display:inline-block;
   padding: 12px 16px;
   margin: 18px 0 14px;
-  background: rgba(255,255,255,0.70);
+  background: rgba(255,255,255,0.72);
   border: 2px solid rgba(242,95,92,0.35);
   border-radius: 16px;
   box-shadow: 0 10px 26px rgba(225,75,72,0.15);
 }
 
-/* Titres secondaires */
 main h3{
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 900;
   color: var(--brand1);
-  margin-bottom: 10px;
+  margin: 12px 0 10px;
 }
 
-/* Texte */
+main h4{
+  font-size: 18px;
+  font-weight: 900;
+  margin: 12px 0 8px;
+  color: var(--ink);
+}
+
 main p{
   color: var(--muted);
   line-height: 1.7;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
-/* Listes */
 main ul, main ol{
-  padding-left: 28px;
   margin: 10px 0;
+  padding-left: 28px;
 }
+
 main li{ margin-bottom: 6px; }
 
-b, strong{ font-weight: 900; }
+strong{ font-weight: 900; }
 
-/* Images dans le contenu : un peu “joli” */
-main img, main video{
-  border-radius: 16px;         /* ✅ coins arrondis */
+
+/* =========================================================
+   IMAGES DANS LE CONTENU
+   -> coins arrondis + centrage propre
+========================================================= */
+main img,
+main video{
+  border-radius: 16px;
+}
+
+.image-contenu{
+  width: min(900px, 100%);
+  margin: 18px auto;
+}
+
+.illustration-etape{
+  width: min(240px, 100%);
+  margin: 12px auto 0;
+  border-radius: 16px;
+}
+
+.img-wrap{
+  width: 100%;
+  display: grid;
+  place-items: center;
+  margin-top: 12px;
+}
+
+.img-responsive,
+.img-adapt{
+  width: min(720px, 100%);
+  margin: 0 auto;
+  border-radius: 16px;
 }
 
 
 /* =========================================================
-   HEADER + NAV (haut de page)
+   HEADER + NAV
 ========================================================= */
-.site-header{ max-width:1200px; margin:0 auto 28px; }
+.site-header{
+  max-width: 1200px;
+  margin: 0 auto 28px;
+}
 
 .site-header h1{
   font-size: 44px;
-  font-weight: 800;
+  font-weight: 900;
   text-align:center;
   padding: 28px 22px;
   background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
   color:#fff;
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   margin: 0 0 18px 0;
-  box-shadow: 0 20px 60px rgba(225,75,72,0.25);
+  box-shadow: var(--shadow-brand);
   letter-spacing: -1px;
   line-height: 1.15;
 }
 
-/* Barre de navigation “verre” */
+/* Barre de nav façon "verre" */
 .site-nav{
-  background: var(--glass-bg);
+  background: var(--glass);
   backdrop-filter: blur(10px);
-  border: 1px solid var(--border-soft);
+  border: 1px solid var(--border);
   border-radius: 16px;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 8px 32px rgba(225,75,72,0.10);
   padding: 10px;
 }
 
@@ -148,23 +206,24 @@ main img, main video{
   align-items:center;
 }
 
-/* Boutons nav */
 .site-nav a{
   display:inline-block;
   text-decoration:none;
   color: var(--ink);
-  font-weight: 800;
+  font-weight: 900;
   font-size: 14px;
   padding: 10px 12px;
   border-radius: 12px;
   background: rgba(242,95,92,0.08);
   transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
 }
+
 .site-nav a:hover{
   transform: translateY(-2px);
   background: rgba(242,95,92,0.14);
   box-shadow: 0 10px 24px rgba(225,75,72,0.18);
 }
+
 .site-nav a[aria-current="page"]{
   background: linear-gradient(135deg, rgba(242,95,92,0.95) 0%, rgba(159,47,47,0.95) 100%);
   color:#fff;
@@ -173,52 +232,45 @@ main img, main video{
 
 
 /* =========================================================
-   GRILLES (cartes accueil / etc.)
+   GRILLE CARTES (accueil)
 ========================================================= */
 .grille-cartes{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap:18px;
-  margin-top:18px;
+  margin-top: 18px;
 }
 
-/* Carte “bloc cliquable” */
 .carte{
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 20px;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: var(--radius-xl);
   padding: 26px 20px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  box-shadow: 0 8px 32px rgba(31,38,135,0.12);
   text-decoration:none;
-  color:inherit;
   display:block;
   position:relative;
   overflow:hidden;
-  transition: transform .35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-              box-shadow .35s ease,
-              border-color .35s ease;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
 }
 
-/* halo au survol */
 .carte::before{
-  content:'';
+  content:"";
   position:absolute;
   inset:0;
   background: linear-gradient(135deg, rgba(242,95,92,0.10) 0%, rgba(159,47,47,0.10) 100%);
   opacity:0;
-  transition: opacity .35s ease;
-  z-index:0;
+  transition: opacity .28s ease;
 }
-.carte:hover::before{ opacity:1; }
 
 .carte:hover{
-  transform: translateY(-10px) scale(1.02);
+  transform: translateY(-8px);
   box-shadow: 0 20px 60px rgba(225,75,72,0.18);
-  border-color: rgba(242,95,92,0.22);
+  border-color: rgba(242,95,92,0.25);
 }
 
-/* titre de carte */
+.carte:hover::before{ opacity:1; }
+
 .carte h3{
   margin:0;
   text-align:center;
@@ -234,151 +286,121 @@ main img, main video{
 
 
 /* =========================================================
-   ETAPES (cartes + détails qui s’ouvrent)
-   ✅ correction : le détail ne se coupe plus à 260px
+   GRILLE ETAPES (toutes les pages)
 ========================================================= */
 .grille-etapes{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap:18px;
-  margin-top:18px;
+  gap: 18px;
+  margin-top: 18px;
 }
 
+/* Carte étape */
 .etape{
   background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
   border: 2px solid #e2e8f0;
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   padding: 22px 18px;
   text-align:center;
   box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  height:100%;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  height: 100%;
 }
 
-/* numéro rond */
+/* Quand une étape est cliquable (data-detail) */
+.etape[data-detail]{ cursor:pointer; }
+
+/* Hover / focus jolie */
+.etape:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(225,75,72,0.14);
+  border-color: rgba(242,95,92,0.55);
+}
+
+/* Numéro rond */
 .numero-etape{
   width:72px;
   height:72px;
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
-  color:#fff;
-  border-radius:50%;
+  margin: 0 auto 14px;
+  border-radius: 999px;
   display:flex;
   align-items:center;
   justify-content:center;
+  color:#fff;
   font-size:34px;
-  font-weight:900;
-  margin:0 auto 14px auto;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
   box-shadow: 0 8px 24px rgba(225,75,72,0.28);
 }
 
-/* titre d’étape */
-.etape h3,
-.etape h4{
-  font-size: 18px;
-  font-weight: 900;
-  margin: 10px 0 10px;
-  color: var(--ink);
-}
-
-/* détail inline (quand tu as .etape-detail dans le HTML) */
+/* Petit texte sous le titre (ex: .etape-detail inline) */
 .etape-detail{
-  text-align:left;             /* ✅ lecture plus agréable */
+  margin-top: 10px;
+  text-align: left;
   color: var(--muted);
   line-height: 1.6;
 }
 
-/* listes dans le détail */
-.etape-detail ul, .etape-detail ol{
-  margin-top: 8px;
+/* Listes dans une étape (si jamais) */
+.etape .etape-detail ul,
+.etape .etape-detail ol{
   padding-left: 22px;
+  margin-top: 8px;
 }
-.etape-detail li{ margin-bottom: 6px; }
 
 
 /* =========================================================
-   INTERACTIF DES ETAPES (hover / focus)
-   ✅ correction : max-height plus grand (évite “contenu coupé”)
+   OUVERTURE "INLINE" DES DETAILS
+   -> Tu l'utilises sur : étouffement, hémorragie, brûlure
+   -> (pas sur les pages popup templates uniquement)
 ========================================================= */
-body.page-hemorragie .etape,
-body.hemorragie .etape,
-body.etouffement .etape,
-body.page-etouffement .etape,
-body.brulure .etape,
-body.page-brulure .etape{
-  cursor:pointer;
-}
-
-/* fermé par défaut */
-body.page-hemorragie .etape-detail,
-body.hemorragie .etape-detail,
 body.etouffement .etape-detail,
-body.page-etouffement .etape-detail,
-body.brulure .etape-detail,
-body.page-brulure .etape-detail{
-  margin-top:8px;
-  max-height:0;
-  overflow:hidden;
-  opacity:0;
+body.page-hemorragie .etape-detail,
+body.brulure .etape-detail{
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
   padding-top: 0;
   transition: max-height .45s ease, opacity .25s ease, padding .25s ease;
 }
 
-/* ouvert au survol + focus (clavier / mobile) */
-body.page-hemorragie .etape:hover .etape-detail,
-body.hemorragie .etape:hover .etape-detail,
 body.etouffement .etape:hover .etape-detail,
-body.page-etouffement .etape:hover .etape-detail,
+body.page-hemorragie .etape:hover .etape-detail,
 body.brulure .etape:hover .etape-detail,
-body.page-brulure .etape:hover .etape-detail,
-body.page-hemorragie .etape:focus-within .etape-detail,
-body.hemorragie .etape:focus-within .etape-detail,
 body.etouffement .etape:focus-within .etape-detail,
-body.page-etouffement .etape:focus-within .etape-detail,
-body.brulure .etape:focus-within .etape-detail,
-body.page-brulure .etape:focus-within .etape-detail,
-body.page-hemorragie .etape:active .etape-detail,
-body.hemorragie .etape:active .etape-detail,
-body.etouffement .etape:active .etape-detail,
-body.page-etouffement .etape:active .etape-detail,
-body.brulure .etape:active .etape-detail,
-body.page-brulure .etape:active .etape-detail{
-  max-height: 900px;           /* ✅ au lieu de 260px */
-  opacity:1;
-  padding-top: 10px;           /* ✅ “air” quand ça s’ouvre */
-}
-
-/* effet carte au survol */
-body.page-hemorragie .etape:hover,
-body.hemorragie .etape:hover,
-body.etouffement .etape:hover,
-body.page-etouffement .etape:hover,
-body.brulure .etape:hover,
-body.page-brulure .etape:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(225,75,72,0.14);
-  border-color: var(--brand1);
-}
-
-/* contour accessibilité (clavier) */
-body.page-hemorragie .etape:focus,
-body.hemorragie .etape:focus,
-body.etouffement .etape:focus,
-body.page-etouffement .etape:focus,
-body.brulure .etape:focus,
-body.page-brulure .etape:focus{
-  outline: 3px solid rgba(0,0,0,0.25);
-  outline-offset: 4px;
+body.page-hemorragie .etape:focus-within .etape-detail,
+body.brulure .etape:focus-within .etape-detail{
+  max-height: 900px;
+  opacity: 1;
+  padding-top: 10px;
 }
 
 
 /* =========================================================
-   POPUP (overlay + panneau)
-   -> nécessaire pour les popups étapes/accueil/contact/urgences
+   ALERT BOX
+   -> utilisé partout (.alert-box)
+========================================================= */
+.alert-box{
+  margin: 14px 0;
+  padding: 14px 14px;
+  border-radius: var(--radius-lg);
+  border: 2px solid rgba(242,95,92,0.30);
+  background: rgba(242,95,92,0.10);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink);
+}
+
+.alert-box strong{ font-weight: 900; }
+.alert-box p{ margin-top: 8px; }
+
+
+/* =========================================================
+   POPUPS (utilisées par ton JS : .popup + .popup-contenu)
 ========================================================= */
 .popup{
   position: fixed;
   inset: 0;
-  z-index: 2000;
+  z-index: 3000;
   display: grid;
   place-items: center;
   padding: 18px;
@@ -386,21 +408,21 @@ body.page-brulure .etape:focus{
   backdrop-filter: blur(3px);
 }
 
-/* contenu popup */
+/* Contenu de popup */
 .popup-contenu{
   width: min(920px, 100%);
   max-height: min(85vh, 900px);
   overflow: auto;
-  overflow-x: hidden;          /* ✅ évite des décalages horizontaux */
+  overflow-x: hidden;
   background: rgba(255,255,255,0.96);
   border: 2px solid rgba(242,95,92,0.25);
-  border-radius: 22px;
+  border-radius: var(--radius-xl);
   box-shadow: 0 30px 80px rgba(0,0,0,0.35);
   padding: 20px 18px 18px;
   position: relative;
 }
 
-/* bouton fermer */
+/* Bouton fermer */
 .popup .fermer{
   position: sticky;
   top: 0;
@@ -408,7 +430,7 @@ body.page-brulure .etape:focus{
   border: none;
   width: 44px;
   height: 44px;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   font-size: 28px;
   line-height: 1;
@@ -417,22 +439,20 @@ body.page-brulure .etape:focus{
   background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
   box-shadow: 0 12px 30px rgba(225,75,72,0.25);
 }
+
 .popup .fermer:hover{ filter: brightness(1.05); }
 .popup .fermer:active{ transform: scale(0.98); }
 
-/* titres centrés dans popup */
-.popup-contenu h2, .popup-contenu h3{ text-align:center; }
-
-/* header d’une popup “étape” (num + titre) */
+/* Header des popups étapes (num + titre) généré par JS */
 .etape-detail-header{
   display:flex;
   align-items:center;
   justify-content:center;
   gap: 12px;
   margin: 4px 0 12px;
+  text-align:center;
 }
 
-/* numéro en “badge” dans popup */
 .numero-etape-large{
   width:58px;
   height:58px;
@@ -446,205 +466,306 @@ body.page-brulure .etape:focus{
   box-shadow: 0 10px 26px rgba(225,75,72,0.25);
 }
 
-/* contenu “centré” (ex: formulaire contact) */
+/* Contenu centré dans popup */
 .popup-contenu .detail-content{
   max-width: 760px;
   margin: 0 auto;
 }
 
+/* Texte des templates dans popup */
+.step-detail{
+  margin-top: 10px;
+}
+
 
 /* =========================================================
-   URGENCES (tuiles numéros)
-   -> remet les numéros en rectangles de couleur
+   BOUTONS URGENCE (tel:) - utilisés dans tes templates
 ========================================================= */
-.smartphone{
-  width: min(420px, 92vw);
-  margin: 0 auto;
-  border-radius: 28px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(247,250,252,0.96) 100%);
-  border: 2px solid rgba(242,95,92,0.18);
-  box-shadow: 0 25px 70px rgba(0,0,0,0.25);
-  overflow:hidden;
-}
-
-.notch{
-  height: 18px;
-  width: 160px;
-  margin: 10px auto 0;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.10);
-}
-
-.screen{ padding: 14px 16px 18px; }
-
-.status-bar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-weight: 800;
-  color: rgba(0,0,0,0.65);
-  font-size: 13px;
-  margin-bottom: 8px;
-}
-
-.emergency-grid{
+.emergency-buttons{
   display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 12px;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 12px 0 14px;
 }
 
-.emergency-tile{
+.emergency-btn{
+  display:block;
   text-decoration:none;
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  padding: 14px 12px;
-  border-radius: 18px;
-  border: 2px solid rgba(242,95,92,0.16);
-  background: rgba(242,95,92,0.08);
-  box-shadow: 0 10px 24px rgba(225,75,72,0.10);
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
-}
-.emergency-tile:hover{
-  transform: translateY(-3px);
-  background: rgba(242,95,92,0.12);
-  border-color: rgba(242,95,92,0.25);
-  box-shadow: 0 16px 36px rgba(225,75,72,0.16);
-}
-
-/* ✅ numéro en rectangle arrondi */
-.emergency-tile .num{
-  width: 58px;
-  height: 46px;
-  border-radius: 14px;
-  display:grid;
-  place-items:center;
-  color:#fff;
   font-weight: 900;
-  font-size: 22px;
-  letter-spacing: 1px;
-  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
-  box-shadow: 0 10px 22px rgba(225,75,72,0.22);
-  flex: 0 0 auto;
-}
-
-.emergency-tile .label{
-  font-weight: 900;
-  color: var(--ink);
-  line-height: 1.1;
-}
-
-.home-indicator{
-  width: 140px;
-  height: 5px;
-  border-radius: 999px;
-  margin: 16px auto 0;
-  background: rgba(0,0,0,0.12);
-}
-
-
-/* =========================================================
-   ALERT BOX (messages)
-   ✅ correction : compatibilité avec plusieurs noms possibles
-   - .alert (ton choix)
-   - .alert-box / .alerte / .notice / .message (si ton HTML diffère)
-========================================================= */
-.alert-box{
-  margin: 14px 0;
-  padding: 14px 14px;
+  color: #fff;
+  padding: 12px 14px;
   border-radius: 16px;
-  border: 2px solid rgba(242,95,92,0.30);
-  background: rgba(242,95,92,0.10);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.10);
-  color: var(--ink);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+  border: 2px solid rgba(255,255,255,0.18);
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
+  transition: transform .18s ease, filter .18s ease;
 }
-.alert-box strong{ font-weight: 900; }
-.alert-box p{ margin-top: 8px; }
 
-/* variantes */
-.alert-danger, .danger, .error{
-  border-color: rgba(242,95,92,0.30);
-  background: rgba(242,95,92,0.10);
+.emergency-btn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.03);
 }
-.alert-warning, .warning{
-  border-color: rgba(245, 158, 11, 0.35);
-  background: rgba(245, 158, 11, 0.12);
-}
-.alert-info, .info{
-  border-color: rgba(59, 130, 246, 0.30);
-  background: rgba(59, 130, 246, 0.10);
-}
-.alert-success, .success{
-  border-color: rgba(16, 185, 129, 0.30);
-  background: rgba(16, 185, 129, 0.10);
-}
+
+.emergency-btn:active{ transform: scale(0.99); }
+
+.emergency-btn.pompiers{ background: linear-gradient(135deg, #ff7a18 0%, #af2d00 100%); }
+.emergency-btn.urgence{ background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); }
+.emergency-btn.sourd{ background: linear-gradient(135deg, #10b981 0%, #065f46 100%); }
 
 
 /* =========================================================
-   VIDEO BOX (cadre vidéo)
+   VIDEO BOX (tes vidéos mp4)
 ========================================================= */
 .video-box{
   max-width: 800px;
   margin: 24px auto;
   padding: 16px;
-  background: rgba(255,255,255,0.9);
-  border-radius: 20px;
+  background: rgba(255,255,255,0.92);
+  border-radius: var(--radius-xl);
   box-shadow: 0 20px 50px rgba(0,0,0,0.25);
   border: 2px solid rgba(242,95,92,0.25);
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform .22s ease, box-shadow .22s ease;
 }
+
 .video-box:hover{
   transform: translateY(-4px);
   box-shadow: 0 28px 70px rgba(225,75,72,0.25);
 }
-.video-box video{ border-radius:14px; }
+
+.video-box video{ border-radius: 14px; }
 
 .video-caption{
   text-align:center;
-  font-size:14px;
+  font-size: 14px;
   color: var(--muted);
-  margin-top:8px;
+  margin-top: 8px;
 }
 
-/* ajustement hémorragie */
-body.page-hemorragie .video-box{ max-width:520px; }
+/* Hémorragie : tes vidéos sont plus petites */
+body.page-hemorragie .video-box{ max-width: 520px; }
 
 
 /* =========================================================
-   FOOTER
+   CARTE VIDEO "YouTube" (liens externes)
+   -> classes : .video-card .video-preview .play-badge...
 ========================================================= */
-.site-footer{
-  max-width:1200px;
-  margin: 26px auto 0;
-  padding: 18px 16px;
+.video-card{
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,0.92);
+  border: 2px solid rgba(242,95,92,0.18);
+  box-shadow: var(--shadow-soft);
+}
+
+.video-card-head p{
+  margin-top: 8px;
+}
+
+.video-preview{
+  margin-top: 12px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  text-decoration:none;
+  padding: 12px 14px;
+  border-radius: var(--radius-lg);
+  border: 2px solid rgba(242,95,92,0.18);
+  background: rgba(242,95,92,0.08);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.video-preview:hover{
+  transform: translateY(-2px);
+  background: rgba(242,95,92,0.12);
+  box-shadow: 0 14px 34px rgba(225,75,72,0.16);
+}
+
+.play-badge{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--danger2) 0%, var(--danger3) 100%);
+  box-shadow: 0 10px 22px rgba(225,75,72,0.22);
+  flex: 0 0 auto;
+}
+
+.video-preview-text{
+  font-weight: 900;
+  color: var(--ink);
+}
+
+
+/* =========================================================
+   AUDIO (stayingalive.mp3)
+   -> classes : .audio-section .audio-wrap .audio-responsive
+========================================================= */
+.audio-section{
+  margin: 14px 0 6px;
+  padding: 12px;
+  border-radius: var(--radius-lg);
+  border: 2px dashed rgba(242,95,92,0.35);
+  background: rgba(242,95,92,0.06);
+}
+
+.audio-intro{
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.audio-wrap{
+  display:flex;
+  justify-content:center;
+}
+
+.audio-responsive{
+  width: min(520px, 100%);
+}
+
+
+/* =========================================================
+   FIGURE (image + légende)
+   -> utilisée pour position des mains
+========================================================= */
+.image-container{
+  width: min(820px, 100%);
+  margin: 18px auto 10px;
+  background: rgba(255,255,255,0.92);
+  border: 2px solid rgba(242,95,92,0.16);
+  border-radius: var(--radius-xl);
+  padding: 14px;
+  box-shadow: var(--shadow-soft);
+}
+
+.image-container figcaption{
+  margin-top: 10px;
   text-align:center;
-  background: rgba(255,255,255,0.70);
-  border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(225,75,72,0.10);
+  color: var(--muted);
+  font-size: 13px;
 }
-.site-footer h2, .site-footer p{
-  margin: 6px 0;
-  color:#2d3748;
-}
-.site-footer a{
+
+.image-container figcaption a{
   color: var(--brand1);
   font-weight: 900;
   text-decoration:none;
 }
-.site-footer a:hover{ text-decoration:underline; }
+
+.image-container figcaption a:hover{ text-decoration: underline; }
 
 
 /* =========================================================
-   BOUTON FLOTTANT SOS (draggable)
+   LISTE AVEC IMAGE (li-with-image)
+   -> utilisée dans arrêt cardiaque (étape 4)
+========================================================= */
+.li-with-image{
+  margin-top: 12px;
+}
+
+.li-with-image .img-wrap{
+  margin-top: 10px;
+}
+
+
+/* =========================================================
+   CONTACT (bouton + formulaire popup)
+========================================================= */
+.contact-section{
+  max-width: 1200px;
+  margin: 40px auto 10px;
+  text-align:center;
+}
+
+.contact-btn{
+  border:none;
+  cursor:pointer;
+  padding: 18px 26px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: .3px;
+  color:#fff;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+  box-shadow: 0 20px 50px rgba(225,75,72,0.25);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.contact-btn:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px rgba(225,75,72,0.35);
+}
+
+.contact-btn:active{ transform: scale(0.98); }
+
+/* Form dans popup */
+.form-contact label{
+  font-weight: 900;
+  display:block;
+  margin: 10px 0 6px;
+  color: var(--ink);
+}
+
+.form-contact input,
+.form-contact textarea{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 2px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.95);
+  outline: none;
+}
+
+.form-contact textarea{
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-contact .row-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-contact .hint{
+  display:flex;
+  justify-content:space-between;
+  font-size: 12px;
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.btn-submit{
+  margin-top: 14px;
+  width: 100%;
+  border:none;
+  cursor:pointer;
+  padding: 14px 18px;
+  border-radius: 18px;
+  color:#fff;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+  box-shadow: 0 16px 40px rgba(225,75,72,0.22);
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.btn-submit:hover{ transform: translateY(-2px); filter: brightness(1.02); }
+.btn-submit:active{ transform: scale(0.98); }
+
+
+/* =========================================================
+   BOUTON FLOTTANT SOS
 ========================================================= */
 .floating-phone{
   position: fixed;
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
-  z-index: 1300;
+  z-index: 2000;
 
   display:flex;
   align-items:center;
@@ -662,20 +783,21 @@ body.page-hemorragie .video-box{ max-width:520px; }
   box-shadow: 0 22px 50px rgba(225,75,72,0.45);
 
   transition: box-shadow .2s ease, filter .2s ease;
-  touch-action:none;           /* ✅ permet drag sans scroll involontaire */
+  touch-action:none;          /* drag sans scroll involontaire */
   user-select:none;
   cursor:grab;
 }
+
 .floating-phone:hover{
   filter:brightness(1.05);
   box-shadow: 0 30px 70px rgba(225,75,72,0.60);
 }
+
 .floating-phone:active{
   cursor:grabbing;
   filter:brightness(0.95);
 }
 
-/* icône */
 .floating-phone-icon{
   width:48px;
   height:48px;
@@ -686,6 +808,7 @@ body.page-hemorragie .video-box{ max-width:520px; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
   font-size:24px;
 }
+
 .floating-phone-text{
   letter-spacing:1px;
   font-size:16px;
@@ -693,96 +816,47 @@ body.page-hemorragie .video-box{ max-width:520px; }
 
 
 /* =========================================================
-   CONTACT (bouton + formulaire dans popup)
+   FOOTER
 ========================================================= */
-.contact-section{
+.site-footer{
   max-width:1200px;
-  margin: 40px auto 10px;
+  margin: 26px auto 0;
+  padding: 18px 16px;
   text-align:center;
+  background: rgba(255,255,255,0.74);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(225,75,72,0.10);
 }
 
-.contact-btn{
-  border:none;
-  cursor:pointer;
-  padding: 18px 26px;
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: .3px;
-  color:#fff;
-  border-radius: 20px;
+.site-footer h2,
+.site-footer p{
+  margin: 6px 0;
+  color:#2d3748;
+}
 
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  box-shadow: 0 20px 50px rgba(225,75,72,0.25);
-  transition: transform .2s ease, box-shadow .2s ease;
+.site-footer a{
+  color: var(--brand1);
+  font-weight: 900;
+  text-decoration:none;
 }
-.contact-btn:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 30px 70px rgba(225,75,72,0.35);
-}
-.contact-btn:active{ transform: scale(0.97); }
 
-/* styles formulaire (au cas où ils manquaient) */
-.form-contact label{
-  font-weight: 900;
-  display:block;
-  margin: 10px 0 6px;
-  color: var(--ink);
-}
-.form-contact input,
-.form-contact textarea{
-  width: 100%;
-  padding: 12px 12px;
-  border-radius: 14px;
-  border: 2px solid rgba(0,0,0,0.10);
-  background: rgba(255,255,255,0.9);
-  outline: none;
-}
-.form-contact textarea{
-  min-height: 120px;
-  resize: vertical;
-}
-.form-contact .row-2{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.form-contact .hint{
-  display:flex;
-  justify-content:space-between;
-  font-size: 12px;
-  margin-top: 6px;
-  color: var(--muted);
-}
-.btn-submit{
-  margin-top: 14px;
-  width: 100%;
-  border:none;
-  cursor:pointer;
-  padding: 14px 18px;
-  border-radius: 18px;
-  color:#fff;
-  font-weight: 900;
-  background: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
-  box-shadow: 0 16px 40px rgba(225,75,72,0.22);
-  transition: transform .15s ease, filter .15s ease;
-}
-.btn-submit:hover{ transform: translateY(-2px); filter: brightness(1.02); }
-.btn-submit:active{ transform: scale(0.98); }
+.site-footer a:hover{ text-decoration: underline; }
 
 
 /* =========================================================
-   RESPONSIVE (mobile/tablette)
+   RESPONSIVE
 ========================================================= */
 @media (max-width: 900px){
   .site-header h1{
-    font-size:34px;
+    font-size: 34px;
     padding: 22px 18px;
   }
 }
 
 @media (max-width: 768px){
   .site-nav a{
-    font-size:13px;
+    font-size: 13px;
     padding: 9px 10px;
   }
   .grille-cartes{ grid-template-columns: 1fr; }
@@ -790,9 +864,10 @@ body.page-hemorragie .video-box{ max-width:520px; }
 
 @media (max-width: 600px){
   .grille-etapes{ grid-template-columns: 1fr; }
-  .form-contact .row-2{ grid-template-columns: 1fr; } /* ✅ formulaire mieux sur mobile */
+  .form-contact .row-2{ grid-template-columns: 1fr; }
+  .floating-phone{ right: 12px; padding: 14px 16px; }
 }
 
 @media (max-width: 400px){
-  .site-header h1{ font-size:28px; }
+  .site-header h1{ font-size: 28px; }
 }
