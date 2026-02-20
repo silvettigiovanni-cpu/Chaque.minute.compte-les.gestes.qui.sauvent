@@ -201,13 +201,7 @@ if (!titre) return;
 
       // Popup spécifique sur accueil
       if (titre === "Les 4 étapes pour porter secours") {
-        e.preventDefault();
-        const contenu = getContenuCarte(titre);
-        openPopup(
-          `<h2 style="text-align:center; margin-bottom:14px;">${titre}</h2>${contenu}`,
-          "popup-carte"
-        );
-        return;
+      return; // laisse le navigateur suivre le href
       }
 
       const contenu = getContenuCarte(titre);
