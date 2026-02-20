@@ -1,209 +1,198 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <!-- Encodage des caractères (UTF-8) : accents, apostrophes typographiques, symboles, emojis -->
-    <meta charset="UTF-8" />
-    <!-- Permet l’adaptation du site à la largeur de l’écran (responsive design) -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Titre de la page (affiché dans l’onglet du navigateur) -->
-    <title>Les 4 étapes pour porter secours - Chaque minute compte</title>
-    <!-- Feuille de styles principale -->
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les 4 étapes pour porter secours - Chaque minute compte</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<!-- Corps du document : contenu principal affiché à l’utilisateur -->
 <body>
-    <!-- En-tête du site : titre et navigation -->
-    <header class="site-header">
-        <!-- Titre principal (niveau 1) : sujet central de la page -->
-        <h1>Chaque minute compte - Les gestes qui sauvent</h1> 
-            <!-- Navigation principale : liens vers les différentes pages du site -->
-            <nav class="site-nav" aria-label="Navigation principale">
-                <ul>
-                    <!--La balise <a> associée à l’attribut href permet de créer des liens hypertextes et d’assurer la navigation entre les différentes pages du site.-->
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="Les-4-etapes-pour-porter-secours.html" aria-current="page">Les 4 étapes pour porter secours</a></li>
-                    <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
-                    <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
-                    <li><a href="inconscience.html">Inconscience</a></li>
-                    <li><a href="etouffement.html">Étouffement</a></li>
-                    <li><a href="hemorragie.html">Hémorragie</a></li>
-                    <li><a href="brulure.html">Brûlure</a></li>
-                </ul>
-                <!-- ul = Liste non ordonnée // li = Élément de la liste-->
-            </nav>
-    </header>
+  <!-- En-tête du site : titre et navigation -->
+  <header class="site-header">
+    <h1>Chaque minute compte - Les gestes qui sauvent</h1>
 
-<!-- Contenu principal de la page -->
-<main>
-    <!-- <article> = contenu autonome et indépendant // Il a du sens tout seul et il peut être lu séparément-->
+    <nav class="site-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Les-4-etapes-pour-porter-secours.html" aria-current="page">Les 4 étapes pour porter secours</a></li>
+        <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
+        <li><a href="defibrillateur.html">Défibrillateur (DAE)</a></li>
+        <li><a href="inconscience.html">Inconscience</a></li>
+        <li><a href="etouffement.html">Étouffement</a></li>
+        <li><a href="hemorragie.html">Hémorragie</a></li>
+        <li><a href="brulure.html">Brûlure</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenu principal -->
+  <main>
     <article>
-        <!-- <header> = en-tête de l'article -->
-        <header>
-            <!-- h2 = titre de l'article -->
-            <h2>Les 4 étapes pour porter secours</h2>
-            <!-- p = paragraphe descriptif - phrase d'introduction-->
-            <p>Face à toute situation d'accident, la priorité est de protéger la zone, d'examiner la victime afin d'apprécier la gravité de son état et d'alerter les secours</p>
-        </header>
+      <header>
+        <h2>Les 4 étapes pour porter secours</h2>
+        <p>
+          Face à toute situation d'accident, la priorité est de protéger la zone, d'examiner la victime afin
+          d'apprécier la gravité de son état et d'alerter les secours.
+        </p>
+      </header>
 
-        <!-- Mon contenu “étapes” -->
-        <!-- partie thématique du contenu // aria-labelledby = titre de la section -->
-        <section aria-labelledby="etapes">
-        <!-- Id = sert de référence pour aria-labelledby -->
+      <section aria-labelledby="etapes">
         <h3 id="etapes">Étapes d’intervention</h3>
-        <!-- texte d’aide utilisateur -->
         <p>💡 <i>Cliquez sur une étape pour plus de détails.</i></p>
 
-        <!-- Grille des étapes = étapes sous forme de grille, chaque étape est interactive -->
-        <!-- div class="grille-etapes" = organiser les étapes visuellement (CSS / JS) + regroupe toutes les étapes d’intervention -->
         <div class="grille-etapes">
-            <!-- Cette div représente une étape précise // le data-detail="detail-4-etapes-1" permet de faire le lien HTML/JS -->
-            <div class="etape" data-detail="detail-4-etapes-1">
-                <!-- <div class="numero-etape">1 permet d'afficher le numéro d'étape + être stylisé avec le CSS -->
-                <div class="numero-etape">1</div>
-                    <h3>🔒 Sécuriser</h3>
-                        <!-- Intégration d'une image pour illustrer l'étape // alt="" sert à décrire l'image-->
-                        <img src="images/securiser.png" 
-                        alt="Sécuriser le lieu de l'accident avant d'intervenir" 
-                        class="illustration-etape"/>
-                </div>
-            
-            <div class="etape" data-detail="detail-4-etapes-2">
-                <div class="numero-etape">2</div>
-                    <h3>👁️ Analyser</h3>
-                        <!-- Intégration d'une image pour illustrer l'étape // alt="" sert à décrire l'image-->
-                        <img src="images/analyser.png" 
-                        alt="apprecier l'état de la victime" 
-                        class="illustration-etape"/>
-                </div>
+          <div class="etape" data-detail="detail-4-etapes-1" tabindex="0">
+            <div class="numero-etape">1</div>
+            <h3>🔒 Sécuriser</h3>
+            <img
+              src="images/securiser.png"
+              alt="Sécuriser le lieu de l'accident avant d'intervenir"
+              class="illustration-etape"
+            />
+          </div>
 
-            <div class="etape" data-detail="detail-4-etapes-3">
-                <div class="numero-etape">3</div>
-                    <h3>🆘 Alerter</h3>
-                        <!-- Intégration d'une image pour illustrer l'étape // alt="" sert à décrire l'image-->
-                        <img src="images/alerter.png" 
-                        alt="alerter les secours" 
-                        class="illustration-etape"/>
-                </div>
+          <div class="etape" data-detail="detail-4-etapes-2" tabindex="0">
+            <div class="numero-etape">2</div>
+            <h3>👁️ Analyser</h3>
+            <img
+              src="images/analyser.png"
+              alt="Apprécier l'état de la victime"
+              class="illustration-etape"
+            />
+          </div>
 
-            <div class="etape" data-detail="detail-4-etapes-4">
-                <div class="numero-etape">4</div>
-                    <h3>⛑️ Secourir</h3>
-                        <!-- Intégration d'une image pour illustrer l'étape // alt="" sert à décrire l'image-->
-                        <img src="images/secourir.png" 
-                        alt="secourir la victime en effectuant les gestes de premiers secours" 
-                        class="illustration-etape"/>
-                </div>
-            </div>
-        </section>
+          <div class="etape" data-detail="detail-4-etapes-3" tabindex="0">
+            <div class="numero-etape">3</div>
+            <h3>🆘 Alerter</h3>
+            <img
+              src="images/alerter.png"
+              alt="Alerter les secours"
+              class="illustration-etape"
+            />
+          </div>
+
+          <div class="etape" data-detail="detail-4-etapes-4" tabindex="0">
+            <div class="numero-etape">4</div>
+            <h3>⛑️ Secourir</h3>
+            <img
+              src="images/secourir.png"
+              alt="Secourir la victime en effectuant les gestes de premiers secours"
+              class="illustration-etape"
+            />
+          </div>
+        </div>
+      </section>
     </article>
   </main>
 
-  <!-- DÉTAILS DES ÉTAPES (contenu caché) - Le JS clone ces templates en popup -->
-    <template id="detail-4-etapes-1">
-        <div class="detail-content">
-            <h3>Avant toute chose</h3>
+  <template id="detail-4-etapes-1">
+    <div class="detail-content">
+      <h3>Avant toute chose</h3>
 
-            <div class="step-detail">
-                <h4>Sécurisez le lieu de l'accident et les personnes impliquées</h4>
-                    <ul>
-                        <li>Évaluez les conditions de sécurité (circulation, incendie, électricité…).</li>
-                        <li>N’approchez que si cela ne présente aucun risque pour vous.</li>
-                        <li>Si la situation est dangereuse, alertez les secours et établissez un périmètre de sécurité.</li>
-                    </ul>
-            </div>
+      <div class="step-detail">
+        <h4>Sécurisez le lieu de l'accident et les personnes impliquées</h4>
+        <ul>
+          <li>Évaluez les conditions de sécurité (circulation, incendie, électricité…).</li>
+          <li>N’approchez que si cela ne présente aucun risque pour vous.</li>
+          <li>Si la situation est dangereuse, alertez les secours et établissez un périmètre de sécurité.</li>
+        </ul>
+      </div>
 
-            <div class="alert-box">
-                <strong>⚠️ Important :</strong>
-                    <p>Connaître et appliquer les quatre étapes des premiers secours — sécuriser, apprécier, alerter et secourir — permet de réagir rapidement et efficacement face à une situation d’urgence.</p>
-            </div>
+      <div class="alert-box">
+        <strong>⚠️ Important :</strong>
+        <p>
+          Connaître et appliquer les quatre étapes des premiers secours — sécuriser, apprécier, alerter et secourir —
+          permet de réagir rapidement et efficacement face à une situation d’urgence.
+        </p>
+      </div>
+    </div>
+  </template>
 
+  <template id="detail-4-etapes-2">
+    <div class="detail-content">
+      <h3>Appréciez l'état de la victime</h3>
+
+      <div class="step-detail">
+        <ul>
+          <li>La victime est-elle consciente ?</li>
+          <li>Respire-t-elle normalement ?</li>
+          <li>Saigne-t-elle abondamment ?</li>
+          <li>Présente-t-elle des signes de douleur ?</li>
+        </ul>
+      </div>
+
+      <div class="alert-box">
+        <strong>💡 Astuce :</strong>
+        <p>
+          Le pronostic vital est souvent en jeu en cas d'altération de la conscience ou de la respiration.
+          Ces éléments seront à transmettre aux secours.
+        </p>
+      </div>
+    </div>
+  </template>
+
+  <template id="detail-4-etapes-3">
+    <div class="detail-content">
+      <h3>Demandez de l'aide</h3>
+
+      <div class="step-detail">
+        <p><strong>Alertez immédiatement les secours :</strong></p>
+
+        <div class="emergency-buttons" role="group" aria-label="Numéros d’urgence">
+          <a href="tel:15" class="emergency-btn samu" aria-label="Appeler le SAMU, numéro 15">📞 15 – SAMU</a>
+          <a href="tel:18" class="emergency-btn pompiers" aria-label="Appeler les pompiers, numéro 18">🚒 18 – Pompiers</a>
+          <a href="tel:112" class="emergency-btn urgence" aria-label="Appeler le numéro d'urgence européen 112">🆘 112 – Urgences</a>
+          <a href="tel:114" class="emergency-btn sourd" aria-label="Appeler le numéro d'urgence pour les personnes sourdes ou malentendantes">
+            🆘 114 – Numéro d'urgence pour les personnes sourdes et malentendantes
+          </a>
         </div>
-    </template>
 
-    <template id="detail-4-etapes-2">
-        <div class="detail-content">
-            <h3>Appréciez l'état de la victime :</h3>
+        <p><strong>Vous devez pouvoir fournir aux services d'urgence :</strong></p>
+        <ul>
+          <li>le numéro de téléphone ou de la borne d'où vous appelez,</li>
+          <li>la nature du problème (maladie ou accident),</li>
+          <li>les risques éventuels (incendie, explosion, effondrement...),</li>
+          <li>la localisation précise de l'événement,</li>
+          <li>le nombre de personnes concernées,</li>
+          <li>l'état de chaque victime,</li>
+          <li>les premières mesures prises.</li>
+        </ul>
 
-            <div class="step-detail">
-                        <ul>
-                            <li>La victime est-elle consciente ?</li>
-                            <li>Respire-t-elle normalement ?</li>
-                            <li>Saigne-t-elle abondamment ?</li>
-                            <li>Présente-t-elle des signes de douleur ?</li>
-                        </ul>
-            </div>
+        <p><strong>Ne pas raccrocher avant d’y avoir été invité.</strong></p>
+      </div>
+    </div>
+  </template>
 
-            <div class="alert-box">
-                <strong>💡 Astuce :</strong>
-                    <p>Le pronostic vital est souvent en jeu en cas d'altération de la conscience ou de la respiration. Ces éléments seront à transmettre aux secours.</p>
-            </div>
-        </div>
-    </template>
+  <template id="detail-4-etapes-4">
+    <div class="detail-content">
+      <h3>Secourir la victime</h3>
 
-    <template id="detail-4-etapes-3">
-        <div class="detail-content">
-            <h3>Demandez de l'aide</h3>
-
-            <div class="step-detail">
-                <p><strong>Alertez immédiatement les secours :</strong></p>
-
-            <!-- role="group" → indique un groupe de boutons ; aria-label → annonce clairement l’action aux lecteurs d’écran -->
-            <!-- tel: est un lien téléphonique // href veut dire Hypertext REFerence - indique la destination du lien. -->
-            <div class="emergency-buttons" role="group" aria-label="Numéros d’urgence">
-                <a href="tel:15" class="emergency-btn samu" aria-label="Appeler le SAMU, numéro 15">📞 15 – SAMU</a>
-                <a href="tel:18" class="emergency-btn pompiers" aria-label="Appeler les pompiers, numéro 18">🚒 18 – Pompiers</a>
-                <a href="tel:112" class="emergency-btn urgence" aria-label="Appeler le numéro d'urgence européen 112">🆘 112 – Urgences</a>
-                <a href="tel:114" class="emergency-btn sourd" aria-label="Appeler le numéro d'urgence pour les personnes sourdes ou malentendantes">🆘 114 – Numéro d'urgence pour les personnes sourdes et malentendantes</a>
-
-            </div>
-
-            <p><strong>Vous devez pouvoir fournir aux services d'urgence :</strong></p>
-                <ul>
-                    <li>le numéro de téléphone ou de la borne d'où vous appelez,</li>
-                    <li>la nature du problème (maladie ou accident),</li>
-                    <li>les risques éventuels (incendie, explosion, effondrement...),</li>
-                    <li>la localisation précise de l'événement,</li>
-                    <li>le nombre de personnes concernées,</li>
-                    <li>l'état de chaque victime,</li>
-                    <li>les premières mesures prises.</li>
-                </ul>
-
-            <p><strong>Ne pas raccrocher avant d’y avoir été invité.</strong></p>
-            </div>
-        </div>
-    </template>
-
-    <template id="detail-4-etapes-4">
-        <div class="detail-content">
-            <h3>Secourir la victime</h3>
-
-            <div class="step-detail">
-                <h4>Effectuez les gestes de premiers secours</h4>
-                <p>Choisissez la fiche adaptée à la situation :</p>
-                    <ul>
-                        <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
-                        <li><a href="defibrillateur.html">Défibrillateur</a></li>
-                        <li><a href="inconscience.html">Inconscience</a></li>
-                        <li><a href="etouffement.html">Etouffement</a></li>
-                        <li><a href="hemorragie.html">Hémorragie</a></li>
-                        <li><a href="brulure.html">Brûlures</a></li>
-                    </ul>
-            </div>
-        </div>
-    </template>
-
-<button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
-  <span class="floating-phone-icon" aria-hidden="true">📱</span>
-  <span class="floating-phone-text">SOS</span>
-</button>
-
-<section class="contact-section">
-  <button class="contact-btn" type="button" id="open-contact">
-    Une question, un commentaire ?
+      <div class="step-detail">
+        <h4>Effectuez les gestes de premiers secours</h4>
+        <p>Choisissez la fiche adaptée à la situation :</p>
+        <ul>
+          <li><a href="arret-cardiaque.html">Arrêt cardiaque</a></li>
+          <li><a href="defibrillateur.html">Défibrillateur</a></li>
+          <li><a href="inconscience.html">Inconscience</a></li>
+          <li><a href="etouffement.html">Étouffement</a></li>
+          <li><a href="hemorragie.html">Hémorragie</a></li>
+          <li><a href="brulure.html">Brûlures</a></li>
+        </ul>
+      </div>
+    </div>
+  </template>
+    
+  <button class="floating-phone" type="button" aria-label="Ouvrir les numéros d'urgence" id="open-emergency">
+    <span class="floating-phone-icon" aria-hidden="true">📱</span>
+    <span class="floating-phone-text">SOS</span>
   </button>
-</section>
+
+  <section class="contact-section">
+    <button class="contact-btn" type="button" id="open-contact">
+      Une question, un commentaire ?
+    </button>
+  </section>
 
   <footer class="site-footer">
     <p><a href="index.html">Retour à l’accueil</a></p>
