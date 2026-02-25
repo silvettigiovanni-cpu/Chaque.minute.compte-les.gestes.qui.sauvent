@@ -23,9 +23,7 @@ a{ color:inherit; }
   outline-offset: 4px;
 }
 
-/* =========================================================
-   VARIABLES (THÈME)
-========================================================= */
+/* == root= racine du document (souvent HTML) déclare les viarables CSS (couleur, ombres, arrondis)  ==*/
 :root{
   --bg1:#fff3e8;
   --bg2:#f2c8b8;
