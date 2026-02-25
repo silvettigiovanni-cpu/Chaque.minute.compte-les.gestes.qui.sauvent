@@ -718,9 +718,7 @@ body.page-hemorragie .video-box{ max-width: 520px; }
 .image-container figcaption a:hover{ text-decoration: underline; }
 
 /* =========================================================
-   QUESTIONNAIRE : style "accordéon" (si tu utilises <details>)
-   -> ✅ “Je veux que le questionnaire s'ouvre”
-   -> CSS prêt si ton questionnaire est en <details class="quiz-item">
+   QUESTIONNAIRE 
 ========================================================= */
 .quiz,
 .questionnaire{
